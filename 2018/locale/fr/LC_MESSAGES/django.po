@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-27 15:04+0000\n"
+"POT-Creation-Date: 2018-02-27 16:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -506,7 +506,7 @@ msgstr "Page suivante"
 
 #: templates/includes/search_form.html:11 templates/search_results.html:17
 msgid "Type something"
-msgstr ""
+msgstr "Recherche"
 
 #: templates/includes/share_buttons.html:5
 #: templates/media/audio/audio_overlay.html:43
@@ -836,7 +836,7 @@ msgstr "Resultats de la recherche"
 #: templates/search_results.html:67
 #, python-format
 msgid "No results were found matching your query: %(query)s"
-msgstr ""
+msgstr "Aucun résultat n'a été trouvé pour votre recherche :"
 
 #: templates/shop/billing_shipping.html:17
 #, python-format
