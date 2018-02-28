@@ -23,7 +23,7 @@
                 {% if playlist.description %}
                     {{ playlist.description|richtext_filters|safe|truncatechars_html:200 }}<br />
                 {% endif %}
-                <span style="margin-top: 10px;" class="button button--xsmall button--white-main" href="#">{% trans 'View' %}</span>
+                <span style="margin-top: 10px;" class="button button--xsmall button--white-main">{% trans 'View' %}</span>
             </div>
         </div>
     </a>

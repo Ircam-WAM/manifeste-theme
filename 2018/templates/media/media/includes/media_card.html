@@ -19,7 +19,7 @@
                 {{ object|get_media_type }}
             </div>
             <h2 class="media-box__title">{{ object.title|truncatechars_html:50 }}</h2>
-            <div class="media-box__desc"></div>
+            <div class="media-box__desc">
                 {% if object.description %}
                     {{ object.description|richtext_filters|safe|truncatechars_html:200 }}<br />
                 {% endif %}
