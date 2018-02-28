@@ -19,11 +19,12 @@
                 {{ object|get_media_type }}
             </div>
             <h2 class="media-box__title">{{ object.title|truncatechars_html:50 }}</h2>
-            {% if object.description %}
-                <div class="media-box__desc">
-                    {{ object.description|richtext_filters|safe|truncatechars_html:200 }}
-                </div>
-            {% endif %}
+            <div class="media-box__desc"></div>
+                {% if object.description %}
+                    {{ object.description|richtext_filters|safe|truncatechars_html:200 }}<br />
+                {% endif %}
+                <span style="margin-top: 10px;" class="button button--xsmall button--white-main" href="#">{% trans 'View' %}</span>
+            </div>
         </a>
     </div>
 </div>

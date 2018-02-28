@@ -26,6 +26,7 @@ $module: ".button";
     outline: 0;
     background: none;
     box-sizing: border-box;
+    text-transform: uppercase;
     @include margin(0 .5 0 0);
 
     @include font-size(l);
@@ -34,6 +35,7 @@ $module: ".button";
     @include padding(.25 1 .25 1);
     //@include margin(0);
     font-weight: weight(regular);
+    border-radius: 3px;
 
     background: $color-main;
     color: $color-black;
@@ -98,7 +100,7 @@ $module: ".button";
         border: 1px solid $color-main;
 
         &:hover {
-            background-color: darken($color-main, 10%);
+            background-color: $color-main;
             color: white;
         }
 
@@ -111,7 +113,7 @@ $module: ".button";
         border: 1px solid $color-accent;
 
         &:hover {
-            background-color: darken($color-accent, 10%);
+            background-color: $color-accent;
             color: white;
         }
 
@@ -133,7 +135,7 @@ $module: ".button";
 
     &--small {
         @include font-size(m);
-        @include padding(.18 1);
+        @include padding(.18 .5);
     }
 
     &--xsmall {

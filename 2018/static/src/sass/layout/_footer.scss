@@ -23,7 +23,23 @@ $module: ".footer";
 #{$module} {
 
     /* Rectangle 2: */
-    background-image: linear-gradient(-180deg, $color-white 0%, #00B3D5 100%);
+    // background-image: linear-gradient(-179deg, rgba(0,90,153,0.00) 6%, #BED6E6 92%);
+    position: relative;
+
+    &:before {
+        content: "";
+        display: block;
+        background-image: url(../img/header-pattern.png);
+        background-position: top left;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.2;
+        z-index: -1;
+    }
+    
     @include margin-top(0);
 
     @include mq($until: xs) {

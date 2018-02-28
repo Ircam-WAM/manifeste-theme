@@ -16,33 +16,13 @@
 {% endblock %}
 
 {% block page_title %}
-    {% editable person.title %}
-        <h1 class="section-title section-title--uppercase section-title--main">{{ playlist.title }}</h1>
+    {% editable playlist.title %}
+        <div class="section-title section-title--uppercase section-title--underline section-title--main section-title--no-margin"><a href="{% url 'magazine-article-list' %}"><i class="fsl fa fa-angle-left"></i>{% trans "Back to news" %}</a></div>
+        <h1 class="section-title section-title--uppercase section-title--big">{{ playlist.title }}</h1>
+        <div class="page__date">
+            {% trans 'Published on' %} {{ playlist.publish_date|date:"DATE_FORMAT" }}
+        </div>
     {% endeditable %}
-{% endblock %}
-
-{% block page_sidebar %}
-
-    <div data-sticky data-sticky-parent="row" data-sticky-offset="100" data-sticky-detach-at="971">
-        {% editable playlist.publish_date %}
-            <div class="page__meta-date">
-                {{ playlist.publish_date|date:"DATE_FORMAT" }}
-            </div>
-        {% endeditable %}
-
-        <div class="page__meta-separator">
-
-        </div>
-
-        <div class="page__meta-text">
-            <strong>{{playlist.type}}</strong>
-        </div>
-
-        {% with playlist as object %}
-            {% include "includes/share_buttons.html" %}
-        {% endwith %}
-    </div>
-
 {% endblock %}
 
 {% block page_content %}

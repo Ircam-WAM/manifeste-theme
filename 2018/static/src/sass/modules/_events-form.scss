@@ -1,3 +1,12 @@
+#jsEventsContainer {
+    opacity: 1;
+    @include transition(all .5s ease-in-out);
+
+    &.fade-out {
+        opacity: 0;
+    }
+}
+
 #jsEventsForm,
 #jsArticlesForm,
 #jsEventsHomeForm {
@@ -46,11 +55,32 @@
 
             &.disabled {
                 color: lightgrey;
+
+                label {
+                    cursor: default;
+                }
+
+                span {
+                    color: black;
+                }
             }
 
             &.active {
                 color: $color-main;
                 font-weight: bold;
+                
+                background: #E5EEF4;
+                color: $color-main;
+                border-radius: 3px;
+
+                span {
+                    font-weight: 300;
+                    opacity: 1;
+                }
+            }
+
+            &:hover:not(.disabled) {
+                color: $color-main;
             }
 
             display: inline-block;
@@ -107,50 +137,44 @@
         >li {
             display: inline-block;
             margin: 0 8px 8px 0;
-            border:1px solid $color-black;
-            opacity: 0.3;
+            border: 1px solid $color-black;
+            border-radius: 3px;
+            font-weight: 500;
+            opacity: 1;
             cursor: pointer;
 
             @include transition(all 0.25s ease);
 
-            &:hover {
+            &:hover:not(.disabled) {
                 background: $color-main;
                 color: white;
-                border-color: white;
+                border-color: $color-main;
+            }
+
+            &.disabled {
+                opacity: 0.2;
+                cursor: default;
+
+                label {
+                    cursor: default;
+                }
             }
 
             &.active {
                 opacity: 1;
-
-                label, a {
-
-                    &:after {
-
-                        content: "\f00c";
-
-                    }
-
-                }
+                background: $color-main;
+                color: white;
+                border: 1px solid $color-main;
             }
 
             label, a {
 
-                padding: 5px 15px;
+                padding: 3px 10px;
                 text-transform: uppercase;
                 text-decoration: none;
                 border: 0;
                 @include font-size(m);
                 cursor: pointer;
-
-                &:after {
-
-                    display: inline-block;
-                    font-family: "FontAwesome";
-                    content: "\f00d";
-                    font-size: 12px;
-                    margin-left: 8px;
-
-                }
 
             }
         }

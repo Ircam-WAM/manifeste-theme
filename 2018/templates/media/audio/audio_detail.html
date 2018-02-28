@@ -18,32 +18,12 @@
 
 {% block page_title %}
     {% editable media.title %}
-        <h1 class="section-title section-title--big section-title--uppercase section-title--main">{{ media.title }}</h1>
+        <div class="section-title section-title--uppercase section-title--underline section-title--main section-title--no-margin"><a href="{% url 'magazine-article-list' %}"><i class="fsl fa fa-angle-left"></i>{% trans "Back to news" %}</a></div>
+        <h1 class="section-title section-title--uppercase section-title--big">{{ media.title }}</h1>
+        <div class="page__date">
+            {% trans 'Published on' %} {{ media.publish_date|date:"DATE_FORMAT" }}
+        </div>
     {% endeditable %}
-{% endblock %}
-
-
-{% block page_sidebar %}
-
-    <div data-sticky data-sticky-parent="row" data-sticky-offset="100" data-sticky-detach-at="971">
-        <div class="page__meta-title">
-            {% trans 'Publish date' %}
-        </div>
-        {% editable media.publish_date %}
-            <div class="page__meta-text">
-                {{ media.publish_date|date:"DATE_FORMAT" }}
-            </div>
-        {% endeditable %}
-        <div class="page__meta-separator">
-
-        </div>
-        {% with media as object %}
-            <div class="">
-                {% include "includes/share_buttons.html" %}
-            </div>
-        {% endwith %}
-    </div>
-
 {% endblock %}
 
 {% block page_video %}

@@ -26,7 +26,6 @@ $module: ".header";
     position: relative;
 
     background: white;
-    box-shadow: 0 10px 130px rgba(92,80,227,0.5);
     position: absolute;
     width: 100%;
     top: 0;
@@ -38,6 +37,11 @@ $module: ".header";
         @include mq($until: xs) {
             height: $header-height-mobile;
         }
+    }
+
+    &.headroom--unpinned.is_stuck {
+        @include transform(translateY(-300%));
+        @include transition(transform 0.5s ease-in-out);
     }
 
     &__nav {

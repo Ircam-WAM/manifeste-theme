@@ -5,6 +5,9 @@ var EventForm = function() {
     this.$form = $('#jsEventsForm');
     this.$homeform = $('#jsEventsHomeForm');
     this.$container = $('#jsEventsContainer');
+    this.baseFilters = [];
+    this.baseLocations = [];
+    this.calendarUpdate = false;
     this.req = null;
 
     this.queryDict = {}
@@ -15,6 +18,8 @@ var EventForm = function() {
     //
     if(this.$form.length > 0) {
         this.init();
+        this.initBaseFilters();
+        this.checkFilters();
     }
 
     if(this.$homeform.length > 0) {
@@ -29,6 +34,64 @@ var EventForm = function() {
 
 };
 
+EventForm.prototype.initBaseFilters = function() {
+    var that = this;
+
+    //
+    // Get the event lists
+    //
+    that.baseFilters = [];
+    $('.event-line-box__category', that.$container).each(function() {
+        var t = $(this).text().trim().toLowerCase();
+        if(that.baseFilters.indexOf(t) === -1) {
+            that.baseFilters.push(t);
+        }
+    });
+
+};
+
+EventForm.prototype.checkFilters = function() {
+
+    var that = this;
+
+    //
+    // Get the event lists
+    //
+    var categories = [];
+    $('.event-line-box__category', that.$container).each(function() {
+        var t = $(this).text().trim().toLowerCase();
+        if(categories.indexOf(t) === -1) {
+            categories.push(t);
+        }
+    });
+    categories = categories.concat(that.baseFilters);
+    locations = that.baseLocations;
+
+    $('#id_event_categories_filter li').addClass('disabled');
+    $('#id_event_categories_filter input').attr('disabled', 'disabled');
+    $('#id_event_locations_filter li').addClass('disabled');
+    $('#id_event_locations_filter input').attr('disabled', 'disabled');
+
+    $('#id_event_categories_filter input').each(function() {
+        var v = $(this).val().toLowerCase();
+        if(categories.indexOf(v) >= 0) {
+            $(this).parents('li').removeClass('disabled');
+            $(this).removeAttr('disabled');
+        }
+    });
+
+    $('#id_event_locations_filter input').each(function() {
+        var v = $(this).val().toLowerCase();
+        if(locations.indexOf(v) >= 0) {
+            $(this).parents('li').removeClass('disabled');
+            $(this).parents('li').addClass('active');
+            $(this).prop('checked', true);
+            $(this).removeAttr('disabled');
+        }
+    });
+
+};
+
 EventForm.prototype.init = function() {
 
     var that = this;
@@ -38,13 +101,24 @@ EventForm.prototype.init = function() {
 
         var data = that.$form.serialize();
 
-        if(that.req) that.req.abort();
-        that.req = $.get(that.$form.attr('action'), data, function(res) {
-            that.$container.html(res);
+        that.$container.addClass('fade-out');
 
-            // reload Lazyload
-            window['LazyLoadInit'].init();
-        });
+        setTimeout(function() {
+            if(that.req) that.req.abort();
+            that.req = $.get(that.$form.attr('action'), data, function(res) {
+                that.$container.html(res);
+
+                if(that.calendarUpdate == true) {
+                    that.initBaseFilters();
+                    that.calendarUpdate = false;
+                }
+                // reload Lazyload
+                window['LazyLoadInit'].init();
+
+                that.checkFilters();
+                that.$container.removeClass('fade-out');
+            });
+        }, 500);
 
         return false;
     });
@@ -56,12 +130,19 @@ EventForm.prototype.init = function() {
     });
 
     if(!that.queryDict['event_categories_filter[]']) {
-        $('#id_event_categories_filter input').prop("checked", true);
-        $('#id_event_categories_filter li').addClass('active');
+        //$('#id_event_categories_filter input').prop("checked", true);
+        //$('#id_event_categories_filter li').addClass('active');
     }
-    if(!that.queryDict['id_event_locations_filter[]']) {
-        $('#id_event_locations_filter input').prop("checked", true);
-        $('#id_event_locations_filter li').addClass('active');
+    if(that.queryDict['event_locations_filter[]']) {
+        //$('#id_event_locations_filter input').prop("checked", true);
+        //$('#id_event_locations_filter li').addClass('active');
+        that.baseLocations = [];
+        $('.event-line-box__location span', that.$container).each(function() {
+            var t = $(this).text().trim().toLowerCase();
+            if(that.baseLocations.indexOf(t) === -1) {
+                that.baseLocations.push(t);
+            }
+        });
     }
 
     $('input[type="radio"][disabled]', that.$form).each(function(idx) {
@@ -69,6 +150,17 @@ EventForm.prototype.init = function() {
     });
 
     $('input[type="radio"]', that.$form).on('change', function() {
+        $('#id_event_categories_filter input').prop('checked', false);
+        $('#id_event_categories_filter li').removeClass('active');
+        $('#id_event_categories_filter li').addClass('disabled');
+        $('#id_event_categories_filter input').attr('disabled', 'disabled');
+
+        /*$('#id_event_locations_filter input').prop('checked', false);
+        $('#id_event_locations_filter li').removeClass('active');
+        $('#id_event_locations_filter li').addClass('disabled');
+        $('#id_event_locations_filter input').attr('disabled', 'disabled');*/
+
+        that.calendarUpdate = true;
         that.$form.submit();
 
         $('#id_event_day_filter li').removeClass('active');

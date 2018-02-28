@@ -44,16 +44,23 @@
 {% endblock %}
 
 {% block content %}
-    {{ object.description|richtext_filters|safe|truncatechars_html:200 }}
+    {% if object.description %}
+        {{ object.description|richtext_filters|safe|truncatechars_html:200 }}<br />
+    {% endif %}
+    <span style="margin-top: 10px;" class="button button--xsmall button--white-main" href="#">{% trans 'Read more' %}</span>
 {% endblock %}
 
 {% block tags %}
     {% comment %}
         {{ object.publish_date|date:"DATE_FORMAT" }}
     {% endcomment %}
-    {% for category in object.categories.all %}
-        {% comment %}{% if forloop.first %} | {% endif %}{% endcomment %}
-        {% if not forloop.first %}, {% endif %}
-        {{ category }}
-    {% endfor %}
+    {% if object.categories.all %}
+        {% for category in object.categories.all %}
+            {% comment %}{% if forloop.first %} | {% endif %}{% endcomment %}
+            {% if not forloop.first %}, {% endif %}
+            {{ category }}
+        {% endfor %}
+    {% else %}
+        {% trans 'Article' %}
+    {% endif %}
 {% endblock %}

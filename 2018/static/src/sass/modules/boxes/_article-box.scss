@@ -27,8 +27,8 @@ $module: ".article-box";
     @include margin-bottom(1);
     @include transition(all 0.5s ease-in-out);
     background: white;
+    overflow: hidden;
 
-    border: 10px solid white;
     box-shadow: 0 0 1px $color-main;
 
     height: 380px;
@@ -49,7 +49,8 @@ $module: ".article-box";
 
     &:hover {
 
-        background: $color-main;
+        background: $color-white;
+        box-shadow: 0 5px 20px rgba($color-main, 0.5);
 
         @include mq($until: sm) {
             background: white;
@@ -57,10 +58,7 @@ $module: ".article-box";
 
         @include mq($from: sm) {
             .article-box__image-container {
-                //background: $color-main;
-                background-image: -webkit-linear-gradient($color-main 0%, $color-main 100%);
-                background-image: -o-linear-gradient($color-main 0%, $color-main 100%);
-                background-image: linear-gradient($color-main 0%, $color-main 100%);
+                background: $color-white;
             }
         }
 
@@ -77,16 +75,16 @@ $module: ".article-box";
 
         @include mq($from: sm) {
             .article-box__title {
-                color: white;
+                color: $color-main;
             }
             .article-box__tags {
-                color: white;
+                color: $color-black;
             }
             .article-box__subtitle {
-                color: white;
+                color: $color-black;
             }
             .article-box__desc {
-                color: white;
+                color: $color-black;
                 height: auto;
             }
         }
@@ -100,7 +98,7 @@ $module: ".article-box";
             left: 0;
             width: 100%;
             height: 100%;
-            @include padding(.25 .50 .25 .50);
+            @include padding(.50 .75 .50 .75);
 
             @include mq($until: sm) {
                 position: relative;
@@ -119,9 +117,7 @@ $module: ".article-box";
         @include transition(all 0.5s ease-in-out);
 
         /* Rectangle 9: */
-        background-image: -webkit-linear-gradient(#6B00D5 0%, #00B3D5 100%);
-        background-image: -o-linear-gradient(#6B00D5 0%, #00B3D5 100%);
-        background-image: linear-gradient(#6B00D5 0%, #00B3D5 100%);
+        background: $color-main;
     }
 
     &__image {
@@ -138,12 +134,9 @@ $module: ".article-box";
             width: 100%;
             max-width: 100%;
             height: auto;
+            opacity: 0.7;
 
             @include transition(all 0.5s ease-in-out);
-
-            -webkit-filter: grayscale(1);
-            filter: grayscale(1);
-            mix-blend-mode: screen;
         }
 
     }
@@ -186,7 +179,7 @@ $module: ".article-box";
         @include typeface(serif-condensed);
         @include margin(0 0 0 0);
         font-weight: weight(regular);
-        color: $color-main;
+        color: $color-black;
         @include transition(color 0.5s ease-in-out);
 
     }
@@ -202,7 +195,7 @@ $module: ".article-box";
     }
 
     &__content {
-        @include padding(.25 .50 .25 .50);
+        @include padding(.50 .75 .50 .75);
 
         @include transition(all 0.5s ease-in-out);
 
@@ -347,8 +340,9 @@ $module: ".article-box";
             @include typeface(serif-condensed);
             @include margin(0 0 0 0);
             font-weight: weight(regular);
-            color: $color-black;
-            @include transition(color 0.5s ease-in-out);
+            color: $color-white;
+            @include transition(color 0.25s ease-in-out, box-shadow 0.25s ease-in-out, background 0.25s ease-in-out);
+            display: inline;
 
         }
 
@@ -359,9 +353,11 @@ $module: ".article-box";
             @include typeface(sans-serif);
             @include margin(0 0 .25 0);
             font-weight: weight(heavy);
+            display: inline;
+            @include transition(color 0.25s ease-in-out, box-shadow 0.25s ease-in-out, background 0.25s ease-in-out);
 
             text-align: center;
-            color: $color-black;
+            color: $color-white;
             text-transform: uppercase;
 
         }
@@ -370,6 +366,10 @@ $module: ".article-box";
 
             //@include fluid-aspect(427 500);
             @include fluid-aspect(328 380);
+
+            img {
+                opacity: 0.7;
+            }
 
         }
 
@@ -384,6 +384,7 @@ $module: ".article-box";
             position: absolute;
             top: auto;
             bottom: 0;
+            text-align: center;
 
             @include padding-bottom(3);
 
@@ -422,7 +423,16 @@ $module: ".article-box";
 
             #{$module}__title {
                 color: $color-main;
+                background: $color-white;
+                box-shadow: 0 0px 0px 5px $color-white;
             }
+
+            #{$module}__tags {
+                color: $color-white;
+                background: $color-main;
+                box-shadow: 0 0 0 5px $color-main;
+            }
+
             #{$module}__desc {
                 color: white;
             }
@@ -432,6 +442,10 @@ $module: ".article-box";
                 top: auto;
                 height: auto;
                 @include padding-bottom(3);
+
+                @include mq($until: sm) {
+                    position: absolute;
+                }
 
             }
         }

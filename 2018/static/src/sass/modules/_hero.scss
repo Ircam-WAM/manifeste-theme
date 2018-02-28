@@ -3,7 +3,7 @@ $module: ".hero";
 
 #{$module} {
 
-    background-image: url(../img/manifeste2017/hero.jpg);
+    background-image: url(../img/manifeste2018/hero.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -13,6 +13,18 @@ $module: ".hero";
     top: 0;
     left: 0;
     width: 100%;
+
+    @include mq($until: md) {
+        background-position: 78% center;
+    }
+
+    @include mq($until: sm) {
+        background-position: center center;
+    }
+
+    @media (orientation: portrait) {
+        background-image: url(../img/manifeste2018/hero-portrait.jpg);
+    }
 
     &.large-title {
         margin-bottom: 500px;
@@ -70,15 +82,15 @@ $module: ".hero";
     &__title {
 
         position: absolute;
-        top: 40%;
-        left: 17%;
+        top: 50%;
+        left: 44.7%;
         width: 50%;
         text-align: left;
 
         @include transform(translateY(-50%));
 
         @include mq($until: lg) {
-            left: 10%;
+            left: 44.4%;
         }
 
         @include mq($until: md) {
@@ -107,8 +119,8 @@ $module: ".hero";
         text-align: left;
 
         position: absolute;
-        bottom: 50px;
-        left: 17%;
+        bottom: 100px;
+        left: 10%;
         width: 50%;
 
         @include mq($until: lg) {
@@ -119,9 +131,30 @@ $module: ".hero";
             left: 5%;
         }
 
-        @include mq($until: xs) {
-            width: 100%;
+        @include mq($until: sm) {
+            width: 50%;
             top: auto;
+            left: 30px;
+            bottom: 30px;
+            img {
+                width: 90%;
+            }
+        }
+
+        @include mq($until: xs) {
+            width: 50%;
+            top: auto;
+            left: 30px;
+            bottom: 30px;
+            img {
+                width: 90%;
+            }
+        }
+
+        @media (orientation: portrait) {
+            width: 50%;
+            top: auto;
+            left: 30px;
             bottom: 30px;
             img {
                 width: 90%;
@@ -132,20 +165,34 @@ $module: ".hero";
 
     &__right {
 
-        text-align: center;
+        text-align: left;
 
         position: absolute;
         top: 50px;
-        right: 0;
+        left: 10%;
         width: 50%;
 
-        @include mq($until: xs) {
-            width: 100%;
-            top: 30px;
+        @include mq($until: sm) {
+            bottom: 30px;
+            width: 50%;
             right: 30px;
+            left: auto;
+            top: auto;
             text-align: right;
             img {
-                width: 100px;
+                width: 45%;
+            }
+        }
+
+        @media (orientation: portrait) {
+            bottom: 30px;
+            width: 50%;
+            right: 30px;
+            left: auto;
+            top: auto;
+            text-align: right;
+            img {
+                width: 45%;
             }
         }
 

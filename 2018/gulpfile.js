@@ -128,7 +128,7 @@ gulp.task('clean', function(cb) {
 gulp.task('serve', ['clean'], function () {
 
     browserSync.init({
-        proxy: "http://localhost:9021/"
+        proxy: "http://localhost:9060/"
     });
 
     gulp.watch(srcFolder + 'assets/img/**/*', ['copy-assets-img']).on('change', browserSync.reload);

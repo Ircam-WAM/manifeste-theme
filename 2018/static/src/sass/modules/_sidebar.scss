@@ -24,9 +24,9 @@ $module: ".sidebar";
 
     @include padding-bottom(1);
     /* Rectangle 2: */
-    background-image: -webkit-linear-gradient(bottom, rgba(79,227,194,0.00) 0%, rgba(80,227,194,0.30) 100%);
-    background-image: -o-linear-gradient(bottom, rgba(79,227,194,0.00) 0%, rgba(80,227,194,0.30) 100%);
-    background-image: linear-gradient(to top, rgba(79,227,194,0.00) 0%, rgba(80,227,194,0.30) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgba(#BED6E6, 0.00) 0%, rgba(#BED6E6, 1.00) 100%);
+    background-image: -o-linear-gradient(bottom, rgba(#BED6E6, 0.00) 0%, rgba(#BED6E6, 1.00) 100%);
+    background-image: linear-gradient(to top, rgba(#BED6E6, 0.00) 0%, rgba(#BED6E6, 1.00) 100%);
 
     &__menu {
 

@@ -4,6 +4,6 @@
         {% include "includes/language_selector.html" %}
     {% endnevercache %}
     {% for language in languages %}
-        <a data-lang="{{ language.code }}" href="#" class="nav-header__item-link nav-header__item-link--no-dot {% if language.code == LANGUAGE_CODE %} active{% endif %}">{{ language.code|title }}</a>
+        <a data-lang="{{ language.code }}" href="#" class="nav-header__item-link nav-header__item-link--lang nav-header__item-link--no-dot {% if language.code == LANGUAGE_CODE %} active{% endif %}">{{ language.code|title }}</a>
     {% endfor %}
 {% endif %}

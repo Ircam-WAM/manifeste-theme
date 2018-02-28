@@ -20,7 +20,10 @@
             </div>
             <h2 class="media-box__title">{{ playlist.title|truncatechars_html:50 }}</h2>
             <div class="media-box__desc">
-                {{ playlist.description|richtext_filters|safe|truncatechars_html:200 }}
+                {% if playlist.description %}
+                    {{ playlist.description|richtext_filters|safe|truncatechars_html:200 }}<br />
+                {% endif %}
+                <span style="margin-top: 10px;" class="button button--xsmall button--white-main" href="#">{% trans 'View' %}</span>
             </div>
         </div>
     </a>

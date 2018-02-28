@@ -43,14 +43,40 @@
     z-index: 2;
     background: $color-white;
 
+    &:before {
+        display: block;
+        content: "";
+        position: absolute;
+        top: 57px;
+        left: 0;
+        right: 0;
+        height: 120px;
+        background: url(../img/header-pattern.png);
+        background-repeat: repeat-x;
+        background-position: top left;
+        opacity: 0.2;
+    }
+
     @include mq($until: lg) {
         padding-top: 48px;
+
+        &:before {
+            top: 48px;
+        }
     }
     @include mq($until: sm) {
         padding-top: $header-height-tablet;
+
+        &:before {
+            top: $header-height-tablet;
+        }
     }
     @include mq($until: xs) {
         padding-top: $header-height-mobile;
+
+        &:before {
+            top: $header-height-tablet;
+        }
     }
 }
 

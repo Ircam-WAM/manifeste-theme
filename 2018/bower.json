@@ -31,7 +31,8 @@
     "jquery_lazyload": "jquery.lazyload#^1.9.7",
     "waypoints": "^4.0.1",
     "moment": "^2.17.1",
-    "moment-timezone" : "^0.5.11",
-    "jquery.marquee" : "^1.5.0"
+    "moment-timezone": "^0.5.11",
+    "jquery.marquee": "^1.5.0",
+    "headroom": "^1.0.3"
   }
 }

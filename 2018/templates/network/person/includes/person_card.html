@@ -12,15 +12,26 @@
                     </div>
                 </a>
             </div>
+        {% else %}
+            <div class="article-box__header">
+                <div class="article-box__image-container">
+                    <div class="article-box__image"></div>
+                </div>
+            </div>
         {% endif %}
     {% endwith %}
-    <div class="article-box__content tal">
 
-        <div class="article-box__tags">
-            {% with object.activities.first as activity %}
-                {{ activity.status }}
-            {% endwith%}
-        </div>
+    <div class="article-box__content tac">
+
+        {% with object.activities.first as activity %}
+            {% if activity.status %}
+                <div class="article-box__tags">
+                    {{ activity.status }}
+                </div>
+
+                <br />
+            {% endif %}
+        {% endwith%}
 
         <a href="{{ object.get_absolute_url }}" title="{{ object.first_name }}&nbsp;{{ object.last_name }}"><h3 class="article-box__title">{{ object.first_name }}&nbsp;{{ object.last_name }}</h3></a>
 

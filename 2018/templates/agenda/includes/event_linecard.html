@@ -34,7 +34,7 @@
                             {% if links %}
                                 <object class="event-line-box__button">
                                     <a href="{{ links|get_type_link:'link'|first }}" class="button button--white-accent">
-                                        <i class="fa fa-bookmark-o" aria-hidden="true"></i> {% trans "Reserve" %}
+                                        {% trans "Reserve" %}
                                     </a>
                                 </object>
                             {% endif %}
@@ -43,7 +43,7 @@
                         {% if event.prices.all.0|floatformat != '0' %}
                             <object class="event-line-box__button">
                                 <a href="{% url 'event_booking' event.slug %}" class="button button--white-accent">
-                                    <i class="fa fa-bookmark-o" aria-hidden="true"></i> {% trans "Reserve" %}
+                                    {% trans "Reserve" %}
                                 </a>
                             </object>
                         {% else %}
@@ -65,7 +65,7 @@
                 <div class="event-line-box__body">
                     {% if event.location %}
                         <div class="event-line-box__location">
-                            {{ event.location }}
+                            <span>{{ event.location.title }}</span>
                             {% if event.location.room %}
                                  / {{ event.location.room }}
                             {% endif %}
