@@ -37,10 +37,11 @@ $module: ".button";
     font-weight: weight(regular);
     border-radius: 3px;
 
-    background: $color-main;
+    background: $color-white;
     color: $color-black;
     display: inline-block;
     vertical-align: middle;
+    border: 1px solid black;
     cursor: pointer;
 
     @include transition(all 0.25s ease-in-out);

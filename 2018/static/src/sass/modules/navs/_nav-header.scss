@@ -159,8 +159,8 @@ $module: ".nav-header";
             @include mq($until: sm) {
                 position: absolute;
                 top: 20px;
-                left: 0;
-                width: 100%;
+                left: 60px;
+                right: 60px;
                 z-index: 2;
                 @include padding(0);
                 @include margin(0);

@@ -68,21 +68,19 @@
 
             {% if event.prices.all %}
                 {% if event.prices.all.0|floatformat != '0' %}
-                    <p>
-                        {% if event.trainings.all|length %}
-                            {% with event.links.all as links %}
-                                {% if links %}
-                                    <a class="button button--white-accent" href="{{ links|get_type_link:'link'|first }}" class="event__meta__btn">
-                                        <i class="fa fa-bookmark-o" aria-hidden="true"></i> {% trans "Reserve" %}
-                                    </a>
-                                {% endif %}
-                            {% endwith %}
-                        {% else %}
-                            <a class="button button--white-accent" href="{% url 'event_booking' event.slug %}" class="event__meta__btn">
-                                <i class="fa fa-bookmark-o" aria-hidden="true"></i> {% trans "Reserve" %}
-                            </a>
-                        {% endif %}
-                    </p>
+                    {% if event.trainings.all|length %}
+                        {% with event.links.all as links %}
+                            {% if links %}
+                                <a class="button button--white-accent" href="{{ links|get_type_link:'link'|first }}" class="event__meta__btn">
+                                    {% trans "Reserve" %}
+                                </a>
+                            {% endif %}
+                        {% endwith %}
+                    {% else %}
+                        <a class="button button--white-accent" href="{% url 'event_booking' event.slug %}" class="event__meta__btn">
+                            {% trans "Reserve" %}
+                        </a>
+                    {% endif %}
                 {% else %}
                     <span class="button button--accent button--no-hover">
                         {% trans "Free" %}
@@ -91,7 +89,7 @@
             {% endif %}
 
             {% if event.brochure %}
-                <a href="{{ event.brochure.url }}" target="_blank" class=" mt1 page__meta-title" style="display: block;">
+                <a href="{{ event.brochure.url }}" target="_blank" class=" mt1 page__meta-title page__meta-unused">
                     {{ event.brochure.filename }}
                 </a>
             {% endif %}

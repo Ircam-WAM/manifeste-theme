@@ -1,0 +1,47 @@
+$module: ".backtotop";
+
+#{$module} {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    //width: 40px;
+    height: 40px;
+    display: block;
+    background: $color-main;
+    top: auto;
+    left: auto;
+    z-index: 10;
+    line-height: 40px;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 0 14px;
+    opacity: 0;
+    @include transition(all 0.25s ease-in-out);
+
+    @include mq($until: xs) {
+        bottom: 10px;
+        right: 10px;
+    }
+
+    &.active {
+        opacity: 1;
+    }
+
+    span {
+        float: left;
+        display: block;
+        width: 0;
+        overflow: hidden;
+        @include transition(all 0.25s ease-in-out);
+    }
+
+    &:hover {
+        @include transform(translateY(-5px));
+        span {
+            width: 150px;
+            @include transform(scaleX(1));
+        }
+    }
+}

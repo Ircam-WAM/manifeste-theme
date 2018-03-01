@@ -63,6 +63,10 @@ $module: ".page";
             @include padding(0 0);
         }
 
+        @include mq($until: sm) {
+            @include margin-bottom(1);
+        }
+
     }
 
     &__meta {
@@ -74,8 +78,12 @@ $module: ".page";
 
         @include mq($until: md) {
             .col-md-4 {
-                margin-bottom: 20px;
+                margin-bottom: 24px;
             }
+        }
+
+        @include mq($until: sm) {
+            @include margin-bottom(1);
         }
 
     }
@@ -86,6 +94,10 @@ $module: ".page";
             //background: white;
             text-align: center;
             @include margin-bottom(2);
+        }
+
+        @include mq($until: sm) {
+            @include margin-bottom(0);
         }
 
     }
@@ -104,6 +116,11 @@ $module: ".page";
     &__meta {
 
         @include margin-bottom(2);
+
+        @include mq($until: sm) {
+            @include margin-bottom(1);
+            @include padding-bottom(0);
+        }
 
     }
 
@@ -163,6 +180,13 @@ $module: ".page";
             display: block;
         }
 
+    }
+
+    &__meta-unused {
+        display: block;
+        @include mq($until: sm) {
+            display: none;
+        }
     }
 
     &__meta-title {
@@ -246,15 +270,24 @@ $module: ".page";
             margin-bottom: 0;
         }
 
+        &--red,
         &--yellow {
-            background: $color-main;
-            @include padding(1 1 1 1);
-            color: $color-black;
-        }
-        &--red {
-            background: $color-accent;
-            @include padding(1 1 1 1);
-            color: white;
+            border: 1px solid #CCCCCC;
+            position: relative;
+            background: url(../img/header-pattern-faded.png);
+            padding: 12px;
+
+            >div {
+                border-radius: 16px;
+                background: white;
+                display: block;
+                z-index: 1;
+                padding: 24px 24px 12px 24px;
+            }
+
+            h2 {
+                margin-top: 0;
+            }
         }
 
     }
@@ -571,6 +604,10 @@ $module: ".page";
     &--search {
 
         margin-top: 8rem;
+        
+        @include mq($until: sm) {
+            margin-top: 0;
+        }
 
     }
 

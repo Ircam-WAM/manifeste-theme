@@ -31,15 +31,16 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-16 col-md-10 col-md-push-3 tac">
-                <h1 class="section-title section-title--big section-title--uppercase">{% trans "News" %}</h1>
+                <h1 class="section-title section-title--big section-title--uppercase invisible">{% trans "News" %}</h1>
             </div>
         </div>
         <div class="row">
             <div class="col-md-14 col-md-push-1 col-lg-12 col-lg-push-2 mb2" id="jsArticlesForm">
+                <label for="id_event_categories_filter_0">{% trans "Filter by" %}</label>
                 <ul id="id_article_type_filter">
                     {% for keyword in keywords %}
                         {% if not current_keyword %}
-                            <li class="active">
+                            <li class="">
                                 <a href="{% url 'magazine-article-list' keyword %}" title="">{{ keyword }}</a>
                             </li>
                         {% else %}

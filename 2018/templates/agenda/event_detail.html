@@ -22,7 +22,7 @@
 {% block page_title %}
     <h1 class="section-title section-title--uppercase section-title--underline section-title--main"><a href="{% url 'event_list' %}"><i class="fsl fa fa-angle-left"></i>{% trans "Back to events" %}</a></h1>
 
-    <div style="position: relative;">
+    <div style="position: relative;" class="page--event-details">
         {% if previous_event_url %}
             <a href="{{ previous_event_url }}" class="page__previous"><i class="fa fa-angle-left"></i></a>
         {% endif %}
@@ -138,10 +138,10 @@
                 <div class="row">
                     <div class="col-md-12 col-md-push-2 tac">
                         <div class="row">
-                            <div>
+                                <div data-slider-related-artists>
                                 {% for person in event.persons.all %}
                                     {% with person.person as person %}
-                                        <div class="col-md-5 col-xs-8">
+                                        <div class="col-md-5 col-xs-6">
                                             {% include "network/inc/person/person_card_square.html" %}
                                         </div>
                                     {% endwith %}

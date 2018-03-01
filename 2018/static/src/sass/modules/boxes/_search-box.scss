@@ -56,7 +56,7 @@ $module: ".search-box";
         @include typeface(sans-serif);
         @include margin-top(.25);
         font-weight: weight(bold);
-        color: white;
+        color: black;
         text-transform: uppercase;
         @include transition(color 0.5s ease-in-out);
 

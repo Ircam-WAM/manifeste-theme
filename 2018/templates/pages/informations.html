@@ -9,7 +9,9 @@
                 {% for block in blocks %}
                     <div class="col-md-8">
                         <div class="page__block-special page__block-special--{{ block.background_color }}">
-                            {{ block.content|richtext_filters|safe }}
+                            <div>
+                                {{ block.content|richtext_filters|safe }}
+                            </div>
                         </div>
                     </div>
                 {% endfor %}

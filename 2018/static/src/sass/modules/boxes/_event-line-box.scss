@@ -329,4 +329,19 @@ $module: ".event-line-box";
 
     }
 
+    .page--event-details & {
+        @include mq($until: sm) {
+            .event-line-box__button {
+                display: none;
+            }
+            .event-line-box__location {
+                display: none;
+            }
+            .event-line-box__date {
+                display: none;
+            }
+            margin-bottom: 0 !important;
+        }
+    }
+
 }

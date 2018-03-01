@@ -41,6 +41,36 @@ LightSliderRelatedInit.prototype.init = function() {
         },
     });
 
+    if($(window).outerWidth() <= 972) {
+        that.slider = $('[data-slider-related-artists]').lightSlider({
+            item: 3,
+            slideMargin: 0,
+            pager: false,
+            loop: true,
+            auto: false,
+            pauseOnHover: true,
+            responsive: [
+                {
+                    breakpoint: 752,
+                    settings: {
+                        item: 2
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        item: 1
+                    }
+                }
+            ],
+            onAfterSlide: function(slider) {
+                var $next = $(".active").next('div.lslide').find('figure img');
+                var $img_src = $next.attr('data-original');
+                var $next = $next.attr('src', $img_src);
+            },
+        });
+    }
+
 };
 
 module.exports = LightSliderRelatedInit;

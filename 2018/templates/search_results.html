@@ -56,6 +56,14 @@
                                 {% with result as product %}
                                     {% include 'shop/product/includes/product_search.html' %}
                                 {% endwith %}
+                            {% elif result|classname == 'Article' %}
+                                {% with result as product %}
+                                    {% include 'magazine/article/includes/article_search.html' %}
+                                {% endwith %}
+                            {% elif result|classname == 'Person' %}
+                                {% with result as product %}
+                                    {% include 'network/person/includes/person_search.html' %}
+                                {% endwith %}
                             {% else %}
                                 {% with result as page %}
                                     {% include 'pages/page/includes/page_search.html' %}

@@ -234,3 +234,11 @@ h1 + .chapo {
 	font-weight: weight(light);
 
 }
+
+.invisible {
+	visibility: hidden;
+
+	@include mq($until: sm) {
+		display: none !important;
+	}
+}

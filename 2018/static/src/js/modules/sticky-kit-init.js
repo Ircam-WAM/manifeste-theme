@@ -75,6 +75,7 @@ StickyKitInit.prototype.windowScroll = function(e) {
     var that = this;
 
     if(that.pageContentTop >= 0 && that.pageContentBottom >= 0) {
+
         for(var i=0; i<that.elements.length; i++) {
 
             if(that.elements[i].attached) {

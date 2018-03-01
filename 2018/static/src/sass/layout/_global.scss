@@ -25,7 +25,7 @@
     @include margin-top(3);
 
     @include mq($until: sm) {
-        margin-top: 70px;
+        margin-top: 0px;
     }
 
     .organization & {

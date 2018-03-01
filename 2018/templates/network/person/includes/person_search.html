@@ -1,0 +1,30 @@
+{% extends "core/inc/search_card.html" %}
+{% load i18n mezzanine_tags organization_tags %}
+
+{% block title %}
+    {{ result.title }}
+{% endblock %}
+
+{% block icon %}files-o{% endblock %}
+
+{% block tags %}
+    <div class="search-box__tags">
+        {% with result.activities.first as activity %}
+            {% if activity.status %}
+                {{ result.status }}
+            {% else %}
+                {% trans "Artist" %}
+            {% endif %}
+        {% endwith%}
+    </div>
+{% endblock %}
+
+{% block url %}
+    {{ page.get_absolute_url }}
+{% endblock %}
+
+{% block content %}
+    {% if result.description != result|stringformat:"s" %}
+        {{ result.description|truncatewords_html:200|safe }}
+    {% endif %}
+{% endblock %}

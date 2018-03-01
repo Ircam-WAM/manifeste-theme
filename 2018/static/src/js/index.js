@@ -53,3 +53,25 @@ window[EventForm] = new EventForm();
 $('.marquee').marquee({
     duration: parseInt($('.marquee').width(), 10) / (100) * 1000
 });
+
+if ($('.backtotop').length) {
+    var scrollTrigger = 100, // px
+        backToTop = function () {
+            var scrollTop = $(window).scrollTop();
+            if (scrollTop > scrollTrigger) {
+                $('.backtotop').addClass('active');
+            } else {
+                $('.backtotop').removeClass('active');
+            }
+        };
+    backToTop();
+    $(window).on('scroll', function () {
+        backToTop();
+    });
+    $('.backtotop').on('click', function (e) {
+        e.preventDefault();
+        $('html,body').animate({
+            scrollTop: 0
+        }, 700);
+    });
+}
