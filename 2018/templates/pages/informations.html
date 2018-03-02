@@ -1,40 +1,120 @@
-{% extends "pages/custompage.html" %}
+{% extends "pages/page.html" %}
 {% load i18n mezzanine_tags keyword_tags pages_tags organization_tags %}
 
-{% block page_content %}
+{% block body_class %}organization{% endblock %}
 
-    {% if page.custompage.blocks.all|length > 3 %}
-        <div class="row">
-            {% with page.custompage.blocks.all as blocks %}
-                {% for block in blocks %}
-                    <div class="col-md-8">
-                        <div class="page__block-special page__block-special--{{ block.background_color }}">
-                            {{ block.content|richtext_filters|safe }}
-                        </div>
-                    </div>
-                {% endfor %}
-            {% endwith %}
-        </div>
-    {% endif %}
+{% block meta_title %}{% trans "Network" %}{% endblock %}
 
+{% block meta_description %}
+    {% metablock %}
+        {{ organization.description }}
+    {% endmetablock %}
+{% endblock %}
+
+{% block page_class %}
+    organization
+{% endblock %}
+
+{% block breadcrumb_menu %}
     {{ block.super }}
+    <li class="breadcrumb__item active">{% trans "Network" %}</li>
+{% endblock %}
+
+
+
+
+{% block page_content %}
+<!-- PASS MANIFESTE -->
+<h2 style="text-align: center;">PASS MANIFESTE</h2>
+<p style="text-align: center;">Pour tous, b&eacute;n&eacute;ficiez du tarif privil&eacute;gi&eacute; abonn&eacute; Pass ManiFeste<br /> avec l'achat, en une fois, d'au moins trois spectacles de votre choix.</p>
+<p style="text-align: center;"></p>
+<h5 style="text-align: center;">Acc&eacute;dez ensuite au tarif abonn&eacute; pour tout spectacle suppl&eacute;mentaire.</h5>
+<p style="text-align: center;"><a class="wys-button-white-main-small" href="/informations/achat-pass/">COMMANDER</a></p>
+
+<!-- PASS JEUNE -->
+<h2 style="text-align: center;">PASS JEUNE</h2>
+<p style="text-align: center;">Pour les jeunes de moins de 26 ans.<br />B&eacute;n&eacute;ficiez du tarif privil&eacute;gi&eacute; abonn&eacute; Pass Jeunes avec l'achat,<br />en une fois, d'au moins deux spectacles de votre choix.</p>
+<h5 style="text-align: center;">Acc&eacute;dez ensuite au tarif abonn&eacute; Jeunes pour tout spectacle suppl&eacute;mentaire.</h5>
+<p style="text-align: center;"><a class="wys-button-white-accent-small" href="/informations/achat-pass/">COMMANDER</a></p>
+
+
+<p><strong>Par t&eacute;l&eacute;phone</strong><br /><strong></strong>01 44 78 12 40</p>
+<p><strong>En ligne</strong><br />Sur ce site : directement au sein de la page &Eacute;v&eacute;nements en cliquant sur le bouton <em>R&eacute;server</em> ou par mail &agrave; <a href="mailto:billetterie@ircam.fr" target="_blank">billetterie(@)ircam.fr</a>. <br />Toute r&eacute;servation doit &ecirc;tre suivie du r&eacute;glement imm&eacute;diat par carte bancaire ou de l'envoi d'un ch&egrave;que dans les 48h.</p>
+<p><strong>Par courrier</strong><br />Envoyez votre <a href="/media/uploads/documents/formulaire_resa.pdf" target="_blank">bulletin de r&eacute;servation</a> (pdf) accompagn&eacute; du r&eacute;glement (CB ou ch&egrave;que &agrave; l'ordre de l'Ircam) et de la photocopie des pi&egrave;ces justificatives pour les tarifs r&eacute;duits &agrave; :<br />Ircam - Billetterie<br />1, place Igor-Stravinsky - 75004 Paris</p>
+<p></p>
+
+
+<p><strong>Sur place</strong><br />1, place Igor-Stravinsky - 75004 ParIs<br />du lundi au vendredi de 11h &agrave; 19h</p>
+<p><strong>&Agrave; l'entr&eacute;e de chaque concert ou spectacle</strong><br />45 minutes avant le concert dans la limite des places disponibles.</p>
+<p>Les billets ne sont ni &eacute;changeables ni remboursables. Ils sont envoy&eacute;s par courrier jusqu&rsquo;&agrave; deux semaines avant la date de votre premier spectacle. Au-del&agrave;, les billets sont &agrave; retirer aupr&egrave;s de la billetterie de la salle de spectacle, 30 minutes avant le d&eacute;but de chaque repr&eacute;sentation.</p>
 
 {% endblock %}
 
-{% block page_sub_content %}
+{% block page_slider %}
 
-    {% if page.custompage.blocks.all|length > 3 %}
+    <div class="section" style="position: relative;">
+        <div class="map" id="network-map">
+        </div>
+    </div>
+    <div class="container hide">
+        <div class="row">
+            <div class="col-xs-12 col-md-10 col-md-push-1">
+                <div class="slider-network">
+                    <ul class="slider-network__slider" data-slider-network>
+                        {% for organization in organizations %}
 
-        {% with page.custompage.blocks.all|slice:"4:" as blocks %}
-            {% include "core/inc/block.html" %}
-        {% endwith %}
+                            <li class="slider-network__slide" data-marker-url="{{organization.url}}" data-marker-color="green" {% with organization.images.all|get_type:'card' as images %}{% if images %}data-marker-image="{{ MEDIA_URL }}{{images.first.file}}"{% endif %}{% endwith %} data-marker-idx="{{forloop.counter0}}" data-marker-lat="{{ organization.lat }}" data-marker-lng="{{ organization.lon }}">
+                                <div class="slider-network__slide-image"
+                                    {% with organization.images.all|get_type:'card' as images %}
+                                        {% if images %}
+                                            style="background-image: url('{{ MEDIA_URL }}{{images.first.file}}');"
+                                        {% endif %}
+                                    {% endwith %}
+                                >
+                                </div>
+                                <div class="slider-network__slide-title" data-marker-title>
+                                    {{ organization.name }}
+                                </div>
+                                <div class="slider-network__slide-subtitle" data-marker-subtitle>
+                                    {{ organization.address }}, {{ organization.postal_code }} {{ organization.city }}
+                                </div>
 
-    {% else %}
+                                <div class="slider-network__slide-description" data-marker-description>
 
-    {% with page.custompage.blocks.all as blocks %}
-        {% include "core/inc/block.html" %}
-    {% endwith %}
+                                    {% if organization.url or organization.telephone %}
+                                        <p>
+                                            {% if organization.url %}
+                                                <a href="{{ organization.url }}" target="_blank">
+                                                    {{ organization.url }}
+                                                </a><br />
+                                            {% endif %}
+                                            {% if organization.telephone %}
+                                                {{ organization.telephone }}
+                                            {% endif %}
+                                        </p>
+                                    {% endif %}
 
-    {% endif %}
+                                    {% if organization.subway_access %}
+                                        <p>
+                                            {{ organization.subway_access }}
+                                        </p>
+                                    {% endif %}
 
+                                    <p>
+                                        {% with event_location=organization.event_locations.first.event_location %}
+                                            <a href="{% url 'event_list' %}?event_locations_filter[]={{ event_location.title|urlencode }}" class="button button--xsmall button--black">
+                                                {% trans "LINKED EVENTS" %}
+                                            </a>
+                                        {% endwith %}
+                                    </p>
+                                </div>
+
+                            </li>
+
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
