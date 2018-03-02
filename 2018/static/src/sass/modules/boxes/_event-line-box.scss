@@ -186,6 +186,10 @@ $module: ".event-line-box";
         z-index: 3;
         @include transform(translateY(-50%));
 
+        a {
+            display: block;
+        }
+
         @include mq($until: sm) {
             width: auto;
 

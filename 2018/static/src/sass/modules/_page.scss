@@ -586,6 +586,15 @@ $module: ".page";
 
     }
 
+    &--events {
+
+        margin-top: -30px;
+        @include mq($until: sm) {
+            margin-top: 0;
+        }
+
+    }
+
     &--organization {
 
         @include mq($until: xs) {

@@ -67,6 +67,10 @@
                 }
             }
 
+            &:last-child {
+                display: none;
+            }
+
             &.disabled {
                 color: lightgrey;
 
@@ -107,7 +111,6 @@
 
                 &.calendar__weekend {
                     opacity: 1;
-                    font-weight: weight(regular);
                 }
             }
 
