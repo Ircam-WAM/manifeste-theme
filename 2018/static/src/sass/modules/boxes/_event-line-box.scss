@@ -35,6 +35,32 @@ $module: ".event-line-box";
         @include margin-bottom(1);
     }
 
+    &--vertigo {
+        background: $color-vertigo;
+        border: 1px solid rgba($color-vertigo, 0.35);
+
+        &:hover {
+            border: 1px solid rgba($color-vertigo, 1) !important;
+
+            .event-line-box__category {
+                background: $color-vertigo !important;
+            }
+
+            .event-line-box__image:before {
+                background: $color-vertigo !important;
+            }
+
+        }
+
+        .event-line-box__category {
+            background: $color-vertigo;
+        }
+
+        .event-line-box__image:before {
+            background: $color-vertigo;
+        }
+    }
+
     .lightSlider & {
         margin-bottom: 0 !important;
     }

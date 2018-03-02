@@ -162,6 +162,18 @@
 
             @include transition(all 0.25s ease);
 
+            &.vertigo {
+                &:hover:not(.disabled) {
+                    background: $color-vertigo;
+                    border-color: $color-vertigo;
+                }
+
+                &.active {
+                    background: $color-vertigo;
+                    border-color: $color-vertigo;
+                }
+            }
+
             &:hover:not(.disabled) {
                 background: $color-main;
                 color: white;

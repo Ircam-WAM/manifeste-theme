@@ -20,6 +20,8 @@ var EventForm = function() {
         this.init();
         this.initBaseFilters();
         this.checkFilters();
+
+        $('input.vertigo').parents('li').addClass('vertigo');
     }
 
     if(this.$homeform.length > 0) {
