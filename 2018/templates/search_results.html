@@ -64,6 +64,10 @@
                                 {% with result as product %}
                                     {% include 'network/person/includes/person_search.html' %}
                                 {% endwith %}
+                            {% elif result|classname == 'Media' %}
+                                {% with result as media %}
+                                    {% include 'media/media/includes/media_search.html' %}
+                                {% endwith %}
                             {% else %}
                                 {% with result as page %}
                                     {% include 'pages/page/includes/page_search.html' %}
