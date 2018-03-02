@@ -588,8 +588,6 @@ $module: ".page";
 
     &--organization {
 
-        margin-top: -80px;
-
         @include mq($until: xs) {
 
         }
