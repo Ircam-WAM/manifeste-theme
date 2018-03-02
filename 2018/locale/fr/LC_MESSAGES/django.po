@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-27 16:09+0000\n"
+"POT-Creation-Date: 2018-03-01 14:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -204,6 +204,7 @@ msgid "Trainers"
 msgstr "Encadrants"
 
 #: templates/agenda/event_detail.html:129 templates/network/person_list.html:8
+#: templates/network/person_list.html:35
 msgid "Artists"
 msgstr "Artistes"
 
@@ -213,7 +214,7 @@ msgstr "Événements"
 
 #: templates/agenda/event_list.html:33
 msgid "Events to come"
-msgstr "Événements du lieu"
+msgstr "Événements"
 
 #: templates/agenda/event_location_detail.html:40
 #: templates/agenda/includes/event_location.html:15
@@ -535,11 +536,7 @@ msgstr ""
 msgid "Add to"
 msgstr ""
 
-#: templates/includes/social.html:7
-msgid "Twitter feed"
-msgstr ""
-
-#: templates/includes/social.html:20
+#: templates/includes/social.html:8
 msgid "Instagram feed"
 msgstr "Fil Instagram"
 
@@ -567,10 +564,16 @@ msgstr ""
 
 #: templates/job/inc/job_offer_card.html:17
 #: templates/magazine/article/article_detail.html:31
+#: templates/media/audio/audio_detail.html:24
+#: templates/media/playlist_detail.html:23
+#: templates/media/video/video_detail.html:23
 msgid "Published on"
 msgstr ""
 
 #: templates/job/inc/job_offer_card.html:23
+#: templates/media/inc/playlist_audio_card.html:26
+#: templates/media/inc/playlist_video_card.html:23
+#: templates/media/media/includes/media_card.html:26
 msgid "View"
 msgstr ""
 
@@ -583,6 +586,9 @@ msgid "Please come back later. There is no job offer at the moment."
 msgstr ""
 
 #: templates/magazine/article/article_detail.html:28
+#: templates/media/audio/audio_detail.html:21
+#: templates/media/playlist_detail.html:20
+#: templates/media/video/video_detail.html:20
 msgid "Back to news"
 msgstr "Revenir aux articles"
 
@@ -595,6 +601,18 @@ msgstr "À découvrir aussi"
 #: templates/magazine/article/article_list.html:34
 msgid "News"
 msgstr "Actualité"
+
+#: templates/magazine/article/includes/article_card.html:50
+#, fuzzy
+#| msgid "read more"
+msgid "Read more"
+msgstr "lire la suite"
+
+#: templates/magazine/article/includes/article_card.html:66
+#, fuzzy
+#| msgid "Articles"
+msgid "Article"
+msgstr "Articles"
 
 #: templates/magazine/brief/inc/brief_card.html:6
 msgid "Brief !"
@@ -616,9 +634,7 @@ msgstr "Articles"
 msgid "Media"
 msgstr "Media"
 
-#: templates/media/audio/audio_detail.html:30
 #: templates/media/audio/audio_overlay.html:31
-#: templates/media/video/video_detail.html:28
 #: templates/media/video/video_overlay.html:29
 msgid "Publish date"
 msgstr "Date de publication"
