@@ -87,7 +87,7 @@
                     <ul class="slider-network__slider" data-slider-network>
                         {% for organization in organizations %}
 
-                            <li class="slider-network__slide" data-marker-url="{{organization.url}}" data-marker-color="green" {% with organization.images.all|get_type:'card' as images %}{% if images %}data-marker-image="{{ MEDIA_URL }}{{images.first.file}}"{% endif %}{% endwith %} data-marker-idx="{{forloop.counter0}}" data-marker-lat="{{ organization.lat }}" data-marker-lng="{{ organization.lon }}">
+                            <li class="slider-network__slide" data-marker-url="{{organization.url}}" data-marker-color="blue" {% with organization.images.all|get_type:'card' as images %}{% if images %}data-marker-image="{{ MEDIA_URL }}{{images.first.file}}"{% endif %}{% endwith %} data-marker-idx="{{forloop.counter0}}" data-marker-lat="{{ organization.lat }}" data-marker-lng="{{ organization.lon }}">
                                 <div class="slider-network__slide-image"
                                     {% with organization.images.all|get_type:'card' as images %}
                                         {% if images %}
@@ -126,7 +126,7 @@
 
                                     <p>
                                         {% with event_location=organization.event_locations.first.event_location %}
-                                            <a href="{% url 'event_list' %}?event_locations_filter[]={{ event_location.title|urlencode }}" class="button button--xsmall button--black">
+                                            <a href="{% url 'event_list' %}?event_locations_filter[]={{ event_location.title|urlencode }}" class="button button--xsmall button--main">
                                                 {% trans "LINKED EVENTS" %}
                                             </a>
                                         {% endwith %}

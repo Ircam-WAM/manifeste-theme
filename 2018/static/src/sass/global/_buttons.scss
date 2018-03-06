@@ -107,6 +107,19 @@ $module: ".button";
 
     }
 
+    &--main {
+
+        background-color: $color-main;
+        color: $color-white;
+        border: 1px solid $color-main;
+
+        &:hover {
+            background-color: $color-white;
+            color: $color-main;
+        }
+
+    }
+
     &--white-accent {
 
         background-color: white;
