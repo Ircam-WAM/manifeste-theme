@@ -30,6 +30,10 @@ $module: ".page";
 
     .event-line-box {
         @include margin-bottom(2);
+
+        @include mq($until: sm) {
+            @include margin-bottom(1);
+        }
     }
 
     &__date {

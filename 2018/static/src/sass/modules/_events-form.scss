@@ -97,8 +97,10 @@
                 }
             }
 
-            &:hover:not(.disabled) {
-                color: $color-main;
+            @include mq($from: sm) {
+                &:hover:not(.disabled) {
+                    color: $color-main;
+                }
             }
 
             display: inline-block;
@@ -166,9 +168,11 @@
             @include transition(all 0.25s ease);
 
             &.vertigo {
-                &:hover:not(.disabled) {
-                    background: $color-vertigo;
-                    border-color: $color-vertigo;
+                @include mq($from: sm) {
+                    &:hover:not(.disabled) {
+                        background: $color-vertigo;
+                        border-color: $color-vertigo;
+                    }
                 }
 
                 &.active {
@@ -177,13 +181,15 @@
                 }
             }
 
-            &:hover:not(.disabled) {
-                background: $color-main;
-                color: white;
-                border-color: $color-main;
-
-                label, a {
+            @include mq($from: sm) {
+                &:hover:not(.disabled) {
+                    background: $color-main;
                     color: white;
+                    border-color: $color-main;
+
+                    label, a {
+                        color: white;
+                    }
                 }
             }
 

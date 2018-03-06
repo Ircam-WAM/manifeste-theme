@@ -131,6 +131,7 @@ $module: ".event-line-box";
 
         @include mq($until: sm) {
             position: static;
+            background: white;
         }
 
         /*@include mq($until: lg) {
@@ -195,13 +196,13 @@ $module: ".event-line-box";
 
             position: relative;
             /* width: 100%; */
-            display: block;
+            display: inline-block;
             top: 0;
             transform: none;
             /* right: 0; */
             /* width: 100%; */
             margin-top: 23px;
-            left: 1.5rem;
+            left: 1rem;
         }
 
     }
@@ -267,7 +268,8 @@ $module: ".event-line-box";
         @include mq($until: sm) {
             position: static;
             @include transform(translateY(0));
-            @include padding(1);
+            @include padding(0.75);
+            color: $color-black;
         }
 
     }
@@ -297,7 +299,7 @@ $module: ".event-line-box";
         }
 
         @include mq($until: sm) {
-            color: white;
+            color: $color-main;
             margin-right: 0px;
 
             font-size: 22px;
@@ -316,7 +318,7 @@ $module: ".event-line-box";
         text-transform: uppercase;
 
         @include mq($until: sm) {
-            color: white;
+            color: $color-main;
 
             font-size: 14px;
             line-height: 16px;
@@ -343,7 +345,9 @@ $module: ".event-line-box";
         }
 
         @include mq($until: sm) {
-            color: white;
+            color: $color-black;
+            @include font-size(m);
+            @include margin-top(.5);
         }
 
     }

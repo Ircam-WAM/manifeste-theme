@@ -38,7 +38,7 @@ $module: ".article-box";
     }
 
     @include mq($until: md) {
-        @include padding(.5);
+        @include padding(0);
     }
 
     .slider-home & {
