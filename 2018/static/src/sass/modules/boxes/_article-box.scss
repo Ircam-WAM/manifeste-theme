@@ -425,12 +425,20 @@ $module: ".article-box";
 
             /* Rectangle 9: */
             background: $color-main;
+
+            .vertigo & {
+                background: $color-vertigo;
+            }
         }
 
         &:hover {
             border: 0;
             background-color: $color-background;
             box-shadow: 0 5px 20px rgba($color-main, 0.5);
+
+            .vertigo & {
+                box-shadow: 0 5px 20px rgba($color-vertigo, 0.5);
+            }
 
             #{$module}__image-container {
                 background: black;
@@ -450,12 +458,19 @@ $module: ".article-box";
                 color: $color-main;
                 background: $color-white;
                 box-shadow: 0 0px 0px 5px $color-white;
+                .vertigo & {
+                    color: $color-vertigo;
+                }
             }
 
             #{$module}__tags {
                 color: $color-white;
                 background: $color-main;
                 box-shadow: 0 0 0 5px $color-main;
+                .vertigo & {
+                    background: $color-vertigo;
+                    box-shadow: 0 0 0 5px $color-vertigo;
+                }
             }
 
             #{$module}__desc {
