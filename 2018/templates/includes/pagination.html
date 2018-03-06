@@ -15,7 +15,7 @@
                 {% endif %}
 
                 {% for page in current_page.visible_page_range %}
-                <li class="pagination__item">
+                <li class="pagination__item {% if page == current_page.number %} active{% endif %}">
                     <a class="pagination__link{% if page == current_page.number %} active{% endif %}" href="?{{ page_var }}={{ page }}{% if querystring %}&{{ querystring }}{% endif %}">{{ page }}</a>
                 </li>
                 {% endfor %}
