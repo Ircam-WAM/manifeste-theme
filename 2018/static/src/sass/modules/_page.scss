@@ -274,11 +274,18 @@ $module: ".page";
             margin-bottom: 0;
         }
 
+        &--red {
+            border: 1px solid $color-accent;
+        }
+
+        &--yellow {
+            border: 1px solid $color-main;
+        }
+
         &--red,
         &--yellow {
-            border: 1px solid #CCCCCC;
             position: relative;
-            background: url(../img/header-pattern-faded.png);
+            background: white;
             padding: 12px;
 
             >div {

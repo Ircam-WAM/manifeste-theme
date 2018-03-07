@@ -27,7 +27,7 @@ $module: ".tag";
 
     @include font-size(l);
     @include line-height(1.4);
-    @include typeface(sans-serif);
+    @include typeface(serif-condensed);
     font-weight: weight(regular);
 
     &--small {
@@ -40,6 +40,13 @@ $module: ".tag";
         @include font-size(xs);
         @include line-height(1);
         @include padding-right(.25);
+        @include padding-left(.25);
+        margin-left: 10px;
+    }
+
+    &--vertigo {
+        background: $color-vertigo;
+        color: $color-black;
     }
 
     &--category {

@@ -58,7 +58,11 @@
         {% for category in object.categories.all %}
             {% comment %}{% if forloop.first %} | {% endif %}{% endcomment %}
             {% if not forloop.first %}, {% endif %}
-            {{ category }}
+            {% if category|lower|cut:" " == 'forumvertigo' %}
+                {% trans 'Article' %} <span class="tag tag--xsmall tag--vertigo">Forum vertigo</span>
+            {% else %}
+                {{ category }}
+            {% endif %}
         {% endfor %}
     {% else %}
         {% trans 'Article' %}

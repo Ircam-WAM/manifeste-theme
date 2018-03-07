@@ -46,7 +46,7 @@
 
         font-weight: weight(light);
         font-family: $serif;
-        font-size: 16px;
+        font-size: 20px;
 
         @include mq($until: md) {
             display: none;
@@ -59,7 +59,7 @@
                 width: 5%;
                 text-transform: uppercase;
                 font-family: $serif;
-                font-size: 18px;
+                font-size: 20px;
                 font-weight: weight(heavy);
 
                 &:hover:not(.disabled) {

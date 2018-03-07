@@ -161,7 +161,7 @@ $module: ".media-box";
         }
 
         @include mq($until: md) {
-            top: 195px;
+            top: 215px;
         }
 
         @include mq($until: sm) {

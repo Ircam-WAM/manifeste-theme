@@ -65,7 +65,12 @@ $module: ".pagination";
             }
         }
 
+        @include transition(all .25s ease-in-out);
         &.active {
+            background: $color-main;
+        }
+
+        &:hover {
             background: $color-main;
         }
 
