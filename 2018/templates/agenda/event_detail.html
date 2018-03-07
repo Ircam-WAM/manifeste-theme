@@ -137,7 +137,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-md-push-2 tac">
-                        <div class="row">
+                        <div class="row{% if event.category|lower|cut:" " == 'vertigo' or event.parent.category.strip|lower|cut:" " == 'vertigo' %} vertigo{% endif %}">
                                 <div data-slider-related-artists>
                                 {% for person in event.persons.all %}
                                     {% with person.person as person %}

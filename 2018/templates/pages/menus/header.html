@@ -38,7 +38,7 @@
                     {% endif %}
                 {% endwith %}
             {% else %}
-                <li class="nav-header__item" {{ page.custompage.class_css }}>
+                <li class="nav-header__item {{ page.custompage.class_css }}">
                     <a class="nav-header__item-link{% if page.is_current_or_ascendant %} active{% endif %}" href="{{ page.get_absolute_url }}" title="{{ page.title }}">{{ page.title }}</a>
                     {% if page.has_children_in_menu %}
                         {% page_menu page "pages/menus/header_tree_primary.html" %}

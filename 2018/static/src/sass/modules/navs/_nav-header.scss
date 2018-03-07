@@ -361,13 +361,15 @@ $module: ".nav-header";
             }
         }
 
-        &:hover {
-            color: white;
-            &:before {
+        @include mq($from: sm) {
+            &:hover {
                 color: white;
-            }
-            &:after {
-                @include transform(scaleX(1));
+                &:before {
+                    color: white;
+                }
+                &:after {
+                    @include transform(scaleX(1));
+                }
             }
         }
 
@@ -581,9 +583,11 @@ $module: ".nav-header";
                 display: none;
             }
 
-            &.hover {
-                &:before {
-                    display: none;
+            @include mq($from: sm) {
+                &.hover {
+                    &:before {
+                        display: none;
+                    }
                 }
             }
 
@@ -647,7 +651,13 @@ $module: ".nav-header";
             color: $color-background;
             @include font-size(l);
 
-            &:hover {
+            @include mq($from: sm) {
+                &:hover {
+                    color: $color-white;
+                }
+            }
+
+            &.active {
                 color: $color-white;
             }
 
