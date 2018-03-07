@@ -163,6 +163,33 @@ $module: ".hero";
 
     }
 
+    &__bottom {
+
+        text-align: center;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        color: white;
+
+        font-size: 17px;
+        text-transform: uppercase;
+        font-family: $sans-serif;
+        @include animation(bounceHero 2s infinite);
+
+        i {
+            font-size: 20px;
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 40px;
+        }
+
+        @media (orientation: portrait) {
+            bottom: 180px;
+        }
+
+    }
+
     &__right {
 
         text-align: left;
@@ -241,4 +268,16 @@ $module: ".hero";
 
     }
 
+}
+
+@include keyframes(bounceHero) {
+	0%, 20%, 50%, 80%, 100% {
+    @include transform(translateY(0));
+  }
+	40% {
+    @include transform(translateY(-15px));
+  }
+	60% {
+    @include transform(translateY(-8px));
+  }
 }

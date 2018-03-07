@@ -36,6 +36,34 @@ HomeMenu.prototype.init = function() {
         $($elements.get(0)).addClass('active');
 
     });*/
+    var is_touch_device = function() {
+        return 'ontouchstart' in window;
+    }
+
+    if($('body.home').length > 0) {
+
+        var scrollDown = function() {
+            $('html, body').animate({
+                scrollTop:$(window).height()
+            }, 'slow');
+        };
+        var idle = setTimeout(function() {
+            scrollDown();
+        }, 5000);
+
+        $('#jsHero').click(function(e) {
+            scrollDown();
+        });
+        var clearIdle = function() {
+            clearTimeout(idle);
+            $(window).unbind('scroll', clearIdle);
+            $(window).unbind('click', clearIdle);
+            $(window).unbind('touch', clearIdle);
+        };
+
+        $(window).scroll(clearIdle);
+        $(window).click(clearIdle);
+    }
 
 };
 
