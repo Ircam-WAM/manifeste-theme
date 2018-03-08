@@ -57,13 +57,9 @@
                                     {% include 'shop/product/includes/product_search.html' %}
                                 {% endwith %}
                             {% elif result|classname == 'Article' %}
-                                {% with result as product %}
-                                    {% include 'magazine/article/includes/article_search.html' %}
-                                {% endwith %}
+                                {% include 'magazine/article/includes/article_search.html' %}
                             {% elif result|classname == 'Person' %}
-                                {% with result as person %}
-                                    {% include 'network/person/includes/person_search.html' %}
-                                {% endwith %}
+                                {% include 'network/person/includes/person_search.html' %}
                             {% elif result|classname == 'Media' %}
                                 {% with result as media %}
                                     {% include 'media/media/includes/media_search.html' %}

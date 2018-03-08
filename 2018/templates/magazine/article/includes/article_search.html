@@ -22,7 +22,7 @@
 {% endblock %}
 
 {% block url %}
-    {{ page.get_absolute_url }}
+    {% url 'magazine-article-detail' result.slug %}
 {% endblock %}
 
 {% block content %}
