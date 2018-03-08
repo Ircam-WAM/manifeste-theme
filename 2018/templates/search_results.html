@@ -61,7 +61,7 @@
                                     {% include 'magazine/article/includes/article_search.html' %}
                                 {% endwith %}
                             {% elif result|classname == 'Person' %}
-                                {% with result as product %}
+                                {% with result as person %}
                                     {% include 'network/person/includes/person_search.html' %}
                                 {% endwith %}
                             {% elif result|classname == 'Media' %}
