@@ -20,7 +20,7 @@
                 <div class="page__meta-section">{% trans "Location(s)" %}</div>
 
                 <div class="page__meta-title">
-                    {{ event.location }}
+                    {{ event.location.title }}
                     {% if event.location.room %}
                         <small>{{ event.location.room }}</small>
                     {% endif %}
