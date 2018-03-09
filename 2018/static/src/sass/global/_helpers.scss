@@ -255,6 +255,12 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
+
+    .vertigo & {
+        a {
+            @extend .wys-vertigo-link;
+        }
+    }
 }
 .white-bg {
     background: white;
@@ -281,6 +287,15 @@
 .hide-until-sm {
     @include mq($until: sm) {
         display: none !important;
+    }
+}
+.invisible-until-sm {
+    @include mq($until: sm) {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        height: 0;
+        margin-bottom: 0 !important;
+        margin-top: 0 !important;
     }
 }
 .fsl-until-sm {

@@ -74,6 +74,9 @@ $module: ".nav-header";
             @include mq($until: md) {
                 margin-left: 90px;
             }
+            @include mq($until: sm) {
+                margin-left: 0;
+            }
         }
 
         &:before {
@@ -313,6 +316,12 @@ $module: ".nav-header";
         }
 
         .vertigo & {
+            @include mq($until: sm) {
+                display: inline-block;
+                &:after {
+                    right: -10px;
+                }
+            }
             &:before {
                 content: '';
                 @include margin-right(.4);

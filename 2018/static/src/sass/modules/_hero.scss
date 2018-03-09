@@ -185,7 +185,8 @@ $module: ".hero";
         }
 
         @media (orientation: portrait) {
-            bottom: 180px;
+            top: 35px;
+            bottom: auto;
         }
 
     }

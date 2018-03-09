@@ -139,6 +139,10 @@ $module: ".page";
             max-width: 100%;
             height: auto;
         }
+
+        @include mq($until: sm) {
+            @include margin-bottom(1);
+        }
     }
 
     &__meta-separator {
