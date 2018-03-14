@@ -31,39 +31,26 @@
 
             </div>
         {% endif %}
-
-        {% if event.prices.all %}
-            {% if event.prices.all.0|floatformat != '0' %}
-
-                <div class="col-md-4">
-
+        <div class="col-md-4">
+            {% if event.prices.all %}
+                {% if event.prices.all.0|floatformat != '0' %}
                     <div class="page__meta-section">{% trans "Price(s)" %}</div>
-
-                    {% for price in event.prices.all %}
-                        <div class="page__meta-title">
-                            {% if price.event_price_description.description %}
-                                {{ price.event_price_description.description }} :
-                            {% endif %}
-                            {{ price.value|floatformat:"-2" }} {{ price.unit }}
-                        </div>
-                    {% endfor %}
-                </div>
-
-            {% else %}
-
-                <div class="col-md-4">
-
-                    <div class="page__meta-section">{% trans "Price(s)" %}</div>
-
-                    <div class="page__meta-title">
-                        {{ event.no_price_comments }}
-                    </div>
-
-                </div>
-
+                        {% for price in event.prices.all %}
+                            <div class="page__meta-title">
+                                {% if price.event_price_description.description %}
+                                    {{ price.event_price_description.description }} :
+                                {% endif %}
+                                {{ price.value|floatformat:"-2" }} {{ price.unit }}
+                            </div>
+                        {% endfor %}
+                {% endif %}    
             {% endif %}
-        {% endif %}
-
+            {% if event.no_price_comments %}
+                <div class="page__meta-title">
+                    {{ event.no_price_comments|richtext_filters|safe }}
+                </div>
+            {% endif %}          
+        </div>
         <div class="col-md-4">
 
             {% if event.prices.all %}
