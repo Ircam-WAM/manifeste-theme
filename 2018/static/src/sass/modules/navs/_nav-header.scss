@@ -66,13 +66,16 @@ $module: ".nav-header";
                 width: 0;
             }
 
-            margin-left: 165px;
+            margin-left: 80px;
 
             @include mq($until: lg) {
-                margin-left: 140px;
+                margin-left: 70px;
             }
             @include mq($until: md) {
-                margin-left: 90px;
+                margin-left: 55px;
+            }
+            @include mq($until: sm) {
+                margin-left: 0;
             }
         }
 
@@ -313,6 +316,12 @@ $module: ".nav-header";
         }
 
         .vertigo & {
+            @include mq($until: sm) {
+                display: inline-block;
+                &:after {
+                    right: -10px;
+                }
+            }
             &:before {
                 content: '';
                 @include margin-right(.4);

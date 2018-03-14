@@ -22,7 +22,7 @@
 
 {% endif %}
 
-{% if dynamic_content.other|length > 0 %}
+{% if dynamic_content.other|length > 0 and object|classname != 'Event' %}
     <div class="pb2">
         <div class="container">
             <div class="row tac">

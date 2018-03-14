@@ -37,8 +37,8 @@ $module: ".tag";
     }
 
     &--xsmall {
-        @include font-size(xs);
-        @include line-height(1);
+        font-size: 10px;
+        @include line-height(0.8);
         @include padding-right(.25);
         @include padding-left(.25);
         margin-left: 10px;
