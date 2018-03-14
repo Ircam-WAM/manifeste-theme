@@ -52,7 +52,7 @@ $module: ".search";
         top: 2rem;
         right: 2rem;
         z-index: 2;
-        color: white;
+        color: $color-main;
         display: block;
 
         width: 40px;
@@ -63,7 +63,7 @@ $module: ".search";
             height: 1px;
             content: "";
             display: block;
-            background: white;
+            background: $color-main;
 
             position: absolute;
             top: 20px;
