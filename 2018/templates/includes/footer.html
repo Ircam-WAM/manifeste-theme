@@ -7,7 +7,7 @@
 
             <div class="col-xxs-16 col-sm-push-1 col-sm-5 tac">
 
-                <a href="{% url "home" %}" title="{% trans 'Home' %}">
+                <a href="{{ host_organization.url }}" title="{% trans 'Home' %}">
                     {% with host_organization.images|get_type:"logo_footer" as images %}
                       {% if images %}
                        {% with images|first as img %}
