@@ -21,11 +21,14 @@
                 {% endif %}
             {% else %}
                 {{ event.start|date:"DATE_EVENT_FORMAT" }}
+                {% if periods %}
+                -
+                {% endif %}
                 {% for period in periods %}
                     {% if period.date_to and period.date_to|date:"H:i" != "23:59" %}
                         - <span>{{ period.date_from|time:"TIME_FORMAT" }} - {{ period.date_to|time:"TIME_FORMAT" }}</span>
                     {% else %}
-                        - <span>{% if forloop.last or periods|length == 2 %} {% trans "and"%} {% elif not forloop.first %}, {% endif %}
+                        {% if forloop.last or periods|length == 2 %} {% if not forloop.first %} {% trans "and"%} {% endif %} {% elif not forloop.first %}, {% endif %}
                         {{ period.date_from|time:"TIME_FORMAT" }}</span>
                     {% endif %}
                 {% endfor %}
