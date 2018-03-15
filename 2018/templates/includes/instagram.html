@@ -4,7 +4,7 @@
 
 <div class="instagram">
     {% for media in recent_media|slice:"6" %}
-        <a class="instagram__item" href="http://instagram.com/p/{{media.code}}" target="_blank" title="{{ media.caption }}">
+        <a class="instagram__item" href="http://instagram.com/p/{{ media.shortcode }}" target="_blank" title="{{ media.caption }}">
             <img src="{{ media.thumbnail_src }}"/>
             <span>{{ media.caption }}</span>
         </a>
