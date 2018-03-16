@@ -568,14 +568,14 @@ msgstr ""
 #: templates/media/playlist_detail.html:23
 #: templates/media/video/video_detail.html:23
 msgid "Published on"
-msgstr ""
+msgstr "Publié le"
 
 #: templates/job/inc/job_offer_card.html:23
 #: templates/media/inc/playlist_audio_card.html:26
 #: templates/media/inc/playlist_video_card.html:23
 #: templates/media/media/includes/media_card.html:26
 msgid "View"
-msgstr ""
+msgstr "Voir"
 
 #: templates/job/job_offer_list.html:4 templates/job/job_offer_list.html:15
 msgid "Jobs"
@@ -603,15 +603,11 @@ msgid "News"
 msgstr "Actualité"
 
 #: templates/magazine/article/includes/article_card.html:50
-#, fuzzy
-#| msgid "read more"
 msgid "Read more"
-msgstr "lire la suite"
+msgstr "Lire la suite"
 
 #: templates/magazine/article/includes/article_card.html:66
-#, fuzzy
-#| msgid "Articles"
-msgid "Article"
+msgid "Articles"
 msgstr "Articles"
 
 #: templates/magazine/brief/inc/brief_card.html:6
@@ -656,11 +652,11 @@ msgstr "Diffusion en direct"
 
 #: templates/media/playlist_list.html:21
 msgid "audio"
-msgstr ""
+msgstr "audio"
 
 #: templates/media/playlist_list.html:26
 msgid "video"
-msgstr ""
+msgstr "vidéo"
 
 #: templates/network/inc/person/person_card_circle.html:32
 msgid "resume"
@@ -673,7 +669,7 @@ msgstr "Réseaux"
 
 #: templates/network/organization_list.html:76
 msgid "LINKED EVENTS"
-msgstr ""
+msgstr "Événement(s) lié(s)"
 
 #: templates/network/person_activity_timesheet/person_activity_timesheet_create.html:4
 #: templates/network/person_activity_timesheet/person_activity_timesheet_create.html:11
