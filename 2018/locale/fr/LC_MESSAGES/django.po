@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-01 14:49+0000\n"
+"POT-Creation-Date: 2018-03-20 10:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -182,12 +182,13 @@ msgstr ""
 #: templates/agenda/event/includes/event_card.html:69
 #: templates/agenda/includes/event_linecard.html:37
 #: templates/agenda/includes/event_linecard.html:46
-#: templates/agenda/includes/event_metainfo.html:76
-#: templates/agenda/includes/event_metainfo.html:82
+#: templates/agenda/includes/event_metainfo.html:62
+#: templates/agenda/includes/event_metainfo.html:68
 #: templates/agenda/includes/event_metainfo_line.html:23
 #: templates/agenda/includes/event_metainfo_line.html:29
 #: templates/agenda/includes/event_metainfo_slider.html:24
-#: templates/agenda/includes/event_search.html:15
+#: templates/agenda/includes/event_search.html:18
+#: templates/agenda/includes/event_search.html:25
 msgid "Reserve"
 msgstr "Réserver"
 
@@ -199,14 +200,11 @@ msgstr "Revenir aux événements"
 msgid "Agenda"
 msgstr "Rendez-vous"
 
-#: templates/agenda/event_detail.html:127
-msgid "Trainers"
-msgstr "Encadrants"
-
-#: templates/agenda/event_detail.html:129 templates/network/person_list.html:8
-#: templates/network/person_list.html:35
-msgid "Artists"
-msgstr "Artistes"
+#: templates/agenda/event_detail.html:129
+#: templates/core/inc/related_content.html:30
+#: templates/core/inc/related_content_dynamic.html:7
+msgid "Also discover"
+msgstr "À découvrir aussi"
 
 #: templates/agenda/event_list.html:8
 msgid "Events"
@@ -231,8 +229,9 @@ msgstr "Lieux"
 #: templates/agenda/includes/event_date.html:47
 #: templates/agenda/includes/event_date.html:50
 #: templates/agenda/includes/event_date.html:66
-#: templates/agenda/includes/event_date_line.html:28
-#: templates/agenda/includes/event_date_line.html:39
+#: templates/agenda/includes/event_date_line.html:31
+#: templates/agenda/includes/event_date_line.html:42
+#: templates/agenda/includes/event_date_line_search.html:26
 #: templates/agenda/includes/event_date_slider.html:28
 #: templates/agenda/includes/event_date_slider.html:39
 msgid "and"
@@ -241,8 +240,10 @@ msgstr "et"
 #: templates/agenda/includes/event_date.html:41
 #: templates/agenda/includes/event_date.html:64
 #: templates/agenda/includes/event_date.html:75
-#: templates/agenda/includes/event_date_line.html:37
-#: templates/agenda/includes/event_date_line.html:49
+#: templates/agenda/includes/event_date_line.html:40
+#: templates/agenda/includes/event_date_line.html:52
+#: templates/agenda/includes/event_date_line_search.html:24
+#: templates/agenda/includes/event_date_line_search.html:31
 #: templates/agenda/includes/event_date_slider.html:37
 #: templates/agenda/includes/event_date_slider.html:44
 msgid "through"
@@ -256,7 +257,8 @@ msgid "to"
 msgstr "au"
 
 #: templates/agenda/includes/event_linecard.html:52
-#: templates/agenda/includes/event_metainfo.html:88
+#: templates/agenda/includes/event_metainfo.html:73
+#: templates/agenda/includes/event_search.html:29
 msgid "Free"
 msgstr "Gratuit"
 
@@ -280,8 +282,7 @@ msgstr "Lieu"
 msgid "ACCESS PLAN"
 msgstr "Plan d'accès"
 
-#: templates/agenda/includes/event_metainfo.html:40
-#: templates/agenda/includes/event_metainfo.html:56
+#: templates/agenda/includes/event_metainfo.html:37
 msgid "Price(s)"
 msgstr "Prix"
 
@@ -307,14 +308,9 @@ msgstr "Téléchargements"
 
 #: templates/core/inc/related_content.html:8
 #: templates/magazine/article/article_detail.html:87
-#: templates/network/person_detail.html:80
+#: templates/network/person_detail.html:90
 msgid "Linked events"
 msgstr "Événement(s) lié(s)"
-
-#: templates/core/inc/related_content.html:30
-#: templates/core/inc/related_content_dynamic.html:7
-msgid "Also discover"
-msgstr "À découvrir aussi"
 
 #: templates/email/account_approve.html:3
 #: templates/email/account_approve.txt:3
@@ -328,7 +324,7 @@ msgstr ""
 
 #: templates/email/account_approve.html:6
 #: templates/email/account_approve.txt:6
-#: templates/network/person_detail.html:42
+#: templates/network/person_detail.html:52
 #: templates/network/person_detail_multiple_activities.html:34
 msgid "Email"
 msgstr ""
@@ -469,6 +465,10 @@ msgstr ""
 msgid "Rate"
 msgstr ""
 
+#: templates/home/inc/hero.html:19
+msgid "Discover the festival"
+msgstr "Découvrir le festival"
+
 #: templates/includes/editable_form.html:16
 msgid "Save"
 msgstr ""
@@ -593,7 +593,7 @@ msgid "Back to news"
 msgstr "Revenir aux articles"
 
 #: templates/magazine/article/article_detail.html:120
-#: templates/network/person_detail.html:113
+#: templates/network/person_detail.html:123
 msgid "Linked contents"
 msgstr "À découvrir aussi"
 
@@ -602,12 +602,20 @@ msgstr "À découvrir aussi"
 msgid "News"
 msgstr "Actualité"
 
+#: templates/magazine/article/article_list.html:39
+msgid "Filter by"
+msgstr ""
+
 #: templates/magazine/article/includes/article_card.html:50
 msgid "Read more"
 msgstr "Lire la suite"
 
-#: templates/magazine/article/includes/article_card.html:66
-msgid "Articles"
+#: templates/magazine/article/includes/article_card.html:64
+#: templates/magazine/article/includes/article_card.html:70
+#: templates/magazine/article/includes/article_search.html:20
+#, fuzzy
+#| msgid "Articles"
+msgid "Article"
 msgstr "Articles"
 
 #: templates/magazine/brief/inc/brief_card.html:6
@@ -664,12 +672,20 @@ msgstr "résumé"
 
 #: templates/network/organization_list.html:6
 #: templates/network/organization_list.html:20
+#: templates/pages/informations.html:6 templates/pages/informations.html:20
 msgid "Network"
 msgstr "Réseaux"
 
 #: templates/network/organization_list.html:76
+#: templates/pages/informations.html:130
 msgid "LINKED EVENTS"
 msgstr "Événement(s) lié(s)"
+
+#: templates/network/person/includes/person_search.html:16
+#, fuzzy
+#| msgid "Artists"
+msgid "Artist"
+msgstr "Artistes"
 
 #: templates/network/person_activity_timesheet/person_activity_timesheet_create.html:4
 #: templates/network/person_activity_timesheet/person_activity_timesheet_create.html:11
@@ -682,7 +698,13 @@ msgstr ""
 msgid "No timesheet."
 msgstr ""
 
-#: templates/network/person_detail.html:54
+#: templates/network/person_detail.html:24
+#, fuzzy
+#| msgid "Back to events"
+msgid "Back to artists"
+msgstr "Revenir aux artistes"
+
+#: templates/network/person_detail.html:64
 #: templates/network/person_detail_multiple_activities.html:52
 #: templates/pages/teampage.html:133
 msgid "Team"
@@ -712,9 +734,19 @@ msgstr ""
 msgid "Links"
 msgstr ""
 
+#: templates/network/person_list.html:8 templates/network/person_list.html:35
+msgid "Artists"
+msgstr "Artistes"
+
 #: templates/pages/form.html:55 templates/projects/project_ict_create.html:39
 msgid "Submit"
 msgstr ""
+
+#: templates/pages/informations.html:24
+#, fuzzy
+#| msgid "Locations"
+msgid "Informations"
+msgstr "Lieux"
 
 #: templates/pages/menus/vous_etes.html:6
 #: templates/pages/menus/vous_etes.html:15
@@ -845,10 +877,10 @@ msgstr ""
 msgid "Search Results"
 msgstr "Resultats de la recherche"
 
-#: templates/search_results.html:67
+#: templates/search_results.html:75
 #, python-format
 msgid "No results were found matching your query: %(query)s"
-msgstr "Aucun résultat n'a été trouvé pour votre recherche :"
+msgstr "Aucun résultat n'a été trouvé pour votre recherche : %(query)s"
 
 #: templates/shop/billing_shipping.html:17
 #, python-format
@@ -1142,3 +1174,6 @@ msgstr ""
 #: templates/styles.html:4 templates/styles.html:6 templates/styles.html:12
 msgid "Styles"
 msgstr ""
+
+#~ msgid "Trainers"
+#~ msgstr "Encadrants"
