@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-20 11:31+0000\n"
+"POT-Creation-Date: 2018-03-30 14:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -481,6 +481,14 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
+#: templates/includes/footer.html:43
+msgid ""
+"Sign up for our newsletter to stay up-to-date with the festival and the "
+"Forum Vertigo"
+msgstr ""
+"Inscrivez-vous à notre newsletter afin de recevoir les dernières actualités "
+"du festival et du Forum Vertigo."
+
 #: templates/includes/footer.html:55 templates/includes/footer.html:57
 msgid "Download the program"
 msgstr "Télécharger la brochure"
@@ -672,7 +680,6 @@ msgstr "résumé"
 
 #: templates/network/organization_list.html:6
 #: templates/network/organization_list.html:20
-#: templates/pages/informations.html:6 templates/pages/informations.html:20
 msgid "Network"
 msgstr "Réseaux"
 
@@ -738,6 +745,10 @@ msgstr "Artistes"
 
 #: templates/pages/form.html:55 templates/projects/project_ict_create.html:39
 msgid "Submit"
+msgstr ""
+
+#: templates/pages/informations.html:6 templates/pages/informations.html:20
+msgid "Infos"
 msgstr ""
 
 #: templates/pages/informations.html:24
