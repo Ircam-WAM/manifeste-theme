@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-03 10:30+0000\n"
+"POT-Creation-Date: 2018-04-03 12:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -688,7 +688,7 @@ msgid "Network"
 msgstr "Réseaux"
 
 #: templates/network/organization_list.html:76
-#: templates/pages/informations.html:157
+#: templates/pages/informations.html:155
 msgid "LINKED EVENTS"
 msgstr "Événement(s) lié(s)"
 
@@ -781,7 +781,7 @@ msgid ""
 msgstr ""
 "Accédez ensuite au tarif abonné<br/>pour tout spectacle supplémentaire."
 
-#: templates/pages/informations.html:39 templates/pages/informations.html:53
+#: templates/pages/informations.html:39 templates/pages/informations.html:51
 msgid "ORDER"
 msgstr "COMMANDER"
 
@@ -790,41 +790,31 @@ msgid "YOUTH PASS"
 msgstr "PASS JEUNE"
 
 #: templates/pages/informations.html:48
-#, fuzzy
-#| msgid ""
-#| "For those under 26 years old take advantage of special ticket prices with "
-#| "Youth Pass available with an initial purchase of at least two "
-#| "performances of your choice."
 msgid ""
 "For those under 26 years old take advantage of special ticket prices with "
-"Youth Pass available\n"
-"                    with an initial purchase of at least two performances of "
-"your choice."
+"Youth Pass available with an initial purchase of at least two performances "
+"of your choice."
 msgstr ""
 "Pour les jeunes de moins de 26 ans.Bénéficiez du tarif privilégié abonné "
 "Pass Jeunes avec l'achat,en une fois, d'au moins deux spectacles de votre "
 "choix."
 
-#: templates/pages/informations.html:50
-#, fuzzy
-#| msgid ""
-#| "After your initial purchase, all additional tickets are available for the "
-#| "discount prices."
+#: templates/pages/informations.html:49
 msgid ""
 "After your initial purchase, all additional tickets are available for the "
-"prices indicated\n"
-"                    for the Youth Pass."
-msgstr "Accédez ensuite au tarif abonné pour tout spectacle supplémentaire."
-
-#: templates/pages/informations.html:65
-msgid "Telephone"
+"prices indicated for the Youth Pass."
 msgstr ""
+"Accédez ensuite au tarif abonné Jeunes pour tout spectacle supplémentaire."
 
-#: templates/pages/informations.html:69
+#: templates/pages/informations.html:63
+msgid "Telephone"
+msgstr "Par téléphone"
+
+#: templates/pages/informations.html:67
 msgid "Online"
 msgstr "En ligne"
 
-#: templates/pages/informations.html:70
+#: templates/pages/informations.html:68
 msgid ""
 "Click on RESERVATION at the bottom of each performance description on this "
 "website to purchase tickets online or by mail at"
@@ -832,7 +822,7 @@ msgstr ""
 "Sur ce site : directement au sein de la page Événements en cliquant sur le "
 "bouton Réserver ou par mail à"
 
-#: templates/pages/informations.html:72
+#: templates/pages/informations.html:70
 msgid ""
 "All reservations must be confirmed by payment by credit card or cheque "
 "within 48 hours."
@@ -840,19 +830,19 @@ msgstr ""
 "Toute réservation doit être suivie du réglement immédiat par carte bancaire "
 "ou de l'envoi d'un chèque dans les 48h."
 
-#: templates/pages/informations.html:74
+#: templates/pages/informations.html:72
 msgid "Correspondance"
 msgstr "Par courrier"
 
-#: templates/pages/informations.html:75
+#: templates/pages/informations.html:73
 msgid "Send your"
 msgstr "Envoyez votre"
 
-#: templates/pages/informations.html:76
+#: templates/pages/informations.html:74
 msgid "reservation form"
 msgstr "bulletin de réservation"
 
-#: templates/pages/informations.html:76
+#: templates/pages/informations.html:74
 msgid ""
 "(pdf in French) and payment (credit card or cheque made out to IRCAM) and a "
 "photocopy of proof required for discounted tickets to:"
@@ -860,23 +850,23 @@ msgstr ""
 "(pdf) accompagné du réglement (CB ou chèque à l'ordre de l'Ircam) et de la "
 "photocopie des pièces justificatives pour les tarifs réduits à :"
 
-#: templates/pages/informations.html:87
+#: templates/pages/informations.html:85
 msgid "At IRCAM"
 msgstr "Sur place"
 
-#: templates/pages/informations.html:89
+#: templates/pages/informations.html:87
 msgid "Monday through Friday, 11am-7pm"
 msgstr "du lundi au vendredi de 11h à 19h"
 
-#: templates/pages/informations.html:91
+#: templates/pages/informations.html:89
 msgid "On site prior to each concert or performance"
 msgstr "À l'entrée de chaque concert ou spectacle"
 
-#: templates/pages/informations.html:92
+#: templates/pages/informations.html:90
 msgid "45 minutes before the concert, limited seats available."
 msgstr "45 minutes avant le concert dans la limite des places disponibles."
 
-#: templates/pages/informations.html:93
+#: templates/pages/informations.html:91
 msgid ""
 "Tickets are non-exchangeable and non-refundable. All tickets will be sent by "
 "post until two\n"
@@ -890,11 +880,11 @@ msgstr ""
 "delà, les billets sont à retirer auprès de la billetterie de la salle de "
 "spectacle, 30 minutes avant le début de chaque représentation."
 
-#: templates/pages/informations.html:104
+#: templates/pages/informations.html:102
 msgid "Ticket prices"
 msgstr "Tarifs"
 
-#: templates/pages/informations.html:105
+#: templates/pages/informations.html:103
 msgid ""
 "Ticket prices (full price, discount price, ManiFeste &amp; Youth Pass, "
 "Discovery Pack) are indicated\n"
@@ -903,7 +893,7 @@ msgstr ""
 "Les tarifs (plein, réduit, Pass ManiFeste et Pass Jeunes) sont signalés sur "
 "ce site directement au sein du descriptif de chaque événement."
 
-#: templates/pages/informations.html:107
+#: templates/pages/informations.html:105
 msgid ""
 "Job seekers, RSA recipients, intermittent performance workers, , Laissez-"
 "passer du Centre Pompidou cardholders, groups of 10 people or more, members "
@@ -919,7 +909,7 @@ msgstr ""
 "Radio France, du Musée national d'art moderne, de la Philharmonie de Paris, "
 "de Nanterre-Amandiers et détenteurs du PASS 1014."
 
-#: templates/pages/informations.html:108
+#: templates/pages/informations.html:106
 #, python-format
 msgid ""
 "Students: 50%% of your ticket price is reimbursed by the Crous (Crous, "
