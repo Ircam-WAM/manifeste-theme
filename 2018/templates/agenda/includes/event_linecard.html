@@ -48,9 +48,15 @@
                             </object>
                         {% else %}
                         <object class="event-line-box__button">
-                            <span class="button button--accent button--no-hover">
-                                {% trans "Free" %}
-                            </span>
+                            {% if event.external_id %}
+                                <a class="button button--white-accent" href="{% url 'event_booking' event.slug %}" class="event__meta__btn">
+                                    {% trans "Reserve" %}
+                                </a>
+                            {% else %}
+                                <span class="button button--accent button--no-hover">
+                                    {% trans "Free" %}
+                                </span>
+                            {% endif %}
                         </object>
                         {% endif %}
                     {% endif %}

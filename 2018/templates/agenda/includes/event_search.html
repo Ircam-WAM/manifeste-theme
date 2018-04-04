@@ -25,9 +25,15 @@
                         {% trans "Reserve" %}
                     </a>
                 {% else %}
-                <a class="ml1 button button--xsmall button--accent button--no-hover">
-                    {% trans "Free" %}
-                </a>
+                    {% if event.external_id %}
+                        <a class="ml1 button button--xsmall button--white-accent" href="{% url 'event_booking' event.slug %}" class="event__meta__btn">
+                            {% trans "Reserve" %}
+                        </a>
+                    {% else %}
+                        <span class="ml1 button button--xsmall button--accent button--no-hover">
+                            {% trans "Free" %}
+                        </span>
+                    {% endif %}
                 {% endif %}
             {% endif %}
         {% endif %}
