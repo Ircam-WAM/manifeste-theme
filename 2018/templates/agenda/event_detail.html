@@ -26,7 +26,9 @@
         {% if previous_event_url %}
             <a href="{{ previous_event_url }}" class="page__previous"><i class="fa fa-angle-left"></i></a>
         {% endif %}
-        {% include 'agenda/includes/event_linecard.html' %}
+        {% block event_line_card %}
+            {% include 'agenda/includes/event_linecard.html' %}
+        {% endblock %}
         {% if next_event_url %}
             <a href="{{ next_event_url }}" class="page__next"><i class="fa fa-angle-right"></i></a>
         {% endif %}
@@ -52,7 +54,9 @@
         </div>
     {% endif %}
 
-    {% include 'agenda/includes/event_metainfo.html' %}
+    {% block meta_info %}
+        {% include 'agenda/includes/event_metainfo.html' %}
+    {% endblock %}
 
     {% block event_detail_content %}
         {% if event.content %}

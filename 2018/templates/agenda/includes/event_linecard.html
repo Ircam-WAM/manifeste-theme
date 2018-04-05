@@ -27,37 +27,38 @@
             {% endwith %}
 
             <div class="event-line-box__content">
-
-                {% if event.prices.all and not is_archive %}
-                    {% if event.trainings.all|length %}
-                        {% with event.links.all as links %}
-                            {% if links %}
+                {% if is_reservable|default_if_none:True %}
+                    {% if event.prices.all and not is_archive %}
+                        {% if event.trainings.all|length %}
+                            {% with event.links.all as links %}
+                                {% if links %}
+                                    <object class="event-line-box__button">
+                                        <a href="{{ links|get_type_link:'link'|first }}" class="button button--white-accent">
+                                            {% trans "Reserve" %}
+                                        </a>
+                                    </object>
+                                {% endif %}
+                            {% endwith %}
+                        {% else %}
+                            {% if event.prices.all.0|floatformat != '0' %}
                                 <object class="event-line-box__button">
-                                    <a href="{{ links|get_type_link:'link'|first }}" class="button button--white-accent">
+                                    <a href="{% url 'event_booking' event.slug %}" class="button button--white-accent">
                                         {% trans "Reserve" %}
                                     </a>
                                 </object>
-                            {% endif %}
-                        {% endwith %}
-                    {% else %}
-                        {% if event.prices.all.0|floatformat != '0' %}
-                            <object class="event-line-box__button">
-                                <a href="{% url 'event_booking' event.slug %}" class="button button--white-accent">
-                                    {% trans "Reserve" %}
-                                </a>
-                            </object>
-                        {% else %}
-                        <object class="event-line-box__button">
-                            {% if event.external_id %}
-                                <a class="button button--white-accent" href="{% url 'event_booking' event.slug %}" class="event__meta__btn">
-                                    {% trans "Reserve" %}
-                                </a>
                             {% else %}
-                                <span class="button button--accent button--no-hover">
-                                    {% trans "Free" %}
-                                </span>
+                            <object class="event-line-box__button">
+                                {% if event.external_id %}
+                                    <a class="button button--white-accent" href="{% url 'event_booking' event.slug %}" class="event__meta__btn">
+                                        {% trans "Reserve" %}
+                                    </a>
+                                {% else %}
+                                    <span class="button button--accent button--no-hover">
+                                        {% trans "Free" %}
+                                    </span>
+                                {% endif %}
+                            </object>
                             {% endif %}
-                        </object>
                         {% endif %}
                     {% endif %}
                 {% endif %}
