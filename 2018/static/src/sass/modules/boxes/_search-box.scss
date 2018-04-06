@@ -65,7 +65,7 @@ $module: ".search-box";
             @include font-size(s);
             font-weight: weight(regular);
             text-transform: none;
-            display: block;
+            display: inline-block;
             @include margin-top(.25);
         }
 
