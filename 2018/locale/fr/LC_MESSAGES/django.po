@@ -910,7 +910,9 @@ msgid ""
 "Students: 50%% of your ticket price is reimbursed by the Crous (Crous, "
 "billetterie spectacles - 12, rue de l'Abbaye - 75006 Paris - 01 40 51 37 12 "
 "or at"
-msgstr "Étudiants : 50% des billets pris en charge par le Crous (Crous, billetterie spectacles - 12, rue de l'Abbaye - 75006 Paris - 01 40 51 37 12 ou à billetterie(@)crous-paris.fr)"
+msgstr ""
+"Étudiants : 50% des billets pris en charge par le Crous (Crous, "
+"billetterie spectacles - 12, rue de l'Abbaye - 75006 Paris - 01 40 51 37 12 ou à "
 
 #: templates/pages/menus/vous_etes.html:6
 #: templates/pages/menus/vous_etes.html:15
