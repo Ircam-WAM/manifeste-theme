@@ -902,20 +902,15 @@ msgid ""
 "national d'art moderne, members of the Philharmonie de Paris, members of the "
 "Nanterre-Amandiers, and PASS 1014 cardholders."
 msgstr ""
-"Tarif réduit : étudiants, moins de 26 ans, demandeurs d'emploi et "
-"bénéficiaires RSA, intermittents du spectacle, Laissez-passer du Centre "
-"Pompidou, groupes à partir de 10 personnes, membres du Forum, carte du "
-"ministère de la Culture et de la Communication, abonnés des concerts de "
-"Radio France, du Musée national d'art moderne, de la Philharmonie de Paris, "
-"de Nanterre-Amandiers et détenteurs du PASS 1014."
+"Étudiants, moins de 26 ans, demandeurs d'emploi et bénéficiaires RSA, intermittents du spectacle, Laissez-passer du Centre Pompidou, groupes à partir de 10 personnes, membres du Forum, carte du ministère de la Culture et de la Communication, PASS 104, abonnés Philharmonie de Paris, abonnés la Villette, abonnés MC93, abonnés Nouveau Théâtre de Montreuil, abonnés T2G."
+"Attention : Nécessitant un justificatif, les billets à tarif réduit sont à retirer à l'entrée de la salle ou se tient la représentation, 30 minutes avant sous présentation d'un justificatif."
 
 #: templates/pages/informations.html:106
-#, python-format
 msgid ""
 "Students: 50%% of your ticket price is reimbursed by the Crous (Crous, "
 "billetterie spectacles - 12, rue de l'Abbaye - 75006 Paris - 01 40 51 37 12 "
 "or at"
-msgstr ""
+msgstr "Étudiants : 50% des billets pris en charge par le Crous (Crous, billetterie spectacles - 12, rue de l'Abbaye - 75006 Paris - 01 40 51 37 12 ou à billetterie(@)crous-paris.fr)"
 
 #: templates/pages/menus/vous_etes.html:6
 #: templates/pages/menus/vous_etes.html:15
