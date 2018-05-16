@@ -21,8 +21,9 @@
 {% endblock %}
 
 {% block page_title %}
-    <div class="invisible-until-sm section-title section-title--uppercase section-title--underline section-title--main section-title--no-margin"><a href="/person-list"><i class="fsl fa fa-angle-left"></i>{% trans "Back to artists" %}</a></div>
-
+    {% if back %}
+    <div class="invisible-until-sm section-title section-title--uppercase section-title--underline section-title--main section-title--no-margin {% if is_vertigo %}vertigo{% endif %}"><a href="{{ back.url }}"><i class="fsl fa fa-angle-left"></i>{{ back.label }}</a></div>
+    {% endif %}
     {% editable person.title %}
         <h1 class="section-title section-title--big section-title--uppercase section-title--main">{{ person.title }}</h1>
     {% endeditable %}
@@ -30,7 +31,7 @@
     {% with person.activities.first as activity %}
         {% if activity.status %}
         <div class="page__date">
-                {{ activity.status }}
+            {{ activity.status }}
         </div>
         {% endif %}
     {% endwith %}
@@ -77,7 +78,6 @@
         </ul>
       {% endif %}
     {% endwith %}
-
 {% endblock %}
 
 {% block page_related_content %}
@@ -87,7 +87,7 @@
         <div class="container">
             <div class="row tac">
                 <div class="col-xs-16">
-                    <h2 class="section-title section-title--underline section-title--uppercase section-title--main">{% trans "Linked events" %}</h2>
+                    <h2 class="section-title section-title--underline section-title--uppercase section-title--main {% if is_vertigo %}vertigo{% endif %}">{% trans "Linked events" %}</h2>
                 </div>
             </div>
             <div class="row">
@@ -100,7 +100,7 @@
                                 <div class="row">
 
                                     <div class="col-md-12 col-md-push-2">
-                                        {% include 'agenda/includes/event_linecard.html' %}
+                                        {% include 'agenda/includes/event_linecard.html' with is_vertigo=is_vertigo %}
                                     </div>
 
                                 </div>
