@@ -46,3 +46,16 @@
         </div>
     </div>
 {% endblock %}
+
+{% block footer_scripts_local %}
+    <!-- CONVERSION TAG -->
+    <script type="text/javascript" src="cstatic.weborama.fr/js/advertiserv2/adperf_conversion.js"></script>
+    <script type="text/javascript">
+        var adperftrackobj = {
+            fullhost : 'groupelemonde.solution.weborama.fr',
+            site : 2488,
+            conversion_page : 101
+        };
+        try{adperfTracker.track( adperftrackobj );}catch(err){}
+    </script>
+{% endblock %}
