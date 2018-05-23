@@ -38,10 +38,21 @@ $module: ".section-title";
     a {
         color: inherit;
         @include transition(all 0.5s ease-in-out);
+
         &:hover {
+
             color: $color-main;
+
             i {
                 @include transform(translateX(-50%));
+            }
+        }
+    }
+
+    &.vertigo {
+        a {
+            &:hover {
+                color: $color-vertigo;
             }
         }
     }
@@ -69,6 +80,12 @@ $module: ".section-title";
         border-color: $color-main;
         &:before {
             color: $color-main;
+        }
+        &.vertigo {
+            border-color: $color-vertigo;
+            &:before {
+                color: $color-vertigo;
+            }
         }
     }
 

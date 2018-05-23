@@ -4,7 +4,7 @@
 
     <div class="col-sm-16">
 
-        <a class="event-line-box{% if event.category|lower|cut:" " == 'vertigo' or event.parent.category.strip|lower|cut:" " == 'vertigo' %} event-line-box--vertigo{% endif %}" href="{{ event.get_absolute_url }}">
+        <a class="event-line-box{% if event.category|lower|cut:" " == 'vertigo' or event.parent.category.strip|lower|cut:" " == 'vertigo' or is_vertigo %} event-line-box--vertigo{% endif %}" href="{{ event.get_absolute_url }}">
 
             {% with event.images.all|get_type:'card' as images %}
                 {% if images %}

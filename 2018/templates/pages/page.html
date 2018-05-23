@@ -44,7 +44,7 @@
 
                 </div>
 
-                <div class="mb2 col-sm-16 col-md-12 page__content" data-summary-content>
+                <div class="mb2 col-sm-16 col-md-12 page__content {% if is_vertigo %}vertigo{% endif %} data-summary-content">
                     {% block page_content %}
                         {{ page.content }}
                     {% endblock %}
