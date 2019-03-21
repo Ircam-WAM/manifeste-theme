@@ -1,0 +1,30 @@
+{% extends "core/inc/search_card.html" %}
+{% load i18n mezzanine_tags organization_tags %}
+
+{% block title %}
+    {{ result.title }}
+{% endblock %}
+
+{% block icon %}user-o{% endblock %}
+
+{% block tags %}
+    <div class="search-box__tags">
+        {% with result.activities.first as activity %}
+            {% if activity.status %}
+                {{ activity.status }}
+            {% else %}
+                {% trans "Artist" %}
+            {% endif %}
+        {% endwith%}
+    </div>
+{% endblock %}
+
+{% block url %}
+    {% url 'organization-network-person-detail' result.slug %}
+{% endblock %}
+
+{% block content %}
+    {% if result.description != person|stringformat:"s" %}
+        {{ result.description|truncatewords_html:200|safe }}
+    {% endif %}
+{% endblock %}

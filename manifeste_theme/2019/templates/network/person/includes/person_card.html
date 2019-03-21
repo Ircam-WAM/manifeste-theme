@@ -1,0 +1,47 @@
+{% load i18n pages_tags mezzanine_tags media_tags organization_tags %}
+
+<div class="article-box article-box--person" >
+    {% with object.images.all|get_type:'card' as card_images %}
+        {% if card_images %}
+            <div class="article-box__header">
+                <a href="{{ object.get_absolute_url }}" title="{{ object.first_name }}&nbsp;{{ object.last_name }}">
+                    <div class="article-box__image-container">
+                        <figure class="article-box__image">
+                            <div class="img" style="background-image: url({{ MEDIA_URL }}{% thumbnail card_images.first 427 500 top=0.5 %});">
+
+                            </div>
+                        </figure>
+                    </div>
+                </a>
+            </div>
+        {% else %}
+            <div class="article-box__header">
+                <div class="article-box__image-container">
+                    <div class="article-box__image"></div>
+                </div>
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <div class="article-box__content tac">
+
+        {% with object.activities.first as activity %}
+            {% if activity.status %}
+                <div class="article-box__tags">
+                    {{ activity.status }}
+                </div>
+
+                <br />
+            {% endif %}
+        {% endwith%}
+
+        <a href="{{ object.get_absolute_url }}" title="{{ object.first_name }}&nbsp;{{ object.last_name }}"><h3 class="article-box__title">{{ object.first_name }}&nbsp;{{ object.last_name }}</h3></a>
+
+        {% if object.description %}
+            <div class="article-box__desc">{{ object.description|richtext_filters|safe|truncatechars_html:200 }}</div>
+        {% elif object.bio %}
+            <div class="article-box__desc">{{ object.bio|richtext_filters|safe|truncatechars_html:200 }}</div>
+        {% endif %}
+
+    </div>
+</div>
