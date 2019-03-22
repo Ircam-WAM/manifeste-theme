@@ -10,33 +10,9 @@
 {% block subtitle %}
     <div class="search-box__subtitle">
         {% include 'agenda/includes/event_date_line_search.html' with object=event %}
-        {% if event.prices.all and not is_archive %}
-            {% if event.trainings.all|length %}
-                {% with event.links.all as links %}
-                    {% if links %}
-                        <a href="{{ links|get_type_link:'link'|first }}" class="ml1 button button--xsmall button--white-accent">
-                            {% trans "Reserve" %}
-                        </a>
-                    {% endif %}
-                {% endwith %}
-            {% else %}
-                {% if event.prices.all.0|floatformat != '0' %}
-                    <a href="{% url 'event_booking' event.slug %}" class="ml1 button button--xsmall button--white-accent">
-                        {% trans "Reserve" %}
-                    </a>
-                {% else %}
-                    {% if event.external_id %}
-                        <a class="ml1 button button--xsmall button--white-accent" href="{% url 'event_booking' event.slug %}" class="event__meta__btn">
-                            {% trans "Reserve" %}
-                        </a>
-                    {% else %}
-                        <span class="ml1 button button--xsmall button--accent button--no-hover">
-                            {% trans "Free" %}
-                        </span>
-                    {% endif %}
-                {% endif %}
-            {% endif %}
-        {% endif %}
+        
+        {% include 'agenda/event/includes/reserve.html' %}       
+
     </div>
 {% endblock %}
 

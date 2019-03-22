@@ -20,9 +20,7 @@
                 {% endif %}
             </div>
             <div class="split-right">
-                <a href="{{ event.get_absolute_url }}" class="btn">
-                    <i class="icon icon__bookmark"></i> {% trans "Reserve" %}
-                </a>
+                {% include 'agenda/event/includes/reserve.html' %}
             </div>
         </div>
     </div>

@@ -52,35 +52,9 @@
             {% endif %}          
         </div>
         <div class="col-md-4">
-            {% if is_reservable|default_if_none:True %}
-                {% if event.prices.all %}
-                    {% if event.prices.all.0|floatformat != '0' %}
-                        {% if event.trainings.all|length %}
-                            {% with event.links.all as links %}
-                                {% if links %}
-                                    <a class="button button--white-accent" href="{{ links|get_type_link:'link'|first }}" class="event__meta__btn">
-                                        {% trans "Reserve" %}
-                                    </a>
-                                {% endif %}
-                            {% endwith %}
-                        {% else %}
-                            <a class="button button--white-accent" href="{% url 'event_booking' event.slug %}" class="event__meta__btn">
-                                {% trans "Reserve" %}
-                            </a>
-                        {% endif %}
-                    {% else %}
-                        {% if event.external_id %}
-                            <a class="button button--white-accent" href="{% url 'event_booking' event.slug %}" class="event__meta__btn">
-                                {% trans "Reserve" %}
-                            </a>
-                        {% else %}
-                            <span class="button button--accent button--no-hover">
-                                {% trans "Free" %}
-                            </span>
-                        {% endif %}
-                    {% endif %}
-                {% endif %}
-            {% endif %}            
+            
+            {% include 'agenda/event/includes/reserve.html' %}       
+            
             {% if event.brochure %}
                 <a href="{{ event.brochure.url }}" target="_blank" class=" mt1 page__meta-title page__meta-unused">
                     {{ event.brochure.filename }}

@@ -1,0 +1,20 @@
+{% load i18n  mezzanine_tags event_tags   organization_tags %}
+{% if not is_archive %}
+    {% if event.trainings.all|length %}
+        {% with event.links.all as links %}
+            {% if links %}
+                <a href="{{ links|get_type_link:'link'|first }}">
+                    {% trans "Reserve" %}
+                </a>
+            {% endif %}
+        {% endwith %}
+    {% elif event.links.all|get_type_link:'VEL' %}
+        <a href="{{ event.links.all|get_type_link:'VEL'|first }}" target="_blank">
+            {% trans "Reserve" %}
+        </a>
+    {% else %}
+        <span>
+            {% trans "Free" %}
+        </span>
+    {% endif %}
+{% endif %}
