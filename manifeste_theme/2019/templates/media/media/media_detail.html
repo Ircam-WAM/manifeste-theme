@@ -1,0 +1,76 @@
+{% extends "pages/page.html" %}
+{% load mezzanine_tags keyword_tags i18n organization_tags staticfiles %}
+
+{% block meta_title %}{{ media.title }}{% endblock %}
+
+{% block meta_keywords %}
+    {% metablock %}
+        {% keywords_for person as keywords %}
+        {% for keyword in keywords %}
+            {% if not forloop.first %}, {% endif %}
+            {{ keyword }}
+        {% endfor %}
+    {% endmetablock %}
+{% endblock %}
+
+{% block breadcrumb_menu %}
+    {{ block.super }}
+    <li class="c-breadcrumbs__item">
+        <a class="c-breadcrumbs__link" href="{% url 'organization-playlist-list' %}">{% trans "Media" %}</a>
+    </li>
+    <li class="c-breadcrumbs__item">{{ media.title }}</li>
+{% endblock %}
+
+{% block page_title %}
+    <div class="c-heading u-mbs">
+        <h1 class="c-heading__title">
+            {% editable media.title %}
+                {{ media.title }}
+            {% endeditable %}
+        </h1>
+    </div>
+{% endblock %}
+
+{% block page_tags %}
+    <ul class="c-tags u-mbs">
+        {# <li class="c-tags__tag">{% trans 'Media' %}</li> #}
+        {% if department_name %}
+            <li class="c-tags__tag">{{ department_name }}</li>
+        {% endif %}
+    </ul>
+{% endblock %}
+
+{% block page_sidebar %}
+    <div class="c-metas">
+        <ul class="c-metas__items">
+            <li class="c-metas__item">
+                <svg class="c-metas__icon" width="24" height="24" aria-label="{% trans 'Publish date' %}">
+                    <use xlink:href="{% static 'umr-stms/img/symbols.svg' %}#symbol-calendar"/>
+                </svg>
+                <span class="c-metas__label">
+                    {% editable media.publish_date %}
+                        {{ media.publish_date|date:"DATE_FORMAT" }}
+                    {% endeditable %}
+                </span>
+            </li>
+        </ul>
+    </div>
+
+    {% with media as object %}
+        {% include "includes/share_buttons.html" %}
+    {% endwith %}
+{% endblock %}
+
+{% block page_content %}
+    {% if media.description %}
+        <div class="c-content u-mbs">
+            <p>{{ media.description }}</p>
+        </div>
+    {% endif %}
+
+    {% with media.type as type %}
+        {% with "media/media/includes/"|add:type|add:".html" as template %}
+            {% include template %}
+        {% endwith %}
+    {% endwith %}
+{% endblock %}

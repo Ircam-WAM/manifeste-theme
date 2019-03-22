@@ -1,0 +1,7 @@
+{% load mezzanine_tags %}
+
+<div class="c-media js-media" data-media-type="video">
+    <ol class="c-media__items">
+      <li class="c-media__item js-media-item"{% if object.poster_url %} data-media-poster="{{ object.poster_url }}"{% endif %} data-media-src="{% for transcoded in object.transcoded.all %}{% if forloop.first %}{% else %},{% endif %}{{ transcoded.url }}{% if forloop.last %}{% endif %}{% endfor %}" data-media-mime="{% for transcoded in object.transcoded.all %}{% if forloop.first %}{% else %},{% endif %}{{ transcoded.mime_type }}{% if forloop.last %}{% endif %}{% endfor %}">{{ object.title }}{% if object.description and object.description != object.title %} <small>{{ object.description|safe }}</small>{% endif %}</li>
+    </ol>
+</div>
