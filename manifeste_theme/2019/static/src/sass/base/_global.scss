@@ -1,0 +1,51 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@-ms-viewport {
+  width: device-width;
+}
+
+html {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  position: relative;
+
+  &.no-js {
+    scroll-behavior: smooth;
+  }
+}
+
+@mixin no-scroll {
+  position: fixed;
+  height: 100%;
+}
+
+body {
+  background: $color-background none;
+  color: $color-foreground;
+  display: flex;
+  flex-direction: column;
+  font-family: $font-default;
+  font-size: em($font-size-default, $rem-baseline);
+  line-height: ($line-height-default / $font-size-default);
+  text-size-adjust: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  min-height: 100%;
+  width: 100%;
+
+  &.has-modal {
+    @include no-scroll;
+  }
+}
+
+@include mq($until: medium) {
+  body.has-navigation {
+    @include no-scroll;
+  }
+}

@@ -1,0 +1,18 @@
+
+@include mq($until: medium) {
+  .u-hide\@small {
+    display: none !important;
+  }
+}
+
+@include mq($from: medium, $until: large) {
+  .u-hide\@medium {
+    display: none !important;
+  }
+}
+
+@include mq($from: large) {
+  .u-hide\@large {
+    display: none !important;
+  }
+}

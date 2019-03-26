@@ -1,3 +1,5 @@
+@import "~video.js/src/css/vjs.scss";
+
 // -*- coding: utf-8 -*-
 
 // Copyright (c) 2016-2017 Ircam
@@ -24,12 +26,12 @@
 
 // The color of icons, text, and the big play button border.
 // Try changing to #0f0
-$primary-foreground-color: $color-main; // #fff default
+$primary-foreground-color: $color-primary; // #fff default
 
 // The default color of control backgrounds is mostly black but with a little
 // bit of blue so it can still be seen on all-black video frames, which are common.
 // Try changing to #900
-$primary-background-color: #2B333F;  // #2B333F default
+$primary-background-color: $color-black;  // #2B333F default
 
 // Try changing to true
 $center-big-play-button: true; // true default
@@ -149,7 +151,7 @@ $slider-bg-color: lighten($primary-background-color, 33%);
     background: #fff;
 }
 .vjs-ircam-skin .vjs-fullscreen-control {
-  border: 3px solid $color-main;
+  border: 3px solid $primary-foreground-color;
   box-sizing: border-box;
   cursor: pointer;
   margin-top: -7px;
@@ -212,7 +214,7 @@ $slider-bg-color: lighten($primary-background-color, 33%);
     content: ''; //Remove Circle from Progress Bar
 }
 .vjs-ircam-skin .vjs-volume-bar {
-    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAcCAYAAAAa/l2sAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyppVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTMyIDc5LjE1OTI4NCwgMjAxNi8wNC8xOS0xMzoxMzo0MCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUuNSAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoxMzU4NkFCRTZFMDExMUU2ODQyMjg1MjAwM0FFNjlBMyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDoxMzU4NkFCRjZFMDExMUU2ODQyMjg1MjAwM0FFNjlBMyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjAwNDYyQUZGNkUwMTExRTY4NDIyODUyMDAzQUU2OUEzIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjAwNDYyQjAwNkUwMTExRTY4NDIyODUyMDAzQUU2OUEzIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/U1vZAAAAFxJREFUeNpi/PWCYUABq/h/FP7vl4y++NQzMQwxMOrgUQcPdQez0MEOXwLym0eTxKiDRx08zEoJqub60SQx6uBRBw+BUmJAc/1okhh18KiDRx086uBRB9MUAAQYAFK9CG1Nh9VWAAAAAElFTkSuQmCC');
+    background: svg-url('<svg width="22" height="14" viewBox="0 0 22 14"><g fill="#{$slider-bg-color}"><path d="M0 9h4v5H0zM6 6h4v8H6zM12 3h4v11h-4zM18 0h4v14h-4z"/></g></svg>');
     background-size: 22px 14px;
     background-repeat: no-repeat;
     height: 100%;
@@ -223,7 +225,7 @@ $slider-bg-color: lighten($primary-background-color, 33%);
     border-radius: 0;
 }
 .vjs-ircam-skin .vjs-volume-level {
-    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAcCAYAAAAa/l2sAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyppVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTMyIDc5LjE1OTI4NCwgMjAxNi8wNC8xOS0xMzoxMzo0MCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUuNSAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowMDQ2MkFGOTZFMDExMUU2ODQyMjg1MjAwM0FFNjlBMyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowMDQ2MkFGQTZFMDExMUU2ODQyMjg1MjAwM0FFNjlBMyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjAwNDYyQUY3NkUwMTExRTY4NDIyODUyMDAzQUU2OUEzIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjAwNDYyQUY4NkUwMTExRTY4NDIyODUyMDAzQUU2OUEzIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+L58+xQAAAFtJREFUeNrs1DsOABAQRVEjrMH+d8cWKEatofHJyH2dkDjFm5Ga3dPEpMO5FdHZe++MBTBg6+Bw4Q9d3AuVAAz4sy2xdeqpBGDABrbE06mnEoABAwYM+Gi6AAMApVAJH04fDl8AAAAASUVORK5CYII=');
+    background: svg-url('<svg width="22" height="14" viewBox="0 0 22 14"><g fill="#{$primary-foreground-color}"><path d="M0 9h4v5H0zM6 6h4v8H6zM12 3h4v11h-4zM18 0h4v14h-4z"/></g></svg>');
     background-size: 22px 14px;
     background-repeat: no-repeat;
     max-width: 22px;

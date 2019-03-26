@@ -1,51 +1,28 @@
-// -*- coding: utf-8 -*-
+@charset "UTF-8";
 
-// Copyright (c) 2016-2017 Ircam
-// Copyright (c) 2016-2017 Jérémy Fabre
+// SHARED IMPORTS
 
-// This file is part of mezzanine-organization.
+@import "shared";
 
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU Affero General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
 
-// This program is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU Affero General Public License for more details.
+// BASE
+// Global scope styles
 
-// You should have received a copy of the GNU Affero General Public License
-// along with this program. If not, see <http://www.gnu.org/licenses/>.
+@import "base/fonts";
+@import "~normalize.css"; // https://github.com/necolas/normalize.css
+@import "base/global";
+@import "base/reset";
 
-@import "compass/reset/utilities";
-@import "compass/utilities";
-@import 'compass/css3';
 
-@import 'config/colors';
-@import 'config/fonts';
-@import 'config/variables';
-@import 'config/config';
+// COMPONENTS
+// Reutilisable components (banner, button, card…)
+// Prefix: c
 
-@import 'libs/all';
+@import "components/*.scss";
 
-@import 'utils/functions';
-@import 'utils/mixins';
 
-@import 'global/defaults';
-@import 'global/typography';
-@import 'global/forms';
-@import 'global/inputs';
-@import 'global/buttons';
-@import 'global/tables';
-@import 'global/helpers';
-@import 'global/wysiwyg';
+// UTILITIES
+// Utility classes (margin, padding, colors…)
+// Prefix: u
 
-@import 'layout/global';
-@import 'layout/grid';
-@import 'layout/header';
-@import 'layout/footer';
-
-@import 'modules/all';
-@import 'pages/all';
-@import 'vendors/all';
+@import "utilities/*.scss";
