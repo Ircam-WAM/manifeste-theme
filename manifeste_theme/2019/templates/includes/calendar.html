@@ -1,9 +1,46 @@
-<div class="container hide-xs">
-    <div class="row">
-        <div class="col-md-14 col-md-push-1">
-            <form action="{% url 'event_list' %}" method="GET" id="jsEventsHomeForm">
-                {{ event_calendar_form }}
-            </form>
-        </div>
-    </div>
-</div>
+{% load i18n organization_tags %}
+{% with shift='5' nb_week_days=7 %}
+{% with shift_int=shift|to_int%}
+<table border="1">
+    <thead>
+        <tr>
+            <td>{% trans 'LU' %}</td>
+            <td>{% trans 'MA' %}</td>
+            <td>{% trans 'ME' %}</td>
+            <td>{% trans 'JE' %}</td>
+            <td>{% trans 'VE' %}</td>
+            <td>{% trans 'SA' %}</td>
+            <td>{% trans 'DI' %}</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% with len=date_field|length|add:shift|to_int %}
+            {% for i in i|rjust:len %}
+                {% if forloop.first %}
+                    <tr>
+                {% endif %}
+                {% if forloop.counter0|divisibleby:nb_week_days and forloop.counter0 > 0 %}
+                </tr>
+                <tr>
+                {% endif %}
+                <td>
+                    {% if forloop.counter0 >= shift_int %}
+                        {% with i=forloop.counter0|subtract:shift %}
+                        {% with field=date_field|index:i %}
+                        <label for="{{ field.id_for_label }}">
+                            <span>{{ field.choice_label }}</span>
+                            <input type="radio" name="{{ field.name }}" id="{{ field.id_for_label }}" />
+                        </label>
+                        {% endwith %}
+                        {% endwith %}
+                    {% endif %}
+                </td>
+                {% if forloop.last %}
+                </tr>
+                {% endif %}
+            {% endfor %}
+        {% endwith %}
+    </tbody>
+</table>
+{% endwith %}
+{% endwith %}
