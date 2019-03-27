@@ -31,8 +31,10 @@
 {% endblock %}
 
 {% block main %}
-
-    {% include "includes/calendar.html" %}
+    
+    <form action="{% url 'event_list' %}" method="GET">    
+        {% include "includes/calendar.html" with date_field=event_calendar_form.event_day_filter %}
+    </form>
 
     {% include "home/inc/slider.html" %}
 
