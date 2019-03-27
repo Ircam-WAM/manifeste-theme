@@ -50,7 +50,8 @@ gulp.task('main-js', function () {
               options: {
                 presets: [
                   ['@babel/preset-env', {
-                    useBuiltIns: 'usage'
+                    useBuiltIns: 'usage',
+                    corejs: 2
                   }]
                 ],
                 plugins: ['@babel/plugin-syntax-dynamic-import']
@@ -153,7 +154,7 @@ gulp.task('prototype', function () {
       base: 'prototype',
       data: {
         settings: {
-          SITE_TITLE: 'LABO STMS'
+          SITE_TITLE: 'Manifeste 2019'
         },
         LANGUAGE_CODE: 'fr',
         user: {

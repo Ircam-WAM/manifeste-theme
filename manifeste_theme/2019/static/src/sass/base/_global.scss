@@ -27,8 +27,6 @@ html {
 body {
   background: $color-background none;
   color: $color-foreground;
-  display: flex;
-  flex-direction: column;
   font-family: $font-default;
   font-size: em($font-size-default, $rem-baseline);
   line-height: ($line-height-default / $font-size-default);

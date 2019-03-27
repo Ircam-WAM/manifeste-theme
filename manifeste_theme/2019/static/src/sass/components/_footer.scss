@@ -1,0 +1,6 @@
+.c-footer {
+  @include container;
+  flex: 0 0 auto;
+  position: relative;
+  z-index: $z-footer;
+}

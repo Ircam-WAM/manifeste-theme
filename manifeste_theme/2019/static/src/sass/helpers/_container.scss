@@ -1,0 +1,6 @@
+@mixin container {
+  margin: 0 auto;
+  padding: 0 rem($width-gutter);
+  width: 100%;
+  max-width: $width-container;
+}

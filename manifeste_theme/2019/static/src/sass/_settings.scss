@@ -1,18 +1,15 @@
 // COLORS
 
 $color-black:       #000000;
-$color-darkergrey:  #373A4C;
-$color-darkgrey:    #999FBF;
-$color-grey:        #BFC3D9;
-$color-lightgrey:   #E6E8F2;
-$color-lightergrey: #F7F8FC;
+$color-lightgrey:   #F1F1F1;
 $color-white:       #ffffff;
 $color-green:       #29CC6A;
-$color-red:         #FF1C2F;
+$color-red:         #ED0E4C;
 $color-orange:      #F5A623;
-$color-blue:        #4A90E2;
+$color-blue:        #A0CFF3;
 
 $color-primary:    $color-red;
+$color-secondary:  $color-blue;
 $color-foreground: $color-black;
 $color-background: $color-white;
 
@@ -24,41 +21,46 @@ $color-error:      $color-red;
 
 // FONTS
 
-$font-serif:      'Merryweather', serif;
-$font-sans-serif: 'Oswald', sans-serif;
+$font-serif:      "Merryweather", serif;
+$font-sans-serif: "Oswald", sans-serif;
 $font-code:       monospace;
 
 $font-default:   $font-serif;
-$font-primary:   $font-serif;
-$font-secondary: $font-sans-serif;
+$font-primary:   $font-sans-serif;
+$font-secondary: $font-serif;
 
 
 // DIMENSIONS
-$width-container: 384px;
-$width-container-small: 792px;
-$width-container-medium: 894px;
-$width-container-large: 1200px;
-$width-logo: 88px;
-$width-logo-small: 256px;
-$width-logo-large: 306px;
-$height-banner-small: 120px;
-$height-banner-large: 368px;
-$width-content: 894px;
-$width-sidebar: 282px;
+$width-container: 1136px;
+$width-gutter: 16px;
+$width-content: 960px;
+$height-header: 64px;
 
 // Z-INDEXES
 
-$z-modal:  50;
-$z-header: 40;
-$z-cookies: 30;
-$z-main:   20;
-$z-footer: 10;
+$z-header:  50;
+$z-cookies: 40;
+$z-main:    30;
+$z-social:  20;
+$z-footer:  10;
 
 
 // BREAKPOINTS
 
 $mq-breakpoints: (
-  small:  768px,  // Portrait
-  medium: 1024px, // Landscape
-  large:  1280px  // Widescreen
+  small:  720px,  // Portrait
+  medium: 960px, // Landscape
+  large:  1200px  // Widescreen
 );
+
+
+// ASSETS
+$asset-type-path: (
+  "image": "img/",
+  "font": "fonts/"
+);
+
+
+// CUSTOM SETTINGS
+
+$spacing-responsive: false;   // Generate `.u-(m|p)(t|b)(n|xs|s|m|l|xl)@(small|medium|large)` responsive utilities

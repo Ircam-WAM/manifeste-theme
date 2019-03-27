@@ -26,23 +26,20 @@ export default class {
       }
     }));
 
-    // Submenus
-    const items = Array.from(this.header.querySelectorAll('.js-header-item.has-submenu'));
-    items.forEach((item) => item.querySelector('.js-header-toggle').addEventListener('click', () => {
-      // For mobile
-      item.classList.toggle(item.classList.contains('is-active') ? 'is-closed' : 'is-open');
+    // Outerclick
+    document.addEventListener('click', (event) => {
+      if (this.header !== event.target) return;
+      this.header.classList.remove('is-open');
+      body.classList.remove('has-navigation');
+      window.scrollTo(0, offsetY);
+    });
 
-      // For desktop
-      items.forEach((i) => i.classList[i === item ? 'toggle' : 'remove']('is-open-only'));
+    window.addEventListener('scroll', this.scroll.bind(this));
+    this.scroll();
+  }
 
-      // Outerclick
-      document.addEventListener('click', (event) => {
-        if (!item.classList.contains('is-open-only') || item === event.target || item.contains(event.target)) return;
-        item.classList.remove('is-open-only')
-      });
-    }));
-
-    // Locale
-    this.header.querySelector('.js-header-locale').addEventListener('change', (event) => event.target.form.submit());
+  scroll() {
+    if (body.classList.contains('has-navigation')) return;
+    this.header.classList[(window.pageYOffset || document.documentElement.scrollTop) > 0 ? 'add' : 'remove']('has-scroll');
   }
 }

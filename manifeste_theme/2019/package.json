@@ -20,7 +20,7 @@
     "autoprefixer": "^9.3.1",
     "babel-loader": "^8.0.4",
     "browser-sync": "^2.26.1",
-    "core-js": "^3.0.0",
+    "core-js": "^2.6.5",
     "gulp": "3.9.1",
     "gulp-copy": "4.0.1",
     "gulp-if": "^2.0.2",
