@@ -1,6 +1,7 @@
 .c-main {
   @include container;
   flex: 1 0 auto;
+  padding-top: rem($height-header + 40px);
   position: relative;
   z-index: $z-main;
 }

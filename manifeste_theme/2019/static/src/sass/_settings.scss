@@ -1,6 +1,8 @@
 // COLORS
 
 $color-black:       #000000;
+$color-darkgrey:    #AAAAAA;
+$color-grey:        #D6D6D6;
 $color-lightgrey:   #F1F1F1;
 $color-white:       #ffffff;
 $color-green:       #29CC6A;
@@ -21,7 +23,7 @@ $color-error:      $color-red;
 
 // FONTS
 
-$font-serif:      "Merryweather", serif;
+$font-serif:      "Merriweather", serif;
 $font-sans-serif: "Oswald", sans-serif;
 $font-code:       monospace;
 
@@ -31,7 +33,9 @@ $font-secondary: $font-serif;
 
 
 // DIMENSIONS
-$width-container: 1136px;
+$width-container-small: 368px;
+$width-container-medium: 752px;
+$width-container-large: 1136px;
 $width-gutter: 16px;
 $width-content: 960px;
 $height-header: 64px;
@@ -48,9 +52,9 @@ $z-footer:  10;
 // BREAKPOINTS
 
 $mq-breakpoints: (
-  small:  720px,  // Portrait
-  medium: 960px, // Landscape
-  large:  1200px  // Widescreen
+  small:  768px,  // Portrait
+  medium: 1024px, // Landscape
+  large:  1280px  // Widescreen
 );
 
 

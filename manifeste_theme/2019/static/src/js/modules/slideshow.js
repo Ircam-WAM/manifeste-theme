@@ -12,8 +12,8 @@ class Slideshow {
     this.flickity = new Flickity(this.slideshow, {
       cellSelector: '.js-slideshow-slide',
       imagesLoaded: true,
-      pageDots: false,
-      arrowShape: 'M87.5 45.8h-64l25-21.8a4.2 4.2 0 1 0-5.4-6.3L9.8 46.9h-.1a4 4 0 0 0-.8 1l-.2.4a4.1 4.1 0 0 0 0 3.4l.3.3c.2.4.4.8.7 1v.1l33.4 29.2a4.2 4.2 0 1 0 5.5-6.3l-25-21.8h63.9a4.2 4.2 0 0 0 0-8.4z',
+      pageDots: (this.slideshow.dataset.slideshowDots !== undefined),
+      arrowShape: 'M0 50.022L29.022 21v23.639H100v10.705H29.022v23.7z',
       setGallerySize: false,
       cellAlign: 'left',
       contain: true

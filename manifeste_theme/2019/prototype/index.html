@@ -5,7 +5,9 @@
 {% block main %}
     <div class="c-home">
         <a href="#" class="c-home__ircam">
-            <svg class="c-home__logo"></svg>
+            <svg class="c-home__logo" width="152" height="88" aria-label="IRCAM Centre Pompidou">
+                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-ircam"/>
+            </svg>
         </a>
         <div class="c-home__edito">
             <h1 class="c-home__title"><a href="#" class="c-home__link">Manifeste 2019</a></h1>
@@ -13,11 +15,11 @@
             <a href="#" class="c-home__more c-button">Lire l’édito</a>
         </div>
         <div class="c-home__events">
-            <ul class="c-home__items js-slideshow" data-slideshow-dots>
-                <li class="c-home__item js-slideshow-slide">
-                    <article class="c-article">
+            <div class="c-home__items js-slideshow" data-slideshow-dots>
+                <div class="c-home__item js-slideshow-slide">
+                    <article class="c-article c-article--small">
                         <div class="c-article__header">
-                            <img src="" alt="" class="c-article__picture"/>
+                            <img src="http://placehold.it/752x304" alt="" class="c-article__picture"/>
                         </div>
                         <div class="c-article__content">
                             <p class="c-article__date">Date</p>
@@ -27,10 +29,60 @@
                             <p class="c-article__buttons"><a href="#" class="c-article__button c-button c-button--secondary">Réserver</a></p>
                         </div>
                     </article>
-                </li>
-            </ul>
-            <div class="c-home__filter">
+                </div>
+                <div class="c-home__item js-slideshow-slide">
+                    <article class="c-article c-article--small">
+                        <div class="c-article__header">
+                            <img src="http://placehold.it/752x304" alt="" class="c-article__picture"/>
+                        </div>
+                        <div class="c-article__content">
+                            <p class="c-article__date">Date</p>
+                            <h2 class="c-article__title"><a href="#" class="c-article__link">Titre</a></h2>
+                            <p class="c-article__subtitle">Sous-titre</p>
+                            <p class="c-article__categories"><a href="#" class="c-article__categorie">Catégorie</a></p>
+                            <p class="c-article__buttons"><a href="#" class="c-article__button c-button c-button--secondary">Réserver</a></p>
+                        </div>
+                    </article>
+                </div>
             </div>
+            <form action="" method="get" class="c-home__filter c-filter js-filter">
+                <p class="c-filter__label">Juin</p>
+                <table class="c-filter__days">
+                    <thead>
+                        <tr>
+                            <th>LU</th>
+                            <th>MA</th>
+                            <th>ME</th>
+                            <th>JE</th>
+                            <th>VE</th>
+                            <th>SA</th>
+                            <th>DI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <label class="c-filter__day">
+                                    <input type="radio" name="day" value="2019-06-01" class="c-filter__input js-filter-input"/>
+                                    <span class="c-filter__label">1</span>
+                                </label>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!--<p class="c-filter__label">Filtrer par</p>
+                <p class="c-filter__categories">
+                    <label class="c-filter__category">
+                        <input type="checkbox" name="categories[]" value="1" class="c-filter__input js-filter-input"/>
+                        <span class="c-filter__label">Catégorie 1</span>
+                    </label>
+                    <label class="c-filter__category">
+                        <input type="checkbox" name="categories[]" value="2" class="c-filter__input js-filter-input"/>
+                        <span class="c-filter__label">Catégorie 2</span>
+                    </label>
+                </p>
+                <button type="submit" class="c-filter__button c-button">OK</button>-->
+            </form>
         </div>
         <div class="c-home__news">
             <h2 class="c-home__title">Dernières actualités</h2>
@@ -39,14 +91,29 @@
                     <li class="c-gallery__item">
                         <article class="c-article">
                             <div class="c-article__header">
-                                <svg class="c-article__icon"></svg>
-                                <img src="" alt="" class="c-article__picture"/>
+                                <img src="http://placehold.it/368" alt="" class="c-article__picture"/>
+                                <svg class="c-article__icon" width="80" height="80" aria-label="Vidéo">
+                                    <use xlink:href="{% static 'img/symbols.svg' %}#symbol-video"/>
+                                </svg>
                             </div>
                             <div class="c-article__content">
-                                <h3 class="c-article__title"><a href="#" class="c-article__link">Titre</a></h3>
-                                <p class="c-article__subtitle">Sous-titre</p>
-                                <p class="c-article__categories"><a href="#" class="c-article__categorie">Catégorie</a></p>
-                                <p class="c-articles__buttons"><a href="#" class="c-article__button c-button c-button--secondary">Réserver</a></p>
+                                <div class="c-article__test"></div>
+                                <p class="c-article__date">Sa 1er juin / 15h - 16h30 - 18h<br/>Di 2 juin / 14h30 - 16h - 17h30</p>
+                                <h3 class="c-article__title"><a href="#l" class="c-article__link">Tscherkassky, Man Ray : cinéastes</a></h3>
+                                <p class="c-article__subtitle">Centre Pompidou, Grande salle</p>
+                                <p class="c-article__categories"><a href="#c" class="c-article__category">Spectacles</a></p>
+                                <p class="c-article__buttons"><a href="#r" class="c-article__button c-button c-button--secondary">Réserver</a></p>
+                            </div>
+                        </article>
+                    </li>
+                    <li class="c-gallery__item">
+                        <article class="c-article c-article--alt">
+                            <div class="c-article__header">
+                                <img src="http://placehold.it/368" alt="" class="c-article__picture"/>
+                            </div>
+                            <div class="c-article__content">
+                                <h3 class="c-article__title"><a href="#l" class="c-article__link">Titre</a></h3>
+                                <p class="c-article__categories"><a href="#c" class="c-article__category">Catégorie</a></p>
                             </div>
                         </article>
                     </li>
