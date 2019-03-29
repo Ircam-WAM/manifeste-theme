@@ -228,22 +228,8 @@
     }
 
     .c-home__filter.c-filter {
-      position: relative;
       height: rem(304px);
       width: (100% / 3);
-
-      &::before {
-        background: $color-white;
-        border: 1px solid $color-lightgrey;
-        content: "";
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: -1;
-      }
     }
 
   .c-home__news {

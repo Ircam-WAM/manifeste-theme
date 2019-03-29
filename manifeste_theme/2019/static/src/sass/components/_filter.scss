@@ -1,20 +1,40 @@
 .c-filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
   font-family: $font-primary;
-  padding: rem(24px);
+  padding: rem(16px);
   text-align: center;
+  position: relative;
+  width: 100%;
+
+  &::before {
+    background: $color-white;
+    border: 1px solid $color-lightgrey;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+  }
 }
 
   .c-filter__title {
     @include font-size(16px, 24px);
     font-family: $font-secondary;
     font-weight: $font-bold;
-    padding-bottom: rem(12px);
-    position: relative;
     margin-bottom: rem(8px);
+    padding-bottom: rem(8px);
+    position: relative;
 
     &:not(:first-child) {
-      margin-top: rem(16px);
-      padding-top: rem(16px);
+      margin-top: rem(10px);
+      padding-top: rem(10px);
 
       &::before {
         border-top: 1px solid $color-lightgrey;
