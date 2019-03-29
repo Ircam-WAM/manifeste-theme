@@ -129,7 +129,7 @@
     .c-article__subtitle {
       @include font-size(14px, 24px);
       font-family: $font-primary;
-      font-weight: bold;
+      font-weight: $font-medium;
       text-transform: uppercase;
     }
 

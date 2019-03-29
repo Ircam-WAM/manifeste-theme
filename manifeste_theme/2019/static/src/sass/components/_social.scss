@@ -4,3 +4,259 @@
   position: relative;
   z-index: $z-social;
 }
+
+  .c-social__title {
+    @include font-size(32px, 48px);
+    padding-bottom: rem(8px);
+    margin-bottom: rem(16px);
+    position: relative;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      border-bottom: 1px solid;
+      width: rem(80px);
+    }
+
+    .c-social__link {
+      display: block;
+      text-decoration: none;
+
+      &::after {
+        background: svg-url('<svg viewBox="0 0 100 100"><path d="M0 50.022L29.022 21v23.639H100v10.705H29.022v23.7z" fill="#{$color-black}"/></svg>') no-repeat center / contain;
+        content: "";
+        display: inline-block;
+        vertical-align: baseline;
+        width: rem(24px);
+        height: rem(24px);
+        transform: scale(-1);
+      }
+    }
+  }
+
+@include mq($until: medium) {
+  .c-social {
+    padding-top: rem(32px);
+    position: relative;
+
+    &::after {
+      background: $color-secondary;
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      right: -999px;
+      bottom: 0;
+      left: -999px;
+      z-index: -1;
+
+      @supports (width: 100vw) {
+        width: 100vw;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        right: 50%;
+        left: 50%;
+      }
+    }
+  }
+
+  .c-social__title {
+    margin-bottom: rem(32px);
+
+    b {
+      display: block;
+    }
+
+    .c-social__link {
+      position: relative;
+
+      &::after {
+        position: absolute;
+        right: 0;
+        bottom: rem(12px);
+      }
+    }
+  }
+
+  .c-social__items,
+  .c-social__more {
+    display: none;
+  }
+}
+
+@include mq($from: medium) {
+  .c-social__title .c-social__link {
+    transition: color 400ms;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  .c-social--light {
+    padding-top: rem(24px);
+    padding-bottom: rem(48px);
+    @include clearfix;
+
+    .c-social__network {
+      float: left;
+      width: 50%;
+    }
+
+    .c-social__title {
+      b {
+        color: $color-secondary;
+      }
+
+      .c-social__link::after {
+        margin-left: rem(48px);
+      }
+    }
+
+    .c-social__items,
+    .c-social__more {
+      display: none;
+    }
+  }
+
+  .c-social:not(.c-social--light) {
+    .c-social__title .c-social__link::after {
+      display: none;
+    }
+
+    .c-social__network--twitter {
+      margin-bottom: rem(56px);
+
+      .c-social__title {
+        text-align: right;
+
+        &::after {
+          left: auto;
+          right: 0;
+        }
+      }
+
+      .c-social__items {
+        overflow: hidden;
+        margin: rem(-8px);
+      }
+
+        .c-social__item {
+          float: right;
+          padding: rem(8px);
+          width: 50%;
+          max-width: rem(480px);
+
+          &:first-child {
+            float: left;
+          }
+        }
+
+          .c-social__author {
+            font-weight: $font-bold;
+            float: left;
+            margin-bottom: rem(16px);
+            position: relative;
+
+            &::after {
+              border-bottom: 4px solid $color-secondary;
+              content: "";
+              display: block;
+              position: absolute;
+              right: 0;
+              bottom: rem(-1px);
+              left: 0;
+            }
+
+            .c-social__link {
+              text-decoration: underline;
+
+              &:hover {
+                text-decoration: none;
+              }
+            }
+          }
+
+          .c-social__date {
+            color: $color-darkgrey;
+            float: right;
+            font-family: $font-primary;
+            margin-bottom: rem(16px);
+
+            .c-social__link {
+              text-decoration: none;
+
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+
+          .c-social__text {
+            clear: both;
+            font-family: $font-primary;
+
+            a {
+              text-decoration: underline;
+
+              &:hover {
+                text-decoration: none;
+              }
+            }
+
+            b {
+              font-weight: $font-semibold;
+            }
+          }
+
+      .c-social__more.c-button {
+        float: right;
+        margin: rem(24px) 0 0 auto;
+      }
+    }
+
+    .c-social__network--instagram {
+      margin-bottom: rem(40px);
+      padding-bottom: rem(72px);
+      position: relative;
+
+      &::after {
+        background: $color-secondary;
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: rem(-40px);
+        bottom: 0;
+        left: rem(-40px);
+        z-index: -1;
+      }
+
+      .c-social__items {
+        @include clearfix;
+        margin: rem(-8px);
+      }
+
+        .c-social__item {
+          float: left;
+          padding: rem(8px);
+          width: 25%;
+        }
+
+          .c-social__link,
+          .c-social__picture {
+            display: block;
+            margin: 0;
+          }
+
+      .c-social__more.c-button {
+        position: absolute;
+        bottom: rem(20px);
+        right: 0;
+      }
+    }
+  }
+}

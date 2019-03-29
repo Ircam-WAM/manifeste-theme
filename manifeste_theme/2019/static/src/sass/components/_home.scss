@@ -8,7 +8,6 @@
   }
 
     .c-home__items {
-      height: rem(304px);
       display: flex;
 
       &:not(.flickity-enabled) {
@@ -60,8 +59,14 @@
         position: absolute;
         top: 100%;
         z-index: 2;
+        transition: color 400ms, opacity 400ms;
+
+        &:not(:disabled):hover {
+          color: $color-primary;
+        }
 
         &:disabled {
+          cursor: default;
           opacity: .3;
         }
       }
@@ -87,10 +92,12 @@
         left: 0;
         text-align: center;
         z-index: 1;
+        pointer-events: none;
       }
 
       .flickity-page-dots .dot {
-        background: $color-black;
+        background: currentColor;
+        color: $color-black;
         cursor: pointer;
         display: inline-block;
         vertical-align: top;
@@ -98,8 +105,9 @@
         width: rem(8px);
         height: rem(8px);
         margin: rem(12px 4px);
+        transition: opacity 400ms;
 
-        &:not(.is-selected) {
+        &:not(.is-selected):not(:hover) {
           opacity: .3;
         }
       }
@@ -113,14 +121,21 @@
         width: 100%;
         scroll-snap-align: start;
 
-        .c-slideshow.flickity-enabled & {
+        .c-home__items.flickity-enabled & {
           position: relative !important;
           left: 0 !important;
+
+          &:not(:first-child) {
+            margin-left: rem(16px);
+          }
         }
       }
 
   .c-home__news {
-    .c-home__title {
+
+  }
+
+    .c-home__subtitle {
       @include font-size(32px, 40px);
       padding-bottom: rem(8px);
       position: relative;
@@ -136,7 +151,6 @@
         left: 0;
       }
     }
-  }
 
 @include mq($until: medium) {
   .c-home {
@@ -164,6 +178,12 @@
     }
   }
 
+  .c-home__events {
+    .flickity-prev-next-button:not(:disabled):hover {
+      color: $color-white;
+    }
+  }
+
   .c-home__ircam,
   .c-home__edito,
   .c-home__filter {
@@ -172,23 +192,45 @@
 }
 
 @include mq($from: medium) {
+  .c-home__ircam {
+    display: inline-block;
+    vertical-align: top;
+    margin: rem(-56px 0 56px) auto;
+    transition: color 400ms;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+    .c-home__logo {
+      display: block;
+      width: rem(152px);
+      height: rem(88px);
+    }
+
   .c-home__events {
-    display: flex;
+    @include clearfix;
     margin: 0 rem(-8px 48px);
   }
 
-    .c-home__items {
-      width: (100% / 3 * 2);
+    .c-home__items,
+    .c-home__filter.c-filter {
+      float: left;
       border-width: 0 rem(8px);
       border-style: solid;
       border-color: transparent;
     }
 
-    .c-home__filter {
+    .c-home__items {
+      width: (100% / 3 * 2);
+
+    }
+
+    .c-home__filter.c-filter {
       position: relative;
       height: rem(304px);
       width: (100% / 3);
-      padding: 0 rem(8px);
 
       &::before {
         background: $color-white;
@@ -197,9 +239,9 @@
         display: block;
         position: absolute;
         top: 0;
-        right: rem(8px);
+        right: 0;
         bottom: 0;
-        left: rem(8px);
+        left: 0;
         z-index: -1;
       }
     }
@@ -209,8 +251,10 @@
   }
 
   .c-home__edito {
-    margin-bottom: rem(40px);
+    @include clearfix;
+    margin: 0 rem(-8px 40px);
     position: relative;
+    padding: rem(40px) 0;
 
     @supports (order: 3) {
       order: 3;
@@ -236,4 +280,46 @@
       }
     }
   }
+
+    .c-home__title,
+    .c-home__text {
+      padding: 0 rem(8px);
+    }
+
+    .c-home__title {
+      float: left;
+      @include font-size(56px, 64px);
+      width: (100% / 3);
+    }
+
+      .c-home__link {
+        text-decoration: none;
+
+        &::after {
+          background: svg-url('<svg viewBox="0 0 100 100"><path d="M46.49 87.06L78.47 55.233l-9.204 1.092H.156L0 44.002h69.267l9.048 1.092-31.825-31.67L54.758 5 100 50.242 54.758 95.328z" fill="#{$color-black}"/></svg>') no-repeat center / contain;
+          content: "";
+          width: rem(40px);
+          height: rem(40px);
+          display: inline-block;
+          vertical-align: middle;
+          margin-left: rem(16px);
+          transition: transform 400ms;
+        }
+
+        &:hover::after {
+          transform: translateX(rem(8px));
+        }
+      }
+
+    .c-home__text {
+      @include font-size(16px, 24px);
+      padding-top: rem(8px);
+      overflow: hidden;
+    }
+
+    .c-home__more {
+      float: right;
+      margin-top: rem(40px);
+      margin-right: rem(8px);
+    }
 }

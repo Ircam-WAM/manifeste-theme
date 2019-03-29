@@ -6,7 +6,7 @@ $color-grey:        #D6D6D6;
 $color-lightgrey:   #F1F1F1;
 $color-white:       #ffffff;
 $color-green:       #29CC6A;
-$color-red:         #ED0E4C;
+$color-red:         #F8235A;
 $color-orange:      #F5A623;
 $color-blue:        #A0CFF3;
 
@@ -23,13 +23,19 @@ $color-error:      $color-red;
 
 // FONTS
 
-$font-serif:      "Merriweather", serif;
-$font-sans-serif: "Oswald", sans-serif;
+$font-serif:      "Merriweather", Palatino, Georgia, serif;
+$font-sans-serif: "Oswald", Impact, "Franklin Gothic Bold", sans-serif;
+$font-icon:       "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 $font-code:       monospace;
 
 $font-default:   $font-serif;
 $font-primary:   $font-sans-serif;
 $font-secondary: $font-serif;
+
+$font-regular:  400;
+$font-medium:   500;
+$font-semibold: 600;
+$font-bold:     700;
 
 
 // DIMENSIONS

@@ -25,7 +25,7 @@
                             <p class="c-article__date">Date</p>
                             <h2 class="c-article__title"><a href="#" class="c-article__link">Titre</a></h2>
                             <p class="c-article__subtitle">Sous-titre</p>
-                            <p class="c-article__categories"><a href="#" class="c-article__categorie">Catégorie</a></p>
+                            <p class="c-article__categories"><a href="#" class="c-article__category">Catégorie</a></p>
                             <p class="c-article__buttons"><a href="#" class="c-article__button c-button c-button--secondary">Réserver</a></p>
                         </div>
                     </article>
@@ -39,15 +39,15 @@
                             <p class="c-article__date">Date</p>
                             <h2 class="c-article__title"><a href="#" class="c-article__link">Titre</a></h2>
                             <p class="c-article__subtitle">Sous-titre</p>
-                            <p class="c-article__categories"><a href="#" class="c-article__categorie">Catégorie</a></p>
+                            <p class="c-article__categories"><a href="#" class="c-article__category">Catégorie</a></p>
                             <p class="c-article__buttons"><a href="#" class="c-article__button c-button c-button--secondary">Réserver</a></p>
                         </div>
                     </article>
                 </div>
             </div>
             <form action="" method="get" class="c-home__filter c-filter js-filter">
-                <p class="c-filter__label">Juin</p>
-                <table class="c-filter__days">
+                <p class="c-filter__title">Juin</p>
+                <table class="c-filter__calendar">
                     <thead>
                         <tr>
                             <th>LU</th>
@@ -62,30 +62,46 @@
                     <tbody>
                         <tr>
                             <td>
-                                <label class="c-filter__day">
-                                    <input type="radio" name="day" value="2019-06-01" class="c-filter__input js-filter-input"/>
-                                    <span class="c-filter__label">1</span>
+                                <label class="c-filter__toggle">
+                                    <input type="radio" name="day" value="2019-06-21" class="c-filter__input js-filter-input"/>
+                                    <span class="c-filter__label">21</span>
+                                </label>
+                            </td>
+                            <td>
+                                <label class="c-filter__toggle">
+                                    <input type="radio" name="day" value="2019-06-21" class="c-filter__input js-filter-input" disabled/>
+                                    <span class="c-filter__label">21</span>
+                                </label>
+                            </td>
+                            <td>
+                                <label class="c-filter__toggle">
+                                    <input type="radio" name="day" value="2019-06-21" class="c-filter__input js-filter-input" checked/>
+                                    <span class="c-filter__label">21</span>
                                 </label>
                             </td>
                         </tr>
                     </tbody>
                 </table>
-                <!--<p class="c-filter__label">Filtrer par</p>
+                <!--<p class="c-filter__title">Filtrer par</p>
                 <p class="c-filter__categories">
-                    <label class="c-filter__category">
+                    <label class="c-filter__toggle">
                         <input type="checkbox" name="categories[]" value="1" class="c-filter__input js-filter-input"/>
-                        <span class="c-filter__label">Catégorie 1</span>
+                        <span class="c-filter__label">Concert</span>
                     </label>
-                    <label class="c-filter__category">
+                    <label class="c-filter__toggle">
                         <input type="checkbox" name="categories[]" value="2" class="c-filter__input js-filter-input"/>
-                        <span class="c-filter__label">Catégorie 2</span>
+                        <span class="c-filter__label">Spectacle</span>
                     </label>
-                </p>
-                <button type="submit" class="c-filter__button c-button">OK</button>-->
+                    <label class="c-filter__toggle">
+                        <input type="checkbox" name="categories[]" value="2" class="c-filter__input js-filter-input"/>
+                        <span class="c-filter__label">Rencontre</span>
+                    </label>
+                </p>-->
+                <button type="submit" class="c-filter__button c-button">OK</button>
             </form>
         </div>
         <div class="c-home__news">
-            <h2 class="c-home__title">Dernières actualités</h2>
+            <h2 class="c-home__subtitle">Dernières actualités</h2>
             <div class="c-gallery">
                 <ul class="c-gallery__items">
                     <li class="c-gallery__item">

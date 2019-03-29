@@ -1,0 +1,128 @@
+.c-filter {
+  font-family: $font-primary;
+  padding: rem(24px);
+  text-align: center;
+}
+
+  .c-filter__title {
+    @include font-size(16px, 24px);
+    font-family: $font-secondary;
+    font-weight: $font-bold;
+    padding-bottom: rem(12px);
+    position: relative;
+    margin-bottom: rem(8px);
+
+    &:not(:first-child) {
+      margin-top: rem(16px);
+      padding-top: rem(16px);
+
+      &::before {
+        border-top: 1px solid $color-lightgrey;
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        right: rem(-24px);
+        left: rem(-24px);
+      }
+    }
+
+    &::after {
+      border-bottom: 1px solid;
+      content: "";
+      display: block;
+      margin: 0 auto;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: rem(16px);
+    }
+  }
+
+  .c-filter__calendar {
+    @include font-size(16px, 24px);
+    table-layout: fixed;
+    width: 100%;
+    max-width: rem(320px);
+    margin: 0 auto;
+
+    th {
+      font-weight: $font-regular;
+      padding: rem(4px) 0;
+    }
+  }
+
+  .c-filter__categories {
+
+  }
+
+    .c-filter__toggle {
+      display: inline-block;
+      vertical-align: top;
+      position: relative;
+
+      & + & {
+        margin-left: rem(32px);
+      }
+    }
+
+      .c-filter__input {
+        position: absolute;
+        top: 0;
+        opacity: 0;
+        z-index: -1;
+      }
+
+      .c-filter__label {
+        display: inline-block;
+        vertical-align: top;
+        font-family: $font-primary;
+        padding: rem(4px) 0;
+        position: relative;
+        text-align: center;
+        text-transform: uppercase;
+        min-width: rem(30px);
+        transition: color 400ms;
+
+        &::before {
+          background: $color-primary;
+          content: "";
+          display: block;
+          height: rem(12px);
+          position: absolute;
+          left: rem(-1px);
+          right: rem(-1px);
+          bottom: rem(3px);
+          z-index: -1;
+          transform: scaleX(0);
+          transition: transform 400ms;
+          transform-origin: right;
+        }
+
+        // &:hover {
+        //   color: $color-primary;
+        // }
+
+        .c-filter__input:checked + &::before {
+          transform: scaleX(1);
+          transform-origin: left;
+        }
+
+        .c-filter__input:disabled + & {
+          color: $color-grey;
+          cursor: default;
+          cursor: not-allowed;
+          text-decoration: line-through;
+        }
+      }
+
+  .c-filter__button.c-button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    .js & {
+      display: none;
+    }
+  }
