@@ -232,10 +232,6 @@
       width: (100% / 3);
     }
 
-  .c-home__news {
-    margin-bottom: rem(40px);
-  }
-
   .c-home__edito {
     @include clearfix;
     margin: 0 rem(-8px 40px);
@@ -243,6 +239,8 @@
     padding: rem(40px) 0;
 
     @supports (order: 3) {
+      margin-top: rem(40px);
+      margin-bottom: 0;
       order: 3;
     }
 

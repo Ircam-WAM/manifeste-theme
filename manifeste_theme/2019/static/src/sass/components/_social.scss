@@ -88,17 +88,12 @@
 }
 
 @include mq($from: medium) {
-  .c-social__title .c-social__link {
-    transition: color 400ms;
-
-    &:hover {
-      color: $color-primary;
-    }
+  .c-social {
+    padding-top: rem(40px);
   }
 
   .c-social--light {
-    padding-top: rem(24px);
-    padding-bottom: rem(48px);
+    padding-bottom: rem(40px);
     @include clearfix;
 
     .c-social__network {
@@ -107,6 +102,8 @@
     }
 
     .c-social__title {
+      margin-bottom: 0;
+
       b {
         color: $color-secondary;
       }

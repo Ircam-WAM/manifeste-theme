@@ -1,0 +1,90 @@
+{% extends '2019/base.html' %}
+
+{% block meta_title %}Artistes{% endblock %}
+
+{% block main %}
+    <div class="c-heading u-mbs">
+        <h2 class="c-heading__title">Artistes</h2>
+    </div>
+
+    <div class="c-gallery u-mbs">
+        <ul class="c-gallery__items">
+            <li class="c-gallery__item">
+                <article class="c-article c-article--alt">
+                    <div class="c-article__header">
+                        <img src="http://placehold.it/752x304" alt="" class="c-article__picture"/>
+                    </div>
+                    <div class="c-article__content">
+                        <h2 class="c-article__title"><a href="#" class="c-article__link">Titre</a></h2>
+                        <p class="c-article__categories"><a href="#" class="c-article__category">Catégorie</a></p>
+                    </div>
+                </article>
+            </li>
+            <li class="c-gallery__item">
+                <article class="c-article c-article--alt">
+                    <div class="c-article__header">
+                        <img src="http://placehold.it/752x304" alt="" class="c-article__picture"/>
+                    </div>
+                    <div class="c-article__content">
+                        <h2 class="c-article__title"><a href="#" class="c-article__link">Titre</a></h2>
+                        <p class="c-article__categories"><a href="#" class="c-article__category">Catégorie</a></p>
+                    </div>
+                </article>
+            </li>
+            <li class="c-gallery__item">
+                <article class="c-article c-article--alt">
+                    <div class="c-article__header">
+                        <img src="http://placehold.it/752x304" alt="" class="c-article__picture"/>
+                    </div>
+                    <div class="c-article__content">
+                        <h2 class="c-article__title"><a href="#" class="c-article__link">Titre</a></h2>
+                        <p class="c-article__categories"><a href="#" class="c-article__category">Catégorie</a></p>
+                    </div>
+                </article>
+            </li>
+        </ul>
+    </div>
+
+    <div class="c-pagination u-mtm">
+        <ul class="c-pagination__items">
+            <li class="c-pagination__item">
+                <span class="c-pagination__link">
+                    <svg class="c-pagination__icon" width="24" height="24" aria-label="Page précédente">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-left"/>
+                    </svg>
+                    {# <span class="c-pagination__label">Page précédente</span> #}
+                </span>
+            </li>
+            <li class="c-pagination__item is-current">1</li>
+            <li class="c-pagination__item">
+                <a href="#" class="c-pagination__link">2</a>
+            </li>
+            <li class="c-pagination__item">
+                <a href="#" class="c-pagination__link">3</a>
+            </li>
+            <li class="c-pagination__item">
+                <a href="#" class="c-pagination__link">4</a>
+            </li>
+            <li class="c-pagination__item">
+                <a href="#" class="c-pagination__link">5</a>
+            </li>
+            <li class="c-pagination__item">
+                <a href="#" class="c-pagination__link">6</a>
+            </li>
+            <li class="c-pagination__item">
+                <a href="#" class="c-pagination__link">7</a>
+            </li>
+            <li class="c-pagination__item">
+                <a href="#" class="c-pagination__link">8</a>
+            </li>
+            <li class="c-pagination__item">
+                <a href="#" class="c-pagination__link">
+                    {# <span class="c-pagination__label">Page suivante</span> #}
+                    <svg class="c-pagination__icon" width="24" height="24" aria-label="Page suivante">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-right"/>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </div>
+{% endblock main %}

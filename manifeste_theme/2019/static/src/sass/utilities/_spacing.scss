@@ -20,32 +20,6 @@
   @include spacing((
     s: 24px,
     m: 40px,
-    l: 80px
+    l: 64px
   ));
-}
-
-@if $spacing-responsive {
-  $spacing: (
-    n:  0px,
-    xs: 8px,
-    s:  16px,
-    m:  24px,
-    l:  40px,
-    xl: 80px
-  );
-
-  // Mobile
-  @include mq($until: medium) {
-    @include spacing($spacing, small);
-  }
-
-  // Tablet
-  @include mq($from: medium, $until: large) {
-    @include spacing($spacing, medium);
-  }
-
-  // Desktop
-  @include mq($from: large) {
-    @include spacing($spacing, large);
-  }
 }

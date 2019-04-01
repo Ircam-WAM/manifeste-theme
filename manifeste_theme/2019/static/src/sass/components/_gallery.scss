@@ -19,6 +19,12 @@
       width: 100%;
     }
 
+// @include mq($until: small) {
+//   .c-gallery--filter .c-gallery__item:first-child {
+//     display: none;
+//   }
+// }
+
 @include mq($from: small) {
   .c-gallery__item {
     width: 50%;
