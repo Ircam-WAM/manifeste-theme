@@ -33,8 +33,7 @@
   color: $color-white;
 
   &:not(:disabled):hover {
-    background-color: $color-white;
-    color: $color-primary;
+    background-color: $color-black;
   }
 }
 
@@ -60,9 +59,7 @@
     }
   }
 
-@include mq($from: medium) {
-  .c-button--large {
-    min-height: rem(56px);
-    padding: rem(11px 16px 13px);
-  }
+.c-button--large {
+  min-height: rem(56px);
+  padding: rem(11px 16px 13px);
 }

@@ -148,19 +148,73 @@
     }
   }
 
+    .c-detail__metas {
+      @include clearfix;
+      font-family: $font-primary;
+      @include font-size(16px, 24px);
+      margin: 0 rem(-8px);
+      padding-bottom: rem(16px);
+      margin-bottom: rem(40px);
+      position: relative;
+      text-transform: uppercase;
+
+      &::before {
+        border-top: 1px solid $color-primary;
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: rem(8px);
+        width: rem(80px);
+      }
+    }
+
+      .c-detail__meta {
+        padding: 0 rem(8px 24px);
+        float: left;
+        width: 100%;
+
+        p:not(:last-child) {
+          margin-bottom: rem(24px);
+        }
+
+        a:not([class]) {
+          color: $color-darkgrey;
+          text-decoration: underline;
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+
+      .c-detail__meta--booking {
+        @include font-size(14px, 24px);
+        text-align: center;
+        text-transform: none;
+
+        p:not(:last-child) {
+          margin-bottom: rem(8px);
+        }
+      }
+
+        .c-detail__button.c-button {
+          display: block;
+          display: flex;
+          width: 100%;
+        }
+
+        .c-detail__link {
+          color: $color-primary;
+          @include font-size(16px, 24px);
+          text-transform: uppercase;
+        }
+
 @include mq($until: medium) {
   .c-detail__banner .c-detail__container::after,
   .c-detail__wrapper::after {
     left: -999px;
     right: -999px;
-
-    @supports (width: 100vw) {
-      width: 100vw;
-      margin-left: -50vw;
-      margin-right: -50vw;
-      right: 50%;
-      left: 50%;
-    }
   }
 
   .c-detail__banner .c-detail__picture + .c-detail__container::after {
@@ -184,4 +238,12 @@
     padding-top: rem(32px);
     padding-bottom: rem(32px);
   }
+
+  .c-detail__metas {
+    padding-top: rem(16px);
+  }
+
+    .c-detail__meta {
+      width: (100% / 3);
+    }
 }

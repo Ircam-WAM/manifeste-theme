@@ -1,0 +1,45 @@
+.c-list {
+  @include font-size(16px, 24px);
+  font-style: italic;
+}
+
+  .c-list__items {
+
+  }
+
+    .c-list__item {
+      position: relative;
+
+      & + & {
+        margin-top: rem(8px);
+      }
+    }
+
+      .c-list__link {
+        color: $color-primary;
+        display: block;
+        text-decoration: underline;
+        transition: color 400ms;
+
+        &:hover {
+          color: $color-black;
+        }
+      }
+
+        .c-list__icon {
+          @include size(16px);
+          margin: rem(4px) 0;
+          position: absolute;
+          top: 0;
+          left: 0;
+
+          & + .c-list__label,
+          & ~ .c-list__description {
+            display: block;
+            padding-left: rem(24px);
+          }
+        }
+
+        .c-list__description {
+          color: $color-darkgrey;
+        }
