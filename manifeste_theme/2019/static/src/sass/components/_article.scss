@@ -11,6 +11,10 @@
   text-decoration: none;
   transition: color 400ms;
 
+  .c-home__events & {
+    height: rem(304px);
+  }
+
   &::after {
     box-shadow: 0 rem(20px 40px) 0 rgba($color-black, .4);
     content: "";
@@ -32,10 +36,6 @@
       opacity: 1;
     }
   }
-}
-
-.c-article--small {
-  height: rem(304px);
 }
 
   .c-article__header {

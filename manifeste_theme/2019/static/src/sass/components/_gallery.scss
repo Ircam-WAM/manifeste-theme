@@ -19,11 +19,11 @@
       width: 100%;
     }
 
-// @include mq($until: small) {
-//   .c-gallery--filter .c-gallery__item:first-child {
-//     display: none;
-//   }
-// }
+    .c-gallery__item--empty {
+      padding-top: rem(24px);
+      padding-bottom: rem(40px);
+      text-align: center;
+    }
 
 @include mq($from: small) {
   .c-gallery__item {
@@ -49,6 +49,10 @@
       &:nth-child(4n+1) {
         clear: left;
       }
+    }
+
+    .c-gallery__item:nth-last-child(-n+2):first-child ~ .c-gallery__item {
+      width: (100% / 3 * 2);
     }
 
     &.c-gallery--filter .c-gallery__item:nth-child(3) {

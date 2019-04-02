@@ -118,18 +118,12 @@
                 </div>
 
                 <div class="c-slideshow js-slideshow u-mbl">
-                    <figure class="c-slideshow__slide js-slideshow-slide">
-                        <img src="http://placehold.it/480x480&amp;text=1" alt="" class="c-slideshow__picture"/>
-                        <figcaption class="c-slideshow__caption"><b>Légende de l’image</b><br/>Avec une brève description.</figcaption>
-                    </figure>
-                    <figure class="c-slideshow__slide js-slideshow-slide">
-                        <img src="http://placehold.it/480x480&amp;text=2" alt="" class="c-slideshow__picture"/>
-                        <figcaption class="c-slideshow__caption"><b>Légende de l’image</b><br/>Avec une brève description.</figcaption>
-                    </figure>
-                    <figure class="c-slideshow__slide js-slideshow-slide">
-                        <img src="http://placehold.it/894x480&amp;text=3" alt="" class="c-slideshow__picture"/>
-                        <figcaption class="c-slideshow__caption"><b>Légende de l’image</b><br/>Avec une brève description.</figcaption>
-                    </figure>
+                    {% for i in 1..3 %}
+                        <figure class="c-slideshow__slide js-slideshow-slide">
+                            <img src="http://placehold.it/944x536&amp;text={{ i }}" alt="" class="c-slideshow__picture"/>
+                            <figcaption class="c-slideshow__caption"><b>Légende de l’image</b><br/>Avec une brève description.</figcaption>
+                        </figure>
+                    {% endfor %}
                 </div>
 
                 <div class="c-content u-mbl">
@@ -160,21 +154,6 @@
                             </ul>
                         </li>
                     </ol>
-
-                    <table>
-                        <caption>
-                        <thead>
-                            <tr>
-                                <th>Test</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Test</td>
-                            </tr>
-                        </tbody>
-
-                    </table>
                 </div>
 
                 <div class="c-content u-mbm">
@@ -185,37 +164,13 @@
             <div class="c-gallery u-mbs">
                 <ul class="c-gallery__items">
                     <li class="c-gallery__item">
-                        <article class="c-article c-article--alt">
-                            <div class="c-article__header">
-                                <img src="http://placehold.it/752x304" alt="" class="c-article__picture"/>
-                            </div>
-                            <div class="c-article__content">
-                                <h2 class="c-article__title"><a href="#" class="c-article__link">Titre</a></h2>
-                                <p class="c-article__categories"><a href="#" class="c-article__category">Catégorie</a></p>
-                            </div>
-                        </article>
+                        {% include 'includes/card_video.html' %}
                     </li>
                     <li class="c-gallery__item">
-                        <article class="c-article c-article--alt">
-                            <div class="c-article__header">
-                                <img src="http://placehold.it/752x304" alt="" class="c-article__picture"/>
-                            </div>
-                            <div class="c-article__content">
-                                <h2 class="c-article__title"><a href="#" class="c-article__link">Titre</a></h2>
-                                <p class="c-article__categories"><a href="#" class="c-article__category">Catégorie</a></p>
-                            </div>
-                        </article>
+                        {% include 'includes/card_artist.html' %}
                     </li>
-                    <li class="c-gallery__item u-hide@small">
-                        <article class="c-article c-article--alt">
-                            <div class="c-article__header">
-                                <img src="http://placehold.it/752x304" alt="" class="c-article__picture"/>
-                            </div>
-                            <div class="c-article__content">
-                                <h2 class="c-article__title"><a href="#" class="c-article__link">Titre</a></h2>
-                                <p class="c-article__categories"><a href="#" class="c-article__category">Catégorie</a></p>
-                            </div>
-                        </article>
+                    <li class="c-gallery__item">
+                        {% include 'includes/card_event.html' %}
                     </li>
                 </ul>
             </div>

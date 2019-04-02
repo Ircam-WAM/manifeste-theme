@@ -31,11 +31,9 @@
                     <button type="submit" class="c-filter__button c-button">OK</button>
                 </form>
             </li>
-            {% for i in 1..8 %}
-                <li class="c-gallery__item">
-                    {% include 'includes/card_event.html' %}
-                </li>
-            {% endfor %}
+            <li class="c-gallery__item c-gallery__item--empty">
+                Aucun résultat
+            </li>
         </ul>
     </div>
 

@@ -6,37 +6,39 @@ class Filter {
     this.inputs = Array.from(this.filter.querySelectorAll('.js-filter-input'));
     this.method = this.filter.getAttribute('method');
     this.action = this.filter.getAttribute('action');
-    this.replace = this.filter.dataset.filterReplace;
+    this.replace = this.filter.dataset.filterReplace || false;
     this.isLoading = false;
 
     this.init();
   }
 
   async init() {
-    const { default: axios } = await import(/* webpackChunkName: "axios" */ 'axios');
-    await import(/* webpackChunkName: "axios" */ 'es6-promise/auto');
-    this.axios = axios;
+    if (this.replace) {
+      const { default: axios } = await import(/* webpackChunkName: "axios" */ 'axios');
+      await import(/* webpackChunkName: "axios" */ 'es6-promise/auto');
+      this.axios = axios;
 
-    this.filter.addEventListener('submit', (event) => {
-      event.preventDefault();
-      this.handleChange(event);
-    });
+      this.filter.addEventListener('submit', (event) => {
+        event.preventDefault();
+        this.handleChange(event);
+      });
+    }
 
     this.inputs.forEach((input) => {
       input.addEventListener('change', debounce(this.handleChange.bind(this), 250));
-      input.addEventListener('keyup', debounce(this.handleChange.bind(this), 250));
     });
   }
 
   showError(message) {
-    document.querySelector(this.replace).innerHTML = `<div class="c-messages u-mts">
-        <ul class="c-messages__items">
-          <li class="c-messages__item c-messages__item--error">${message}</li>
-        </ul>
-      </div>`;
+    alert(message);
   }
 
   handleChange(event) {
+    if (!this.replace) {
+      this.filter.submit();
+      return;
+    }
+
     if (!this.isLoading) {
       this.setLoading(true);
 
@@ -56,13 +58,15 @@ class Filter {
         if (response.status === 200) {
           const parser = new DOMParser();
           const html = parser.parseFromString(response.data, 'text/html');
-          const replace = html.querySelector(this.replace);
+          const replace = document.querySelector(this.replace);
+          // Ignore filter
+          const ignore = (item) => !item.querySelector('.js-filter');
 
-          if (replace) {
-            document.querySelector(this.replace).innerHTML = replace.innerHTML;
-          } else {
-            this.showError('Error: no content to replace');
-          }
+          // Remove old items
+          Array.from(replace.children).filter(ignore).forEach((item) => replace.removeChild(item));
+
+          // // Append new items
+          Array.from(html.querySelector(this.replace).children).filter(ignore).forEach((item) => replace.appendChild(item));
 
         } else {
           this.showError(`Error: Request failed with status code ${response.status} (${statusText})`);
@@ -84,7 +88,7 @@ class Filter {
 export default class {
   constructor() {
     this.filters = [];
-    Array.from(document.querySelectorAll('.js-filter[data-filter-replace]')).forEach((filter) => {
+    Array.from(document.querySelectorAll('.js-filter')).forEach((filter) => {
       this.filters.push(new Filter(filter));
     });
   }
