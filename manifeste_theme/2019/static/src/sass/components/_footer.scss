@@ -14,9 +14,9 @@
 
   &::after {
     top: 0;
-    right: -999px;
+    right: -9999px;
     bottom: 0;
-    left: -999px;
+    left: -9999px;
   }
 }
 
@@ -44,7 +44,7 @@
         margin-right: rem(16px);
       }
 
-      .c-footer__button.c-button {
+      .c-footer__button {
         display: block;
         margin-top: rem(56px);
         overflow: hidden;

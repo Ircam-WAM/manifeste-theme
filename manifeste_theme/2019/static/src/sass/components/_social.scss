@@ -48,9 +48,9 @@
       display: block;
       position: absolute;
       top: 0;
-      right: -999px;
+      right: -9999px;
       bottom: 0;
-      left: -999px;
+      left: -9999px;
       z-index: -1;
     }
   }
@@ -114,6 +114,10 @@
   .c-social:not(.c-social--light) {
     .c-social__title .c-social__link::after {
       display: none;
+    }
+
+    .c-social__network {
+      @include clearfix;
     }
 
     .c-social__network--twitter {
@@ -201,7 +205,7 @@
             }
           }
 
-      .c-social__more.c-button {
+      .c-social__more {
         float: right;
         margin: rem(24px) 0 0 auto;
       }
@@ -241,7 +245,7 @@
             margin: 0;
           }
 
-      .c-social__more.c-button {
+      .c-social__more {
         position: absolute;
         bottom: rem(20px);
         right: 0;

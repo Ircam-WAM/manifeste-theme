@@ -1,0 +1,119 @@
+.c-search {
+  display: block;
+  display: flex;
+  margin: 0 auto;
+  font-size: 0;
+  width: 100%;
+  min-width: rem(288px);
+  max-width: rem(560px);
+}
+
+  .c-search__label {
+    display: none;
+  }
+
+  .c-search__input,
+  .c-search__button {
+    display: inline-block;
+    vertical-align: top;
+    height: rem(48px);
+  }
+
+  .c-search__input {
+    appearance: none;
+    background: $color-white none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: inset 0 0 0 1px $color-grey;
+    flex: 1 1 auto;
+    @include font-size(20px, 32px);
+    font-family: $font-primary;
+    margin: 0;
+    padding: rem(6px 16px 10px);
+    transition: box-shadow 400ms;
+
+    &::placeholder {
+      color: $color-darkgrey;
+    }
+
+    &::-webkit-search-cancel-button {
+      appearance: none;
+      background: $color-grey svg-url('<svg enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="m13.414 12 5.293-5.293c.391-.391.391-1.023 0-1.414s-1.023-.391-1.414 0l-5.293 5.293-5.293-5.293c-.391-.391-1.023-.391-1.414 0s-.391 1.023 0 1.414l5.293 5.293-5.293 5.293c-.391.391-.391 1.023 0 1.414.195.195.451.293.707.293s.512-.098.707-.293l5.293-5.293 5.293 5.293c.195.195.451.293.707.293s.512-.098.707-.293c.391-.391.391-1.023 0-1.414z" fill="#{$color-white}"/></svg>') no-repeat center / rem(14px);
+      cursor: pointer;
+      @include size(16px);
+      transition: background-color 400ms;
+      margin-top: rem(2px);
+
+      &:hover {
+        background-color: $color-darkgrey;
+      }
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: inset 0 0 0 1px $color-darkgrey;
+    }
+  }
+
+  .c-search__button {
+    appearance: none;
+    background: $color-primary none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    color: $color-white;
+    flex: 0 0 auto;
+    width: rem(48px);
+    margin: 0 0 0 rem(8px);
+    padding: rem(16px);
+    transition: background-color 400ms;
+
+    .c-search__input:invalid + & {
+      background-color: $color-grey;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: $color-black;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+    .c-search__icon {
+      display: block;
+      @include size(16px);
+    }
+
+@include mq($from: medium) {
+  .c-search {
+    min-width: rem(560px);
+  }
+
+  .c-search__input,
+  .c-search__button {
+    height: rem(80px);
+  }
+
+  .c-search__input {
+    @include font-size(32px, 48px);
+    padding: rem(14px 24px 18px);
+
+    &::-webkit-search-cancel-button {
+      @include size(24px);
+      background-size: rem(16px);
+      margin-top: rem(4px);
+    }
+  }
+
+  .c-search__button {
+    width: rem(80px);
+    padding: rem(28px);
+  }
+
+    .c-search__icon {
+      @include size(24px);
+    }
+}

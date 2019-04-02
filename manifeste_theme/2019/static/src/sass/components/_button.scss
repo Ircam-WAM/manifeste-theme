@@ -59,6 +59,12 @@
     }
   }
 
+.c-button--block {
+  display: block;
+  display: flex;
+  width: 100%;
+}
+
 .c-button--large {
   min-height: rem(56px);
   padding: rem(11px 16px 13px);

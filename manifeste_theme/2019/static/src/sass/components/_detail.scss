@@ -2,7 +2,7 @@
   position: relative;
 }
 
-  .c-detail__back.c-button {
+  .c-detail__back {
     position: absolute;
     bottom: 100%;
   }
@@ -10,6 +10,10 @@
   .c-detail__banner {
     display: flex;
     position: relative;
+
+    .c-detail__back + & {
+      margin-top: rem(32px);
+    }
 
     .c-detail__picture {
       object-fit: cover;
@@ -132,8 +136,9 @@
 
   .c-detail__wrapper {
     position: relative;
-    padding-bottom: rem(16px);
     padding-top: rem(24px);
+    padding-bottom: 1px;
+    margin-bottom: -1px;
 
     &::after {
       background: $color-white;
@@ -198,10 +203,9 @@
         }
       }
 
-        .c-detail__button.c-button {
-          display: block;
-          display: flex;
-          width: 100%;
+        .c-detail__button {
+          margin: 0 auto;
+          max-width: rem(368px);
         }
 
         .c-detail__link {
@@ -213,8 +217,8 @@
 @include mq($until: medium) {
   .c-detail__banner .c-detail__container::after,
   .c-detail__wrapper::after {
-    left: -999px;
-    right: -999px;
+    left: -9999px;
+    right: -9999px;
   }
 
   .c-detail__banner .c-detail__picture + .c-detail__container::after {

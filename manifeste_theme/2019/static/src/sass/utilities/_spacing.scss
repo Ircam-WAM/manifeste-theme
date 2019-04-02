@@ -11,7 +11,6 @@
 }
 
 @include spacing((
-  n: 0,
   s: 16px,
   m: 24px,
   l: 40px
@@ -19,7 +18,6 @@
 
 @include mq($from: medium) {
   @include spacing((
-    n: 0,
     s: 16px,
     m: 24px,
     l: 40px
