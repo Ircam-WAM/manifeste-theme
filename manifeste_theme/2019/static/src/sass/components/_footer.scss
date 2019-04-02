@@ -17,14 +17,6 @@
     right: -999px;
     bottom: 0;
     left: -999px;
-
-    @supports (width: 100vw) {
-      width: 100vw;
-      margin-left: -50vw;
-      margin-right: -50vw;
-      right: 50%;
-      left: 50%;
-    }
   }
 }
 

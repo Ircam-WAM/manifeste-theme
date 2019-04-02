@@ -3,7 +3,7 @@
 {% block meta_title %}Évènement{% endblock %}
 
 {% block main %}
-    <div class="c-detail">
+    <div class="c-detail u-mbl@medium">
         <a href="#" class="c-detail__back c-button">
             <svg class="c-button__icon" width="24" height="24" aria-hidden="true">
                 <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-left"/>
@@ -33,22 +33,22 @@
         </div>
         <div class="c-detail__wrapper">
             <div class="c-detail__container">
-                <div class="c-metas">
-                    <div class="c-metas__text">
+                <div class="c-detail__metas">
+                    <div class="c-detail__meta c-detail__meta--date">
                         <p>Samedi 1er juin / 15h - 16h30 - 18h<br/>Dimanche 2 juin / 14h30 - 16h - 17h30</p>
                         <p>Le centquatre-paris / atelier 4<br/><a href="#">Plan d’accès</a></p>
                     </div>
-                    <div class="c-metas__text">
+                    <div class="c-detail__meta c-detail__meta--price">
                         <p>Tarif plein : 15€<br/>Tarif réduit : 12€<br/>Pass manifeste/jeune : 10€</p>
                     </div>
-                    <div class="c-metas__text">
-                        <p><a href="#" class="c-metas__button c-button c-button--primary c-button--large">Réserver</a></p>
+                    <div class="c-detail__meta c-detail__meta--booking">
+                        <p><a href="#" class="c-detail__button c-button c-button--primary c-button--large">Réserver</a></p>
                         <p>Entrée avec le billet</p>
-                        <p><a href="#" class="c-metas__link">PRG_lullaby experience.pdf</a></p>
+                        <p><a href="#" class="c-detail__link">PRG_lullaby experience.pdf</a></p>
                     </div>
                 </div>
 
-                <div class="c-content">
+                <div class="c-content u-mbl">
                     <h2 class="h3">Création française</h2>
                     <p>« Imaginez que l’on vous demande de chanter la mélodie qui a le plus marqué votre enfance. Celle à laquelle votre mémoire est la plus attachée. Chacun de nous possède, inscrit au plus profond de lui-même, une ou plusieurs mélodies de ce genre. » Pascal Dusapin. Ainsi naquit Lullaby, avec sa récolte de berceuses. Par le biais d’une application, chacun est convié à fredonner son chant d’enfance préféré. Au fur et à mesure de l’enregistrement, les chants sont répertoriés, classés, puis « appelés » et agencés par la machine selon des critères choisis de tonalité, d’expressivité, de plasticité. L’expérience est devenue un continuum sonore conçu à partir de mille sources et mille inflexions différentes ; une installation atmosphérique, douce et cruelle, avec balançoire, plumes et lit démesuré.<br/>Lullaby : l’enfance et ses sortilèges.</p>
 
@@ -84,7 +84,55 @@
                         <p class="h5">Jeudi 31 mai, 19h30 - Cité internationale des arts</p>
                         <p><i>Entrée libre dans la limite des places disponibles.</i></p>
                     </div>
+                </div>
 
+                <div class="c-list u-mbm">
+                    <ul class="c-list__items">
+                        <li class="c-list__item">
+                            <a href="#" class="c-list__link">
+                                <svg class="c-list__icon" width="24" height="24" aria-hidden="true">
+                                    <use xlink:href="{% static 'img/symbols.svg' %}#symbol-link"/>
+                                </svg>
+                                <span class="c-list__label">http://www.nouveau-theatre-montreuil.com/</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="c-content u-mbm">
+                    <h2>Titre vidéo</h2>
+                    <p>The French Revolution constituted for the conscience of the dominant aristocratic class a fall from innocence, and upturning of the natural chain of events that resounded.</p>
+                </div>
+
+                <div class="c-media js-media u-mbm" data-media-type="audio">
+                    <ol class="c-media__items">
+                        <li class="c-media__item js-media-item" data-media-src="//medias.ircam.fr/stream/int/audio/files/2018/04/04/karlheinz_stockhausen_hymnen.wav.mp3">Titre <small>Sous-titre</small></li>
+                        <li class="c-media__item js-media-item" data-media-src="//medias.ircam.fr/stream/int/audio/files/2018/04/05/2_Daniele_Ghisi_FuenfteLetzteLied.aif.mp3">Titre</li>
+                    </ol>
+                </div>
+                <div class="c-media js-media u-mbm" data-media-type="video">
+                    <ol class="c-media__items">
+                        <li class="c-media__item js-media-item" data-media-poster="//medias.ircam.fr/media/cache/22/d7/22d7d0b4c9d7e1d9298a4abfd985052e.jpg" data-media-src="//medias.ircam.fr/stream/int/video/files/2018/03/23/FranckBedrossian_ST.mov.webm,//medias.ircam.fr/stream/int/video/files/2018/03/23/FranckBedrossian_ST.mov.mp4" data-media-mime="video/webm,video/mp4">Titre <small>Sous-titre</small></li>
+                        <li class="c-media__item js-media-item" data-media-poster="//medias.ircam.fr/media/cache/72/de/72de12d28469da633a5fa4c806dd82dd.jpg" data-media-src="//medias.ircam.fr/stream/int/video/files/2018/03/13/JuliaBlondeau_ST.mov.webm,//medias.ircam.fr/stream/int/video/files/2018/03/13/JuliaBlondeau_ST.mov.mp4" data-media-mime="video/webm,video/mp4">Titre</li>
+                    </ol>
+                </div>
+
+                <div class="c-slideshow js-slideshow u-mbm">
+                    <figure class="c-slideshow__slide js-slideshow-slide">
+                        <img src="http://placehold.it/480x480&amp;text=1" alt="" class="c-slideshow__picture"/>
+                        <figcaption class="c-slideshow__caption"><b>Légende de l’image</b><br/>Avec une brève description.</figcaption>
+                    </figure>
+                    <figure class="c-slideshow__slide js-slideshow-slide">
+                        <img src="http://placehold.it/480x480&amp;text=2" alt="" class="c-slideshow__picture"/>
+                        <figcaption class="c-slideshow__caption"><b>Légende de l’image</b><br/>Avec une brève description.</figcaption>
+                    </figure>
+                    <figure class="c-slideshow__slide js-slideshow-slide">
+                        <img src="http://placehold.it/894x480&amp;text=3" alt="" class="c-slideshow__picture"/>
+                        <figcaption class="c-slideshow__caption"><b>Légende de l’image</b><br/>Avec une brève description.</figcaption>
+                    </figure>
+                </div>
+
+                <div class="c-content u-mbm">
                     <ul>
                         <li>Unordered list</li>
                         <li>Unordered list</li>
@@ -132,7 +180,7 @@
                 </div>
             </div>
 
-            <div class="c-gallery u-mtm">
+            <div class="c-gallery">
                 <ul class="c-gallery__items">
                     <li class="c-gallery__item">
                         <article class="c-article c-article--alt">

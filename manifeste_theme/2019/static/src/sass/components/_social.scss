@@ -52,14 +52,6 @@
       bottom: 0;
       left: -999px;
       z-index: -1;
-
-      @supports (width: 100vw) {
-        width: 100vw;
-        margin-left: -50vw;
-        margin-right: -50vw;
-        right: 50%;
-        left: 50%;
-      }
     }
   }
 
@@ -89,7 +81,7 @@
 
 @include mq($from: medium) {
   .c-social {
-    padding-top: rem(40px);
+    // margin-top: rem(40px);
   }
 
   .c-social--light {
