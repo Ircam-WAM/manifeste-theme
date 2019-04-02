@@ -1,0 +1,16 @@
+{% extends "2019/base.html" %}
+{% load i18n pages_tags mezzanine_tags organization_tags %}
+
+{% block meta_title %}
+    {% trans "Magazine" %}
+{% endblock %}
+
+
+{% block main %}
+    
+    {{ magazine.title }}
+    {{ magazine.description }}
+
+    {% include 'core/inc/dynamic_body.html' with content_list=magazine.dynamic_content.all %}
+
+{% endblock %}

@@ -7,17 +7,7 @@
             </div>
             <div class="container">
                 <div class="row-12">
-                    {% for content in home.dynamiccontenthomebody_set.all %}
-                        {% with app_label=content.content_object|app_label_short classname=content.content_object|classname|lower object=content.content_object  %}
-                            {% with app_label|add:"/"|add:classname|add:"/includes/"|add:classname|add:"_card.html" as template %}
-                            {% if template|template_exists %}
-                                {% include template %}
-                            {% else %}
-                                {% include 'core/inc/generic_card.html' %}
-                            {% endif %}
-                            {% endwith %}
-                        {% endwith %}
-                    {% endfor %}
+                    {% include 'core/inc/dynamic_body.html' with content_body=home.dynamiccontenthomebody_set.all %}
                 </div>
             </div>
         </div>
