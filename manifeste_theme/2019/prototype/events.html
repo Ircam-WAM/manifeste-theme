@@ -1,0 +1,126 @@
+{% extends '2019/base.html' %}
+
+{% block meta_title %}Programmation{% endblock %}
+
+{% block main %}
+    <div class="c-gallery c-gallery--filter">
+        <ul class="c-gallery__items">
+            <li class="c-gallery__item">
+                <form action="" method="get" class="c-filter js-filter">
+                    <p class="c-filter__title">Juin</p>
+                    <table class="c-filter__calendar">
+                        <thead>
+                            <tr>
+                                <th>LU</th>
+                                <th>MA</th>
+                                <th>ME</th>
+                                <th>JE</th>
+                                <th>VE</th>
+                                <th>SA</th>
+                                <th>DI</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <label class="c-filter__toggle">
+                                        <input type="radio" name="day" value="2019-06-21" class="c-filter__input js-filter-input"/>
+                                        <span class="c-filter__label">21</span>
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="c-filter__toggle">
+                                        <input type="radio" name="day" value="2019-06-21" class="c-filter__input js-filter-input" disabled/>
+                                        <span class="c-filter__label">21</span>
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="c-filter__toggle">
+                                        <input type="radio" name="day" value="2019-06-21" class="c-filter__input js-filter-input" checked/>
+                                        <span class="c-filter__label">21</span>
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="c-filter__toggle">
+                                        <input type="radio" name="day" value="2019-06-21" class="c-filter__input js-filter-input"/>
+                                        <span class="c-filter__label">21</span>
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="c-filter__toggle">
+                                        <input type="radio" name="day" value="2019-06-21" class="c-filter__input js-filter-input"/>
+                                        <span class="c-filter__label">21</span>
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="c-filter__toggle">
+                                        <input type="radio" name="day" value="2019-06-21" class="c-filter__input js-filter-input"/>
+                                        <span class="c-filter__label">21</span>
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="c-filter__toggle">
+                                        <input type="radio" name="day" value="2019-06-21" class="c-filter__input js-filter-input"/>
+                                        <span class="c-filter__label">21</span>
+                                    </label>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="c-filter__title">Filtrer par</p>
+                    <p class="c-filter__categories">
+                        <label class="c-filter__toggle">
+                            <input type="checkbox" name="categories[]" value="1" class="c-filter__input js-filter-input"/>
+                            <span class="c-filter__label">Concert</span>
+                        </label>
+                        <label class="c-filter__toggle">
+                            <input type="checkbox" name="categories[]" value="2" class="c-filter__input js-filter-input"/>
+                            <span class="c-filter__label">Spectacle</span>
+                        </label>
+                        <label class="c-filter__toggle">
+                            <input type="checkbox" name="categories[]" value="2" class="c-filter__input js-filter-input"/>
+                            <span class="c-filter__label">Rencontre</span>
+                        </label>
+                    </p>
+                    <button type="submit" class="c-filter__button c-button">OK</button>
+                </form>
+            </li>
+            <li class="c-gallery__item">
+                <article class="c-article">
+                    <div class="c-article__header">
+                        <img src="http://placehold.it/752x304" alt="" class="c-article__picture"/>
+                    </div>
+                    <div class="c-article__content">
+                        <p class="c-article__date">Date</p>
+                        <h2 class="c-article__title"><a href="#" class="c-article__link">Titre</a></h2>
+                        <p class="c-article__subtitle">Sous-titre</p>
+                        <p class="c-article__categories"><a href="#" class="c-article__category">Catégorie</a></p>
+                        <p class="c-article__buttons"><a href="#" class="c-article__button c-button c-button--secondary">Réserver</a></p>
+                    </div>
+                </article>
+            </li>
+            <li class="c-gallery__item">
+                <article class="c-article">
+                    <div class="c-article__header">
+                        <img src="http://placehold.it/752x304" alt="" class="c-article__picture"/>
+                    </div>
+                    <div class="c-article__content">
+                        <p class="c-article__date">Date</p>
+                        <h2 class="c-article__title"><a href="#" class="c-article__link">Titre</a></h2>
+                        <p class="c-article__subtitle">Sous-titre</p>
+                        <p class="c-article__categories"><a href="#" class="c-article__category">Catégorie</a></p>
+                        <p class="c-article__buttons"><a href="#" class="c-article__button c-button c-button--secondary">Réserver</a></p>
+                    </div>
+                </article>
+            </li>
+        </ul>
+    </div>
+{% endblock main %}

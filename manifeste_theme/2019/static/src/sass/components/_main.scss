@@ -4,4 +4,8 @@
   padding-top: rem($height-header + 40px);
   position: relative;
   z-index: $z-main;
+
+  @include mq($from: medium) {
+    padding-top: rem($height-header + 104px);
+  }
 }

@@ -1,13 +1,2 @@
-// @import url('https://fonts.googleapis.com/css?family=Merriweather:400,700');
-
-@include font-face("Merriweather", "merriweather-regular");
-@include font-face("Merriweather", "merriweather-bold") {
-  font-weight: bold;
-}
-
-// @import url('https://fonts.googleapis.com/css?family=Oswald:400,600');
-
-@include font-face("Oswald", "oswald-regular");
-@include font-face("Oswald", "oswald-semibold") {
-  font-weight: bold;
-}
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700&amp;subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,600');

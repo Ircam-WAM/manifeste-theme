@@ -23,7 +23,7 @@
 
   .c-header__date {
     color: $color-primary;
-    font-weight: bold;
+    font-weight: $font-semibold;
     letter-spacing: em(1px, 16px);
     text-align: center;
     text-transform: uppercase;
@@ -49,6 +49,7 @@
   .c-header__link,
   .c-header__language {
     appearance: none;
+    background: transparent none;
     border: 0;
     border-radius: 0;
     box-shadow: none;
@@ -60,6 +61,7 @@
     position: relative;
     text-transform: uppercase;
     text-decoration: none;
+    transition: color 400ms;
     z-index: 1;
 
     &::before {
@@ -77,9 +79,13 @@
       transform-origin: right;
     }
 
-    &:hover::before {
-      transform: scaleX(1);
-      transform-origin: left;
+    &:hover {
+      color: $color-primary;
+
+      // &::before {
+      //   transform: scaleX(1);
+      //   transform-origin: left;
+      // }
     }
   }
 
@@ -210,6 +216,7 @@
 
           &::after {
             content: "→";
+            font-family: $font-icon;
             display: block;
             @include font-size(24px, 48px);
             position: absolute;

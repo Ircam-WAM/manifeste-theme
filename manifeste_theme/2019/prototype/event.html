@@ -1,0 +1,174 @@
+{% extends '2019/base.html' %}
+
+{% block meta_title %}Évènement{% endblock %}
+
+{% block main %}
+    <div class="c-detail">
+        <a href="#" class="c-detail__back c-button">
+            <svg class="c-button__icon" width="24" height="24" aria-hidden="true">
+                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-left"/>
+            </svg>
+            <span class="c-button__label">Revenir aux évènements</span>
+        </a>
+        <div class="c-detail__banner">
+            <img src="http://placehold.it/1136x428" alt="" class="c-detail__picture"/>
+            <div class="c-detail__container">
+                <h1 class="c-detail__title">Titre</h1>
+                <p class="c-detail__categories">
+                    <a href="#" class="c-detail__category">Catégorie</a>
+                </p>
+            </div>
+            <p class="c-detail__networks">
+                <a href="#" class="c-detail__network c-detail__network--facebook">
+                    <svg class="c-detail__icon" width="24" height="24" aria-label="Partager sur Facebook">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-facebook"/>
+                    </svg>
+                </a>
+                <a href="#" class="c-detail__network c-detail__network--twitter">
+                    <svg class="c-detail__icon" width="24" height="24" aria-label="Partager sur Twitter">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-twitter"/>
+                    </svg>
+                </a>
+            </p>
+        </div>
+        <div class="c-detail__wrapper">
+            <div class="c-detail__container">
+                <div class="c-metas">
+                    <div class="c-metas__text">
+                        <p>Samedi 1er juin / 15h - 16h30 - 18h<br/>Dimanche 2 juin / 14h30 - 16h - 17h30</p>
+                        <p>Le centquatre-paris / atelier 4<br/><a href="#">Plan d’accès</a></p>
+                    </div>
+                    <div class="c-metas__text">
+                        <p>Tarif plein : 15€<br/>Tarif réduit : 12€<br/>Pass manifeste/jeune : 10€</p>
+                    </div>
+                    <div class="c-metas__text">
+                        <p><a href="#" class="c-metas__button c-button c-button--primary c-button--large">Réserver</a></p>
+                        <p>Entrée avec le billet</p>
+                        <p><a href="#" class="c-metas__link">PRG_lullaby experience.pdf</a></p>
+                    </div>
+                </div>
+
+                <div class="c-content">
+                    <h2 class="h3">Création française</h2>
+                    <p>« Imaginez que l’on vous demande de chanter la mélodie qui a le plus marqué votre enfance. Celle à laquelle votre mémoire est la plus attachée. Chacun de nous possède, inscrit au plus profond de lui-même, une ou plusieurs mélodies de ce genre. » Pascal Dusapin. Ainsi naquit Lullaby, avec sa récolte de berceuses. Par le biais d’une application, chacun est convié à fredonner son chant d’enfance préféré. Au fur et à mesure de l’enregistrement, les chants sont répertoriés, classés, puis « appelés » et agencés par la machine selon des critères choisis de tonalité, d’expressivité, de plasticité. L’expérience est devenue un continuum sonore conçu à partir de mille sources et mille inflexions différentes ; une installation atmosphérique, douce et cruelle, avec balançoire, plumes et lit démesuré.<br/>Lullaby : l’enfance et ses sortilèges.</p>
+
+                    <p class="wys-highlighted-paragraph"><i>
+                        <b>Pascal Dusapin</b> conception et création musicale<br/>
+                        <b>Claus Guth</b> mise en scène<br/>
+                        <b>Étienne Pluss</b> décor, scénographie<br/>
+                        <b>Olaf Winter</b> lumières<br/>
+                        <b>Roland Horvath</b> vidéo<br/>
+                        <b>Yvonne Gebauer</b> dramaturgie<br/>
+                        <b>Dorothee Joisten</b> costumes<br/>
+                        <b>Axel Weidauer</b> assistanat à la mise en scène<br/>
+                        <b>Clémence de Vergnette</b> assistanat au décor<br/>
+                        <b>Gal Fefferman</b> collaboration chorégraphique<br/>
+                        <b>Thierry Coduys</b> réalisation dispositif électroacoustique et mixage Ircam<br/>
+                        <b>Jérôme Nika</b> collaboration informatique musicale Ircam (université de La Rochelle/équipe Représentations musicales Ircam-STMS)<br/>
+                        <b>Ensemble Modern</b>
+                    </i></p>
+
+                    <hr/>
+
+                    <p><small><i>Coproduction :  Ircam-Centre Pompidou, Ensemble Modern, Mousonturm pour le Frankfurter Positionen, dans le cadre du projet DYCI2 soutenu par l’Agence nationale de la recherche (ANR) et coordonné par l’Ircam. Une expérience immersive produite avec HOLOPHONIX, un processeur de son spatial conçu par Amadeus et doté des technologies très avancées de l’Ircam-STMS.</i></small></p>
+
+                    <p><small><i>Avec le soutien : du réseau Interfaces, subventionné par le programme Créative de l’Union européenne.</i></small></p>
+
+                    <p><small><i>Coréalisation : Ircam-Centre Pompidou, Le CENTQUATRE-PARIS. L’Ircam est partenaire du CENTQUATRE-PARIS pour l’accueil des projets d’expérimentation autour du spectacle vivant.</i></small></p>
+
+                    <div class="wys-block">
+                        <h3 class="h4">Présentation du festival ManiFeste-2018</h3>
+                        <hr/>
+                        <p>Frank Madlener, directeur de l'Ircam présentera la prochaine édition du festival ManiFeste en compagnie du compositeur Franck Bedrossian.<br/>Franck Bedrossian exposera en quoi son univers musical se mêle à la poésie  d’Emily Dickinson dans son cycle Epigram pour soprano et ensemble et de quelle façon il envisage son rôle au sein de l’académie ManiFeste où il est invité à présenter sa musique et encadrer un atelier de composition pour grand orchestre, dont les esquisses des stagiaires seront jouées par l’Orchestre philharmonique de Radio France lors d’un concert public (le 23 juin au CENTQUATRE-PARIS).</p>
+                        <hr/>
+                        <p class="h5">Jeudi 31 mai, 19h30 - Cité internationale des arts</p>
+                        <p><i>Entrée libre dans la limite des places disponibles.</i></p>
+                    </div>
+
+                    <ul>
+                        <li>Unordered list</li>
+                        <li>Unordered list</li>
+                        <li>Unordered list
+                            <ul>
+                                <li>Unordered list</li>
+                                <li>Unordered list</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ol>
+                        <li>Ordered list</li>
+                        <li>Ordered list</li>
+                        <li>Ordered list
+                            <ol>
+                                <li>Ordered list</li>
+                                <li>Ordered list</li>
+                            </ol>
+                        </li>
+                        <li>
+                            <ul>
+                                <li>Unordered list</li>
+                                <li>Unordered list</li>
+                            </ul>
+                        </li>
+                    </ol>
+
+                    <table>
+                        <caption>
+                        <thead>
+                            <tr>
+                                <th>Test</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Test</td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                    <h2>Titre h2</h2>
+                </div>
+            </div>
+
+            <div class="c-gallery u-mtm">
+                <ul class="c-gallery__items">
+                    <li class="c-gallery__item">
+                        <article class="c-article c-article--alt">
+                            <div class="c-article__header">
+                                <img src="http://placehold.it/752x304" alt="" class="c-article__picture"/>
+                            </div>
+                            <div class="c-article__content">
+                                <h2 class="c-article__title"><a href="#" class="c-article__link">Titre</a></h2>
+                                <p class="c-article__categories"><a href="#" class="c-article__category">Catégorie</a></p>
+                            </div>
+                        </article>
+                    </li>
+                    <li class="c-gallery__item">
+                        <article class="c-article c-article--alt">
+                            <div class="c-article__header">
+                                <img src="http://placehold.it/752x304" alt="" class="c-article__picture"/>
+                            </div>
+                            <div class="c-article__content">
+                                <h2 class="c-article__title"><a href="#" class="c-article__link">Titre</a></h2>
+                                <p class="c-article__categories"><a href="#" class="c-article__category">Catégorie</a></p>
+                            </div>
+                        </article>
+                    </li>
+                    <li class="c-gallery__item u-hide@small">
+                        <article class="c-article c-article--alt">
+                            <div class="c-article__header">
+                                <img src="http://placehold.it/752x304" alt="" class="c-article__picture"/>
+                            </div>
+                            <div class="c-article__content">
+                                <h2 class="c-article__title"><a href="#" class="c-article__link">Titre</a></h2>
+                                <p class="c-article__categories"><a href="#" class="c-article__category">Catégorie</a></p>
+                            </div>
+                        </article>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock main %}

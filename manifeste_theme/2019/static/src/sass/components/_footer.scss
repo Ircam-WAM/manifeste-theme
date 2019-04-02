@@ -3,4 +3,59 @@
   flex: 0 0 auto;
   position: relative;
   z-index: $z-footer;
+
+  &::after {
+    background: $color-primary;
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+  }
+
+  &::after {
+    top: 0;
+    right: -999px;
+    bottom: 0;
+    left: -999px;
+
+    @supports (width: 100vw) {
+      width: 100vw;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      right: 50%;
+      left: 50%;
+    }
+  }
+}
+
+  .c-footer__booklet {
+    display: block;
+    text-decoration: none;
+  }
+
+    .c-footer__picture {
+      display: block;
+    }
+
+@include mq($until: medium) {
+  .c-footer {
+    &::after {
+      top: rem(184px);
+    }
+  }
+
+    .c-footer__booklet {
+      padding: rem(16px) 0;
+
+      .c-footer__picture {
+        float: left;
+        margin-right: rem(16px);
+      }
+
+      .c-footer__button.c-button {
+        display: block;
+        margin-top: rem(56px);
+        overflow: hidden;
+      }
+    }
 }
