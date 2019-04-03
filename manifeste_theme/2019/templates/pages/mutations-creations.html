@@ -14,10 +14,6 @@
         {% endwith %}
     {% endblock %}
 
-    {% block hero %}
-        {% include "home/inc/hero-small.html" %}
-    {% endblock %}
-
     {% block page_title %}
         {% editable page.custompage.title %}
             <h1 class="hide">{{ page.custompage.title }}</h1>
@@ -63,22 +59,11 @@
 
     {% endblock %}
 
-    {% block page_audio %}
-      {% with page.custompage as object %}
-          {{ block.super }}
-      {% endwith %}
-    {% endblock %}
 
     {% block page_slider %}
         {% with page.custompage as object %}
             {{ block.super }}
         {% endwith %}
-    {% endblock %}
-
-    {% block page_video %}
-      {% with page.custompage as object %}
-          {{ block.super }}
-      {% endwith %}
     {% endblock %}
 
     {% block page_person_list %}

@@ -50,9 +50,6 @@
         </div>
     {% endblock %}
 
-    {% block breaking_news %}
-    {% endblock %}
-
     {% block header %}
         <div id="jsHeader" class="header push" data-sticky data-sticky-detach-at="0" data-headroom>
             <div class="container">
@@ -67,9 +64,6 @@
         </div>
     {% endblock %}
 
-    {% block hero %}
-    {% endblock %}
-
     {% block container %}
         <div id="container">
             <main class="main" role="main">
@@ -79,7 +73,7 @@
             </main>
 
             {% block social %}
-                {% include "includes/social.html" %}
+                {% include "includes/social_light.html" %}
             {% endblock %}
 
             {% block footer %}

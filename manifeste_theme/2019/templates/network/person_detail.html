@@ -21,72 +21,46 @@
 {% endblock %}
 
 {% block page_title %}
-    {% if back %}
-    <div class="invisible-until-sm section-title section-title--uppercase section-title--underline section-title--main section-title--no-margin {% if is_vertigo %}vertigo{% endif %}"><a href="{{ back.url }}"><i class="fsl fa fa-angle-left"></i>{{ back.label }}</a></div>
-    {% endif %}
+
+    <!-- imgage -->
+    {% with person.images.all|get_type:'page_featured' as images_featured %}
+        {% if images_featured %}
+            <img style="width:100%;" class="lazyload" src="{{ MEDIA_URL }}{% thumbnail images_featured.first 1030 400 top=0.5 %}" alt="person"/>
+        {% endif %}
+    {% endwith %}
+
+     <!-- Nom Prénom -->    
     {% editable person.title %}
         <h1 class="section-title section-title--big section-title--uppercase section-title--main">{{ person.title }}</h1>
     {% endeditable %}
 
+    <!-- Activité de la personne (champ 'état') -->
     {% with person.activities.first as activity %}
         {% if activity.status %}
-        <div class="page__date">
             {{ activity.status }}
-        </div>
         {% endif %}
     {% endwith %}
 
-    {% with person.images.all|get_type:'page_featured' as card_images %}
-        {% if card_images %}
-            <div class="page__image-container">
-                <img style="width:100%;" class="lazyload" src="{{ MEDIA_URL }}{% thumbnail card_images.first 1030 400 top=0.5 %}" alt="person"/>
-            </div>
-        {% endif %}
-    {% endwith %}
 {% endblock %}
 
 {% block page_content %}
+
+    <!-- biography -->
     {% editable person.bio %}
         {{ person.bio|richtext_filters|safe }}
     {% endeditable %}
-
-    {% if not person.email and person.activities.all and person.activities.all.0.teams.all %}<p><strong>{% trans 'Email' %} :</strong> {{ person_email }}</p>{% elif person.email %}<p><strong>{% trans 'Email' %} :</strong> {{ person.email|unspam }}</p>{% endif %}
-
-    {% with person.activities.all as activities %}
-      {% if activities %}
-        {# <h2 class="dotted">{% trans 'Activities' %}</h2>#}
-        <ul class="unstyled-list">
-          {% with activities.0 as activity %}
-            <li class="mb1">
-                {% with activity.teams.all as teams %}
-                 {% with activity.organizations.all|is_not_host as organizations %}
-                  {% with activity.employers.all|is_not_host as employers %}
-                    {% if teams %}
-                        <strong>{% trans 'Team' %} : </strong>
-                        {% for team in teams %}
-                            <a href="{% url "page" team.pages.all.0 %}">{{ team.name }}</a>
-                            {% if organizations %}({% for organization in organizations %}{{ organization.name }}{% if not forloop.last %}, {% endif %}{% endfor %})
-                            {% elif employers %}({% for employer in employers %}{{ employer.name }}{% if not forloop.last %}, {% endif %}{% endfor %}){% endif %}
-                            <br />
-                        {% endfor %}
-                    {% endif %}
-                   {% endwith %}
-                  {% endwith %}
-                {% endwith %}
-            </li>
-          {% endwith %}
-        </ul>
-      {% endif %}
-    {% endwith %}
+    
 {% endblock %}
 
 {% block page_related_content %}
+    <!-- Related content -->
     {% with dynamic_content=person.dynamic_content_person.all|filter_content object=person %}
         {% include "core/inc/related_content.html" %}
     {% endwith %}
 {% endblock %}
 
 {% block page_link %}
+    <!-- Liens -->
     {% with person.links.all as links %}
         {% if links %}
             {% include 'core/inc/link.html' %}

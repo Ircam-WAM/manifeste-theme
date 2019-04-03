@@ -3,7 +3,7 @@
 {% instagram_user_recent_media ircam_paris %}
 
 <div class="instagram">
-    {% for media in recent_media|slice:"6" %}
+    {% for media in recent_media|slice:"4" %}
         <a class="instagram__item" href="http://instagram.com/p/{{ media.shortcode }}" target="_blank" title="{{ media.caption }}">
             <img src="{{ media.thumbnail_src }}"/>
             <span>{{ media.caption }}</span>
