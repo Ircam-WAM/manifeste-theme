@@ -24,6 +24,7 @@
 {% block page_title %}
     <div class="c-heading u-mbs">
         <h1 class="c-heading__title">
+            <!-- title -->
             {% editable playlist.title %}
                 {{ playlist.title }}
             {% endeditable %}
@@ -32,6 +33,8 @@
 {% endblock %}
 
 {% block page_sidebar %}
+
+    <!-- Date de publication -->
     <div class="c-metas">
         <ul class="c-metas__items">
             <li class="c-metas__item">
@@ -46,14 +49,14 @@
             </li>
         </ul>
     </div>
-
+    <!-- Social -->
     {% with playlist as object %}
         {% include "includes/share_buttons.html" %}
     {% endwith %}
 {% endblock %}
 
 {% block page_content %}
-
+    <!-- Description -->
     {% if playlist.description %}
         {% editable playlist.description %}
             <div class="c-content u-mbs">
@@ -61,7 +64,8 @@
             </div>
         {% endeditable %}
     {% endif %}
-
+    
+    <!-- Inclusion de la playlist video ou audio -->
     {% with playlist.type as type %}
         <!-- media/playlist/includes/audio.html -->
         <!-- media/playlist/includes/video.html -->
@@ -70,6 +74,4 @@
         {% endwith %}
     {% endwith %}
 
-    {# NOTE: ? #}
-    {{ playlist.content|safe }}
 {% endblock %}
