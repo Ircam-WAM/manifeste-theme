@@ -1,4 +1,4 @@
-{% extends "agenda/event_base.html" %}
+{% extends "pages/page.html" %}
 {% load mezzanine_tags comment_tags keyword_tags rating_tags i18n  disqus_tags event_tags organization_tags pages_tags %}
 
 {% block meta_title %}{{ event.meta_title }}{% endblock %}
@@ -20,19 +20,8 @@
 {% endblock %}
 
 {% block page_title %}
-    <h1 class="invisible-until-sm section-title section-title--uppercase section-title--underline section-title--main section-title--no-margin"><a href="{% url 'event_list' %}"><i class="fsl fa fa-angle-left"></i>{% trans "Back to events" %}</a></h1>
-
-    <div style="position: relative;" class="page--event-details">
-        {% if previous_event_url %}
-            <a href="{{ previous_event_url }}" class="page__previous"><i class="fa fa-angle-left"></i></a>
-        {% endif %}
-        {% block event_line_card %}
-            {% include 'agenda/includes/event_linecard.html' %}
-        {% endblock %}
-        {% if next_event_url %}
-            <a href="{{ next_event_url }}" class="page__next"><i class="fa fa-angle-right"></i></a>
-        {% endif %}
-    </div>
+    <!-- url de retour -->
+    <a href="{% url 'event_list' %}"><i class="fsl fa fa-angle-left"></i>{% trans "Back to events" %}</a>
 
 {% endblock %}
 
@@ -45,7 +34,7 @@
 {% endblock %}
 
 {% block page_content %}
-
+    <!-- Sous titre -->
     {% if event.sub_title %}
         <div class="page__subtitle">
             {% editable event.sub_title %}
@@ -54,10 +43,12 @@
         </div>
     {% endif %}
 
+    <!-- Dates, prix, lieux, borchure, bouton réserver -->
     {% block meta_info %}
         {% include 'agenda/includes/event_metainfo.html' %}
     {% endblock %}
 
+    <!-- contenu détaillé -->
     {% block event_detail_content %}
         {% if event.content %}
             {% editable event.content %}
@@ -69,118 +60,52 @@
 {% endblock %}
 
 {% block page_link %}
-    {% if event.mentions or event.links.all|length > 0 %}
-        <div class="mt4">
-            <div class="row">
-                {% if child %}
-                    {% with child.links.all as links %}
-                        {% if links %}
-                            <div class="col-xs-8{% if event.category|lower|cut:" " == 'vertigo' or event.parent.category.strip|lower|cut:" " == 'vertigo' %} vertigo{% endif %}">
-                                {% include 'core/inc/link.html' %}
-                            </div>
-                        {% endif %}
-                    {% endwith %}
-                {% else %}
-                    {% with event.links.all as links %}
-                        {% if links %}
-                            <div class="col-xs-8{% if event.category|lower|cut:" " == 'vertigo' or event.parent.category.strip|lower|cut:" " == 'vertigo' %} vertigo{% endif %}">
-                                {% include 'core/inc/link.html' %}
-                            </div>
-                        {% endif %}
-                    {% endwith %}
-                {% endif %}
-                {% if event.mentions %}
-                    <div class="col-xs-8">
-                        <div class="small-text">
-                            {{ event.mentions }}
-                       </div>
-                    </div>
-                {% endif %}
-            </div>
-        </div>
-    {% endif %}
-{% endblock %}
 
-{% block page_audio %}
-    {% with event as object %}
-        {{ block.super }}
-    {% endwith %}
+    <!-- Liens -->
+    {% if event.links.all|length > 0 %}
+        {% if child %}
+            {% with child.links.all as links %}
+                {% if links %}
+                    {% include 'core/inc/link.html' %}
+                {% endif %}
+            {% endwith %}
+        {% else %}
+            {% with event.links.all as links %}
+                {% if links %}
+                    {% include 'core/inc/link.html' %}
+                {% endif %}
+            {% endwith %}
+        {% endif %}
+    {% endif %}
+
+    <!-- Mentions -->
+    {% if event.mentions %}
+        {{ event.mentions }}
+    {% endif %}
 {% endblock %}
 
 {% block page_slider %}
+    <!-- slider d'images -->
     {% with event as object %}
         {{ block.super }}
     {% endwith %}
 {% endblock %}
 
-{% block page_video %}
+{% block multimedia %}
+    <!-- playlists, media (audio|video) -->
     {% with event as object %}
         {{ block.super }}
     {% endwith %}
-{% endblock %}
-
-{% block page_person_list %}
-    {% if event.persons.all %}
-        <div class="pb2">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xxs-16 col-md-10 col-md-push-3" data-summary-content>
-                        <div class="tac">
-                            <h2 class="section-title section-title--uppercase section-title--main section-title--underline">
-                                {% if event.related_title.title %}
-                                    {{ event.related_title.title }}
-                                {% else %}
-                                    {% trans "Also discover" %}
-                                {% endif %}
-                            </h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 col-md-push-2 tac">
-                        <div class="row{% if event.category|lower|cut:" " == 'vertigo' or event.parent.category.strip|lower|cut:" " == 'vertigo' %} vertigo{% endif %}">
-                                <div data-slider-related-artists>
-                                {% for person in event.persons.all %}
-                                    {% with person.person as person %}
-                                        <div class="col-md-5 col-xs-6">
-                                            {% include "network/inc/person/person_card_square.html" %}
-                                        </div>
-                                    {% endwith %}
-                                {% endfor %}
-                                
-                                {% with dynamic_content=event.dynamic_content_event.all|filter_content object=event %}
-                                    {% if dynamic_content.other|length > 0 %}
-                                        {% for content in dynamic_content.other %}
-                                            <div class="col-md-5 col-xs-6">
-                                                {% if content.content_type.model == "article" %}
-                                                    {% include "magazine/article/includes/article_card.html" with object=content.content_object  %}
-                                                {% elif content.content_type.model == "event" %}
-                                                    {% include "agenda/event/includes/event_card.html" with object=content.content_object %}
-                                                {% elif content.content_type.model == "custompage" %}
-                                                    {% include "pages/page/includes/page_card.html" with object=content.content_object %}
-                                                {% endif %}
-                                            </div>
-                                        {% endfor %}
-                                    {% endif %}
-                                {% endwith %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    {% endif %}
 {% endblock %}
 
 {% block page_sub_content %}
+    <!-- Block de contenu -->
     {% with event.blocks.all as blocks %}
         {% include "core/inc/block.html" %}
     {% endwith %}
 {% endblock %}
 
 {% block page_related_content %}
+    <!-- Related content -->    
     {% include "core/inc/related_content_dynamic.html" with concrete_objects=event.dynamic_content_event.all|get_content_objects %}
 {% endblock page_related_content %}
