@@ -10,7 +10,7 @@
     <div class="c-gallery c-gallery--filter u-mbl">
         <ul class="c-gallery__items" id="results">
             <li class="c-gallery__item">
-                <form action="events-alt.html" method="get" class="c-filter js-filter" data-filter-replace="#results">
+                <form action="events-empty.html" method="get" class="c-filter js-filter" data-filter-replace="#results">
                     <p class="c-filter__title">Juin</p>
                     {% include 'includes/calendar.html' %}
                     <p class="c-filter__title">Filtrer par</p>
@@ -31,8 +31,8 @@
                     <button type="submit" class="c-filter__button c-button">OK</button>
                 </form>
             </li>
-            {% for i in 1..8 %}
-                <li class="c-gallery__item" data-filter-category="{{ random([1, 2, 3]) }}">
+            {% for i in 1..5 %}
+                <li class="c-gallery__item" data-filter-category="{{ random([1, 2]) }}">
                     {% include 'includes/card_event.html' %}
                 </li>
             {% endfor %}

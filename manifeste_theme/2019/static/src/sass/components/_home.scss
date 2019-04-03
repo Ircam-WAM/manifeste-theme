@@ -92,7 +92,6 @@
         left: 0;
         text-align: center;
         z-index: 1;
-        pointer-events: none;
       }
 
       .flickity-page-dots .dot {
@@ -104,8 +103,24 @@
         border-radius: 50%;
         width: rem(8px);
         height: rem(8px);
-        margin: rem(12px 4px);
-        transition: opacity 400ms;
+        margin: rem(12px 8px);
+        position: relative;
+        transition: color 400ms, opacity 400ms;
+
+        &:hover {
+          color: $color-primary;
+        }
+
+        &::before {
+          content: "";
+          display: block;
+          margin: rem(-8px);
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+        }
 
         &:not(.is-selected):not(:hover) {
           opacity: .3;
@@ -154,7 +169,8 @@
   }
 
   .c-home__events {
-    .flickity-prev-next-button:not(:disabled):hover {
+    .flickity-prev-next-button:not(:disabled):hover,
+    .flickity-page-dots .dot:hover {
       color: $color-white;
     }
   }

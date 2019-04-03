@@ -21,20 +21,28 @@
   transition: background-color 400ms, color 400ms;
   min-height: rem(32px);
   min-width: rem(64px);
+}
 
-  &:not(:disabled):hover {
-    background-color: $color-primary;
-    color: $color-white;
-  }
+.c-button:not(:disabled):hover,
+a:not(:disabled):hover .c-button {
+  background-color: $color-primary;
+  color: $color-white;
+}
+
+.c-button--alt:not(:disabled):hover,
+a:not(:disabled):hover .c-button--alt {
+  background-color: $color-white;
+  color: $color-primary;
 }
 
 .c-button--primary {
   background-color: $color-primary;
   color: $color-white;
+}
 
-  &:not(:disabled):hover {
-    background-color: $color-black;
-  }
+.c-button--primary:not(:disabled):hover,
+a:not(:disabled):hover .c-button--primary {
+  background-color: $color-black;
 }
 
 .c-button--secondary {

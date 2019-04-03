@@ -42,7 +42,8 @@
       cursor: pointer;
       @include size(16px);
       transition: background-color 400ms;
-      margin-top: rem(2px);
+      position: relative;
+      top: rem(2px);
 
       &:hover {
         background-color: $color-darkgrey;
@@ -104,7 +105,6 @@
     &::-webkit-search-cancel-button {
       @include size(24px);
       background-size: rem(16px);
-      margin-top: rem(4px);
     }
   }
 
