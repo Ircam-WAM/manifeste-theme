@@ -5,30 +5,11 @@
     {% trans "Home" %}
 {% endblock %}
 
-{% block breaking_news %}
-    {% with home.dynamiccontenthomebody_set.all|get_first_brief as brief %}
-        {% if brief.title %}
-            <div class="breaking-news" id="jsBreakingNews">
-                <div class="breaking-news__title">
-                    {% trans "Breaking News" %}
-                </div>
-                <div class="breaking-news__content marquee" >
-                    {{ brief.title }}
-                </div>
-            </div>
-        {% endif %}
-    {% endwith %}
-{% endblock %}
-
 {% spaceless %}
     {% block body_class %}
         home
     {% endblock %}
 {% endspaceless %}
-
-{% block hero %}
-    {% include "home/inc/hero.html" %}
-{% endblock %}
 
 {% block main %}
     
