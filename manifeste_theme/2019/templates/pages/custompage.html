@@ -59,22 +59,16 @@
 
     {% endblock %}
 
-    {% block page_audio %}
-      {% with page.custompage as object %}
-          {{ block.super }}
-      {% endwith %}
-    {% endblock %}
-
     {% block page_slider %}
         {% with page.custompage as object %}
             {{ block.super }}
         {% endwith %}
     {% endblock %}
 
-    {% block page_video %}
-      {% with page.custompage as object %}
-          {{ block.super }}
-      {% endwith %}
+    {% block multimedia %}
+        {% with page.custompage as object %}
+            {{ block.super }}
+        {% endwith %}
     {% endblock %}
 
     {% block page_person_list %}
