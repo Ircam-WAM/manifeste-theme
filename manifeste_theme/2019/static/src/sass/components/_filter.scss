@@ -130,7 +130,7 @@
         //   color: $color-primary;
         // }
 
-        .c-filter__input:checked + &::before {
+        .c-filter__input:checked:not(:disabled) + &::before {
           transform: scaleX(1);
           transform-origin: left;
         }

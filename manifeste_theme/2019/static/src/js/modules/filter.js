@@ -22,10 +22,29 @@ class Filter {
         event.preventDefault();
         this.handleChange(event);
       });
+
+      this.checkCategories();
     }
 
     this.inputs.forEach((input) => {
       input.addEventListener('change', debounce(this.handleChange.bind(this), 250));
+    });
+  }
+
+  checkCategories() {
+    // Get current items
+    const items = Array.from(document.querySelector(this.replace).children).filter((item) => item.dataset.filterCategory);
+
+    // Get active categories with item data-filter-category
+    const activeCategories = [...new Set(items.reduce((acc, item) => acc.concat(item.dataset.filterCategory), []))];
+
+    // Disable or enable category input
+    this.inputs.filter((input) => input.classList.contains('js-filter-category')).forEach((category) => {
+      if (activeCategories.includes(category.getAttribute('value'))) {
+        category.removeAttribute('disabled');
+      } else {
+        category.setAttribute('disabled', true);
+      }
     });
   }
 
@@ -51,22 +70,35 @@ class Filter {
             'Content-Type': 'text/html'
           }
         }
-
       }).then((response) => {
         this.setLoading(false);
 
         if (response.status === 200) {
           const parser = new DOMParser();
           const html = parser.parseFromString(response.data, 'text/html');
-          const replace = document.querySelector(this.replace);
+          const oldItems = document.querySelector(this.replace);
+          const newItems = html.querySelector(this.replace);
+
           // Ignore filter
           const ignore = (item) => !item.querySelector('.js-filter');
 
           // Remove old items
-          Array.from(replace.children).filter(ignore).forEach((item) => replace.removeChild(item));
+          Array.from(oldItems.children).filter(ignore).forEach((item) => {
+            item.classList.add('is-removed');
 
-          // // Append new items
-          Array.from(html.querySelector(this.replace).children).filter(ignore).forEach((item) => replace.appendChild(item));
+            setTimeout(() => {
+              oldItems.removeChild(item)
+
+              // Append new items
+              Array.from(newItems.children).filter(ignore).forEach((item) => {
+                item.classList.add('is-added');
+                oldItems.appendChild(item);
+                setTimeout(() => item.classList.remove('is-added'), 401);
+              });
+
+              this.checkCategories();
+            }, 401);
+          });
 
         } else {
           this.showError(`Error: Request failed with status code ${response.status} (${statusText})`);
@@ -81,7 +113,7 @@ class Filter {
 
   setLoading(isLoading) {
     this.isLoading = isLoading;
-    this.filter.classList[isLoading ? 'add' : 'remove']('loading');
+    this.filter.classList[isLoading ? 'add' : 'remove']('is-loading');
   }
 }
 

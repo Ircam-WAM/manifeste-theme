@@ -1,33 +1,68 @@
 <footer class="c-footer">
-    <a href="#" class="c-footer__booklet">
-        <img src="{% static 'img/booklet.jpg' %}" alt="" class="c-footer__picture"/>
-        <span class="c-footer__button c-button">Télécharger la brochure</span>
-    </a>
-    <a href="#" class="c-footer__ircam">
-        <svg class="c-footer__logo" width="168" height="96" aria-label="IRCAM Centre Pompidou">
-            <use xlink:href="{% static 'img/symbols.svg' %}#symbol-ircam"/>
-        </svg>
-    </a>
-    <form action="https://public.message-business.com/form/46711/84/form.aspx" method="get" class="c-footer__newsletter">
-        <label for="newsletter" class="c-footer__label">Inscrivez-vous à notre newsletter afin de recevoir les dernières actualités du festival.</label>
-        <input id="newsletter" name="formItem-mbtext-email" type="email" placeholder="Votre mail" class="c-footer__input"/>
-        <button type="submit" class="c-footer__button c-button" aria-label="S’inscire">OK</button>
-    </form>
-    <nav class="c-footer__links">
-        <ul class="c-footer__items">
-            <li class="c-footer__item">
-                <a href="#">Lien</a>
-            </li>
-        <ul>
-        <ul class="c-footer__items c-footer__items--social">
-            <li class="c-footer__item">
-                <a href="#">Lien social</a>
-            </li>
-        </ul>
-    </nav>
-    <p class="c-footer__partners">
-        <a href="#" class="c-footer__partner">
-            <img src="http://placehold.it/80" alt="" class="c-footer__logo"/>
+    <div class="c-footer__wrapper">
+        <a href="#" target="_blank" class="c-footer__booklet">
+            <img src="{% static 'img/booklet.jpg' %}" alt="" class="c-footer__picture"/>
+            <span class="c-footer__button c-button">
+                <span class="c-button__label">Télécharger la brochure</span>
+                <svg class="c-button__icon" width="24" height="24" aria-hidden="true">
+                    <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-right"/>
+                </svg>
+            </span>
         </a>
-    </p>
+        <a href="https://www.ircam.fr" target="_blank" rel="noopener" class="c-footer__ircam">
+            <svg class="c-footer__logo" width="168" height="96" aria-label="IRCAM Centre Pompidou">
+                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-ircam"/>
+            </svg>
+        </a>
+        <form action="https://public.message-business.com/form/46711/84/form.aspx" method="get" target="_blank" class="c-footer__newsletter">
+            <label for="newsletter" class="c-footer__label">Inscrivez-vous à notre newsletter afin de recevoir les dernières actualités du festival.</label>
+            <input id="newsletter" name="formItem-mbtext-email" type="email" placeholder="Votre mail" class="c-footer__input"/>
+            <button type="submit" class="c-footer__button c-button c-button--alt">
+                <svg class="c-button__icon" width="24" height="24" aria-label="S’inscire">
+                    <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-right"/>
+                </svg>
+            </button>
+        </form>
+        <nav class="c-footer__links">
+            <ul class="c-footer__items">
+                <li class="c-footer__item">
+                    <a href="#" class="c-footer__link">Équipes &amp; contacts</a>
+                </li>
+                <li class="c-footer__item">
+                    <a href="#" class="c-footer__link">Partenaires</a>
+                </li>
+                <li class="c-footer__item">
+                    <a href="#" class="c-footer__link">Soutenir l'Ircam</a>
+                </li>
+                <li class="c-footer__item">
+                    <a href="#" class="c-footer__link">Mentions légales</a>
+                </li>
+            </ul>
+            <ul class="c-footer__items c-footer__items--social">
+                <li class="c-footer__item">
+                    <a href="https://www.facebook.com/iIRCAM/" target="_blank" rel="noopener" class="c-footer__link">Facebook</a>
+                </li>
+                <li class="c-footer__item">
+                    <a href="https://twitter.com/ircam" target="_blank" rel="noopener" class="c-footer__link">Twitter</a>
+                </li>
+                <li class="c-footer__item">
+                    <a href="https://www.youtube.com/user/Ircam75" target="_blank" rel="noopener" class="c-footer__link">Youtube</a>
+                </li>
+                <li class="c-footer__item">
+                    <a href="https://www.instagram.com/ircam_paris/" target="_blank" rel="noopener" class="c-footer__link">Instagram</a>
+                </li>
+            </ul>
+        </nav>
+        <p class="c-footer__partners">
+            <a href="#" target="_blank" rel="noopener" class="c-footer__partner">
+                <img src="http://placehold.it/60x80" alt="" class="c-footer__logo"/>
+            </a>
+            <a href="#" target="_blank" rel="noopener" class="c-footer__partner">
+                <img src="http://placehold.it/70x74" alt="" class="c-footer__logo"/>
+            </a>
+            <a href="#" target="_blank" rel="noopener" class="c-footer__partner">
+                <img src="http://placehold.it/120x48" alt="" class="c-footer__logo"/>
+            </a>
+        </p>
+    </div>
 </footer>
