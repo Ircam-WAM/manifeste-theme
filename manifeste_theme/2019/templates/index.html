@@ -1,28 +1,28 @@
 {% extends "2019/base.html" %}
-{% load i18n pages_tags mezzanine_tags organization_tags %}
+{% load i18n pages_tags mezzanine_tags organization_tags staticfiles %}
 
 {% block meta_title %}
     {% trans "Home" %}
 {% endblock %}
 
-{% spaceless %}
-    {% block body_class %}
-        home
-    {% endblock %}
-{% endspaceless %}
-
 {% block main %}
-    
-    <form action="{% url 'event_list' %}" method="GET">    
-        {% include "includes/calendar.html" with date_field=event_calendar_form.event_day_filter %}
-    </form>
-
-    {% include "home/inc/slider.html" %}
-
-    {% include "home/inc/body.html" %}
-
-    {% include "home/inc/bio.html" %}
-
+    <div class="c-home u-mbl@medium">
+        <a href="{{ host_organization.url }}" target="_blank" rel="noopener" class="c-home__ircam">
+            <svg class="c-home__logo" width="152" height="88" aria-label="IRCAM Centre Pompidou">
+                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-ircam"/>
+            </svg>
+        </a>
+        {% include "home/inc/bio.html" %}
+        <div class="c-home__events">
+            {% include "home/inc/slider.html" %}
+            <form action="{% url 'event_list' %}" method="get" class="c-home__filter c-filter js-filter">
+                <p class="c-filter__title">{% trans 'Juin' %}</p>
+                {% include 'includes/calendar.html' with date_field=event_calendar_form.event_day_filter %}
+                <button type="submit" class="c-filter__button c-button">{% trans 'OK' %}</button>
+            </form>
+        </div>
+        {% include "home/inc/body.html" %}
+    </div>
 {% endblock %}
 
 

@@ -1,33 +1,17 @@
 {% load i18n pages_tags mezzanine_tags media_tags organization_tags %}
 
-<a class="article-box" href="{% block url %}{% endblock %}" {% block target %}{% endblock %} title="{% block metatitle %}{% endblock %}">
-    <div class="article-box__header">
-
-        {% block image %}
-        {% endblock %}
-
-        {% block btn %}
-        {% endblock %}
-
+<article class="c-article c-article--alt">
+    <div class="c-article__header">
+        {% block image %}{% endblock %}
+        {% block icon %}{% endblock %}
     </div>
-
-    <div class="article-box__content tal">
-        <div class="article-box__tags">
-            {% block tags %}
-            {% endblock %}
-        </div>
-        <div class="article-box__title">
-            {% block title %}
-            {% endblock %}
-        </div>
-        <div class="article-box__subtitle">
-            {% block subtitle %}
-            {% endblock %}
-        </div>
-        <div class="article-box__desc">
-             {% block content %}
-             {% endblock %}
-        </div>
+    <div class="c-article__content">
+        {% block dates %}{% endblock %}
+        <h3 class="c-article__title">
+            <a href="{% block url %}{% endblock %}" {% block target %}{% endblock %} class="c-article__link">{% block title %}{% endblock %}</a>
+        </h3>
+        {% block subtitle %}{% endblock %}
+        {% block tags %}{% endblock %}
+        {% block btn %}{% endblock %}
     </div>
-
-</a>
+</article>

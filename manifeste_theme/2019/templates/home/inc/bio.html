@@ -1,20 +1,17 @@
 {% load i18n %}
-<div class="section">
-    <div class="page__block page__block--accent">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-16 col-md-16 col-lg-10 fsl lh5 ffs fwl">
-                    <div class="fsxl ffss fwb mb2">
-                        MANIFESTE 2018
-                    </div>
-                    {% if host_organization.bio %}
-                        {{ host_organization.bio|safe }}
-                    {% else %}
-                            Un pont entre deux rives, parcouru par une foule de musiciens, chorégraphes et peintres, d’artistes de la lumière, du son et du brouillard, tous animés par la « réciprocité des feux ».<br />
-                            Marquant les 40 ans de l’Ircam, ManiFeste-2018 explore le regard musicien qui, de Scriabine jusqu’aux jeunes compositeurs d’aujourd’hui, est mobilisé par l’expérience visuelle.
-                    {% endif %}
-                </div>
-            </div>
-        </div>
+
+<div class="c-home__edito">
+    <h1 class="c-home__title">
+        {# TODO @emilie: url edito #}
+        <a href="#" class="c-home__link">{% trans 'Manifeste 2019' %}</a>
+    </h1>
+    <div class="c-home__text">
+        {% if host_organization.bio %}
+            {{ host_organization.bio|safe }}
+        {% else %}
+            <p>Donner corps, chœur et cris au tumulte du présent : la clameur du monde retentit sur ManiFeste-2019. Quelle communauté en scène face à l’assemblée muette et agissante des spectateurs ?  Lab.Oratorium de Philippe Manoury, Eror de Georgia Spiropoulos naissent d’une Europe en miettes, d’une cité disloquée et de l’errance de l’individu.</p>
+        {% endif %}
     </div>
+    {# TODO @emilie: url edito #}
+    <a href="#" class="c-home__more c-button c-button--alt">{% trans 'Read the edito' %}</a>
 </div>

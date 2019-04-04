@@ -1,62 +1,41 @@
 {% load i18n  mezzanine_tags event_tags keyword_tags disqus_tags organization_tags %}
 
-<div class="row">
-
-    <div class="col-sm-16">
-
-        <a class="event-line-box{% if event.category|lower|cut:" " == 'vertigo' or event.parent.category.strip|lower|cut:" " == 'vertigo' or is_vertigo %} event-line-box--vertigo{% endif %}" href="{{ event.get_absolute_url }}">
-
-            {% with event.images.all|get_type:'card' as images %}
-                {% if images %}
-                    <figure class="event-line-box__image">
-                        <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="{{ MEDIA_URL }}{% thumbnail images.0.file 1030 400 %}">
-                    </figure>
-                {% else %}
-                    {% with event.parent.images.all|get_type:'card' as images %}
-                        {% if images %}
-                            <figure class="event-line-box__image">
-                                <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="{{ MEDIA_URL }}{% thumbnail images.0.file 1030 400 %}">
-                            </figure>
-                        {% else %}
-                            <figure class="event-line-box__image">
-                                <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
-                            </figure>
-                        {% endif %}
-                    {% endwith %}
-                {% endif %}
-            {% endwith %}
-
-            <div class="event-line-box__content">
-                
-                {% include 'agenda/event/includes/reserve.html' %}
-
-                {% keywords_for event as tags %}
-
-                <div class="event-line-box__category">
-                    {% if event.category %}{{ event.category }}{% else %}{{ event.parent.category }}{% endif %}
-                </div>
-
-                <div class="event-line-box__body">
-                    {% if event.location %}
-                        <div class="event-line-box__location">
-                            <span>{{ event.location.title }}</span>
-                            {% if event.location.room %}
-                                 / {{ event.location.room }}
-                            {% endif %}
-                        </div>
+<article class="c-article">
+    <div class="c-article__header">
+        {% with event.images.all|get_type:'card' as images %}
+            {% if images %}
+                <img src="{% thumbnail images.0.file 752 504 %}" alt="" class="c-article__picture"/>
+            {% else %}
+                {% with event.parent.images.all|get_type:'card' as images %}
+                    {% if images %}
+                        <img src="{{ MEDIA_URL }}{% thumbnail images.0.file 752 504 %}" alt="" class="c-article__picture"/>
+                    {% else %}
+                        {# TODO: image par défaut ? #}
                     {% endif %}
-                    <div class="event-line-box__title">
-                        {{ event.title }}
-                    </div>
-                    <div class="event-line-box__date">
-                        {% include 'agenda/includes/event_date_line.html' with object=event %}
-                    </div>
-                </div>
-
-            </div>
-
-        </a>
-
+                {% endwith %}
+            {% endif %}
+        {% endwith %}
     </div>
+    <div class="c-article__content">
+        <p class="c-article__date">
+            {% include 'agenda/includes/event_date_line.html' with object=event %}
+        </p>
 
-</div>
+        <h3 class="c-article__title">
+            <a href="{{ event.get_absolute_url }}" class="c-article__link">{{ event.title }}</a>
+        </h3>
+
+        {% if event.location %}
+            <p class="c-article__subtitle">{{ event.location.title }}{% if event.location.room %}, {{ event.location.room }}{% endif %}</p>
+        {% endif %}
+
+        {% keywords_for event as tags %}
+        <p class="c-article__categories">
+            <span class="c-article__category">{% if event.category %}{{ event.category }}{% else %}{{ event.parent.category }}{% endif %}</span>
+        </p>
+
+        <p class="c-article__buttons">
+            {% include 'agenda/event/includes/reserve.html' %}
+        </p>
+    </div>
+</article>
