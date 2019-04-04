@@ -187,11 +187,6 @@
     display: inline-block;
     vertical-align: top;
     margin: rem(-56px 0 56px) auto;
-    transition: color 400ms;
-
-    &:hover {
-      color: $color-primary;
-    }
   }
 
     .c-home__logo {
