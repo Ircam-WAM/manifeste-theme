@@ -215,6 +215,14 @@
         }
 
 @include mq($until: medium) {
+  .c-detail__back {
+    display: none;
+
+    & + .c-detail__banner {
+      margin-top: 0;
+    }
+  }
+
   .c-detail__banner .c-detail__container::after,
   .c-detail__wrapper::after {
     left: -9999px;
