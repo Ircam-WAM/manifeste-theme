@@ -1,5 +1,8 @@
 {% load mezzanine_tags i18n staticfiles %}
 
+{# TODO @emilie: charger jQuery seulement en mode admin ? #}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
 {% compress js %}
     <script src="{% static 'js/index.min.js' %}"></script>
 {% block extra_js %}{% endblock %}

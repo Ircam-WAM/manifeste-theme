@@ -16,7 +16,6 @@
         <div class="c-home__events">
             {% include "home/inc/slider.html" %}
             <form action="{% url 'event_list' %}" method="get" class="c-home__filter c-filter js-filter">
-                <p class="c-filter__title">{% trans 'Juin' %}</p>
                 {% include 'includes/calendar.html' with date_field=event_calendar_form.event_day_filter %}
                 <button type="submit" class="c-filter__button c-button">{% trans 'OK' %}</button>
             </form>

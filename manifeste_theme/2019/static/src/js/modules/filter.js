@@ -16,6 +16,7 @@ class Filter {
     if (this.replace) {
       const { default: axios } = await import(/* webpackChunkName: "axios" */ 'axios');
       await import(/* webpackChunkName: "axios" */ 'es6-promise/auto');
+      await import(/* webpackChunkName: "axios" */ 'url-search-params-polyfill');
       this.axios = axios;
 
       this.filter.addEventListener('submit', (event) => {
@@ -32,20 +33,20 @@ class Filter {
   }
 
   checkCategories() {
-    // Get current items
-    const items = Array.from(document.querySelector(this.replace).children).filter((item) => item.dataset.filterCategory);
+    // // Get current items
+    // const items = Array.from(document.querySelector(this.replace).children).filter((item) => item.dataset.filterCategory);
 
-    // Get active categories with item data-filter-category
-    const activeCategories = [...new Set(items.reduce((acc, item) => acc.concat(item.dataset.filterCategory), []))];
+    // // Get active categories with item data-filter-category
+    // const activeCategories = [...new Set(items.reduce((acc, item) => acc.concat(item.dataset.filterCategory), []))];
 
-    // Disable or enable category input
-    this.inputs.filter((input) => input.classList.contains('js-filter-category')).forEach((category) => {
-      if (activeCategories.includes(category.getAttribute('value'))) {
-        category.removeAttribute('disabled');
-      } else {
-        category.setAttribute('disabled', true);
-      }
-    });
+    // // Disable or enable category input
+    // this.inputs.filter((input) => input.classList.contains('js-filter-category')).forEach((category) => {
+    //   if (activeCategories.includes(category.getAttribute('value'))) {
+    //     category.removeAttribute('disabled');
+    //   } else {
+    //     category.setAttribute('disabled', true);
+    //   }
+    // });
   }
 
   showError(message) {
@@ -61,10 +62,12 @@ class Filter {
     if (!this.isLoading) {
       this.setLoading(true);
 
+      const data = new FormData(this.filter);
+
       this.axios({
         url: this.action,
         method: this.method,
-        data: new FormData(this.filter),
+        [this.method === 'post' ? 'data' : 'params']: this.method === 'post' ? data : new URLSearchParams(data),
         config: {
           headers: {
             'Content-Type': 'text/html'
