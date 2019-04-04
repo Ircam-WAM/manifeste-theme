@@ -22,6 +22,14 @@
     left: 0;
     z-index: -1;
   }
+
+  &.is-loading {
+    cursor: wait;
+
+    & > * {
+      pointer-events: none;
+    }
+  }
 }
 
   .c-filter__title {

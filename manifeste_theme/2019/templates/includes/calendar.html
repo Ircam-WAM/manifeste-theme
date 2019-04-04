@@ -1,6 +1,7 @@
 {% load i18n organization_tags %}
 {% with shift='5' nb_week_days=7 %}
 {% with shift_int=shift|to_int%}
+<p class="c-filter__title">{% trans 'June' %}</p>
 <table class="c-filter__calendar">
     <thead>
         <tr>
@@ -28,6 +29,7 @@
                         {% with i=forloop.counter0|subtract:shift %}
                         {% with field=date_field|index:i %}
                         <label class="c-filter__toggle">
+                            {# TODO @emilie: disabled & checked #}
                             <input type="radio" name="{{ field.name }}" value="{{ field.choice_value }}" class="c-filter__input js-filter-input" />
                             <span class="c-filter__label">{{ field.choice_label }}</span>
                         </label>

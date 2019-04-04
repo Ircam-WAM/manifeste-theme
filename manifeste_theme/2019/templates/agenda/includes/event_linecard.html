@@ -30,9 +30,9 @@
         {% endif %}
 
         {% keywords_for event as tags %}
-        <p class="c-article__categories">
-            <span class="c-article__category">{% if event.category %}{{ event.category }}{% else %}{{ event.parent.category }}{% endif %}</span>
-        </p>
+        <ul class="c-article__categories">
+            <li class="c-article__category">{% if event.category %}{{ event.category }}{% else %}{{ event.parent.category }}{% endif %}</li>
+        </ul>
 
         <p class="c-article__buttons">
             {% include 'agenda/event/includes/reserve.html' %}
