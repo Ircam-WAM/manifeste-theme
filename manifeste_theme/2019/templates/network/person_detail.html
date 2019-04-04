@@ -53,11 +53,9 @@
 {% endblock %}
 
 {% block page_related_content %}
-    <!-- Related content -->
-    {% with dynamic_content=person.dynamic_content_person.all|filter_content object=person %}
-        {% include "core/inc/related_content.html" %}
-    {% endwith %}
-{% endblock %}
+    <!-- related content -->
+    {% include "core/inc/related_content_dynamic.html" with concrete_objects=person.dynamic_content_person.all|get_content_objects object=person %}
+{% endblock page_related_content %}
 
 {% block page_link %}
     <!-- Liens -->

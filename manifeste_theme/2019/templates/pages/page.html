@@ -156,12 +156,9 @@
     </div>
 
     <div>
-
         {% block page_related_content %}
-            {% with dynamic_content=page.dynamic_content_pages.all|filter_content object=page %}
-                {% include "core/inc/related_content.html" %}
-            {% endwith %}
-        {% endblock %}
+            {% include "core/inc/related_content_dynamic.html" with concrete_objects=page.dynamic_content_pages.all|get_content_objects %}
+        {% endblock page_related_content %}
 
     </div>
 
