@@ -3,17 +3,17 @@
     {% if event.trainings.all|length %}
         {% with event.links.all as links %}
             {% if links %}
-                <a href="{{ links|get_type_link:'link'|first }}">
+                <a href="{{ links|get_type_link:'link'|first }}" class="c-article__button c-button c-button--secondary">
                     {% trans "Reserve" %}
                 </a>
             {% endif %}
         {% endwith %}
     {% elif event.links.all|get_type_link:'VEL' %}
-        <a href="{{ event.links.all|get_type_link:'VEL'|first }}" target="_blank">
+        <a href="{{ event.links.all|get_type_link:'VEL'|first }}" target="_blank" class="c-article__button c-button c-button--secondary">
             {% trans "Reserve" %}
         </a>
     {% else %}
-        <span>
+        <span class="c-article__button c-button c-button--secondary">
             {% trans "Free" %}
         </span>
     {% endif %}

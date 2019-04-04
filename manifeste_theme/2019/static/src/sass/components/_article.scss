@@ -181,19 +181,23 @@
 
       .c-article__category {
         text-decoration: underline;
-        position: relative;
-        z-index: 2;
+
       }
 
-      a.c-article__category[href]:hover {
-        text-decoration: none;
+      a.c-article__category[href]{
+        position: relative;
+        z-index: 2;
+
+        &:hover {
+          text-decoration: none;
+        }
       }
 
     .c-article__buttons {
       flex: 0 auto;
     }
 
-      .c-article__button {
+      a.c-article__button[href] {
         position: relative;
         z-index: 2;
       }

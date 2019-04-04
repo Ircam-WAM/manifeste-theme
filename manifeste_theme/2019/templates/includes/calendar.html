@@ -1,16 +1,16 @@
 {% load i18n organization_tags %}
 {% with shift='5' nb_week_days=7 %}
 {% with shift_int=shift|to_int%}
-<table border="1">
+<table class="c-filter__calendar">
     <thead>
         <tr>
-            <td>{% trans 'MO' %}</td>
-            <td>{% trans 'TU' %}</td>
-            <td>{% trans 'WE' %}</td>
-            <td>{% trans 'TH' %}</td>
-            <td>{% trans 'FR' %}</td>
-            <td>{% trans 'SA' %}</td>
-            <td>{% trans 'SU' %}</td>
+            <th scope="col">{% trans 'MO' %}</th>
+            <th scope="col">{% trans 'TU' %}</th>
+            <th scope="col">{% trans 'WE' %}</th>
+            <th scope="col">{% trans 'TH' %}</th>
+            <th scope="col">{% trans 'FR' %}</th>
+            <th scope="col">{% trans 'SA' %}</th>
+            <th scope="col">{% trans 'SU' %}</th>
         </tr>
     </thead>
     <tbody>
@@ -27,9 +27,9 @@
                     {% if forloop.counter0 >= shift_int %}
                         {% with i=forloop.counter0|subtract:shift %}
                         {% with field=date_field|index:i %}
-                        <label for="{{ field.id_for_label }}">
-                            <span>{{ field.choice_label }}</span>
-                            <input type="radio" name="{{ field.name }}" id="{{ field.id_for_label }}" />
+                        <label class="c-filter__toggle">
+                            <input type="radio" name="{{ field.name }}" value="{{ field.choice_value }}" class="c-filter__input js-filter-input" />
+                            <span class="c-filter__label">{{ field.choice_label }}</span>
                         </label>
                         {% endwith %}
                         {% endwith %}

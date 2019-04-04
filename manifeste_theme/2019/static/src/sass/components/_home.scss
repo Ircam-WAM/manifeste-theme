@@ -146,10 +146,6 @@
         }
       }
 
-  .c-home__news {
-
-  }
-
 @include mq($until: medium) {
   .c-home {
     padding-bottom: rem(16px);
@@ -277,6 +273,10 @@
       @include font-size(16px, 24px);
       padding-top: rem(8px);
       overflow: hidden;
+
+      p + p {
+        margin-top: rem(16px);
+      }
     }
 
     .c-home__more {

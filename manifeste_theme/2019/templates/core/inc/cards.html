@@ -1,11 +1,7 @@
 {% load i18n mezzanine_tags keyword_tags organization_tags pages_tags staticfiles %}
 
-<div class="c-gallery">
-    <ul class="c-gallery__items">
-        {% for concrete_object in concrete_objects %}
-            <li class="c-gallery__item">
-                {% include 'core/inc/cards_tpl.html' %}
-            </li>
-        {% endfor %}
-    </ul>
-</div>
+{% for concrete_object in concrete_objects %}
+    <li class="c-gallery__item">
+        {% include 'core/inc/cards_tpl.html' %}
+    </li>
+{% endfor %}
