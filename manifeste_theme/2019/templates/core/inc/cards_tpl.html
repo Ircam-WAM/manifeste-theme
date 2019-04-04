@@ -1,0 +1,11 @@
+{% load i18n mezzanine_tags keyword_tags organization_tags pages_tags staticfiles %}
+
+{% with app_label=concrete_object|app_label_short classname=concrete_object|classname|lower object=concrete_object  %}
+{% with app_label|add:"/"|add:classname|add:"/includes/"|add:classname|add:"_card.html" as template %}
+    {% if template|template_exists %}
+        {% include template %}
+    {% else %}
+        {% include 'core/inc/generic_card.html' %}
+    {% endif %}
+{% endwith %}
+{% endwith %}
