@@ -129,13 +129,13 @@
     align-items: center;
     justify-content: space-between;
     padding: 0;
-    padding-top: rem(32px);
+    padding-top: rem(8px);
     text-align: center;
   }
 
     .c-footer__partner {
       display: inline-block;
-      padding: 0 rem(16px);
+      padding: rem(24px 16px) 0;
       vertical-align: middle;
     }
 
