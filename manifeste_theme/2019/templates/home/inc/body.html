@@ -7,7 +7,7 @@
             </div>
             <div class="container">
                 <div class="row-12">
-                    {% include 'core/inc/dynamic_body.html' with content_body=home.dynamiccontenthomebody_set.all %}
+                    {% include 'core/inc/cards.html' with concrete_objects=home.dynamiccontenthomebody_set.all|get_content_objects %}
                 </div>
             </div>
         </div>
