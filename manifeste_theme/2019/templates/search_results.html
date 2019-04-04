@@ -1,90 +1,30 @@
 {% extends "2019/base.html" %}
 
-{% load i18n mezzanine_tags organization_tags %}
+{% load i18n mezzanine_tags organization_tags staticfiles %}
 
 {% block meta_title %}{% trans "Search Results" %}{% endblock %}
-{% block title %}{% trans "Search Results" %}{% endblock %}
+
 {% block extra_head %}
-<meta name="robots" content="noindex">
+    <meta name="robots" content="noindex">
 {% endblock %}
 
 {% block main %}
-    <div class="page page--search">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-16 col-md-10 col-md-push-3 tac">
-                    <form action="{% url "search" %}" role="search" class="search-form mb4">
-                        <input class="form-control" placeholder="{% trans "Type something" %}" type="text" name="q" value="{{ request.GET.q }}">
-                        <button type="submit">
-                            <i class="fa fa-search" aria-hidden="true"></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
+    <form action="{% url 'search' %}" class="c-search u-mbm">
+        <label for="search-input" class="c-search__label">{% trans 'Search' %}</label>
+        <input type="search" name="q" id="search-input" placeholder="{% trans 'Type something' %}" value="{{ request.GET.q }}" required class="c-search__input"/>
+        <button type="submit" class="c-search__button">
+            <svg class="c-search__icon" width="24" height="24" aria-label="{% trans 'Search' %}">
+                <use xlink:href="{% static 'umr-stms/img/symbols.svg' %}#symbol-search"/>
+            </svg>
+        </button>
+    </form>
 
-            <div class="row">
-
-                <div class="col-md-3 page__sidebar" style="display: none;">
-
-                    <div style="position: relative;">
-                        <ul class="nav-tree nav-tree--level-0" data-sticky data-sticky-parent="row" data-sticky-offset="100" data-sticky-detach-at="971">
-                            {% for key,value in filter_dict.items %}
-                                <li class="nav-tree__item">
-                                    <a class="nav-tree__link nav-tree__link--filter{% if search_model == key %} active{% endif %}" href="{% if search_model == key %}{{ cancel_filter_url }}{% else %}{{ value.url }}{% endif %}">
-                                        {{ value.verbose_name }} ({{ value.count }}){% if search_model == key %}<i class="fa fa-times"></i>{% endif %}
-                                    </a>
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-
-                </div>
-
-                <div class="col-md-10 col-md-push-3 page__content" data-summary-content>
-                    <div class="page__content">
-                        {% for result in results.object_list %}
-                            {# result|classname #}
-                            {% if result|classname == 'Event' %}
-                                {% with result as event %}
-                                    {% include 'agenda/includes/event_search.html' %}
-                                {% endwith %}
-                            {% elif result|classname == 'Playlist' %}
-                                {% with result as playlist %}
-                                    {% include 'media/inc/playlist_search.html' %}
-                                {% endwith %}
-                            {% elif result|classname == 'Product' %}
-                                {% with result as product %}
-                                    {% include 'shop/product/includes/product_search.html' %}
-                                {% endwith %}
-                            {% elif result|classname == 'Article' %}
-                                {% include 'magazine/article/includes/article_search.html' %}
-                            {% elif result|classname == 'Person' %}
-                                {% include 'network/person/includes/person_search.html' %}
-                            {% elif result|classname == 'Media' %}
-                                {% with result as media %}
-                                    {% include 'media/media/includes/media_search.html' %}
-                                {% endwith %}
-                            {% else %}
-                                {% with result as page %}
-                                    {% include 'pages/page/includes/page_search.html' %}
-                                {% endwith %}
-                            {% endif %}
-                        {% endfor %}
-                        <p>
-                            {% if results.paginator.count == 0 %}
-                            {% blocktrans %}No results were found matching your query: {{ query }}{% endblocktrans %}
-                            {% endif %}
-                        </p>
-
-                    </div>
-                </div>
-
-            </div>
-
-
+    {% if results.paginator.count == 0 %}
+        <div class="c-content">
+            <p class="u-align-center">{% blocktrans %}No results were found matching your query.{% endblocktrans %}</p>
         </div>
-
+    {% else %}
+        {% include 'core/inc/cards.html' with concrete_objects=results.object_list %}
         {% pagination_for results %}
-
-    </div>
+    {% endif %}
 {% endblock %}
