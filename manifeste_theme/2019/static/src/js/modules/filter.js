@@ -33,20 +33,17 @@ class Filter {
   }
 
   checkCategories() {
-    // // Get current items
-    // const items = Array.from(document.querySelector(this.replace).children).filter((item) => item.dataset.filterCategory);
+    // Get active categories with item data-filter-category
+    const activeCategories = [...new Set(Array.from(document.querySelector(this.replace).children).reduce((acc, item) => acc.concat(item.dataset.filterCategory), []))];
 
-    // // Get active categories with item data-filter-category
-    // const activeCategories = [...new Set(items.reduce((acc, item) => acc.concat(item.dataset.filterCategory), []))];
-
-    // // Disable or enable category input
-    // this.inputs.filter((input) => input.classList.contains('js-filter-category')).forEach((category) => {
-    //   if (activeCategories.includes(category.getAttribute('value'))) {
-    //     category.removeAttribute('disabled');
-    //   } else {
-    //     category.setAttribute('disabled', true);
-    //   }
-    // });
+    // Disable or enable category input
+    this.inputs.filter((input) => input.classList.contains('js-filter-category')).forEach((category) => {
+      if (activeCategories.includes(category.getAttribute('value'))) {
+        category.removeAttribute('disabled');
+      } else {
+        category.setAttribute('disabled', true);
+      }
+    });
   }
 
   showError(message) {
