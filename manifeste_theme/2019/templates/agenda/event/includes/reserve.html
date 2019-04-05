@@ -8,8 +8,8 @@
                 </a>
             {% endif %}
         {% endwith %}
-    {% elif event.links.all|get_type_link:'VEL' %}
-        <a href="{{ event.links.all|get_type_link:'VEL'|first }}" target="_blank" class="c-article__button c-button c-button--secondary">
+    {% elif event.links.all|get_type_link:'vel' %}
+        <a href="{{ event.links.all|get_type_link:'vel'|first }}" target="_blank" class="c-article__button c-button c-button--secondary">
             {% trans "Reserve" %}
         </a>
     {% else %}
