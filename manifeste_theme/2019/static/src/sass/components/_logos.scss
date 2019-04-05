@@ -1,0 +1,49 @@
+.c-logos {
+
+}
+
+  .c-logos__items {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 0;
+    line-height: 0;
+    align-items: center;
+    margin: rem(-8px);
+  }
+
+    .c-logos__item {
+      display: inline-block;
+      @include font-size(16px, 24px);
+      vertical-align: middle;
+      margin: rem(8px);
+    }
+
+    .c-logos__item,
+    .c-logos__link {
+      display: table;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+      .c-logos__link {
+        text-decoration: none;
+      }
+
+      .c-logos__picture,
+      .c-logos__label {
+        display: table-cell;
+        display: flex;
+        vertical-align: middle;
+      }
+
+      .c-logos__picture {
+        flex: 0 0 auto;
+        max-width: rem(148px);
+        max-height: rem(64px);
+
+        & + .c-logos__label,
+        .c-logos__label + & {
+          margin-left: rem(16px);
+        }
+      }

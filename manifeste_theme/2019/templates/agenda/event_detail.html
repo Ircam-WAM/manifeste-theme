@@ -24,7 +24,19 @@
     </a>
 {% endblock %}
 
-{# TODO: page_image #}
+{% block page_image %}
+    {% with event.images.all|get_type:'card' as images %}
+        {% if images %}
+            <img src="{{ MEDIA_URL }}{% thumbnail images.0.file 1136 428 %}" alt="" class="c-detail__picture"/>
+        {% else %}
+            {% with event.parent.images.all|get_type:'card' as images %}
+                {% if images %}
+                    <img src="{{ MEDIA_URL }}{% thumbnail images.0.file 1136 428 %}" alt="" class="c-detail__picture"/>
+                {% endif %}
+            {% endwith %}
+        {% endif %}
+    {% endwith %}
+{% endblock %}
 
 {% block page_title %}
     {% editable person.title %}
@@ -34,8 +46,11 @@
     {% endeditable %}
 {% endblock %}
 
-
-{# TODO: page_tags #}
+{% block page_tags %}
+    <ul class="c-detail__categories">
+        <li class="c-detail__category">{% if event.category %}{{ event.category }}{% else %}{{ event.parent.category }}{% endif %}</li>
+    </ul>
+{% endblock %}
 
 {% block page_content %}
     {% block meta_info %}
