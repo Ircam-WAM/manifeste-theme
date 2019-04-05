@@ -1,6 +1,15 @@
-{% load mezzanine_tags i18n %}
-<ul class="unstyled-list fss">
-    {% for link in links %}
-      <li><a href="{{ link.url }}" title="{{ link.link_type.name }}"  target="_blank"><i class="fa fa-{{ link.link_type.slug }}"></i> {% firstof link.title link.url%}</a></li>
-    {% endfor %}
-</ul>
+{% load mezzanine_tags i18n staticfiles %}
+<div class="c-list u-mbl">
+    <ul class="c-list__items">
+        {% for link in links %}
+            <li class="c-list__item">
+                <a href="{{ link.url }}" target="_blank" rel="noopener" class="c-list__link">
+                    <svg class="c-list__icon" width="24" height="24" aria-hidden="true">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-link"/>
+                    </svg>
+                    <span class="c-list__label">{% firstof link.title link.url %}</span>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

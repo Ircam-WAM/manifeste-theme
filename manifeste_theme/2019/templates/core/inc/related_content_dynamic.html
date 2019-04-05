@@ -1,5 +1,13 @@
 {% load i18n mezzanine_tags keyword_tags organization_tags pages_tags %}
 {% if concrete_objects %}
-        {% if object.related_title.title %}{{ object.related_title.title }}{% else %}{% trans "Also discover" %}{% endif %}
-        {% include "core/inc/cards.html" %}
+    <div class="c-detail__container">
+        <div class="c-content u-mbm">
+            <h2>{% if object.related_title.title %}{{ object.related_title.title }}{% else %}{% trans "Also discover" %}{% endif %}</h2>
+        </div>
+    </div>
+    <div class="c-gallery u-mbs">
+        <ul class="c-gallery__items">
+            {% include "core/inc/cards.html" %}
+        </ul>
+    </div>
 {% endif %}

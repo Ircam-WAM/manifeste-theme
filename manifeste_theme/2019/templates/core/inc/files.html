@@ -1,17 +1,22 @@
-{% load i18n %}
-<p>
-    <strong>{% trans "Downloads" %}</strong>
-</p>
-<ul class="unstyled-list fss">
-{% for file in files %}
-    <li>
-        <a href="{{ file.file.url }}" class=""><i class="fa fa-download"></i> {{ file.title }}</a>
-        {% if file.description %}
-            <br />
-            <p>
-                {{ file.description }}
-            </p>
-        {% endif %}
-    </li>
-{% endfor %}
-</ul>
+{% load i18n staticfiles %}
+
+<div class="c-content u-mbm">
+    <h2>{% trans 'Downloads' %}</h2>
+</div>
+<div class="c-list u-mbl">
+    <ul class="c-list__items">
+        {% for file in files %}
+            <li class="c-list__item">
+                <a href="{{ file.file.url }}" target="_blank" class="c-list__link">
+                    <svg class="c-list__icon" width="24" height="24" aria-hidden="true">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-download"/>
+                    </svg>
+                    <span class="c-list__label">{{ file.title }}</span>
+                    {% if file.description %}
+                        <span class="c-list__description">{{ file.description|safe }}</span>
+                    {% endif %}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

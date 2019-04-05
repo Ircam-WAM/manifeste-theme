@@ -1,6 +1,6 @@
 {% load i18n pages_tags mezzanine_tags media_tags organization_tags %}
 
-<article class="c-article c-article--alt">
+<article class="c-article {% block classes %}{% endblock %}">
     <div class="c-article__header">
         {% block image %}{% endblock %}
         {% block icon %}{% endblock %}
