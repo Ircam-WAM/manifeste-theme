@@ -1,65 +1,49 @@
 {% extends "pages/page.html" %}
 {% load i18n mezzanine_tags keyword_tags pages_tags organization_tags %}
 
-    {% with page.custompage as object %}
-    {% block page_class %}
-        custompage
-    {% endblock %}
-
-    {% block body_class %}
-        
-    {% endblock %}
+{% with page.custompage as object %}
 
     {% block page_title %}
-        <!-- titre -->
         {% editable page.custompage.title %}
-            {{ page.custompage.title }}
+            <h1 class="c-detail__title">{{ page.custompage.title }}</h1>
         {% endeditable %}
     {% endblock %}
 
     {% block page_content %}
+        <div class="c-content u-mbl">
+            {% if page.custompage.sub_title %}
+                {% editable page.custompage.sub_title %}
+                    <p class="h3">{{ page.custompage.sub_title }}</p>
+                {% endeditable %}
+            {% endif %}
 
-        <!-- sous titre -->
-        {% if page.custompage.sub_title %}
-            {% editable page.custompage.sub_title %}
-                <div class="chapo">
-                    {{ page.custompage.sub_title }}
-                </div>
+            {% if page.custompage.content %}
+            {% editable page.custompage.content %}
+                {{ page.custompage.content|richtext_filters|safe }}
             {% endeditable %}
-        {% endif %}
-
-        <!-- contenu -->
-        {% if page.custompage.content %}
-         {% editable page.custompage.content %}
-            {{ page.custompage.content|richtext_filters|safe }}
-         {% endeditable %}
-        {% endif %}
-
+            {% endif %}
+        </div>
     {% endblock %}
 
     {% block page_slider %}
-        <!-- slider -->
         {% with page.custompage as object %}
             {{ block.super }}
         {% endwith %}
     {% endblock %}
 
     {% block multimedia %}
-        <!-- playlist, media (audio | video) -->
         {% with page.custompage as object %}
             {{ block.super }}
         {% endwith %}
     {% endblock %}
 
     {% block page_sub_content %}
-        <!-- block de text -->        
         {% with page.custompage.blocks.all as blocks %}
             {% include "core/inc/block.html" %}
         {% endwith %}
     {% endblock %}
 
     {% block page_related_content %}
-        <!-- related content -->  
         {% with dynamic_content=page.dynamic_content_pages.all|filter_content object=page %}
             {% include "core/inc/related_content.html" %}
         {% endwith %}
