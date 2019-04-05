@@ -30,7 +30,9 @@
                         {% with field=date_field|index:i %}
                         <label class="c-filter__toggle">
                             {# TODO @emilie: checked #}
-                            <input type="radio" name="{{ field.name }}" value="{{ field.choice_value }}" class="c-filter__input js-filter-input" {% if field.attrs.disabled %}disabled="disabled"{% endif %} />
+                            <input type="radio" name="{{ field.name }}" value="{{ field.choice_value }}" class="c-filter__input js-filter-input"
+                                {% if field.attrs.disabled %}disabled="disabled"{% endif %}
+                                {% if field.value == field.choice_value %}checked="checked"{% endif %} />
                             <span class="c-filter__label">{{ field.choice_label }}</span>
                         </label>
                         {% endwith %}
