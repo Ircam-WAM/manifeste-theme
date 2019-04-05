@@ -50,7 +50,6 @@
                     </div>
                 {% endblock %}
 
-                {# TODO: list #}
                 {% block page_link %}
                     {% with object.links.all as links %}
                         {% if links %}
@@ -59,7 +58,6 @@
                     {% endwith %}
                 {% endblock %}
 
-                {# TODO: list #}
                 {% block page_file %}
                     {% with object.files.all as files %}
                         {% if files %}
@@ -68,7 +66,6 @@
                     {% endwith %}
                 {% endblock %}
 
-                {# TODO: slider #}
                 {% block page_slider %}
                     {% with object.images.all|get_type:'page_slider' as slider_images %}
                         {% if slider_images %}
@@ -77,15 +74,12 @@
                     {% endwith %}
                 {% endblock %}
 
-                {# TODO: players #}
                 {% block multimedia %}
                     {% for dm in object.dynamic_multimedia.all %}
                         {% with content_type=dm.content_type_id|get_content_type %}
                             {% with m_object=content_type|get_object:dm.object_id %}
                                 {% with template='media/'|add:content_type.model|add:"/includes/"|add:m_object.type|add:".html" %}
-                                <div class="block-multimedia">
                                     {% include template with object=m_object %}
-                                </div>
                                 {% endwith %}
                             {% endwith %}
                         {% endwith %}
@@ -101,7 +95,6 @@
                 {% block page_blog %}
                 {% endblock %}
 
-                {# TODO: blocks #}
                 {% block page_sub_content %}
                     {% with object.blocks.all as blocks %}
                         {% include "core/inc/block.html" %}
@@ -135,26 +128,28 @@
                 {% block page_sub_content_3 %}
                 {% endblock %}
 
-                {# TODO: logos #}
-                {% block logo %}
-                    {% with page.images.all|get_type:'logo' as images %}
-                        {% if images %}
-                            <div class="page__block{% if block.background_color %} page__block--{{ block.background_color }}{% endif %}">
-                                <div class="white-bg pb2">
-                                    <div class="container">
-                                        <div class="row" data-summary-content>
-                                            <div class="col-sm-16">
-                                                <ul class="partners-list">
-                                                    {% include 'core/inc/logo.html' %}
-                                                </ul>
+                {# TODO: logos? #}
+                {% comment %}
+                    {% block logo %}
+                        {% with page.images.all|get_type:'logo' as images %}
+                            {% if images %}
+                                <div class="page__block{% if block.background_color %} page__block--{{ block.background_color }}{% endif %}">
+                                    <div class="white-bg pb2">
+                                        <div class="container">
+                                            <div class="row" data-summary-content>
+                                                <div class="col-sm-16">
+                                                    <ul class="partners-list">
+                                                        {% include 'core/inc/logo.html' %}
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        {% endif %}
-                    {% endwith %}
-                {% endblock %}
+                            {% endif %}
+                        {% endwith %}
+                    {% endblock %}
+                {% endcomment %}
             </div>
 
             {% block page_related_content %}
