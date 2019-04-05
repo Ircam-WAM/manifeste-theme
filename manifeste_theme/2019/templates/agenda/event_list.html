@@ -30,7 +30,7 @@
         <h1 class="h2">{% trans 'Events to come' %}</h1>
     </div>
 
-    <div class="c-gallery c-gallery--filter u-mbl">
+    <div class="c-gallery c-gallery--filter u-mbs u-mbl@medium">
         <ul class="c-gallery__items" id="results">
             <li class="c-gallery__item">
                 <form action="{% url 'event_list' %}" method="get" class="c-filter js-filter" data-filter-replace="#results">
@@ -59,6 +59,19 @@
             {% endif %}
         </ul>
     </div>
+
+    {# TODO @emilie: sur les maquettes il est prévu cette partie "évènements passés" mais je ne sais pas à quoi ça correspond #}
+    {% comment %}
+        <div class="c-content u-mtl u-mbm">
+            <h2>Évènements passés</h2>
+        </div>
+
+        <div class="c-gallery u-mbs u-mbl@medium">
+            <ul class="c-gallery__items">
+                {% include "core/inc/cards.html" %}
+            </ul>
+        </div>
+    {% endcomment %}
 {% endblock %}
 
 {% block footer_scripts_local %}
