@@ -96,16 +96,18 @@
       width: 100%;
     }
 
-    .c-gallery__item:nth-last-child(-n+2):first-child ~ .c-gallery__item {
-      width: (100% / 3 * 2);
-    }
+    &.c-gallery--filter {
+      .c-gallery__item:nth-last-child(-n+2):first-child ~ .c-gallery__item {
+        width: (100% / 3 * 2);
+      }
 
-    &.c-gallery--filter .c-gallery__item:nth-child(3) {
-      order: -1;
-    }
+      .c-gallery__item:nth-child(3) {
+        order: -1;
+      }
 
-    &.c-gallery--filter .c-gallery__item:only-child {
-      margin-left: (100% / 3 * 2);
+      .c-gallery__item:only-child {
+        margin-left: (100% / 3 * 2);
+      }
     }
   }
 }

@@ -1,21 +1,18 @@
 {% load mezzanine_tags %}
-<div class="page__slider">
-    <ul class="slider-page" data-slider-page>
-        {% for image in slider_images %}
-            <li class="slider-page__slide" data-src="{{ MEDIA_URL }}{{ image.file }}">
-                <div class="slider-page__wrapper">
-                    <img title="{{ image.title }}" alt="{{ image.title }} {{ image.description }} {{ image.credits }}" class="slider-page__img" src="{{ MEDIA_URL}}{% thumbnail image.file 0 520 %}" alt="" />
-                    <div class="slider-page__caption">
-                        {{ image.title }}
-                        {% if image.description %}
-                            {{ image.description }}
-                        {% endif %}
-                        {% if image.credits %}
-                            {{ image.credits }}
-                        {% endif %}
-                    </div>
-                </div>
-            </li>
-        {% endfor %}
-    </ul>
+
+<div class="c-slideshow js-slideshow u-mbl">
+    {% for image in slider_images %}
+        <figure class="c-slideshow__slide js-slideshow-slide">
+            <img src="{{ MEDIA_URL}}{% thumbnail image.file 944 536 %}" alt="" class="c-slideshow__picture"/>
+            <figcaption class="c-slideshow__caption">
+                <b>{{ image.title }}</b>
+                {% if image.description %}
+                    <br/>{{ image.description|safe }}
+                {% endif %}
+                {% if image.credits %}
+                    <br/>{{ image.credits }}
+                {% endif %}
+            </figcaption>
+        </figure>
+    {% endfor %}
 </div>
