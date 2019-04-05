@@ -5,17 +5,9 @@
         {% block image %}
             {% with object.images.all|get_type:'card' as images %}
                 {% if images %}
-                    <figure class="article-box__image">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="{{ MEDIA_URL }}{% thumbnail images.0.file 427 286 top=0.5 left=object.photo_alignment|get_photo_alignment %}" class="lazyload" />
-                    </figure>
+                    <img src="{{ MEDIA_URL }}{% thumbnail images.0.file 752 504 %}" alt="" class="c-article__picture"/>
                 {% else %}
-                    <figure class="article-box__image">
-                        {% if object.department %}
-                            <div class="article-box__placeholder {{object.department.name|slugify}}"></div>
-                        {% else %}
-                            <div class="article-box__placeholder"></div>
-                        {% endif %}
-                    </figure>
+                    {# TODO: image par défaut ? #}
                 {% endif %}
             {% endwith %}
         {% endblock %}
@@ -34,18 +26,14 @@
             {% spaceless %}{% block target %}
                 {% if object.content|removetags:"p"|slice:':4' == 'http' %}target="_blank"{% endif %}
             {% endblock %}{% endspaceless %}
-            class="c-article__link"
-            title="{% block metatitle %}{{ object.title }}{% endblock %}">
+            class="c-article__link">
             {% block title %}
                 {{ object.title }}
             {% endblock %}
             </a>
         </h3>
         {% block subtitle %}
-            {{ object.sub_title }}
-        {% endblock %}
-        {% block content %}
-            {{ object.description|richtext_filters|safe|truncatechars_html:200 }}
+            <p class="c-article__subtitle">{{ object.sub_title }}</p>
         {% endblock %}
         {% block tags %}{% endblock %}
         {% block btn %}{% endblock %}
