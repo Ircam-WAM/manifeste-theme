@@ -39,7 +39,6 @@
                     <p class="c-filter__categories">
                         {% for field in filter_form.event_categories_filter %}
                             <label class="c-filter__toggle">
-                                {# TODO @emilie: disabled & checked #}
                                 <input type="checkbox" name="{{ field.name }}" value="{{ field.choice_value }}" class="c-filter__input js-filter-input" />
                                 <span class="c-filter__label">{{ field.choice_label }}</span>
                             </label>
