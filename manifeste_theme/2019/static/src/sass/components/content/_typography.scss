@@ -322,3 +322,25 @@ hr {
     margin-bottom: 0;
   }
 }
+
+// Buttons
+.wys-button,
+.wys-button-large,
+.wys-button-large-primary,
+.wys-button-primary,
+.wys-button-primary-large {
+  @extend .c-button;
+}
+
+.wys-button-large,
+.wys-button-large-primary,
+.wys-button-primary-large {
+  @extend .c-button--large;
+}
+
+.wys-button-primary,
+.wys-button-primary-large,
+.wys-button-large-primary {
+  @extend .c-button--primary;
+}
+

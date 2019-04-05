@@ -24,7 +24,7 @@
             <div class="c-detail__banner">
                 {% block page_image %}{% endblock %}
                 <div class="c-detail__container">
-                    <h1 class="c-detail__title">{% block page_title %}{{ page.title }}{% endblock %}</h1>
+                    {% block page_title %}<h1 class="c-detail__title">{{ page.title }}</h1>{% endblock %}
                     {% block page_tags %}{% endblock %}
                 </div>
                 {% include 'includes/share_buttons.html' %}
@@ -117,28 +117,17 @@
                 {% block page_sub_content_3 %}
                 {% endblock %}
 
-                {# TODO: logos? #}
-                {% comment %}
-                    {% block logo %}
-                        {% with page.images.all|get_type:'logo' as images %}
-                            {% if images %}
-                                <div class="page__block{% if block.background_color %} page__block--{{ block.background_color }}{% endif %}">
-                                    <div class="white-bg pb2">
-                                        <div class="container">
-                                            <div class="row" data-summary-content>
-                                                <div class="col-sm-16">
-                                                    <ul class="partners-list">
-                                                        {% include 'core/inc/logo.html' %}
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            {% endif %}
-                        {% endwith %}
-                    {% endblock %}
-                {% endcomment %}
+                {% block logo %}
+                    {% with page.images.all|get_type:'logo' as images %}
+                        {% if images %}
+                            <div class="c-logos u-mbl">
+                                <ul class="c-logos__items">
+                                    {% include 'core/inc/logo.html' %}
+                                </ul>
+                            </div>
+                        {% endif %}
+                    {% endwith %}
+                {% endblock logo %}
             </div>
 
             {% block page_related_content %}

@@ -11,54 +11,43 @@
 {% endfor %}
 {% endmetablock %}{% endblock %}
 
-{% block page_class %}
-    person
-{% endblock %}
-
-{% block breadcrumb_menu %}
-    {{ block.super }}
-    <li class="breadcrumb__item active">{{ person }}</li>
+{% block page_image %}
+    {% with person.images.all|get_type:'page_featured' as images_featured %}
+        {% if images_featured %}
+            <img src="{{ MEDIA_URL }}{% thumbnail images_featured.first 1136 428 %}" alt="" class="c-detail__picture"/>
+        {% endif %}
+    {% endwith %}
 {% endblock %}
 
 {% block page_title %}
-
-    <!-- imgage -->
-    {% with person.images.all|get_type:'page_featured' as images_featured %}
-        {% if images_featured %}
-            <img style="width:100%;" class="lazyload" src="{{ MEDIA_URL }}{% thumbnail images_featured.first 1030 400 top=0.5 %}" alt="person"/>
-        {% endif %}
-    {% endwith %}
-
-     <!-- Nom Prénom -->    
     {% editable person.title %}
-        <h1 class="section-title section-title--big section-title--uppercase section-title--main">{{ person.title }}</h1>
+        <h1 class="c-detail__title">{{ person.title }}</h1>
     {% endeditable %}
+{% endblock %}
 
-    <!-- Activité de la personne (champ 'état') -->
+{% block page_tags %}
     {% with person.activities.first as activity %}
         {% if activity.status %}
-            {{ activity.status }}
+            <ul class="c-detail__categories">
+                <li class="c-detail__category">{{ activity.status }}</li>
+            </ul>
         {% endif %}
     {% endwith %}
-
 {% endblock %}
 
 {% block page_content %}
-
-    <!-- biography -->
-    {% editable person.bio %}
-        {{ person.bio|richtext_filters|safe }}
-    {% endeditable %}
-    
+    <div class="c-content u-mbl">
+        {% editable person.bio %}
+            {{ person.bio|richtext_filters|safe }}
+        {% endeditable %}
+    </div>
 {% endblock %}
 
 {% block page_related_content %}
-    <!-- related content -->
     {% include "core/inc/related_content_dynamic.html" with concrete_objects=person.dynamic_content_person.all|get_content_objects object=person %}
 {% endblock page_related_content %}
 
 {% block page_link %}
-    <!-- Liens -->
     {% with person.links.all as links %}
         {% if links %}
             {% include 'core/inc/link.html' %}

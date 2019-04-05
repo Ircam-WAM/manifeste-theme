@@ -7,10 +7,17 @@
 
 
 {% block main %}
-    
-    {{ magazine.title }}
-    {{ magazine.description }}
+    <div class="c-content u-mbm">
+        <h1 class="h2">{{ magazine.title }}</h1>
 
-    {% include "core/inc/cards.html" with concrete_objects=magazine.dynamic_content.all %}
+        {% if magazine.description %}
+            <p>{{ magazine.description }}</p>
+        {% endif %}
+    </div>
 
+    <div class="c-gallery u-mbs u-mbl@medium">
+        <ul class="c-gallery__items">
+            {% include "core/inc/cards.html" with concrete_objects=magazine.dynamic_content.all %}
+        </ul>
+    </div>
 {% endblock %}

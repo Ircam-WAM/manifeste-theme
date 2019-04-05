@@ -1,6 +1,6 @@
 {% load i18n pages_tags mezzanine_tags media_tags organization_tags %}
 
-<article class="c-article {% block classes %}{% endblock %}">
+<article class="c-article {% spaceless %}{% block classes %}{% endblock %}{% endspaceless %}">
     <div class="c-article__header">
         {% block image %}
             {% with object.images.all|get_type:'card' as images %}
@@ -24,16 +24,16 @@
     <div class="c-article__content">
         {% block dates %}{% endblock %}
         <h3 class="c-article__title">
-            <a href="{% block url %}
+            <a href="{% spaceless %}{% block url %}
                 {% if object.content|removetags:'p'|slice:':4' == 'http' %}
                     {{ object.content|removetags:'p' }}
                 {% else %}
                     {{ object.get_absolute_url }}
                 {% endif %}
-            {% endblock %}"
-            {% block target %}
+            {% endblock %}{% endspaceless %}"
+            {% spaceless %}{% block target %}
                 {% if object.content|removetags:"p"|slice:':4' == 'http' %}target="_blank"{% endif %}
-            {% endblock %}
+            {% endblock %}{% endspaceless %}
             class="c-article__link"
             title="{% block metatitle %}{{ object.title }}{% endblock %}">
             {% block title %}
