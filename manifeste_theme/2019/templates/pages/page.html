@@ -27,18 +27,7 @@
                     <h1 class="c-detail__title">{% block page_title %}{{ page.title }}{% endblock %}</h1>
                     {% block page_tags %}{% endblock %}
                 </div>
-                <p class="c-detail__networks">
-                    <a href="#" class="c-detail__network c-detail__network--facebook">
-                        <svg class="c-detail__icon" width="24" height="24" aria-label="Partager sur Facebook">
-                            <use xlink:href="{% static 'img/symbols.svg' %}#symbol-facebook"/>
-                        </svg>
-                    </a>
-                    <a href="#" class="c-detail__network c-detail__network--twitter">
-                        <svg class="c-detail__icon" width="24" height="24" aria-label="Partager sur Twitter">
-                            <use xlink:href="{% static 'img/symbols.svg' %}#symbol-twitter"/>
-                        </svg>
-                    </a>
-                </p>
+                {% include 'includes/share_buttons.html' %}
             </div>
         {% endblock %}
 
