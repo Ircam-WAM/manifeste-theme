@@ -24,11 +24,16 @@
     </a>
 {% endblock %}
 
+{# TODO: page_image #}
+
 {% block page_title %}
-    {{ event.meta_title }}
+    {% editable person.title %}
+        <h1 class="c-detail__title">
+            {{ event.meta_title }}
+        </h1>
+    {% endeditable %}
 {% endblock %}
 
-{# TODO: page_image #}
 
 {# TODO: page_tags #}
 

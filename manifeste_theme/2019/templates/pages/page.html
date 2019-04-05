@@ -24,7 +24,7 @@
             <div class="c-detail__banner">
                 {% block page_image %}{% endblock %}
                 <div class="c-detail__container">
-                    <h1 class="c-detail__title">{% block page_title %}{{ page.title }}{% endblock %}</h1>
+                    {% block page_title %}<h1 class="c-detail__title">{{ page.title }}</h1>{% endblock %}
                     {% block page_tags %}{% endblock %}
                 </div>
                 {% include 'includes/share_buttons.html' %}

@@ -1,6 +1,6 @@
 {% load i18n pages_tags mezzanine_tags media_tags organization_tags %}
 
-<article class="c-article {% block classes %}{% endblock %}">
+<article class="c-article {% spaceless %}{% block classes %}{% endblock %}{% endspaceless %}">
     <div class="c-article__header">
         {% block image %}{% endblock %}
         {% block icon %}{% endblock %}
@@ -8,7 +8,7 @@
     <div class="c-article__content">
         {% block dates %}{% endblock %}
         <h3 class="c-article__title">
-            <a href="{% block url %}{% endblock %}" {% block target %}{% endblock %} class="c-article__link">{% block title %}{% endblock %}</a>
+            <a href="{% spaceless %}{% block url %}{% endblock %}{% endspaceless %}" {% spaceless %}{% block target %}{% endblock %}{% endspaceless %} class="c-article__link">{% block title %}{% endblock %}</a>
         </h3>
         {% block subtitle %}{% endblock %}
         {% block tags %}{% endblock %}
