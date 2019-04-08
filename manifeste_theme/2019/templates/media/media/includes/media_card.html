@@ -1,43 +1,38 @@
 {% extends "core/inc/generic_card.html" %}
-{% load i18n mezzanine_tags event_tags keyword_tags disqus_tags organization_tags staticfiles %}
+{% load mezzanine_tags keyword_tags i18n organization_tags staticfiles %}
+
+{% block title %}
+    {{ object.title }}
+{% endblock %}
 
 {% block url %}
     {% url 'organization-media-detail' object.type object.slug %}
-{% endblock url %}
+{% endblock %}
 
 {% block image %}
     {% with object.images.all|get_type:'card' as images %}
         {% if object.poster_url %}
             <img src="{{ object.poster_url }}" alt="" class="c-article__picture"/>
         {% elif images %}
-            <img src="{{ MEDIA_URL }}{% thumbnail images.0.file 384 240 top=0.5 left=0.5 %}" alt="" class="c-article__picture"/>
+            <img src="{{ MEDIA_URL }}{% thumbnail images.0.file 752 504 %}" alt="" class="c-article__picture"/>
         {% endif %}
     {% endwith %}
-{% endblock image %}
+{% endblock %}
 
 {% block icon %}
     {% if object.type == 'audio' %}
-        <svg class="c-article__icon" width="64" height="64" aria-hidden="true">
-            <use xlink:href="{% static 'umr-stms/img/symbols.svg' %}#symbol-music"/>
+        <svg class="c-article__icon" width="80" height="80" aria-hidden="true">
+            <use xlink:href="{% static 'img/symbols.svg' %}#symbol-audio"/>
         </svg>
     {% else %}
-        <svg class="c-article__icon" width="64" height="64" aria-hidden="true">
-            <use xlink:href="{% static 'umr-stms/img/symbols.svg' %}#symbol-play-circle"/>
+        <svg class="c-article__icon" width="80" height="80" aria-hidden="true">
+            <use xlink:href="{% static 'img/symbols.svg' %}#symbol-video"/>
         </svg>
     {% endif %}
-{% endblock icon %}
+{% endblock %}
 
 {% block tags %}
     <ul class="c-article__categories">
-        <li class="c-article__category">{% trans 'Media' %}</li>
-        {% if object.department.first.department %}
-            <li class="c-article__category">{{ object.department.first.department.name }}</li>
-        {% endif %}
+        <li class="c-article__category">{{ object.type|title }}</li>
     </ul>
-{% endblock tags %}
-
-{% block content %}
-    {% if object.description and object.description != object.title %}
-        {{ object.description|richtext_filters|safe|truncatechars_html:200 }}
-    {% endif %}
-{% endblock content %}
+{% endblock %}

@@ -24,9 +24,6 @@
 {% block page_tags %}
     <ul class="c-detail__categories">
         {# <li class="c-tags__tag">{% trans 'Media' %}</li> #}
-        {# {% if department_name %}
-            <li class="c-tags__tag">{{ department_name }}</li>
-        {% endif %} #}
         <li class="c-detail__category">{{ media.publish_date|date:"DATE_FORMAT" }}</li>
     </ul>
 {% endblock %}
