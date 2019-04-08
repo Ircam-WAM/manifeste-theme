@@ -13,62 +13,30 @@
     {% endmetablock %}
 {% endblock %}
 
-{% block breadcrumb_menu %}
-    {{ block.super }}
-    <li class="c-breadcrumbs__item">
-        <a class="c-breadcrumbs__link" href="{% url 'organization-playlist-list' %}">{% trans "Media" %}</a>
-    </li>
-    <li class="c-breadcrumbs__item">{{ playlist.title }}</li>
-{% endblock %}
-
 {% block page_title %}
-    <div class="c-heading u-mbs">
-        <h1 class="c-heading__title">
-            <!-- title -->
-            {% editable playlist.title %}
-                {{ playlist.title }}
-            {% endeditable %}
+    {% editable playlist.title %}
+        <h1 class="c-detail__title">
+            {{ playlist.title }}
         </h1>
-    </div>
+    {% endeditable %}
 {% endblock %}
 
-{% block page_sidebar %}
-
-    <!-- Date de publication -->
-    <div class="c-metas">
-        <ul class="c-metas__items">
-            <li class="c-metas__item">
-                <svg class="c-metas__icon" width="24" height="24" aria-label="{% trans 'Publish date' %}">
-                    <use xlink:href="{% static 'umr-stms/img/symbols.svg' %}#symbol-calendar"/>
-                </svg>
-                <span class="c-metas__label">
-                    {% editable playlist.publish_date %}
-                        {{ playlist.publish_date|date:"DATE_FORMAT" }}
-                    {% endeditable %}
-                </span>
-            </li>
-        </ul>
-    </div>
-    <!-- Social -->
-    {% with playlist as object %}
-        {% include "includes/share_buttons.html" %}
-    {% endwith %}
+{% block page_tags %}
+    <ul class="c-detail__categories">
+        <li class="c-detail__category">{{ playlist.publish_date|date:"DATE_FORMAT" }}</li>
+    </ul>
 {% endblock %}
 
 {% block page_content %}
-    <!-- Description -->
     {% if playlist.description %}
-        {% editable playlist.description %}
-            <div class="c-content u-mbs">
+        <div class="c-content u-mbm">
+            {% editable playlist.description %}
                 {{ playlist.description }}
-            </div>
-        {% endeditable %}
+            {% endeditable %}
+        </div>
     {% endif %}
-    
-    <!-- Inclusion de la playlist video ou audio -->
+
     {% with playlist.type as type %}
-        <!-- media/playlist/includes/audio.html -->
-        <!-- media/playlist/includes/video.html -->
         {% with "media/playlist/includes/"|add:type|add:".html" as template %}
             {% include template %}
         {% endwith %}
