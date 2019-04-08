@@ -34,15 +34,20 @@
             {% block main %}{% endblock %}
             {% block content_footer %}{% endblock %}
         </main>
-
-        {% block social %}
-            {% include "includes/social_light.html" %}
-        {% endblock %}
-
-        {% block footer %}
-            {% include "includes/footer.html" %}
-        {% endblock %}
     {% endblock %}
+
+    {% block social %}
+        {% include "includes/social_light.html" %}
+    {% endblock %}
+
+    {% block footer %}
+        {% include "includes/footer.html" %}
+    {% endblock %}
+
+    <div class="c-cookies js-cookies">
+        <p class="c-cookies__message">En poursuivant votre navigation sur ce site, vous acceptez l'utilisation de cookies pour nous permettre de mesurer l'audience, et pour vous permettre de partager du contenu via les boutons de partage de réseaux sociaux. <a href="#">En savoir plus</a>.</p>
+        <button class="c-cookies__button c-button c-button--secondary js-cookies-button">J'ai compris</button>
+    </div>
 
     {% block footer_scripts %}
         {% include "includes/footer_scripts.html" %}
