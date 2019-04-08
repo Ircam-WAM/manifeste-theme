@@ -12,9 +12,15 @@
 {% endmetablock %}{% endblock %}
 
 {% block page_image %}
-    {% with person.images.all|get_type:'page_featured' as images_featured %}
-        {% if images_featured %}
-            <img src="{{ MEDIA_URL }}{% thumbnail images_featured.first 1136 428 %}" alt="" class="c-detail__picture"/>
+    {% with person.images.all|get_type:'page_featured' as images %}
+        {% if images %}
+            <img src="{{ MEDIA_URL }}{% thumbnail images.first 1136 428 %}" alt="" class="c-detail__picture"/>
+        {% else %}
+            {% with person.images.all|get_type:'card' as images %}
+                {% if images %}
+                    <img src="{{ MEDIA_URL }}{% thumbnail images.first 1136 428 %}" alt="" class="c-detail__picture"/>
+                {% endif %}
+            {% endwith %}
         {% endif %}
     {% endwith %}
 {% endblock %}

@@ -1,5 +1,5 @@
 {% extends "pages/page.html" %}
-{% load mezzanine_tags keyword_tags i18n organization_tags %}
+{% load mezzanine_tags keyword_tags i18n organization_tags staticfiles %}
 
 {% block meta_title %}{{ article.meta_title }}{% endblock %}
 
@@ -12,56 +12,72 @@
     {{ article.description }}
 {% endmetablock %}{% endblock %}
 
-{% block page_class %}
-    article
+{% block page_back %}
+    <a href="{% url 'magazine-article-list' %}" class="c-detail__back c-button">
+        <svg class="c-button__icon" width="24" height="24" aria-hidden="true">
+            <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-left"/>
+        </svg>
+        <span class="c-button__label">{% trans 'Back to news' %}</span>
+    </a>
 {% endblock %}
 
-{% block body_class %}
-
+{% block page_image %}
+    {% with article.images.all|get_type:'page_featured' as images %}
+        {% if images %}
+            <img src="{{ MEDIA_URL }}{% thumbnail images.first 1136 428 %}" alt="" class="c-detail__picture"/>
+        {% else %}
+            {% with article.images.all|get_type:'card' as images %}
+                {% if images %}
+                    <img src="{{ MEDIA_URL }}{% thumbnail images.first 1136 428 %}" alt="" class="c-detail__picture"/>
+                {% endif %}
+            {% endwith %}
+        {% endif %}
+    {% endwith %}
 {% endblock %}
 
 {% block page_title %}
-
     {% editable article.title %}
-        <div class="invisible-until-sm section-title section-title--uppercase section-title--underline section-title--main section-title--no-margin"><a href="{% url 'magazine-article-list' %}"><i class="fsl fa fa-angle-left"></i>{% trans "Back to news" %}</a></div>
-        <h1 class="section-title section-title--uppercase section-title--big">{{ article.title }}</h1>
-        <div class="page__date">
-            {% trans 'Published on' %} {{ article.publish_date|date:"DATE_FORMAT" }}
-        </div>
+        <h1 class="c-detail__title">
+            {{ article.title }}
+        </h1>
     {% endeditable %}
+{% endblock %}
 
-    {% if article.sub_title %}
-        {% editable article.sub_title %}
-            <div class="chapo">
-                {{ article.sub_title }}
-            </div>
-        {% endeditable %}
-    {% endif %}
-
+{% block page_tags %}
+    <ul class="c-detail__categories">
+        <li class="c-detail__category">{% trans 'Published on' %} {{ article.publish_date|date:"DATE_FORMAT" }}</li>
+    </ul>
 {% endblock %}
 
 {% block page_content %}
+    <div class="c-content u-mbl">
+        {% if article.sub_title %}
+            {% editable article.sub_title %}
+                <p class="h3">{{ article.sub_title }}</p>
+            {% endeditable %}
+        {% endif %}
 
-    {% if article.content %}
-      {% editable article.content %}
-        {{ article.content|richtext_filters|safe }}
-      {% endeditable %}
-    {% endif %}
-
+        {% if article.content %}
+            {% editable article.content %}
+                {{ article.content|richtext_filters|safe }}
+            {% endeditable %}
+        {% endif %}
+    </div>
 {% endblock %}
 
 {% block page_slider %}
-  {% with article.images.all|get_type:'page_slider' as slider_images %}
-    {% if slider_images %}
-      {% include 'core/inc/slider.html' %}
-    {% endif %}
-  {% endwith %}
+    {% with article.images.all|get_type:'page_slider' as slider_images %}
+        {% if slider_images %}
+            {% include 'core/inc/slider.html' %}
+        {% endif %}
+    {% endwith %}
 {% endblock %}
 
 {% block multimedia %}
     {{ block.super }}
 {% endblock %}
 
+{# TODO @emilie: j'ai l'impression qu'il y a un soucis ici (le nom de la personne est utilisé comme titre du bloc, et la card qui suit est vide), cf. ticket #91 #}
 {% block page_person_list %}
     {% for article_custom_person_list_block_inline in article.article_person_list_block_inlines.all  %}
       {% with article_custom_person_list_block_inline.person_list_block as person_list_block %}
@@ -72,6 +88,7 @@
     {% endfor %}
 {% endblock %}
 
+{# TODO @emilie: je n'ai pas l'impression que les related fonctionnent ici #}
 {% block page_related_content %}
     {% include "core/inc/related_ctn_and_events.html" %}
 {% endblock %}
