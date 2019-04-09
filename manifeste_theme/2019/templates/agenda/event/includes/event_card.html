@@ -46,6 +46,6 @@
 
 {% block btn %}
     <p class="c-article__buttons">
-        {% include 'agenda/event/includes/reserve.html' %}
+        {% include 'agenda/event/includes/reserve.html' with event=object %}
     </p>
 {% endblock %}
