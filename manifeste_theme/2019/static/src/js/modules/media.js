@@ -29,6 +29,12 @@ class Media {
     this.select(index);
   }
 
+  next() {
+    if (this.currentIndex < this.items.length - 1) {
+      this.play(this.currentIndex + 1);
+    }
+  }
+
   ready() {
     this.media.dispatchEvent(new CustomEvent('ready'));
   }
@@ -88,10 +94,6 @@ class Audio extends Media {
   pause() {
     this.audiojs.pause();
   }
-
-  next() {
-    this.play(this.currentIndex < this.items.length - 1 ? this.currentIndex + 1 : 0);
-  }
 }
 
 class Video extends Media {
@@ -130,7 +132,10 @@ class Video extends Media {
 
       // Assign playlist to player
       this.videojs.playlist(playlist);
-      this.videojs.playlist.autoadvance(0);
+
+      // Autoplay
+      // not using this.videojs.playlist.autoadvance(0); because of playlist UI
+      this.videojs.on('ended', () => this.next())
 
       // Select first item
       this.select();
