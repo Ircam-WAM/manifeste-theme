@@ -5,7 +5,9 @@
         <figure class="c-slideshow__slide js-slideshow-slide">
             <img src="{{ MEDIA_URL}}{% thumbnail image.file 944 536 %}" alt="" class="c-slideshow__picture"/>
             <figcaption class="c-slideshow__caption">
-                <b>{{ image.title }}</b>
+                {% if image.title %}
+                    <b>{{ image.title }}</b>
+                {% endif %}
                 {% if image.description %}
                     <br/>{{ image.description|safe }}
                 {% endif %}
