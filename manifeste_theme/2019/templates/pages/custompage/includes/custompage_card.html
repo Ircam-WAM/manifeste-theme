@@ -28,5 +28,7 @@
 {% endblock %}
 
 {% block subtitle %}
-    <p class="c-article__subtitle">{{ object.sub_title }}</p>
+    {% if object.sub_title and object.sub_title|lower != object.title|lower  %}
+        <p class="c-article__subtitle">{{ object.sub_title }}</p>
+    {% endif %}
 {% endblock %}
