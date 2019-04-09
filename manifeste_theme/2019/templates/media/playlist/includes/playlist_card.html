@@ -14,7 +14,6 @@
         {% if medias %}
             {% with medias.0.media.images.all|get_type:'card' as images %}
                 {% if medias.0.media.poster_url %}
-                    A
                     <img src="{{  medias.0.media.poster_url }}" alt="" class="c-article__picture"/>
                 {% elif images %}
                     <img src="{{ MEDIA_URL }}{% thumbnail images.0.file 384 240 top=0.5 left=0.5 %}" alt="" class="c-article__picture"/>
