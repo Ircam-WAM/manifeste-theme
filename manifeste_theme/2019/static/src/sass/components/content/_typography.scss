@@ -29,7 +29,8 @@ abbr[title] {
 
 sub,
 sup,
-small {
+small,
+.wys-small-text {
   @include font-size(14px, 24px);
 }
 
@@ -63,6 +64,7 @@ pre,
 table,
 address,
 figure,
+img,
 .h1.h1,
 .h2.h2,
 .h3.h3,
@@ -173,7 +175,6 @@ blockquote,
 pre,
 table,
 address,
-figure,
 .p.p {
   @include font-size(16px, 24px);
 }
