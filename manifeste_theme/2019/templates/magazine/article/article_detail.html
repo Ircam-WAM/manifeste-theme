@@ -83,7 +83,6 @@
     {% endfor %}
 {% endblock %}
 
-{# TODO @emilie: je n'ai pas l'impression que les related fonctionnent ici #}
 {% block page_related_content %}
-    {% include "core/inc/related_ctn_and_events.html" %}
+    {% include "core/inc/related_content_dynamic.html" with object=article %}
 {% endblock %}
