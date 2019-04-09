@@ -19,13 +19,13 @@
             <td></td>
             <td>
                 <label class="c-filter__toggle">
-                    <input type="radio" name="day" value="2019-06-1" class="c-filter__input js-filter-input"/>
+                    <input type="radio" name="day" value="2019-06-1" class="c-filter__input js-filter-input js-filter-date"/>
                     <span class="c-filter__label">1</span>
                 </label>
             </td>
             <td>
                 <label class="c-filter__toggle">
-                    <input type="radio" name="day" value="2019-06-2" class="c-filter__input js-filter-input"/>
+                    <input type="radio" name="day" value="2019-06-2" class="c-filter__input js-filter-input js-filter-date"/>
                     <span class="c-filter__label">2</span>
                 </label>
             </td>
@@ -41,7 +41,7 @@
                 {% for i, status in week %}
                     <td>
                         <label class="c-filter__toggle">
-                            <input type="radio" name="day" value="2019-06-{{ i }}" class="c-filter__input js-filter-input"{% if not status %} disabled{% endif %}/>
+                            <input type="radio" name="day" value="2019-06-{{ i }}" class="c-filter__input js-filter-input js-filter-date"{% if not status %} disabled{% endif %}/>
                             <span class="c-filter__label">{{ i }}</span>
                         </label>
                     </td>
