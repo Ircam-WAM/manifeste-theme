@@ -23,18 +23,18 @@ class Filter {
       });
 
       this.checkCategories();
+
+      // Makes dates toggleables
+      const dates = this.inputs.filter((input) => input.classList.contains('js-filter-date'));
+      dates.forEach((currentDate) => {
+        currentDate.setAttribute('type', 'checkbox');
+
+        currentDate.addEventListener('change', () => dates.forEach((date) => {
+          if (date === currentDate) return;
+          date.checked = false;
+        }));
+      });
     }
-
-    // Makes dates toggleables
-    const dates = this.inputs.filter((input) => input.classList.contains('js-filter-date'));
-    dates.forEach((currentDate) => {
-      currentDate.setAttribute('type', 'checkbox');
-
-      currentDate.addEventListener('change', () => dates.forEach((date) => {
-        if (date === currentDate) return;
-        date.checked = false;
-      }));
-    });
 
     this.inputs.forEach((input) => {
       input.addEventListener('change', this.handleChange.bind(this));
