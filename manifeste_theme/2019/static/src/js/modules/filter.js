@@ -1,5 +1,3 @@
-import debounce from 'lodash.debounce';
-
 class Filter {
   constructor(filter) {
     this.filter = filter;
@@ -25,10 +23,21 @@ class Filter {
       });
 
       this.checkCategories();
+
+      // Makes dates toggleables
+      const dates = this.inputs.filter((input) => input.classList.contains('js-filter-date'));
+      dates.forEach((currentDate) => {
+        currentDate.setAttribute('type', 'checkbox');
+
+        currentDate.addEventListener('change', () => dates.forEach((date) => {
+          if (date === currentDate) return;
+          date.checked = false;
+        }));
+      });
     }
 
     this.inputs.forEach((input) => {
-      input.addEventListener('change', debounce(this.handleChange.bind(this), 250));
+      input.addEventListener('change', this.handleChange.bind(this));
     });
   }
 
