@@ -68,13 +68,13 @@ jQuery(function($) {
         valid_elements: "*[*]",
         style_formats: [
             {
-                title: 'Titre', items: [
-                    { title: 'Titre 1', selector: 'h1', classes: 'h1'},
-                    { title: 'Titre 2', selector: 'h2', classes: 'h2'},
-                    { title: 'Titre 3', selector: 'h3', classes: 'h3'},
-                    { title: 'Titre 4', selector: 'h4', classes: 'h4'},
-                    { title: 'Titre 5', selector: 'h5', classes: 'h5'},
-                    { title: 'Titre 6', selector: 'h6', classes: 'h6'},
+                title: "Styles d'en-têtes", items: [
+                    { title: 'Titre 1', inline: 'h1', classes: 'h1'},
+                    { title: 'Titre 2', inline: 'h2', classes: 'h2'},
+                    { title: 'Titre 3', inline: 'h3', classes: 'h3'},
+                    { title: 'Titre 4', inline: 'h4', classes: 'h4'},
+                    { title: 'Titre 5', inline: 'h5', classes: 'h5'},
+                    { title: 'Titre 6', inline: 'h6', classes: 'h6'},
                 ]
 
             },
@@ -88,8 +88,8 @@ jQuery(function($) {
             },
             {
                 title: 'Paragraphs', items: [
-                    { title: 'Highlighted paragraph', selector: 'p', classes: 'wys-highlighted-paragraph'},
-                    { title: 'Bloc Rouge', selector: 'div', classes: 'wys-block'},
+                    { title: 'Highlighted paragraph', block: 'p', classes: 'wys-highlighted-paragraph'},
+                    { title: 'Bloc Rouge', block: 'div', classes: 'wys-block'},
                 ]
             },
             
