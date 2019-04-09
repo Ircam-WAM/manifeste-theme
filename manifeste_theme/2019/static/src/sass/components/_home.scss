@@ -178,13 +178,18 @@
   }
 }
 
+@mixin c-home__edito-order {
+  margin-top: rem(40px);
+  margin-bottom: 0;
+  order: 3;
+}
+
 @include mq($from: medium) {
   .c-home__ircam {
-    display: inline-block;
-    vertical-align: top;
     margin: rem(-56px 0 56px) auto;
   }
 
+    .c-home__ircam,
     .c-home__logo {
       display: block;
       width: rem(152px);
@@ -221,9 +226,12 @@
     padding: rem(40px) 0;
 
     @supports (order: 3) {
-      margin-top: rem(40px);
-      margin-bottom: 0;
-      order: 3;
+      @include c-home__edito-order;
+    }
+
+    // IE11
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      @include c-home__edito-order;
     }
 
     &::after {
