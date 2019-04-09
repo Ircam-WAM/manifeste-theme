@@ -28,7 +28,6 @@
 
     .c-detail__container {
       padding-top: rem(56px);
-      padding-bottom: rem(24px);
 
       &::after {
         background: $color-white;
@@ -137,7 +136,7 @@
 
   .c-detail__wrapper {
     position: relative;
-    padding-top: rem(24px);
+    padding-top: rem(40px);
     padding-bottom: 1px;
     margin-bottom: -1px;
 
@@ -252,11 +251,7 @@
     padding-bottom: rem(32px);
   }
 
-  .c-detail__metas {
-    padding-top: rem(16px);
+  .c-detail__meta {
+    width: (100% / 3);
   }
-
-    .c-detail__meta {
-      width: (100% / 3);
-    }
 }
