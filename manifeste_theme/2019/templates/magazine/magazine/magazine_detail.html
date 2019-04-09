@@ -17,7 +17,7 @@
 
     <div class="c-gallery u-mbs u-mbl@medium">
         <ul class="c-gallery__items">
-            {% include "core/inc/cards.html" with concrete_objects=magazine.dynamic_content.all %}
+            {% include "core/inc/cards.html" with concrete_objects=magazine.dynamic_content.all|get_content_objects %}
         </ul>
     </div>
 {% endblock %}

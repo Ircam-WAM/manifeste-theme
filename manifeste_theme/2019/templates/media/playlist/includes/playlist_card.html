@@ -1,5 +1,47 @@
-{% load i18n mezzanine_tags keyword_tags organization_tags pages_tags %}
+{% extends "core/inc/generic_card.html" %}
+{% load i18n mezzanine_tags event_tags keyword_tags disqus_tags organization_tags staticfiles %}
 
-{% with "media/inc/playlist_"|add:object.type|add:"_card.html" as template %}
-    {% include template with playlist=object %}
-{% endwith %}
+{% block title %}
+    {{ object.title|truncatechars_html:50 }}
+{% endblock %}
+
+{% block url %}
+    {% url 'organization-playlist-detail' object.slug %}
+{% endblock url %}
+
+{% block image %}
+    {% with object.medias.all as medias %}
+        {% if medias %}
+            {% with medias.0.media.images.all|get_type:'card' as images %}
+                {% if medias.0.media.poster_url %}
+                    A
+                    <img src="{{  medias.0.media.poster_url }}" alt="" class="c-article__picture"/>
+                {% elif images %}
+                    <img src="{{ MEDIA_URL }}{% thumbnail images.0.file 384 240 top=0.5 left=0.5 %}" alt="" class="c-article__picture"/>
+                {% endif %}
+            {% endwith %}
+        {% endif %}
+    {% endwith %}
+{% endblock image %}
+
+{% block icon %}
+    <svg class="c-article__icon" width="80" height="80" aria-hidden="true">
+        {% if object.type == 'audio' %}
+        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-audio"/>
+        {% else %}
+        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-video"/>
+        {% endif %}
+    </svg>
+{% endblock icon %}
+
+{% block tags %}
+    <ul class="c-article__categories">
+        <li class="c-article__category">{{ object.type|title }}</li>
+    </ul>
+{% endblock tags %}
+
+{% block content %}
+    {% if object.description and object.description != object.title %}
+        {{ object.description|richtext_filters|safe|truncatechars_html:200 }}
+    {% endif %}
+{% endblock content %}
