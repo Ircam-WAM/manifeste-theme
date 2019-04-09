@@ -329,18 +329,52 @@ hr {
 .wys-button-large-primary,
 .wys-button-primary,
 .wys-button-primary-large {
-  @extend .c-button;
+  appearance: none;
+  background: $color-black none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: 0 rem(1px 2px) 0 rgba($color-black, .2);
+  color: $color-white;
+  display: inline-block;
+  display: inline-flex;
+  @include font-size(16px, 24px);
+  font-family: $font-primary;
+  align-items: center;
+  justify-content: center;
+  padding: rem(3px 8px 5px);
+  margin: 0;
+  position: relative;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 400ms, color 400ms;
+  min-height: rem(32px);
+  min-width: rem(64px);
+
+  &:not(:disabled) {
+    cursor: pointer;
+
+    &:hover {
+      background-color: $color-primary;
+      color: $color-white;
+    }
+  }
 }
 
 .wys-button-large,
 .wys-button-large-primary,
 .wys-button-primary-large {
-  @extend .c-button--large;
+  min-height: rem(56px);
+  padding: rem(11px 16px 13px);
 }
 
 .wys-button-primary,
 .wys-button-primary-large,
 .wys-button-large-primary {
-  @extend .c-button--primary;
-}
+  background-color: $color-primary;
+  color: $color-white;
 
+  &:not(:disabled):hover {
+    background-color: $color-black;
+  }
+}
