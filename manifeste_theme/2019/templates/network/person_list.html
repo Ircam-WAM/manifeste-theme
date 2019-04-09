@@ -30,12 +30,11 @@
     <div class="c-content u-mbm">
         <h1 class="h2">{% trans "Artists" %}</h1>
     </div>
-
     <div class="c-gallery u-mbs u-mbl@medium">
         <ul class="c-gallery__items">
             {% for person in persons %}
                 <li class="c-gallery__item">
-                    {% include "network/inc/person/person_card_square.html" %}
+                    {% include "network/person/includes/person_card.html" with object=person %}
                 </li>
             {% endfor %}
         </ul>

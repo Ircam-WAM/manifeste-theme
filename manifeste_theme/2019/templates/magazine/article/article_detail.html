@@ -77,14 +77,9 @@
     {{ block.super }}
 {% endblock %}
 
-{# TODO @emilie: j'ai l'impression qu'il y a un soucis ici (le nom de la personne est utilisé comme titre du bloc, et la card qui suit est vide), cf. ticket #91 #}
 {% block page_person_list %}
-    {% for article_custom_person_list_block_inline in article.article_person_list_block_inlines.all  %}
-      {% with article_custom_person_list_block_inline.person_list_block as person_list_block %}
-        {% with "network/inc/person/list_"|add:person_list_block.style|add:"_style.html" as template %}
-          {% include template %}
-        {% endwith %}
-      {% endwith %}
+    {% for inline in article.article_person_list_block_inlines.all  %}
+        {% include 'network/person/includes/person_list.html' with person_list_block=inline.person_list_block %}
     {% endfor %}
 {% endblock %}
 
