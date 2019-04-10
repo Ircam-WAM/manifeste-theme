@@ -55,13 +55,13 @@ jQuery(function($) {
         selector: "textarea.mceEditor",
         height: "500px",
         language: language_codes[window.__language_code] || "en",
-        plugins: ["advlist autolink lists link image charmap print preview anchor", "searchreplace visualblocks code fullscreen", "insertdatetime media table contextmenu paste"],
+        plugins: ["advlist autolink lists link image charmap print preview anchor", "searchreplace visualblocks code fullscreen", "insertdatetime media table contextmenu paste hr"],
         link_list: window.__link_list_url,
         relative_urls: !1,
         convert_urls: !1,
         menubar: !0,
         statusbar: !1,
-        toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image table | code fullscreen",
+        toolbar: "insertfile undo redo | styleselect | bold italic | hr | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image table | code fullscreen",
         image_advtab: !0,
         file_browser_callback: custom_file_browser,
         content_css: [window.__tinymce_css, '/static/css/editor.min.css'] ,
@@ -69,14 +69,13 @@ jQuery(function($) {
         style_formats: [
             {
                 title: "Styles d'en-têtes", items: [
-                    { title: 'Titre 1', inline: 'h1', classes: 'h1'},
-                    { title: 'Titre 2', inline: 'h2', classes: 'h2'},
-                    { title: 'Titre 3', inline: 'h3', classes: 'h3'},
-                    { title: 'Titre 4', inline: 'h4', classes: 'h4'},
-                    { title: 'Titre 5', inline: 'h5', classes: 'h5'},
-                    { title: 'Titre 6', inline: 'h6', classes: 'h6'},
+                    { title: 'Titre 1', selector: 'h2,h3,h4,h5,p', classes: 'h1'},
+                    { title: 'Titre 2', selector: 'h1,h3,h4,h5,p', classes: 'h2'},
+                    { title: 'Titre 3', selector: 'h1,h2,h4,h5,p', classes: 'h3'},
+                    { title: 'Titre 4', selector: 'h1,h2,h3,h5,p', classes: 'h4'},
+                    { title: 'Titre 5', selector: 'h1,h2,h3,h4,p', classes: 'h5'},
+                    { title: 'Paragraphe', selector: 'h1,h2,h3,h4,h5', classes: 'p'},
                 ]
-
             },
             {
                 title: 'Boutons', items: [
@@ -89,7 +88,7 @@ jQuery(function($) {
             {
                 title: 'Paragraphs', items: [
                     { title: 'Highlighted paragraph', block: 'p', classes: 'wys-highlighted-paragraph'},
-                    { title: 'Bloc Rouge', block: 'div', classes: 'wys-block'},
+                    { title: 'Bloc Rouge', block: 'div', classes: 'wys-block', 'wrapper': true},
                 ]
             },
             
