@@ -13,7 +13,7 @@
         <ul class="c-gallery__items">
             {% for person_list_block_inline in person_list_block.person_list_block_inlines.all %}
                 <li class="c-gallery__item">
-                    {% include "network/person/includes/person_card.html" with person=person_list_block_inline.person %}
+                    {% include "network/person/includes/person_card.html" with object=person_list_block_inline.person %}
                 </li>
             {% endfor %}
         </ul>
