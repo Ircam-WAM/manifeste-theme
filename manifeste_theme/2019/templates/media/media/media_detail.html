@@ -21,13 +21,6 @@
     {% endeditable %}
 {% endblock %}
 
-{% block page_tags %}
-    <ul class="c-detail__categories">
-        {# <li class="c-tags__tag">{% trans 'Media' %}</li> #}
-        <li class="c-detail__category">{{ media.publish_date|date:"DATE_FORMAT" }}</li>
-    </ul>
-{% endblock %}
-
 {% block page_content %}
     {% if media.description %}
         <div class="c-content u-mbm">

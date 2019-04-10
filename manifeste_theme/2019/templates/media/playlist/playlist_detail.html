@@ -21,12 +21,6 @@
     {% endeditable %}
 {% endblock %}
 
-{% block page_tags %}
-    <ul class="c-detail__categories">
-        <li class="c-detail__category">{{ playlist.publish_date|date:"DATE_FORMAT" }}</li>
-    </ul>
-{% endblock %}
-
 {% block page_content %}
     {% if playlist.description %}
         <div class="c-content u-mbm">
