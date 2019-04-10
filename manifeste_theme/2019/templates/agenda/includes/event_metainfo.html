@@ -22,7 +22,7 @@
         {% include 'agenda/event/includes/reserve_detail.html' %}
 
         {% if event.no_price_comments %}
-            <p>{{ event.no_price_comments|richtext_filters|safe }}</p>
+            {{ event.no_price_comments|richtext_filters|safe }}
         {% endif %}
 
         {% if event.brochure %}

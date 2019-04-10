@@ -75,6 +75,12 @@
 {% endblock %}
 
 {% block page_link %}
+    {% if event.mentions %}
+        <div class="c-content u-mbl">
+            <p><small><i>{{ event.mentions }}</i></small></p>
+        </div>
+    {% endif %}
+
     {% if event.links.all|length > 0 %}
         {% if child %}
             {% with child.links.all as links %}
@@ -89,12 +95,6 @@
                 {% endif %}
             {% endwith %}
         {% endif %}
-    {% endif %}
-
-    {% if event.mentions %}
-        <div class="c-content u-mbl">
-            <p><small>{{ event.mentions }}</small></p>
-        </div>
     {% endif %}
 {% endblock %}
 
