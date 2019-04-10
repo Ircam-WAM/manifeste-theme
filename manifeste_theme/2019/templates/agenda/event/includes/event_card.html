@@ -12,7 +12,7 @@
 {% block image %}
     {% with object.images.all|get_type:'card' as images %}
         {% if images %}
-            <img src="{% thumbnail images.0.file 752 504 %}" alt="" class="c-article__picture"/>
+            <img src="{{ MEDIA_URL }}{% thumbnail images.0.file 752 504 %}" alt="" class="c-article__picture"/>
         {% else %}
             {# TODO: image par défaut ? #}
         {% endif %}
