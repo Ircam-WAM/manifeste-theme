@@ -68,6 +68,16 @@
                         {% with content_type=dm.content_type_id|get_content_type %}
                             {% with m_object=content_type|get_object:dm.object_id %}
                                 {% with template='media/'|add:content_type.model|add:"/includes/"|add:m_object.type|add:".html" %}
+                                    {% if m_object.title or m_object.description %}
+                                        <div class="c-content u-mbm">
+                                            {% if m_object.title %}
+                                                <h2>{{ m_object.title }}</h2>
+                                            {% endif %}
+                                            {% if m_object.description and m_object.description != m_object.title %}
+                                                <p>{{ m_object.description }}</p>
+                                            {% endif %}
+                                        </div>
+                                    {% endif %}
                                     {% include template with object=m_object %}
                                 {% endwith %}
                             {% endwith %}
