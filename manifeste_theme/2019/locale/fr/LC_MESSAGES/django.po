@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-16 15:59+0000\n"
+"POT-Creation-Date: 2019-04-12 14:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -109,7 +109,6 @@ msgid "Add"
 msgstr ""
 
 #: templates/admin/includes/app_list.html:27
-#: templates/includes/language_selector.html:17
 msgid "Change"
 msgstr ""
 
@@ -125,15 +124,15 @@ msgstr ""
 msgid "None available"
 msgstr ""
 
-#: templates/admin/index.html:15 templates/includes/footer.html:10
-#: templates/index.html:5 templates/pages/menus/breadcrumb.html:4
+#: templates/admin/index.html:15 templates/index.html:5
+#: templates/pages/menus/breadcrumb.html:4
 #: templates/pages/menus/breadcrumb.html:10
 #: templates/pages/menus/current_tree_primary.html:14
 #: templates/pages/menus/current_tree_secondary.html:31
 #: templates/pages/menus/dropdown.html:11
 #: templates/pages/menus/footer_tree.html:11
-#: templates/pages/menus/header.html:15 templates/pages/menus/mobile.html:10
-#: templates/pages/menus/primary.html:8 templates/pages/menus/tree.html:9
+#: templates/pages/menus/mobile.html:10 templates/pages/menus/primary.html:8
+#: templates/pages/menus/tree.html:9
 #: templates/projects/project_call_detail.html:76
 #: templates/projects/project_detail.html:76
 msgid "Home"
@@ -181,43 +180,43 @@ msgstr ""
 msgid "Confirmation"
 msgstr ""
 
-#: templates/agenda/event/includes/event_card.html:69
-#: templates/agenda/includes/event_linecard.html:37
-#: templates/agenda/includes/event_linecard.html:46
-#: templates/agenda/includes/event_linecard.html:53
-#: templates/agenda/includes/event_metainfo.html:62
-#: templates/agenda/includes/event_metainfo.html:68
-#: templates/agenda/includes/event_metainfo.html:74
-#: templates/agenda/includes/event_metainfo_line.html:23
-#: templates/agenda/includes/event_metainfo_line.html:29
-#: templates/agenda/includes/event_metainfo_slider.html:24
-#: templates/agenda/includes/event_search.html:18
-#: templates/agenda/includes/event_search.html:25
-#: templates/agenda/includes/event_search.html:30
+#: templates/agenda/event/includes/reserve.html:7
+#: templates/agenda/event/includes/reserve_detail.html:8
+#: templates/agenda/event/includes/reserve_detail.html:16
 msgid "Reserve"
 msgstr "Réserver"
+
+#: templates/agenda/event/includes/reserve.html:13
+msgid "Free"
+msgstr "Gratuit"
 
 #: templates/agenda/event_detail.html:23
 msgid "Back to events"
 msgstr "Revenir aux événements"
 
-#: templates/agenda/event_detail.html:42
-msgid "Agenda"
-msgstr "Rendez-vous"
-
-#: templates/agenda/event_detail.html:133
-#: templates/core/inc/related_content.html:30
-#: templates/core/inc/related_content_dynamic.html:7
-msgid "Also discover"
-msgstr "À découvrir aussi"
-
 #: templates/agenda/event_list.html:8
 msgid "Events"
 msgstr "Événements"
 
-#: templates/agenda/event_list.html:33
+#: templates/agenda/event_list.html:30
 msgid "Events to come"
 msgstr "Événements"
+
+#: templates/agenda/event_list.html:38
+#: templates/magazine/article/article_list.html:39
+msgid "Filter by"
+msgstr ""
+
+#: templates/agenda/event_list.html:47 templates/includes/footer.html:25
+#: templates/index.html:20
+msgid "OK"
+msgstr ""
+
+#: templates/agenda/event_list.html:57 templates/search_results.html:25
+#, fuzzy
+#| msgid "No results were found matching your query: %(query)s"
+msgid "No results were found matching your query."
+msgstr "Aucun résultat n'a été trouvé pour votre recherche : %(query)s"
 
 #: templates/agenda/event_location_detail.html:40
 #: templates/agenda/includes/event_location.html:15
@@ -261,12 +260,6 @@ msgstr "au"
 msgid "to"
 msgstr "au"
 
-#: templates/agenda/includes/event_linecard.html:57
-#: templates/agenda/includes/event_metainfo.html:78
-#: templates/agenda/includes/event_search.html:34
-msgid "Free"
-msgstr "Gratuit"
-
 #: templates/agenda/includes/event_location.html:7
 msgid "Room"
 msgstr ""
@@ -275,21 +268,9 @@ msgstr ""
 msgid "Click to get the interactive map"
 msgstr ""
 
-#: templates/agenda/includes/event_metainfo.html:9
-msgid "Date(s)"
-msgstr "Date(s)"
-
-#: templates/agenda/includes/event_metainfo.html:20
-msgid "Location(s)"
-msgstr "Lieu"
-
-#: templates/agenda/includes/event_metainfo.html:29
-msgid "ACCESS PLAN"
+#: templates/agenda/includes/event_metainfo.html:7
+msgid "Access plan"
 msgstr "Plan d'accès"
-
-#: templates/agenda/includes/event_metainfo.html:37
-msgid "Price(s)"
-msgstr "Prix"
 
 #: templates/agenda/includes/filter_panel.html:6
 msgid "Upcoming Events"
@@ -307,34 +288,33 @@ msgstr ""
 msgid "Tags"
 msgstr "Archive"
 
-#: templates/core/inc/files.html:3
+#: templates/core/inc/files.html:4
 msgid "Downloads"
 msgstr "Téléchargements"
 
-#: templates/core/inc/related_content.html:8
+#: templates/core/inc/related_content.html:6
 #: templates/core/inc/related_ctn_and_events.html:9
-#: templates/network/person_detail.html:90
 msgid "Linked events"
 msgstr "Événement(s) lié(s)"
 
+#: templates/core/inc/related_content.html:25
+#: templates/core/inc/related_content_dynamic.html:5
+msgid "Also discover"
+msgstr "À découvrir aussi"
+
 #: templates/core/inc/related_ctn_and_events.html:42
-#: templates/network/person_detail.html:123
 msgid "Linked contents"
 msgstr "À découvrir aussi"
 
-#: templates/email/account_approve.html:3
-#: templates/email/account_approve.txt:3
+#: templates/email/account_approve.html:3 templates/email/account_approve.txt:3
 msgid "Hey there, a new account has been created and requires activation."
 msgstr ""
 
-#: templates/email/account_approve.html:5
-#: templates/email/account_approve.txt:5
+#: templates/email/account_approve.html:5 templates/email/account_approve.txt:5
 msgid "Name"
 msgstr ""
 
-#: templates/email/account_approve.html:6
-#: templates/email/account_approve.txt:6
-#: templates/network/person_detail.html:53
+#: templates/email/account_approve.html:6 templates/email/account_approve.txt:6
 #: templates/network/person_detail_multiple_activities.html:34
 msgid "Email"
 msgstr ""
@@ -425,7 +405,7 @@ msgid "Sorry, an error occurred."
 msgstr ""
 
 #: templates/generic/includes/comment.html:22
-#: templates/generic/includes/comment.html:59 templates/twitter/tweets.html:24
+#: templates/generic/includes/comment.html:59 templates/twitter/tweets.html:17
 #, python-format
 msgid "%(sometime)s ago"
 msgstr ""
@@ -475,9 +455,53 @@ msgstr ""
 msgid "Rate"
 msgstr ""
 
+#: templates/home/inc/bio.html:5 templates/includes/header.html:6
+msgid "Manifeste 2019"
+msgstr ""
+
+#: templates/home/inc/bio.html:14
+msgid "Read the edito"
+msgstr "Lire l'édito"
+
+#: templates/home/inc/body.html:5
+msgid "Last news"
+msgstr "Dernières actualités"
+
 #: templates/home/inc/hero.html:19
 msgid "Discover the festival"
 msgstr "Découvrir le festival"
+
+#: templates/includes/calendar.html:4
+msgid "June"
+msgstr ""
+
+#: templates/includes/calendar.html:8
+msgid "MO"
+msgstr ""
+
+#: templates/includes/calendar.html:9
+msgid "TU"
+msgstr ""
+
+#: templates/includes/calendar.html:10
+msgid "WE"
+msgstr ""
+
+#: templates/includes/calendar.html:11
+msgid "TH"
+msgstr ""
+
+#: templates/includes/calendar.html:12
+msgid "FR"
+msgstr ""
+
+#: templates/includes/calendar.html:13
+msgid "SA"
+msgstr ""
+
+#: templates/includes/calendar.html:14
+msgid "SU"
+msgstr ""
 
 #: templates/includes/editable_form.html:16
 msgid "Save"
@@ -491,7 +515,11 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: templates/includes/footer.html:43
+#: templates/includes/footer.html:8
+msgid "Download the program"
+msgstr "Télécharger la brochure"
+
+#: templates/includes/footer.html:22
 msgid ""
 "Sign up for our newsletter to stay up-to-date with the festival and the "
 "Forum Vertigo"
@@ -499,35 +527,42 @@ msgstr ""
 "Inscrivez-vous à notre newsletter afin de recevoir les dernières actualités "
 "du festival et du Forum Vertigo."
 
-#: templates/includes/footer.html:47
+#: templates/includes/footer.html:23
 msgid "Your email"
 msgstr "Votre email"
-
-#: templates/includes/footer.html:55 templates/includes/footer.html:57
-msgid "Download the program"
-msgstr "Télécharger la brochure"
-
-#: templates/includes/footer.html:83
-msgid "Follow us on"
-msgstr "Suivez-nous sur"
-
-#: templates/includes/footer.html:112
-msgid "All rights reserved"
-msgstr ""
 
 #: templates/includes/form_errors.html:8
 msgid "Please correct the errors below."
 msgstr ""
 
-#: templates/includes/pagination.html:12
+#: templates/includes/header.html:11
+msgid "Open menu"
+msgstr ""
+
+#: templates/includes/header.html:16
+msgid "Close menu"
+msgstr ""
+
+#: templates/includes/header.html:21 templates/includes/header.html:32
+#: templates/search_results.html:13 templates/search_results.html:16
+#, fuzzy
+#| msgid "Search Results"
+msgid "Search"
+msgstr "Resultats de la recherche"
+
+#: templates/includes/header.html:27
+msgid "Festival • Du 1er au 29 juin"
+msgstr ""
+
+#: templates/includes/pagination.html:10
 msgid "Previous page"
 msgstr "Page précédente"
 
-#: templates/includes/pagination.html:26
+#: templates/includes/pagination.html:33
 msgid "Next page"
 msgstr "Page suivante"
 
-#: templates/includes/search_form.html:11 templates/search_results.html:17
+#: templates/includes/search_form.html:11 templates/search_results.html:14
 msgid "Type something"
 msgstr "Recherche"
 
@@ -537,34 +572,24 @@ msgstr "Recherche"
 msgid "Share on Facebook"
 msgstr ""
 
-#: templates/includes/share_buttons.html:8
+#: templates/includes/share_buttons.html:10
 #: templates/media/audio/audio_overlay.html:46
 #: templates/media/video/video_overlay.html:44
 msgid "Share on Twitter"
 msgstr ""
 
-#: templates/includes/share_buttons.html:11
-#: templates/media/audio/audio_overlay.html:49
-#: templates/media/video/video_overlay.html:47
-msgid "Share by email"
-msgstr ""
+#: templates/includes/social_full.html:6 templates/includes/social_light.html:6
+msgid "Twitter feed"
+msgstr "Fil Twitter"
 
-#: templates/includes/share_buttons.html:14
-msgid "Print this page"
-msgstr ""
+#: templates/includes/social_full.html:9 templates/includes/social_full.html:16
+msgid "See more"
+msgstr "Lire la suite"
 
-#: templates/includes/share_buttons.html:18
-#: templates/includes/share_buttons.html:23
-msgid "Add to"
-msgstr ""
-
-#: templates/includes/social.html:8
+#: templates/includes/social_full.html:13
+#: templates/includes/social_light.html:11
 msgid "Instagram feed"
 msgstr "Fil Instagram"
-
-#: templates/index.html:13
-msgid "Breaking News"
-msgstr "Dernière minute"
 
 #: templates/job/candidacy_list.html:4 templates/job/candidacy_list.html:13
 #: templates/job/candidacy_list.html:22
@@ -585,7 +610,7 @@ msgid "until"
 msgstr ""
 
 #: templates/job/inc/job_offer_card.html:17
-#: templates/magazine/article/article_detail.html:31
+#: templates/magazine/article/article_detail.html:48
 #: templates/media/audio/audio_detail.html:24
 #: templates/media/playlist_detail.html:23
 #: templates/media/video/video_detail.html:23
@@ -593,9 +618,6 @@ msgid "Published on"
 msgstr "Publié le"
 
 #: templates/job/inc/job_offer_card.html:23
-#: templates/media/inc/playlist_audio_card.html:26
-#: templates/media/inc/playlist_video_card.html:23
-#: templates/media/media/includes/media_card.html:26
 msgid "View"
 msgstr "Voir"
 
@@ -607,7 +629,7 @@ msgstr ""
 msgid "Please come back later. There is no job offer at the moment."
 msgstr ""
 
-#: templates/magazine/article/article_detail.html:28
+#: templates/magazine/article/article_detail.html:20
 #: templates/media/audio/audio_detail.html:21
 #: templates/media/playlist_detail.html:20
 #: templates/media/video/video_detail.html:20
@@ -619,16 +641,8 @@ msgstr "Revenir aux articles"
 msgid "News"
 msgstr "Actualité"
 
-#: templates/magazine/article/article_list.html:39
-msgid "Filter by"
-msgstr ""
-
-#: templates/magazine/article/includes/article_card.html:50
-msgid "Read more"
-msgstr "Lire la suite"
-
-#: templates/magazine/article/includes/article_card.html:64
-#: templates/magazine/article/includes/article_card.html:70
+#: templates/magazine/article/includes/article_card.html:35
+#: templates/magazine/article/includes/article_card.html:41
 #: templates/magazine/article/includes/article_search.html:20
 #, fuzzy
 #| msgid "Articles"
@@ -639,6 +653,7 @@ msgstr "Articles"
 msgid "Brief !"
 msgstr "Brève !"
 
+#: templates/magazine/magazine/magazine_detail.html:5
 #: templates/magazine/topic/topic_detail.html:5
 #: templates/magazine/topic/topic_detail.html:30
 msgid "Magazine"
@@ -659,6 +674,11 @@ msgstr "Media"
 #: templates/media/video/video_overlay.html:29
 msgid "Publish date"
 msgstr "Date de publication"
+
+#: templates/media/audio/audio_overlay.html:49
+#: templates/media/video/video_overlay.html:47
+msgid "Share by email"
+msgstr ""
 
 #: templates/media/audio/inc/audio_search.html:20
 #: templates/media/inc/playlist_search.html:47
@@ -682,10 +702,6 @@ msgstr "audio"
 #: templates/media/playlist_list.html:26
 msgid "video"
 msgstr "vidéo"
-
-#: templates/network/inc/person/person_card_circle.html:32
-msgid "resume"
-msgstr "résumé"
 
 #: templates/network/organization_list.html:6
 #: templates/network/organization_list.html:20
@@ -714,14 +730,13 @@ msgstr ""
 msgid "No timesheet."
 msgstr ""
 
-#: templates/network/person_detail.html:65
-#: templates/network/person_detail_multiple_activities.html:52
-#: templates/pages/teampage.html:133
-msgid "Team"
-msgstr ""
-
 #: templates/network/person_detail_multiple_activities.html:37
 msgid "Activities"
+msgstr ""
+
+#: templates/network/person_detail_multiple_activities.html:52
+#: templates/pages/teampage.html:121
+msgid "Team"
 msgstr ""
 
 #: templates/network/person_detail_multiple_activities.html:62
@@ -744,7 +759,7 @@ msgstr ""
 msgid "Links"
 msgstr ""
 
-#: templates/network/person_list.html:8 templates/network/person_list.html:35
+#: templates/network/person_list.html:8 templates/network/person_list.html:31
 msgid "Artists"
 msgstr "Artistes"
 
@@ -949,11 +964,11 @@ msgstr ""
 msgid "Page"
 msgstr ""
 
-#: templates/pages/teampage.html:90
+#: templates/pages/teampage.html:78
 msgid "Research topics and related projects"
 msgstr ""
 
-#: templates/pages/teampage.html:101
+#: templates/pages/teampage.html:89
 msgid "European and national projects"
 msgstr ""
 
@@ -970,74 +985,74 @@ msgstr ""
 msgid "Please login to get more data."
 msgstr ""
 
-#: templates/projects/project_call_detail.html:130
-#: templates/projects/project_detail.html:130
+#: templates/projects/project_call_detail.html:119
+#: templates/projects/project_detail.html:124
 msgid "Project details"
 msgstr ""
 
-#: templates/projects/project_call_detail.html:136
-#: templates/projects/project_detail.html:136
+#: templates/projects/project_call_detail.html:125
+#: templates/projects/project_detail.html:130
 msgid "Program"
 msgstr ""
 
-#: templates/projects/project_call_detail.html:147
-#: templates/projects/project_detail.html:147
+#: templates/projects/project_call_detail.html:136
+#: templates/projects/project_detail.html:141
 msgid "Program type"
 msgstr ""
 
-#: templates/projects/project_call_detail.html:157
-#: templates/projects/project_detail.html:157
+#: templates/projects/project_call_detail.html:146
+#: templates/projects/project_detail.html:151
 msgid "Beginning"
 msgstr ""
 
-#: templates/projects/project_call_detail.html:166
-#: templates/projects/project_detail.html:166
+#: templates/projects/project_call_detail.html:155
+#: templates/projects/project_detail.html:160
 msgid "End"
 msgstr ""
 
-#: templates/projects/project_call_detail.html:175
-#: templates/projects/project_detail.html:175
+#: templates/projects/project_call_detail.html:164
+#: templates/projects/project_detail.html:169
 msgid "Status"
 msgstr ""
 
-#: templates/projects/project_call_detail.html:185
-#: templates/projects/project_detail.html:185
+#: templates/projects/project_call_detail.html:174
+#: templates/projects/project_detail.html:179
 msgid "Website"
 msgstr ""
 
-#: templates/projects/project_call_detail.html:204
-#: templates/projects/project_detail.html:204
+#: templates/projects/project_call_detail.html:193
+#: templates/projects/project_detail.html:198
 msgid "Participants"
 msgstr ""
 
-#: templates/projects/project_call_detail.html:212
-#: templates/projects/project_detail.html:212
+#: templates/projects/project_call_detail.html:201
+#: templates/projects/project_detail.html:206
 msgid "Project lead team"
 msgstr ""
 
-#: templates/projects/project_call_detail.html:219
-#: templates/projects/project_detail.html:219
+#: templates/projects/project_call_detail.html:208
+#: templates/projects/project_detail.html:213
 msgid "Project lead organization"
 msgstr ""
 
-#: templates/projects/project_call_detail.html:236
-#: templates/projects/project_detail.html:236
+#: templates/projects/project_call_detail.html:225
+#: templates/projects/project_detail.html:230
 msgid "Partners"
 msgstr ""
 
-#: templates/projects/project_call_detail.html:251
-#: templates/projects/project_detail.html:251
+#: templates/projects/project_call_detail.html:240
+#: templates/projects/project_detail.html:245
 msgid "teams"
 msgstr ""
 
-#: templates/projects/project_call_detail.html:286
+#: templates/projects/project_call_detail.html:275
 #: templates/projects/project_demo_detail.html:18
-#: templates/projects/project_detail.html:286
+#: templates/projects/project_detail.html:280
 msgid "Demos"
 msgstr ""
 
-#: templates/projects/project_call_detail.html:308
-#: templates/projects/project_detail.html:308
+#: templates/projects/project_call_detail.html:297
+#: templates/projects/project_detail.html:302
 msgid "Blog Pages"
 msgstr ""
 
@@ -1049,14 +1064,9 @@ msgstr ""
 msgid "New project form"
 msgstr ""
 
-#: templates/search_results.html:5 templates/search_results.html:6
+#: templates/search_results.html:5
 msgid "Search Results"
 msgstr "Resultats de la recherche"
-
-#: templates/search_results.html:75
-#, python-format
-msgid "No results were found matching your query: %(query)s"
-msgstr "Aucun résultat n'a été trouvé pour votre recherche : %(query)s"
 
 #: templates/shop/billing_shipping.html:17
 #, python-format
@@ -1350,6 +1360,30 @@ msgstr ""
 #: templates/styles.html:4 templates/styles.html:6 templates/styles.html:12
 msgid "Styles"
 msgstr ""
+
+#~ msgid "Agenda"
+#~ msgstr "Rendez-vous"
+
+#~ msgid "Date(s)"
+#~ msgstr "Date(s)"
+
+#~ msgid "Location(s)"
+#~ msgstr "Lieu"
+
+#~ msgid "ACCESS PLAN"
+#~ msgstr "Plan d'accès"
+
+#~ msgid "Price(s)"
+#~ msgstr "Prix"
+
+#~ msgid "Follow us on"
+#~ msgstr "Suivez-nous sur"
+
+#~ msgid "Breaking News"
+#~ msgstr "Dernière minute"
+
+#~ msgid "resume"
+#~ msgstr "résumé"
 
 #~ msgid "Back to artists"
 #~ msgstr "Revenir aux artistes"
