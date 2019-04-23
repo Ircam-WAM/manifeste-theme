@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-12 14:09+0000\n"
+"POT-Creation-Date: 2019-04-23 10:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -520,12 +520,10 @@ msgid "Download the program"
 msgstr "Télécharger la brochure"
 
 #: templates/includes/footer.html:22
-msgid ""
-"Sign up for our newsletter to stay up-to-date with the festival and the "
-"Forum Vertigo"
+msgid "Sign up for our newsletter to stay up-to-date with the festival"
 msgstr ""
 "Inscrivez-vous à notre newsletter afin de recevoir les dernières actualités "
-"du festival et du Forum Vertigo."
+"du festival."
 
 #: templates/includes/footer.html:23
 msgid "Your email"
