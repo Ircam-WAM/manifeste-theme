@@ -57,8 +57,8 @@
     {% endblock %}
 
     <div class="c-cookies js-cookies">
-        <p class="c-cookies__message">En poursuivant votre navigation sur ce site, vous acceptez l'utilisation de cookies pour nous permettre de mesurer l'audience, et pour vous permettre de partager du contenu via les boutons de partage de réseaux sociaux. <a href="#">En savoir plus</a>.</p>
-        <button class="c-cookies__button c-button c-button--secondary js-cookies-button">J'ai compris</button>
+        <p class="c-cookies__message">{% blocktrans %}We use cookie technology to measure our online audience and to allow you to share content on social networks via link buttons.{% endblocktrans %} <a href="/politique-de-confidentialite">{% trans 'Further information' %}</a>.</p>
+        <button class="c-cookies__button c-button c-button--secondary js-cookies-button">{% trans "I Accept" %}</button>
     </div>
 
     {% block footer_scripts %}
