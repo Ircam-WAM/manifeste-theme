@@ -2,7 +2,7 @@
 
 <div class="c-detail__metas">
     <div class="c-detail__meta c-detail__meta--date">
-        <p>{% include 'agenda/includes/event_date.html' %}</p>
+        <p>{% include 'agenda/event/includes/event_dates.html' %}</p>
         {% if event.location %}
             <p>{{ event.location.title }}{% if event.location.room %}, {{ event.location.room }}{% endif %}<br/><a href="{{ event|google_nav_url }}" target="_blank" rel="noopener">{% trans 'Access plan' %}</a></p>
         {% endif %}
