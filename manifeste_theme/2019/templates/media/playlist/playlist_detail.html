@@ -1,0 +1,39 @@
+{% extends "pages/page.html" %}
+{% load mezzanine_tags keyword_tags i18n organization_tags staticfiles %}
+
+{% block meta_title %}{{ playlist.title }}{% endblock %}
+
+{% block meta_keywords %}
+    {% metablock %}
+        {% keywords_for person as keywords %}
+        {% for keyword in keywords %}
+            {% if not forloop.first %}, {% endif %}
+            {{ keyword }}
+        {% endfor %}
+    {% endmetablock %}
+{% endblock %}
+
+{% block page_title %}
+    {% editable playlist.title %}
+        <h1 class="c-detail__title">
+            {{ playlist.title }}
+        </h1>
+    {% endeditable %}
+{% endblock %}
+
+{% block page_content %}
+    {% if playlist.description %}
+        <div class="c-content u-mbm">
+            {% editable playlist.description %}
+                {{ playlist.description }}
+            {% endeditable %}
+        </div>
+    {% endif %}
+
+    {% with playlist.type as type %}
+        {% with "media/playlist/includes/"|add:type|add:".html" as template %}
+            {% include template %}
+        {% endwith %}
+    {% endwith %}
+
+{% endblock %}

@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+// SHARED IMPORTS
+
+@import "shared";
+
+
+// BASE
+// Global scope styles
+
+@import "base/fonts";
+@import "~normalize.css"; // https://github.com/necolas/normalize.css
+@import "base/global";
+@import "base/reset";
+
+
+// COMPONENTS
+// Reutilisable components (banner, button, card…)
+// Prefix: c
+
+@import "components/*.scss";
+
+
+// UTILITIES
+// Utility classes (margin, padding, colors…)
+// Prefix: u
+
+@import "utilities/*.scss";

@@ -1,0 +1,11 @@
+.c-wrapper {
+  background: #F5F5F5 image-url("wrapper.jpg") no-repeat left top;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+
+  @include mq($from: medium) {
+    background-image: image-url("wrapper-medium.jpg");
+  }
+}

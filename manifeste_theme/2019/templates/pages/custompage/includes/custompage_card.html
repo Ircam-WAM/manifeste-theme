@@ -1,0 +1,34 @@
+{% extends "core/inc/generic_card.html" %}
+{% load i18n pages_tags mezzanine_tags media_tags organization_tags %}
+
+{% block metatitle %}
+    {{ object.title }}
+{% endblock %}
+
+{% block title %}
+    {{ object.title }}
+{% endblock %}
+
+{% block url %}
+    {{ object.get_absolute_url }}
+{% endblock %}
+
+{% block image %}
+    {% with object.images.all|get_type:'card' as images %}
+        {% if images %}
+            <img src="{{ MEDIA_URL }}{% thumbnail images.0.file 427 286 top=0.5 left=article.photo_alignment|get_photo_alignment %}" alt="" class="c-article__picture"/>
+        {% else %}
+            {# TODO: image par défaut ? #}
+        {% endif %}
+    {% endwith %}
+{% endblock %}
+
+{% block content %}
+    {{ object.description|richtext_filters|safe|truncatechars_html:200 }}
+{% endblock %}
+
+{% block subtitle %}
+    {% if object.sub_title and object.sub_title|lower != object.title|lower  %}
+        <p class="c-article__subtitle">{{ object.sub_title }}</p>
+    {% endif %}
+{% endblock %}

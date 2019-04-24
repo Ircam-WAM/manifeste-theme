@@ -1,0 +1,141 @@
+.c-slideshow {
+  display: flex;
+  align-items: center;
+
+  &:not(.flickity-enabled) {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+
+  &.flickity-enabled {
+    position: relative;
+
+    &:focus {
+      outline: none;
+    }
+
+    &.is-draggable {
+      tap-highlight-color: transparent;
+      user-select: none;
+
+      .flickity-viewport {
+        cursor: move;
+        cursor: grab;
+
+        &.is-pointer-down {
+          cursor: grabbing;
+        }
+      }
+    }
+  }
+
+  .flickity-viewport {
+    overflow: hidden;
+    transition: height 400ms;
+  }
+
+  .flickity-slider {
+    display: flex;
+  }
+
+  .flickity-prev-next-button {
+    appearance: none;
+    background: $color-primary;
+    border: none;
+    border-radius: 0;
+    @include size(32px);
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: background-color 400ms, opacity 400ms;
+
+    &:hover,
+    &:focus {
+      background: $color-primary;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:disabled {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  .flickity-button-icon {
+    fill: white;
+    display: block;
+    @include size(16px);
+    margin: rem(8px);
+  }
+
+  .flickity-prev-next-button.previous {
+    left: 0;
+  }
+
+  .flickity-prev-next-button.next {
+    right: 0;
+  }
+
+  @include mq($from: medium) {
+    .flickity-prev-next-button {
+      @include size(48px);
+    }
+
+    .flickity-button-icon {
+      @include size(24px);
+      margin: rem(12px);
+    }
+  }
+}
+
+  .c-slideshow__slide {
+    background: $color-black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    flex: 0 0 auto;
+    max-width: 100%;
+    scroll-snap-align: start;
+
+    & + & {
+      margin-left: rem(16px);
+    }
+
+    .c-slideshow.flickity-enabled & {
+      position: relative !important;
+      left: 0 !important;
+    }
+  }
+
+    .c-slideshow__picture {
+      display: block;
+      margin: 0;
+    }
+
+    .c-slideshow__caption {
+      background: $color-primary;
+      color: $color-white;
+      font-family: $font-primary;
+      @include font-size(14px, 20px);
+      padding: rem(8px);
+      opacity: 1;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      text-align: left;
+      transform: translateY(0%);
+      transition: opacity 400ms, transform 400ms;
+
+      .c-slideshow__slide:hover & {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+    }

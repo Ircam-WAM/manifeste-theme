@@ -1,0 +1,42 @@
+{% extends "pages/page.html" %}
+{% load i18n  mezzanine_tags event_tags keyword_tags disqus_tags organization_tags staticfiles pages_tags %}
+
+{% block meta_title %}
+    {% if page %}
+        {{ page.title }}
+    {% else %}
+        {% trans "Artists" %}
+    {% endif %}
+{% endblock %}
+
+{% block meta_keywords %}
+    {% metablock %}
+        {% keywords_for page as keywords %}
+        {% for keyword in keywords %}
+            {% if not forloop.first %}, {% endif %}
+            {{ keyword }}
+        {% endfor %}
+    {% endmetablock %}
+{% endblock %}
+
+{% block meta_description %}
+    {% metablock %}
+        {{ page.description }}
+    {% endmetablock %}
+{% endblock %}
+
+
+{% block main %}
+    <div class="c-content u-mbm">
+        <h1 class="h2">{% trans "Artists" %}</h1>
+    </div>
+    <div class="c-gallery u-mbs u-mbl@medium">
+        <ul class="c-gallery__items">
+            {% for person in persons %}
+                <li class="c-gallery__item">
+                    {% include "network/person/includes/person_card.html" with object=person %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

@@ -1,0 +1,83 @@
+img,
+figure {
+  display: inline-block;
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+audio,
+video {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+figure {
+  overflow: hidden;
+
+  img {
+    display: block;
+    margin: 0;
+    width: 100%;
+  }
+
+  figcaption {
+    background: $color-primary;
+    color: $color-white;
+    font-family: $font-primary;
+    @include font-size(14px, 20px);
+    padding: rem(8px);
+    opacity: 1;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    text-align: left;
+    transform: translateY(0%);
+    transition: opacity 400ms, transform 400ms;
+
+    *:hover > & {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+
+    code {
+      background: transparent;
+      padding: 0;
+    }
+  }
+}
+
+.wys-embed {
+  position: relative;
+  width: 100%;
+
+  iframe {
+    border: 0;
+    display: block;
+    margin: 0;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    height: 0;
+    padding-top: 56.25%;
+  }
+
+  @supports (--custom:property) {
+    &[style*="--aspect-ratio"]::before {
+      padding-top: calc(100% / (var(--aspect-ratio)));
+    }
+  }
+}

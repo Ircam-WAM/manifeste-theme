@@ -1,0 +1,11 @@
+.c-main {
+  @include container;
+  flex: 1 0 auto;
+  padding-top: rem(104px);
+  position: relative;
+  z-index: $z-main;
+
+  @include mq($from: medium) {
+    padding-top: rem(168px);
+  }
+}

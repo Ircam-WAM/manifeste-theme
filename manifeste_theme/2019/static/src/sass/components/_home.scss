@@ -1,0 +1,295 @@
+.c-home {
+  display: flex;
+  flex-direction: column;
+}
+
+  .c-home__events {
+    margin-bottom: rem(56px);
+  }
+
+    .c-home__items {
+      display: flex;
+
+      &:not(.flickity-enabled) {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+      }
+
+      &.flickity-enabled {
+        position: relative;
+
+        &:focus {
+          outline: none;
+        }
+
+        &.is-draggable {
+          tap-highlight-color: transparent;
+          user-select: none;
+
+          .flickity-viewport {
+            cursor: move;
+            cursor: grab;
+
+            &.is-pointer-down {
+              cursor: grabbing;
+            }
+          }
+        }
+      }
+
+      .flickity-viewport {
+        overflow: hidden;
+        width: 100%;
+      }
+
+      .flickity-slider {
+        display: flex;
+      }
+
+      .flickity-prev-next-button {
+        appearance: none;
+        background: transparent none;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        color: $color-black;
+        margin: rem(4px) 0;
+        padding: 0;
+        position: absolute;
+        top: 100%;
+        z-index: 2;
+        transition: color 400ms, opacity 400ms;
+
+        &:not(:disabled):hover {
+          color: $color-primary;
+        }
+
+        &:disabled {
+          cursor: default;
+          opacity: .3;
+        }
+      }
+
+      .flickity-prev-next-button.previous {
+        left: 0;
+      }
+
+      .flickity-prev-next-button.next {
+        right: 0;
+      }
+
+        .flickity-button-icon {
+          display: block;
+          width: rem(24px);
+          height: rem(24px);
+        }
+
+      .flickity-page-dots {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        text-align: center;
+        z-index: 1;
+      }
+
+      .flickity-page-dots .dot {
+        background: currentColor;
+        color: $color-black;
+        cursor: pointer;
+        display: inline-block;
+        vertical-align: top;
+        border-radius: 50%;
+        width: rem(8px);
+        height: rem(8px);
+        margin: rem(12px 8px);
+        position: relative;
+        transition: color 400ms, opacity 400ms;
+
+        &:hover {
+          color: $color-primary;
+        }
+
+        &::before {
+          content: "";
+          display: block;
+          margin: rem(-8px);
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+        }
+
+        &:not(.is-selected):not(:hover) {
+          opacity: .3;
+        }
+      }
+    }
+
+      .c-home__item {
+        display: flex;
+        overflow: hidden;
+        position: relative;
+        flex: 0 0 auto;
+        width: 100%;
+        scroll-snap-align: start;
+
+        .c-home__items.flickity-enabled & {
+          position: relative !important;
+          left: 0 !important;
+
+          &:not(:first-child) {
+            margin-left: rem(16px);
+          }
+        }
+      }
+
+@include mq($until: medium) {
+  .c-home {
+    padding-bottom: rem(16px);
+    position: relative;
+
+    &::after {
+      background: $color-primary;
+      content: "";
+      display: block;
+      position: absolute;
+      top: rem(152px);
+      right: -9999px;
+      bottom: 0;
+      left: -9999px;
+      z-index: -1;
+    }
+  }
+
+  .c-home__events {
+    .flickity-prev-next-button:not(:disabled):hover,
+    .flickity-page-dots .dot:hover {
+      color: $color-white;
+    }
+  }
+
+  .c-home__ircam,
+  .c-home__edito,
+  .c-home__filter {
+    display: none;
+  }
+}
+
+@mixin c-home__edito-order {
+  margin-top: rem(40px);
+  margin-bottom: 0;
+  order: 3;
+}
+
+@include mq($from: medium) {
+  .c-home__ircam {
+    margin: rem(-56px 0 56px) auto;
+  }
+
+    .c-home__ircam,
+    .c-home__logo {
+      display: block;
+      width: rem(152px);
+      height: rem(88px);
+    }
+
+  .c-home__events {
+    @include clearfix;
+    margin: 0 rem(-8px 48px);
+  }
+
+    .c-home__items,
+    .c-home__filter.c-filter {
+      float: left;
+      border-width: 0 rem(8px);
+      border-style: solid;
+      border-color: transparent;
+    }
+
+    .c-home__items {
+      width: (100% / 3 * 2);
+
+    }
+
+    .c-home__filter.c-filter {
+      height: rem(304px);
+      width: (100% / 3);
+    }
+
+  .c-home__edito {
+    @include clearfix;
+    margin: 0 rem(-8px 40px);
+    position: relative;
+    padding: rem(40px) 0;
+
+    @supports (order: 3) {
+      @include c-home__edito-order;
+    }
+
+    // IE11
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      @include c-home__edito-order;
+    }
+
+    &::after {
+      background: $color-primary;
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      right: -9999px;
+      bottom: 0;
+      left: -9999px;
+      z-index: -1;
+    }
+  }
+
+    .c-home__title,
+    .c-home__text {
+      padding: 0 rem(8px);
+    }
+
+    .c-home__title {
+      float: left;
+      @include font-size(56px, 64px);
+      width: (100% / 3);
+    }
+
+      .c-home__link {
+        text-decoration: none;
+
+        &::after {
+          background: svg-url('<svg viewBox="0 0 100 100"><path d="M46.49 87.06L78.47 55.233l-9.204 1.092H.156L0 44.002h69.267l9.048 1.092-31.825-31.67L54.758 5 100 50.242 54.758 95.328z" fill="#{$color-black}"/></svg>') no-repeat center / contain;
+          content: "";
+          width: rem(40px);
+          height: rem(40px);
+          display: inline-block;
+          vertical-align: middle;
+          margin-left: rem(16px);
+          transition: transform 400ms;
+        }
+
+        &:hover::after {
+          transform: translateX(rem(8px));
+        }
+      }
+
+    .c-home__text {
+      @include font-size(16px, 24px);
+      padding-top: rem(8px);
+      overflow: hidden;
+
+      p + p {
+        margin-top: rem(16px);
+      }
+    }
+
+    .c-home__more {
+      float: right;
+      margin-top: rem(40px);
+      margin-right: rem(8px);
+    }
+}

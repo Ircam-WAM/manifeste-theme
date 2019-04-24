@@ -1,0 +1,11 @@
+{% load mezzanine_tags %}
+
+<div class="c-media js-media u-mbl" data-media-type="video">
+    <ol class="c-media__items">
+        {% for media in object.medias.all %}
+            {% with media.media as media %}
+                <li class="c-media__item js-media-item"{% if media.poster_url %} data-media-poster="{{ media.poster_url }}"{% endif %} data-media-src="{% for transcoded in media.transcoded.all %}{% if forloop.first %}{% else %},{% endif %}{{ transcoded.url }}{% if forloop.last %}{% endif %}{% endfor %}" data-media-mime="{% for transcoded in media.transcoded.all %}{% if forloop.first %}{% else %},{% endif %}{{ transcoded.mime_type }}{% if forloop.last %}{% endif %}{% endfor %}">{{ media.title }}{% if media.description and media.description != media.title %} <small>{{ media.description|safe }}</small>{% endif %}</li>
+            {% endwith %}
+        {% endfor %}
+    </ol>
+</div>

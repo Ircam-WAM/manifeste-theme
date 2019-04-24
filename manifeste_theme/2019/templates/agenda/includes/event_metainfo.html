@@ -1,0 +1,32 @@
+{% load i18n mezzanine_tags event_tags organization_tags %}
+
+<div class="c-detail__metas">
+    <div class="c-detail__meta c-detail__meta--date">
+        <p>{% include 'agenda/event/includes/event_dates.html' %}</p>
+        {% if event.location %}
+            <p>{{ event.location.title }}{% if event.location.room %}, {{ event.location.room }}{% endif %}<br/><a href="{{ event|google_nav_url }}" target="_blank" rel="noopener">{% trans 'Access plan' %}</a></p>
+        {% endif %}
+    </div>
+    <div class="c-detail__meta c-detail__meta--price">
+        {% if event.prices.all %}
+            {% if event.prices.all.0|floatformat != '0' %}
+                <p>
+                    {% for price in event.prices.all %}
+                        {% if price.event_price_description.description %}{{ price.event_price_description.description }} : {% endif %}{{ price.value|floatformat:"-2" }} {{ price.unit }}{% if not forloop.last %}<br/>{% endif %}
+                    {% endfor %}
+                </p>
+            {% endif %}
+        {% endif %}
+    </div>
+    <div class="c-detail__meta c-detail__meta--booking">
+        {% include 'agenda/event/includes/reserve_detail.html' %}
+
+        {% if event.no_price_comments %}
+            {{ event.no_price_comments|richtext_filters|safe }}
+        {% endif %}
+
+        {% if event.brochure %}
+            <p><a href="{{ event.brochure.url }}" target="_blank" rel="noopener" class="c-detail__link">{{ event.brochure.filename }}</a></p>
+        {% endif %}
+    </div>
+</div>

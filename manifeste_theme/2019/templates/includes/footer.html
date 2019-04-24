@@ -1,0 +1,54 @@
+{% load i18n pages_tags mezzanine_tags staticfiles keyword_tags event_tags organization_tags %}
+
+<footer class="c-footer">
+    <div class="c-footer__wrapper">
+        <a href="/media/uploads/documents/agenda_manifeste19.pdf" target="_blank" class="c-footer__booklet">
+            <img src="{% static 'img/booklet.jpg' %}" alt="" class="c-footer__picture"/>
+            <span class="c-footer__button c-button">
+                <span class="c-button__label">{% trans 'Download the program' %}</span>
+                <svg class="c-button__icon" width="24" height="24" aria-hidden="true">
+                    <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-right"/>
+                </svg>
+            </span>
+        </a>
+
+        <a href="{{ host_organization.url }}" target="_blank" rel="noopener" class="c-footer__ircam">
+            <svg class="c-footer__logo" width="168" height="96" aria-label="IRCAM Centre Pompidou">
+                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-ircam"/>
+            </svg>
+        </a>
+
+        <form action="https://public.message-business.com/form/46711/84/form.aspx" method="get" target="_blank" class="c-footer__newsletter">
+            <label for="newsletter" class="c-footer__label">{% blocktrans %}Sign up for our newsletter to stay up-to-date with the festival{% endblocktrans %}</label>
+            <input id="newsletter" name="formItem-mbtext-email" type="email" placeholder="{% trans 'Your email' %}" class="c-footer__input"/>
+            <button type="submit" class="c-footer__button c-button c-button--alt">
+                <svg class="c-button__icon" width="24" height="24" aria-label="{% trans 'OK' %}">
+                    <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-right"/>
+                </svg>
+            </button>
+        </form>
+
+        <nav class="c-footer__links">
+            {% page_menu 'pages/menus/footer_vertical.html' %}
+            <ul class="c-footer__items c-footer__items--social">
+                {% for link in host_organization.links.all %}
+                    <li class="c-footer__item">
+                        <a href="{{ link.url }}" target="_blank" rel="noopener" class="c-footer__link">{{ link.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </nav>
+
+        <p class="c-footer__partners">
+            <a href="http://www.culture.gouv.fr" target="_blank" rel="noopener" class="c-footer__partner">
+                <img src="{% static 'img/logos/culture.png' %}" srcset="{% static 'img/logos/culture@2x.png' %} 2x" alt="Ministère de la Culture" class="c-footer__logo"/>
+            </a>
+            <a href="http://www.cnrs.fr" target="_blank" rel="noopener" class="c-footer__partner">
+                <img src="{% static 'img/logos/cnrs.png' %}" srcset="{% static 'img/logos/cnrs@2x.png' %} 2x" alt="CNRS" class="c-footer__logo"/>
+            </a>
+            <a href="http://www.sorbonne-universite.fr" target="_blank" rel="noopener" class="c-footer__partner">
+                <img src="{% static 'img/logos/sorbonne.png' %}" srcset="{% static 'img/logos/sorbonne@2x.png' %} 2x" alt="Sorbonne Université" class="c-footer__logo"/>
+            </a>
+        </p>
+    </div>
+</footer>

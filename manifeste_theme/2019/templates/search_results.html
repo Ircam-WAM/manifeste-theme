@@ -1,0 +1,37 @@
+{% extends "2019/base.html" %}
+
+{% load i18n mezzanine_tags organization_tags staticfiles %}
+
+{% block meta_title %}{% trans "Search Results" %}{% endblock %}
+
+{% block extra_head %}
+    <meta name="robots" content="noindex">
+{% endblock %}
+
+{% block main %}
+    <form action="{% url 'search' %}" class="c-search u-mbl">
+      <label for="search-input" class="c-search__label">{% trans 'Search' %}</label>
+      <input type="search" name="q" id="search-input" placeholder="{% trans 'Type something' %}" value="{{ request.GET.q }}" required class="c-search__input"/>
+      <button type="submit" class="c-search__button">
+        <svg class="c-search__icon" width="24" height="24" aria-label="{% trans 'Search' %}">
+          <use xlink:href="{% static 'img/symbols.svg' %}#symbol-search"/>
+        </svg>
+      </button>
+    </form>
+
+    {% if request.GET.q and results.paginator.count == 0 %}
+        <div class="c-gallery u-mbs u-mbl@medium">
+            <ul class="c-gallery__items">
+                <li class="c-gallery__item c-gallery__item--empty">{% trans 'No results were found matching your query.' %}</li>
+            </ul>
+        </div>
+    {% else %}
+        <div class="c-gallery u-mbs u-mbl@medium">
+            <ul class="c-gallery__items">
+                {% include 'core/inc/cards.html' with concrete_objects=results.object_list %}
+            </ul>
+        </div>
+
+        {% pagination_for results %}
+    {% endif %}
+{% endblock %}

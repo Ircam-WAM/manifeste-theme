@@ -1,0 +1,175 @@
+.audiojs {
+  box-shadow: inset 0 0 0 1px $color-lightgrey;
+  font-family: $font-primary;
+  position: relative;
+  height: rem(136px);
+
+  audio {
+    position: absolute;
+    left: -1px;
+  }
+
+  .play-pause {
+    background: $color-primary;
+    border-radius: 50%;
+    cursor: pointer;
+    @include size(40px);
+    margin: auto 0;
+    position: absolute;
+    top: 0;
+    bottom: rem(8px);
+    left: rem(16px);
+    transition: background 400ms;
+
+    &:hover {
+      background: $color-black;
+    }
+  }
+
+    .play,
+    .pause,
+    .loading,
+    .error {
+      background: transparent none no-repeat center / contain;
+      display: block;
+      @include size(16px);
+      margin: auto;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      transition: opacity 400ms;
+      opacity: 0;
+      text-align: center;
+    }
+
+    .play {
+      background-image: svg-url('<svg width="24" height="24" viewBox="0 0 24 24"><path d="M1 1.6v20.8a1 1 0 0 0 1.4.9l20.8-10.4a1 1 0 0 0 0-1.8L2.4.7a1 1 0 0 0-1.4 1z" fill="#{$color-white}"/></svg>');
+      opacity: 1;
+      left: rem(1px);
+    }
+
+    .pause {
+      background-image: svg-url('<svg width="24" height="24" viewBox="0 0 24 24"><path d="M1 0h6c.6 0 1 .4 1 1v22c0 .6-.4 1-1 1H1a1 1 0 0 1-1-1V1c0-.6.4-1 1-1zm16 0h6c.6 0 1 .4 1 1v22c0 .6-.4 1-1 1h-6a1 1 0 0 1-1-1V1c0-.6.4-1 1-1z" fill="#{$color-white}"/></svg>');
+    }
+
+    .error::before {
+      content: "⚠️";
+    }
+
+    .loading {
+      @include size(90%);
+
+      &::before {
+        border: rem(4px) solid rgba($color-white, .5);
+        border-top-color: $color-white;
+        border-radius: 50%;
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        animation: loading 1s linear infinite;
+      }
+
+      @keyframes loading {
+        to {
+          transform: rotate(1turn);
+        }
+      }
+    }
+
+    &.playing .pause,
+    &.loading .loading,
+    &.error .error {
+      opacity: 1;
+    }
+
+    &.playing .play,
+    &.error .play {
+      opacity: 0;
+    }
+
+  .title {
+    @include font-size(20px, 32px);
+    font-weight: bold;
+    height: rem(56px);
+    position: absolute;
+    top: rem(36px);
+    left: rem(72px);
+    right: 0;
+    white-space: nowrap;
+    overflow: hidden;
+
+    small {
+      display: block;
+      @include font-size(16px, 24px);
+      font-weight: normal;
+    }
+  }
+
+  .scrubber,
+  .progress,
+  .loaded {
+    height: rem(8px);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+
+  .scrubber {
+    background: $color-lightgrey;
+  }
+
+    .progress {
+      background: $color-primary;
+      z-index: 2;
+    }
+
+    .loaded {
+      background: $color-black;
+      z-index: 1;
+    }
+
+  .time {
+    @include font-size(16px, 24px);
+    position: absolute;
+    right: rem(8px);
+    bottom: rem(12px);
+  }
+
+    .played,
+    .duration {
+      font-weight: normal;
+      font-style: normal;
+    }
+
+  @include mq($from: medium) {
+    .play-pause {
+      @include size(64px);
+      left: rem(32px);
+    }
+
+    .play,
+    .pause,
+    .loading,
+    .error {
+      @include font-size(24px);
+    }
+
+    .title {
+      height: rem(56px);
+      top: rem(36px);
+      left: rem(112px);
+    }
+
+    .time {
+      right: rem(16px);
+      bottom: rem(20px);
+    }
+  }
+}

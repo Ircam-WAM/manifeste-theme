@@ -1,0 +1,46 @@
+{% load i18n pages_tags staticfiles mezzanine_tags organization_tags %}
+
+<header class="c-header js-header" id="header">
+    <div class="c-header__branding">
+        <a href="{% url 'home' %}" class="c-header__title">
+            <svg class="c-header__logo" width="80" height="48" aria-label="{% trans 'Manifeste 2019' %}">
+                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-manifeste"/>
+            </svg>
+        </a>
+        <a href="#header" class="c-header__action c-header__action--open js-header-menu">
+            <svg class="c-header__icon" width="16" height="16" aria-label="{% trans 'Open menu' %}">
+                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-menu"/>
+            </svg>
+        </a>
+        <a href="#" class="c-header__action c-header__action--close js-header-menu">
+            <svg class="c-header__icon" width="16" height="16" aria-label="{% trans 'Close menu' %}">
+                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-close"/>
+            </svg>
+        </a>
+        <a href="{% url 'search' %}" class="c-header__action c-header__action--search">
+            <svg class="c-header__icon" width="16" height="16" aria-label="{% trans 'Search' %}">
+                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-search"/>
+            </svg>
+        </a>
+    </div>
+    <div class="c-header__wrapper">
+        <p class="c-header__date">{% trans 'Festival • Du 1er au 29 juin' %}</p>
+        <nav class="c-header__navigation">
+            {% page_menu 'pages/menus/header.html' %}
+        </nav>
+        <a href="{% url 'search' %}" class="c-header__action c-header__action--search">
+            <svg class="c-header__icon" width="16" height="16" aria-label="{% trans 'Search' %}">
+                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-search"/>
+            </svg>
+        </a>
+        {% get_language_info_list for LANGUAGES as languages %}
+        {% if settings.USE_MODELTRANSLATION and languages|length > 1 %}
+            <form action="{% url "set_language" %}" method="post" class="c-header__languages">
+                {% csrf_token %}
+                {% for language in languages %}
+                <button class="c-header__language{% if language.code == LANGUAGE_CODE %} is-active{% endif %}" type="submit" name="language" value="{{ language.code }}">{{ language.code|upper }}</button>{% if not forloop.last %} | {% endif %}
+                {% endfor %}
+            </form>
+        {% endif %}
+    </div>
+</header>

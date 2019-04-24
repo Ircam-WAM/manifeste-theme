@@ -1,0 +1,43 @@
+{% load i18n mezzanine_tags keyword_tags organization_tags pages_tags %}
+
+{% if dynamic_content.event|length > 0 %}
+    <div class="c-detail__container">
+        <div class="c-content u-mbm">
+            <h2>{% trans "Linked events" %}</h2>
+        </div>
+    </div>
+    <div class="c-gallery u-mbs">
+        <ul class="c-gallery__items">
+            {% for content in dynamic_content.event %}
+                {% with event=content.content_object %}
+                    <li class="c-gallery__item">
+                        {% include 'agenda/includes/event_linecard.html' %}
+                    </li>
+                {% endwith %}
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+
+{% if dynamic_content.other|length > 0 and object|classname != 'Event' %}
+    <div class="c-detail__container u-mtl">
+        <div class="c-content u-mbm">
+            <h2>{% if object.related_title.title %}{{ object.related_title.title }}{% else %}{% trans "Also discover" %}{% endif %}</h2>
+        </div>
+    </div>
+    <div class="c-gallery u-mbs">
+        <ul class="c-gallery__items">
+            {% for content in dynamic_content.other %}
+                <li class="c-gallery__item">
+                    {% if content.content_type.model == "article" %}
+                        {% include "magazine/article/includes/article_card.html" with object=content.content_object  %}
+                    {% elif content.content_type.model == "event" %}
+                        {% include "agenda/event/includes/event_card.html" with object=content.content_object %}
+                    {% elif content.content_type.model == "custompage" %}
+                        {% include "pages/page/includes/page_card.html" with object=content.content_object %}
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}

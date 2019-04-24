@@ -1,0 +1,62 @@
+{% extends "pages/page.html" %}
+{% load mezzanine_tags keyword_tags i18n organization_tags pages_tags %}
+
+{% block meta_title %}{{ person.meta_title }}{% endblock %}
+
+{% block meta_keywords %}{% metablock %}
+{% keywords_for person as keywords %}
+{% for keyword in keywords %}
+    {% if not forloop.first %}, {% endif %}
+    {{ keyword }}
+{% endfor %}
+{% endmetablock %}{% endblock %}
+
+{% block page_image %}
+    {% with person.images.all|get_type:'page_featured' as images %}
+        {% if images %}
+            <img src="{{ MEDIA_URL }}{% thumbnail images.first 1136 428 %}" alt="" class="c-detail__picture"/>
+        {% else %}
+            {% with person.images.all|get_type:'card' as images %}
+                {% if images %}
+                    <img src="{{ MEDIA_URL }}{% thumbnail images.first 1136 428 %}" alt="" class="c-detail__picture"/>
+                {% endif %}
+            {% endwith %}
+        {% endif %}
+    {% endwith %}
+{% endblock %}
+
+{% block page_title %}
+    {% editable person.title %}
+        <h1 class="c-detail__title">{{ person.title }}</h1>
+    {% endeditable %}
+{% endblock %}
+
+{% block page_tags %}
+    {% with person.activities.first as activity %}
+        {% if activity.status %}
+            <ul class="c-detail__categories">
+                <li class="c-detail__category">{{ activity.status }}</li>
+            </ul>
+        {% endif %}
+    {% endwith %}
+{% endblock %}
+
+{% block page_content %}
+    <div class="c-content u-mbl">
+        {% editable person.bio %}
+            {{ person.bio|richtext_filters|safe }}
+        {% endeditable %}
+    </div>
+{% endblock %}
+
+{% block page_related_content %}
+    {% include "core/inc/related_content_dynamic.html" with object=person %}
+{% endblock page_related_content %}
+
+{% block page_link %}
+    {% with person.links.all as links %}
+        {% if links %}
+            {% include 'core/inc/link.html' %}
+        {% endif %}
+    {% endwith %}
+{% endblock %}

@@ -1,0 +1,25 @@
+{% load i18n mezzanine_tags keyword_tags pages_tags organization_tags %}
+{% if blocks %}
+    {% for block in blocks %}
+        {% if block.content %}
+            <div class="c-content u-mbl">
+                {% if block.with_separator %}
+                    <hr/>
+                {% endif %}
+                {% editable block.title %}
+                    <h2>{{ block.title }}</h2>
+                {% endeditable %}
+                {% if block.description %}
+                    {% editable block.description %}
+                        <p class="u-color-darkgrey">{{ block.description|safe }}</p>
+                    {% endeditable %}
+                {% endif %}
+                {% if block.content %}
+                    {% editable block.content %}
+                        {{ block.content|richtext_filters|safe }}
+                    {% endeditable %}
+                {% endif %}
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endif %}

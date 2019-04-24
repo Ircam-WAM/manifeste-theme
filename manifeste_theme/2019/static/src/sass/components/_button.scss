@@ -1,0 +1,90 @@
+.c-button {
+  appearance: none;
+  background: $color-black none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: 0 rem(1px 2px) 0 rgba($color-black, .2);
+  color: $color-white;
+  display: inline-block;
+  display: inline-flex;
+  @include font-size(16px, 24px);
+  font-family: $font-primary;
+  align-items: center;
+  justify-content: center;
+  padding: rem(3px 8px 5px);
+  margin: 0;
+  position: relative;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 400ms, color 400ms;
+  min-height: rem(32px);
+  min-width: rem(64px);
+}
+
+a.c-button:not(:disabled),
+button.c-button:not(:disabled),
+input.c-button:not(:disabled) {
+  cursor: pointer;
+}
+
+a.c-button:not(:disabled):hover,
+button.c-button:not(:disabled):hover,
+input.c-button:not(:disabled):hover,
+a:not(:disabled):hover .c-button {
+  background-color: $color-primary;
+  color: $color-white;
+}
+
+a.c-button--alt:not(:disabled):hover,
+button.c-button--alt:not(:disabled):hover,
+input.c-button--alt:not(:disabled):hover,
+a:not(:disabled):hover .c-button--alt {
+  background-color: $color-white;
+  color: $color-primary;
+}
+
+.c-button--primary {
+  background-color: $color-primary;
+  color: $color-white;
+}
+
+a.c-button--primary:not(:disabled):hover,
+button.c-button--primary:not(:disabled):hover,
+input.c-button--primary:not(:disabled):hover,
+a:not(:disabled):hover .c-button--primary {
+  background-color: $color-black;
+}
+
+.c-button--secondary {
+  background: $color-white;
+  color: $color-primary;
+}
+
+  .c-button__icon,
+  .c-button__label {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .c-button__icon {
+    flex: 0 0 auto;
+    @include size(16px);
+    margin: rem(4px) 0;
+
+    & + .c-button__label,
+    .c-button__label + & {
+      margin-left: rem(8px);
+    }
+  }
+
+.c-button--block {
+  display: block;
+  display: flex;
+  width: 100%;
+}
+
+.c-button--large {
+  min-height: rem(56px);
+  padding: rem(11px 16px 13px);
+}

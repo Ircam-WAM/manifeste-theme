@@ -1,0 +1,23 @@
+{% extends "2019/base.html" %}
+{% load i18n pages_tags mezzanine_tags organization_tags %}
+
+{% block meta_title %}
+    {% trans "Magazine" %}
+{% endblock %}
+
+
+{% block main %}
+    <div class="c-content u-mbm">
+        <h1 class="h2">{{ magazine.title }}</h1>
+
+        {% if magazine.description %}
+            <p>{{ magazine.description }}</p>
+        {% endif %}
+    </div>
+
+    <div class="c-gallery u-mbs u-mbl@medium">
+        <ul class="c-gallery__items">
+            {% include "core/inc/cards.html" with concrete_objects=magazine.dynamic_content.all|get_content_objects %}
+        </ul>
+    </div>
+{% endblock %}

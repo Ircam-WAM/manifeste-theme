@@ -1,0 +1,32 @@
+from setuptools import setup, find_packages
+import subprocess
+
+setup(name='manifeste_theme',
+    version='2.0',
+    description='IRCAM theme for the Mezzo CMS',
+    long_description='IRCAM theme for the Mezzo CMS',
+    author='Guillaume Pellerin',
+    author_email='guillaume.pellerin@ircam.fr',
+    url='https://github.com/Ircam-Web/ircam-www-theme.git',
+    packages=find_packages(),
+    zip_safe=False,
+    include_package_data=True,
+    classifiers = [
+        "Development Status :: 5 - Production/Stable",
+        "Environment :: Web Environment",
+        "Framework :: Django",
+        "Intended Audience :: Developers",
+        'License :: OSI Approved :: GPLv3 License',
+        "Operating System :: OS Independent",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.4",
+        "Programming Language :: Python :: 3.5",
+        "Topic :: Internet :: WWW/HTTP",
+        "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+        "Topic :: Internet :: WWW/HTTP :: WSGI",
+        "Topic :: Software Development :: Libraries :: Application Frameworks",
+        "Topic :: Software Development :: Libraries :: Python Modules",
+    ],
+)

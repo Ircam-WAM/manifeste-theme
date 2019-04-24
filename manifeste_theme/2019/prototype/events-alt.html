@@ -1,0 +1,55 @@
+{% extends '2019/base.html' %}
+
+{% block meta_title %}Programmation{% endblock %}
+
+{% block main %}
+    <div class="c-content u-mbm u-hide">
+        <h1 class="h2">Programmation</h1>
+    </div>
+
+    <div class="c-gallery c-gallery--filter u-mbl">
+        <ul class="c-gallery__items" id="results">
+            <li class="c-gallery__item">
+                <form action="events-empty.html" method="get" class="c-filter js-filter" data-filter-replace="#results">
+                    <p class="c-filter__title">Juin</p>
+                    {% include 'includes/calendar.html' %}
+                    <p class="c-filter__title">Filtrer par</p>
+                    <p class="c-filter__categories">
+                        <label class="c-filter__toggle">
+                            <input type="checkbox" name="categories[]" value="1" class="c-filter__input js-filter-input js-filter-category"/>
+                            <span class="c-filter__label">Concert</span>
+                        </label>
+                        <label class="c-filter__toggle">
+                            <input type="checkbox" name="categories[]" value="2" class="c-filter__input js-filter-input js-filter-category"/>
+                            <span class="c-filter__label">Spectacle</span>
+                        </label>
+                        <label class="c-filter__toggle">
+                            <input type="checkbox" name="categories[]" value="3" class="c-filter__input js-filter-input js-filter-category"/>
+                            <span class="c-filter__label">Rencontre</span>
+                        </label>
+                    </p>
+                    <button type="submit" class="c-filter__button c-button">OK</button>
+                </form>
+            </li>
+            {% for i in 1..5 %}
+                <li class="c-gallery__item" data-filter-category="{{ random([1, 2]) }}">
+                    {% include 'includes/card_event.html' %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="c-content u-mbm">
+        <h2>Évènements passés</h2>
+    </div>
+
+    <div class="c-gallery u-mbs u-mbl@medium">
+        <ul class="c-gallery__items">
+            {% for i in 1..3 %}
+                <li class="c-gallery__item">
+                    {% include 'includes/card_event.html' %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock main %}

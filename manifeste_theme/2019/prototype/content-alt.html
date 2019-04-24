@@ -1,0 +1,40 @@
+{% extends '2019/base.html' %}
+
+{% block meta_title %}Content{% endblock %}
+
+{% block main %}
+    <div class="c-detail u-mbl@medium">
+        <div class="c-detail__banner">
+            <img src="http://placehold.it/1136x428" alt="" class="c-detail__picture"/>
+            <div class="c-detail__container">
+                <h1 class="c-detail__title">Titre</h1>
+                <p class="c-detail__categories">
+                    <a href="#" class="c-detail__category">Catégorie</a>
+                </p>
+            </div>
+            <p class="c-detail__networks">
+                <a href="#" class="c-detail__network c-detail__network--facebook">
+                    <svg class="c-detail__icon" width="24" height="24" aria-label="Partager sur Facebook">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-facebook"/>
+                    </svg>
+                </a>
+                <a href="#" class="c-detail__network c-detail__network--twitter">
+                    <svg class="c-detail__icon" width="24" height="24" aria-label="Partager sur Twitter">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-twitter"/>
+                    </svg>
+                </a>
+            </p>
+        </div>
+        <div class="c-detail__wrapper">
+            <div class="c-detail__container">
+                <div class="c-content u-mbl">
+                    <h2>Titre h2</h2>
+                    <h3>Titre h3</h3>
+                    <h4>Titre h4</h4>
+                    <h5>Titre h5</h5>
+                    <p>Paragraphe</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main %}

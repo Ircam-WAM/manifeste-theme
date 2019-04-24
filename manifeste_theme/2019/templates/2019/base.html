@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html class="no-js" lang="{{ LANGUAGE_CODE }}">
+{% load i18n pages_tags mezzanine_tags staticfiles keyword_tags event_tags organization_tags %}
+{% get_language_info_list for LANGUAGES as languages %}
+<head>
+    <meta charset="utf-8" />
+    <script>document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/, 'js');</script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
+    <meta name="description" content="{% block meta_description %}{% endblock %}">
+    <title>{% spaceless %}{% block meta_title %}{% endblock %}{% endspaceless %}{% if settings.SITE_TITLE %} | {{ settings.SITE_TITLE }}{% endif %}</title>
+
+    {% compress css %}
+    <link rel="stylesheet" href="{% static "css/index.min.css" %}">
+    <link rel="stylesheet" href="{% static 'css/vendors.min.css' %}" />
+    {% endcompress %}
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/icons/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/icons/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/icons/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'img/icons/site.webmanifest' %}">
+    <link rel="mask-icon" href="{% static 'img/icons/safari-pinned-tab.svg' %}" color="#f8235a">
+    <link rel="shortcut icon" href="{% static 'img/icons/favicon.ico' %}">
+    <meta name="apple-mobile-web-app-title" content="Manifeste 2019">
+    <meta name="application-name" content="Manifeste 2019">
+    <meta name="msapplication-TileColor" content="#f8235a">
+    <meta name="msapplication-config" content="{% static 'img/icons/browserconfig.xml' %}">
+    <meta name="theme-color" content="#f8235a">
+
+    {% block extra_head %}{% endblock %}
+</head>
+
+<body id="{% block body_id %}body{% endblock %}" class="{% block body_class %}{% endblock %}">
+    {% spaceless %}
+    <div class="c-wrapper">
+
+    {% block header %}
+        {% include 'includes/header.html' %}
+    {% endblock %}
+
+    {% block container %}
+        <main class="c-main">
+            {% block content_header %}{% endblock %}
+            {% block main %}{% endblock %}
+            {% block content_footer %}{% endblock %}
+        </main>
+    {% endblock %}
+
+    {% block social %}
+        {% include "includes/social_light.html" %}
+    {% endblock %}
+
+    {% block footer %}
+        {% include "includes/footer.html" %}
+    {% endblock %}
+
+    <div class="c-cookies js-cookies">
+        <p class="c-cookies__message">{% blocktrans %}We use cookie technology to measure our online audience and to allow you to share content on social networks via link buttons.{% endblocktrans %} <a href="/politique-de-confidentialite">{% trans 'Further information' %}</a>.</p>
+        <button class="c-cookies__button c-button c-button--secondary js-cookies-button">{% trans "I Accept" %}</button>
+    </div>
+
+    {% block footer_scripts %}
+        {% include "includes/footer_scripts.html" %}
+    {% endblock %}
+
+    {% block footer_scripts_local %}
+    {% endblock %}
+
+    {% endspaceless %}
+</body>
+</html>

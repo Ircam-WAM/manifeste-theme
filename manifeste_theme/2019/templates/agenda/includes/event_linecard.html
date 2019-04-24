@@ -1,0 +1,41 @@
+{% load i18n  mezzanine_tags event_tags keyword_tags disqus_tags organization_tags %}
+
+<article class="c-article">
+    <div class="c-article__header">
+        {% with event.images.all|get_type:'card' as images %}
+            {% if images %}
+                <img src="{{ MEDIA_URL }}{% thumbnail images.0.file 752 504 %}" alt="" class="c-article__picture"/>
+            {% else %}
+                {% with event.parent.images.all|get_type:'card' as images %}
+                    {% if images %}
+                        <img src="{{ MEDIA_URL }}{% thumbnail images.0.file 752 504 %}" alt="" class="c-article__picture"/>
+                    {% else %}
+                        {# TODO: image par défaut ? #}
+                    {% endif %}
+                {% endwith %}
+            {% endif %}
+        {% endwith %}
+    </div>
+    <div class="c-article__content">
+        <p class="c-article__date">
+            {% include 'agenda/includes/event_date_line.html' with object=event %}
+        </p>
+
+        <h3 class="c-article__title">
+            <a href="{{ event.get_absolute_url }}" class="c-article__link">{{ event.title }}</a>
+        </h3>
+
+        {% if event.location %}
+            <p class="c-article__subtitle">{{ event.location.title }}{% if event.location.room %}, {{ event.location.room }}{% endif %}</p>
+        {% endif %}
+
+        {% keywords_for event as tags %}
+        <ul class="c-article__categories">
+            <li class="c-article__category">{% if event.category %}{{ event.category }}{% else %}{{ event.parent.category }}{% endif %}</li>
+        </ul>
+
+        <p class="c-article__buttons">
+            {% include 'agenda/event/includes/reserve.html' %}
+        </p>
+    </div>
+</article>

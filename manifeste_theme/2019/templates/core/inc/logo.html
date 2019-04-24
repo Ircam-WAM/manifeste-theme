@@ -1,0 +1,14 @@
+{% load mezzanine_tags i18n %}
+{% if images %}
+    {% for image in images %}
+        <li class="c-logos__item">
+            {% if url %}
+                <a href="{{ url }}" target="_blank" class="c-logos__link">
+            {% endif %}
+                    <img alt="{{ image.title }}" src="{{ MEDIA_URL }}{% thumbnail image.file 0 64 %}" srcset="{{ MEDIA_URL }}{% thumbnail image.file 0 128 %} 2x" class="c-logos__picture" />
+            {% if url %}
+                </a>
+            {% endif %}
+        </li>
+    {% endfor %}
+{% endif %}

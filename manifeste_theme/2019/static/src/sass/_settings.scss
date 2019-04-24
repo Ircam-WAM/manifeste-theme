@@ -1,0 +1,72 @@
+// COLORS
+
+$color-black:       #000000;
+$color-darkgrey:    #AAAAAA;
+$color-grey:        #D6D6D6;
+$color-lightgrey:   #F1F1F1;
+$color-white:       #ffffff;
+$color-green:       #29CC6A;
+$color-red:         #F8235A;
+$color-orange:      #F5A623;
+$color-blue:        #A0CFF3;
+
+$color-primary:    $color-red;
+$color-secondary:  $color-blue;
+$color-foreground: $color-black;
+$color-background: $color-white;
+
+$color-info:       $color-blue;
+$color-success:    $color-green;
+$color-warning:    $color-orange;
+$color-error:      $color-red;
+
+
+// FONTS
+
+$font-serif:      "Merriweather", Palatino, Georgia, serif;
+$font-sans-serif: "Oswald", Impact, "Franklin Gothic Bold", sans-serif;
+$font-icon:       "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+$font-code:       monospace;
+
+$font-default:   $font-serif;
+$font-primary:   $font-sans-serif;
+$font-secondary: $font-serif;
+
+$font-regular:  400;
+$font-medium:   500;
+$font-semibold: 600;
+$font-bold:     700;
+
+
+// DIMENSIONS
+$width-container-small: 368px;
+$width-container-medium: 752px;
+$width-container-large: 1136px;
+$width-gutter: 16px;
+$width-content: 944px;
+$height-header: 64px;
+
+// Z-INDEXES
+
+$z-header:  50;
+$z-cookies: 40;
+$z-main:    30;
+$z-social:  20;
+$z-footer:  10;
+
+
+// BREAKPOINTS
+
+$mq-breakpoints: (
+  small:  768px,  // Portrait
+  medium: 1024px, // Landscape
+  large:  1168px  // Widescreen
+);
+
+
+// ASSETS
+$asset-type-path: (
+  "image": "img/",
+  "font": "fonts/"
+);
+

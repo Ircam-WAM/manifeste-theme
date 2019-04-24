@@ -1,0 +1,381 @@
+// Inline
+a:not([class]) {
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+b,
+strong,
+dt {
+  font-weight: $font-bold;
+}
+
+i,
+em {
+  font-style: italic;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted $color-grey;
+  text-decoration: none !important;
+}
+
+sub,
+sup,
+small,
+.wys-small-text {
+  @include font-size(14px, 24px);
+}
+
+sub,
+sup {
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.2em;
+}
+
+sup {
+  top: -0.4em;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul,
+ol,
+dl,
+blockquote,
+pre,
+table,
+address,
+figure,
+img,
+.h1.h1,
+.h2.h2,
+.h3.h3,
+.h4.h4,
+.p.p {
+  margin-bottom: rem(24px);
+}
+
+// Heading
+h3,
+h4,
+h5,
+.h3.h3,
+.h4.h4,
+.h5.h5 {
+  font-family: $font-primary;
+}
+
+h1,
+h2,
+.h1.h1,
+.h2.h2 {
+  position: relative;
+
+  &::after {
+    border-top: 1px solid;
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: rem(-8px);
+    width: rem(80px);
+  }
+}
+
+h1,
+h2,
+.h1.h1,
+.h2.h2,
+.p.p {
+  color: $color-black;
+  font-family: $font-default;
+  font-weight: $font-regular;
+  text-transform: none;
+}
+
+h1,
+.h1.h1 {
+  @include font-size(40px, 48px);
+}
+
+h2,
+.h2.h2 {
+  @include font-size(32px, 40px);
+}
+
+h3,
+h4,
+h5,
+.h3.h3,
+.h4.h4,
+.h5.h5,
+.p.p {
+  &::after {
+    display: none;
+  }
+}
+
+h3,
+h4,
+h5,
+.h3.h3,
+.h4.h4,
+.h5.h5 {
+  color: $color-primary;
+  text-transform: uppercase;
+}
+
+h3,
+h4,
+.h3.h3,
+.h4.h4 {
+  font-weight: $font-bold;
+}
+
+h3,
+.h3.h3 {
+  @include font-size(24px, 32px);
+}
+
+h4,
+.h4.h4,
+h5,
+.h5.h5 {
+  @include font-size(16px, 24px);
+}
+
+h5,
+.h5.h5 {
+  margin-bottom: rem(16px);
+}
+
+p,
+ul,
+ol,
+dl,
+blockquote,
+pre,
+table,
+address,
+.p.p {
+  @include font-size(16px, 24px);
+}
+
+// Unordered list
+ul,
+ol {
+  ul,
+  ol {
+    margin: 0;
+  }
+}
+
+  li {
+    padding-left: rem(24px);
+    position: relative;
+
+    &::before {
+      display: block;
+      content: "•";
+      color: $color-primary;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: rem(16px);
+      text-align: right;
+    }
+  }
+
+  li + li,
+  li li {
+    margin-top: rem(8px);
+  }
+
+// Ordered list
+ol {
+  counter-reset: ol;
+
+  & > li {
+    counter-increment: ol;
+
+    &::before {
+      content: counter(ol, decimal) ".";
+      text-align: left;
+    }
+  }
+}
+
+// Definitions list
+dl {
+
+}
+
+  dt,
+  dd {
+    margin: 0;
+  }
+
+  dd + dt,
+  dd + dd,
+  dt + dt {
+    margin-top: rem(8px);
+  }
+
+// Blockquote
+blockquote:not([class]),
+.wys-highlighted-paragraph {
+  border-left: rem(4px) solid $color-primary;
+  padding-left: rem(20px);
+  margin: rem(40px) 0;
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.wys-highlighted-paragraph + .wys-highlighted-paragraph {
+  margin-top: rem(-40px);
+  padding-top: rem(24px);
+}
+
+// Code
+pre,
+code,
+kbd {
+  background: $color-lightgrey;
+  font-family: $font-code;
+}
+
+code,
+kbd,
+samp {
+  box-decoration-break: clone;
+  font-size: em(14px, 16px);
+  line-height: (16px / 14px);
+  padding: em(4px, 14px);
+}
+
+pre {
+  padding: rem(8px);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+
+  code {
+    background: transparent;
+    box-shadow: none;
+    font-family: inherit;
+    line-height: inherit;
+    padding: 0;
+  }
+}
+
+// Horizontal line
+hr {
+  border: 0;
+  border-top: 1px solid;
+  color: $color-primary;
+  height: 0;
+  padding: 0;
+  margin: rem(40px auto 40px) 0;
+  width: rem(80px);
+}
+
+// Block
+.wys-block {
+  background: $color-primary;
+  padding: rem(24px 16px);
+  margin: rem(40px) 0;
+
+  &,
+  h3,
+  h4,
+  h5,
+  hr,
+  .h3.h3,
+  .h4.h4,
+  .h5.h5 {
+    color: $color-white;
+  }
+
+  hr {
+    margin: rem(24px auto 24px) 0;
+  }
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Buttons
+.wys-button,
+.wys-button-large,
+.wys-button-large-primary,
+.wys-button-primary,
+.wys-button-primary-large {
+  appearance: none;
+  background: $color-black none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: 0 rem(1px 2px) 0 rgba($color-black, .2);
+  color: $color-white;
+  display: inline-block;
+  display: inline-flex;
+  @include font-size(16px, 24px);
+  font-family: $font-primary;
+  align-items: center;
+  justify-content: center;
+  padding: rem(3px 8px 5px);
+  margin: 0;
+  position: relative;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 400ms, color 400ms;
+  min-height: rem(32px);
+  min-width: rem(64px);
+
+  &:not(:disabled) {
+    cursor: pointer;
+
+    &:hover {
+      background-color: $color-primary;
+      color: $color-white;
+    }
+  }
+}
+
+.wys-button-large,
+.wys-button-large-primary,
+.wys-button-primary-large {
+  min-height: rem(56px);
+  padding: rem(11px 16px 13px);
+}
+
+.wys-button-primary,
+.wys-button-primary-large,
+.wys-button-large-primary {
+  background-color: $color-primary;
+  color: $color-white;
+
+  &:not(:disabled):hover {
+    background-color: $color-black;
+  }
+}

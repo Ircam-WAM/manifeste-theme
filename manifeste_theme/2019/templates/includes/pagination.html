@@ -1,0 +1,43 @@
+{% load i18n staticfiles %}
+
+{% if current_page.has_previous or current_page.has_next %}
+    <div class="c-pagination u-mtl u-mbl">
+        <ul class="c-pagination__items">
+            <li class="c-pagination__item">
+                {% if current_page.has_previous %}
+                    <a href="?{{ page_var }}={{ current_page.previous_page_number }}{% if querystring %}&amp;{{ querystring }}{% endif %}" class="c-pagination__link">
+                {% endif %}
+                    <svg class="c-pagination__icon" width="24" height="24" aria-label="{% trans 'Previous page' %}">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-left"/>
+                    </svg>
+                    {# <span class="c-pagination__label">{% trans 'Previous page' %}</span> #}
+                {% if current_page.has_previous %}
+                    </a>
+                {% endif %}
+            </li>
+
+            {% for page in current_page.visible_page_range %}
+                {% if page == current_page.number %}
+                    <li class="c-pagination__item is-current">{{ page }}</li>
+                {% else %}
+                    <li class="c-pagination__item">
+                        <a href="?{{ page_var }}={{ page }}{% if querystring %}&amp;{{ querystring }}{% endif %}" class="c-pagination__link">{{ page }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+
+            <li class="c-pagination__item">
+                {% if current_page.has_next %}
+                    <a href="?{{ page_var }}={{ current_page.next_page_number }}{% if querystring %}&amp;{{ querystring }}{% endif %}" class="c-pagination__link">
+                {% endif %}
+                    <svg class="c-pagination__icon" width="24" height="24" aria-label="{% trans 'Next page' %}">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-right"/>
+                    </svg>
+                    {# <span class="c-pagination__label">{% trans 'Next page' %}</span> #}
+                {% if current_page.has_next %}
+                    </a>
+                {% endif %}
+            </li>
+        </ul>
+    </div>
+{% endif %}

@@ -1,0 +1,72 @@
+{% extends '2019/base.html' %}
+
+{% block meta_title %}Artistes{% endblock %}
+
+{% block main %}
+    <form action="search.html" method="get" class="c-search u-mbl">
+      <label for="search-input" class="c-search__label">Recherche</label>
+      <input type="search" name="q" id="search-input" placeholder="Recherche" value="Concert" required class="c-search__input"/>
+      <button type="submit" class="c-search__button">
+        <svg class="c-search__icon" width="24" height="24" aria-label="Search">
+          <use xlink:href="{% static 'img/symbols.svg' %}#symbol-search"/>
+        </svg>
+      </button>
+    </form>
+
+    <div class="c-gallery u-mbs u-mbl@medium">
+        <ul class="c-gallery__items">
+            <li class="c-gallery__item">
+                {% include 'includes/card_video.html' %}
+            </li>
+            <li class="c-gallery__item">
+                {% include 'includes/card_artist.html' %}
+            </li>
+            <li class="c-gallery__item">
+                {% include 'includes/card_event.html' %}
+            </li>
+        </ul>
+    </div>
+
+    <div class="c-pagination u-mtl u-mbl">
+        <ul class="c-pagination__items">
+            <li class="c-pagination__item">
+                <span class="c-pagination__link">
+                    <svg class="c-pagination__icon" width="24" height="24" aria-label="Page précédente">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-left"/>
+                    </svg>
+                    {# <span class="c-pagination__label">Page précédente</span> #}
+                </span>
+            </li>
+            <li class="c-pagination__item is-current">1</li>
+            <li class="c-pagination__item">
+                <a href="#" class="c-pagination__link">2</a>
+            </li>
+            <li class="c-pagination__item">
+                <a href="#" class="c-pagination__link">3</a>
+            </li>
+            <li class="c-pagination__item">
+                <a href="#" class="c-pagination__link">4</a>
+            </li>
+            <li class="c-pagination__item">
+                <a href="#" class="c-pagination__link">5</a>
+            </li>
+            <li class="c-pagination__item">
+                <a href="#" class="c-pagination__link">6</a>
+            </li>
+            <li class="c-pagination__item">
+                <a href="#" class="c-pagination__link">7</a>
+            </li>
+            <li class="c-pagination__item">
+                <a href="#" class="c-pagination__link">8</a>
+            </li>
+            <li class="c-pagination__item">
+                <a href="#" class="c-pagination__link">
+                    {# <span class="c-pagination__label">Page suivante</span> #}
+                    <svg class="c-pagination__icon" width="24" height="24" aria-label="Page suivante">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-right"/>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </div>
+{% endblock main %}

@@ -1,0 +1,37 @@
+.c-media {
+  text-align: left;
+}
+
+  .c-media__items {
+
+  }
+
+    .c-media__item {
+      background: $color-lightgrey;
+      @include font-size(16px, 24px);
+      font-family: $font-primary;
+      font-weight: $font-bold;
+      padding: rem(8px);
+      transition:
+        background 400ms,
+        color 400ms;
+
+      .js & {
+        cursor: pointer;
+
+        &:hover {
+          background: $color-black;
+          color: $color-white;
+        }
+      }
+
+      small {
+        font-size: 100%;
+        font-weight: $font-regular;
+      }
+
+      &.is-active {
+        background: $color-primary;
+        color: $color-white;
+      }
+    }

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html class="no-js" lang="{{ LANGUAGE_CODE }}">
+    <head>
+        <meta charset="utf-8" />
+        <script>document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/, 'js');</script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>{% block meta_title %}{% endblock %}{% if settings.SITE_TITLE %} – {{ settings.SITE_TITLE }}{% endif %}</title>
+
+        <link rel="stylesheet" href="{% static 'css/index.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/vendors.min.css' %}" />
+        {% block extra_head %}{% endblock %}
+    </head>
+    <body id="{% block body_id %}body{% endblock %}" class="{% block body_class %}{% endblock %}">
+        <div class="c-wrapper">
+            {% block header %}
+                {% include 'includes/header.html' %}
+            {% endblock %}
+
+            {% block container %}
+                <main class="c-main">
+                    {% block content_header %}{% endblock %}
+                    {% block main %}{% endblock %}
+                    {% block content_footer %}{% endblock %}
+                </main>
+            {% endblock %}
+
+            {% block social %}
+                {% include 'includes/social-light.html' %}
+            {% endblock %}
+
+            {% block footer %}
+                {% include 'includes/footer.html' %}
+            {% endblock %}
+        </div>
+
+        {% block footer_scripts %}
+            {% include 'includes/footer_scripts.html' %}
+        {% endblock %}
+    </body>
+</html>

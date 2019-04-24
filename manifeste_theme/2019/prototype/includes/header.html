@@ -1,0 +1,55 @@
+<header class="c-header js-header" id="header">
+    <div class="c-header__branding">
+        <a href="index.html" class="c-header__title">
+            <svg class="c-header__logo" width="80" height="48" aria-label="Manifeste 2019">
+                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-manifeste"/>
+            </svg>
+        </a>
+        <a href="#header" class="c-header__action c-header__action--open js-header-menu">
+            <svg class="c-header__icon" width="16" height="16" aria-label="Ouvrir le menu">
+                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-menu"/>
+            </svg>
+        </a>
+        <a href="#" class="c-header__action c-header__action--close js-header-menu">
+            <svg class="c-header__icon" width="16" height="16" aria-label="Fermer le menu">
+                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-close"/>
+            </svg>
+        </a>
+        <a href="search.html" class="c-header__action c-header__action--search">
+            <svg class="c-header__icon" width="16" height="16" aria-label="Rechercher">
+                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-search"/>
+            </svg>
+        </a>
+    </div>
+    <div class="c-header__wrapper">
+        <p class="c-header__date">Festival • Du 1er au 29 juin</p>
+        <nav class="c-header__navigation">
+            <ul class="c-header__items">
+                <li class="c-header__item is-active">
+                    <a href="events.html" class="c-header__link">Programmation</a>
+                </li>
+                <li class="c-header__item">
+                    <a href="list.html" class="c-header__link">Artistes</a>
+                </li>
+                <li class="c-header__item">
+                    <a href="list.html" class="c-header__link">Actualités</a>
+                </li>
+                <li class="c-header__item">
+                    <a href="content.html" class="c-header__link">Académie</a>
+                </li>
+                <li class="c-header__item">
+                    <a href="content.html" class="c-header__link">Infos</a>
+                </li>
+            </ul>
+        </nav>
+        <a href="search.html" class="c-header__action c-header__action--search">
+            <svg class="c-header__icon" width="16" height="16" aria-label="Rechercher">
+                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-search"/>
+            </svg>
+        </a>
+        <form class="c-header__languages" action="" method="post">
+            <button class="c-header__language is-active" type="submit" name="language" value="fr">FR</button> |
+            <button class="c-header__language" type="submit" name="language" value="en">EN</button>
+        </form>
+    </div>
+</header>

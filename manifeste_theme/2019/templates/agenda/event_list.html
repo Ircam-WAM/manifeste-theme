@@ -1,0 +1,87 @@
+{% extends "pages/page.html" %}
+{% load i18n  mezzanine_tags event_tags keyword_tags disqus_tags organization_tags staticfiles pages_tags %}
+
+{% block meta_title %}
+    {% if page %}
+        {{ page.title }}
+    {% else %}
+        {% trans "Events" %}
+    {% endif %}
+{% endblock %}
+
+{% block meta_keywords %}
+    {% metablock %}
+        {% keywords_for page as keywords %}
+        {% for keyword in keywords %}
+            {% if not forloop.first %}, {% endif %}
+            {{ keyword }}
+        {% endfor %}
+    {% endmetablock %}
+{% endblock %}
+
+{% block meta_description %}
+    {% metablock %}
+        {{ page.description }}
+    {% endmetablock %}
+{% endblock %}
+
+{% block main %}
+    <div class="c-content u-mbm u-hide">
+        <h1 class="h2">{% trans 'Events to come' %}</h1>
+    </div>
+
+    <div class="c-gallery c-gallery--filter u-mbs u-mbl@medium">
+        <ul class="c-gallery__items" id="results">
+            <li class="c-gallery__item">
+                <form action="{% url 'event_list' %}" method="get" class="c-filter js-filter" data-filter-replace="#results">
+                    {% include 'includes/calendar.html' with date_field=filter_form.event_day_filter %}
+                    <p class="c-filter__title">{% trans 'Filter by' %}</p>
+                    <p class="c-filter__categories">
+                        {% for field in filter_form.event_categories_filter %}
+                            <label class="c-filter__toggle">
+                                <input type="checkbox" name="{{ field.name }}" value="{{ field.choice_value }}" class="c-filter__input js-filter-input js-filter-category" />
+                                <span class="c-filter__label">{{ field.choice_label }}</span>
+                            </label>
+                        {% endfor %}
+                    </p>
+                    <button type="submit" class="c-filter__button c-button">{% trans 'OK' %}</button>
+                </form>
+            </li>
+            {% if events %}
+                {% for event in events %}
+                    <li class="c-gallery__item" data-filter-category="{% if event.category %}{{ event.category }}{% else %}{{ event.parent.category }}{% endif %}">
+                        {% include 'agenda/includes/event_linecard.html' %}
+                    </li>
+                {% endfor %}
+            {% else %}
+                <li class="c-gallery__item c-gallery__item--empty">{% trans 'No results were found matching your query.' %}</li>
+            {% endif %}
+        </ul>
+    </div>
+
+    {# TODO @emilie: sur les maquettes il est prévu cette partie "évènements passés" mais je ne sais pas à quoi ça correspond #}
+    {% comment %}
+        <div class="c-content u-mtl u-mbm">
+            <h2>Évènements passés</h2>
+        </div>
+
+        <div class="c-gallery u-mbs u-mbl@medium">
+            <ul class="c-gallery__items">
+                {% include "core/inc/cards.html" %}
+            </ul>
+        </div>
+    {% endcomment %}
+{% endblock %}
+
+{% block footer_scripts_local %}
+    <!-- CONVERSION TAG -->
+    <script type="text/javascript" src="https://cstatic.weborama.fr/js/advertiserv2/adperf_conversion.js"></script>
+    <script type="text/javascript">
+        var adperftrackobj = {
+            fullhost : 'groupelemonde.solution.weborama.fr',
+            site : 2488,
+            conversion_page : 101
+        };
+        try{adperfTracker.track( adperftrackobj );}catch(err){}
+    </script>
+{% endblock %}

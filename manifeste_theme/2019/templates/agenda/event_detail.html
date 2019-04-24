@@ -1,0 +1,127 @@
+{% extends "pages/page.html" %}
+{% load mezzanine_tags comment_tags keyword_tags rating_tags i18n  disqus_tags event_tags organization_tags pages_tags staticfiles %}
+
+{% block meta_title %}{{ event.meta_title }}{% endblock %}
+
+{% block meta_keywords %}{% metablock %}
+{% keywords_for event as tags %}
+{% for tag in tags %}
+    {% if not forloop.first %}, {% endif %}
+    {{ tag }}
+{% endfor %}
+{% endmetablock %}{% endblock %}
+
+{% block meta_description %}{% metablock %}
+    {{ event.description }}
+{% endmetablock %}{% endblock %}
+
+{% block page_back %}
+    <a href="{% url 'event_list' %}" class="c-detail__back c-button">
+        <svg class="c-button__icon" width="24" height="24" aria-hidden="true">
+            <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-left"/>
+        </svg>
+        <span class="c-button__label">{% trans 'Back to events' %}</span>
+    </a>
+{% endblock %}
+
+{% block page_image %}
+    {% with event.images.all|get_type:'card' as images %}
+        {% if images %}
+            <img src="{{ MEDIA_URL }}{% thumbnail images.0.file 1136 428 %}" alt="" class="c-detail__picture"/>
+        {% else %}
+            {% with event.parent.images.all|get_type:'card' as images %}
+                {% if images %}
+                    <img src="{{ MEDIA_URL }}{% thumbnail images.0.file 1136 428 %}" alt="" class="c-detail__picture"/>
+                {% endif %}
+            {% endwith %}
+        {% endif %}
+    {% endwith %}
+{% endblock %}
+
+{% block page_title %}
+    {% editable person.title %}
+        <h1 class="c-detail__title">
+            {{ event.title }}
+        </h1>
+    {% endeditable %}
+{% endblock %}
+
+{% block page_tags %}
+    <ul class="c-detail__categories">
+        <li class="c-detail__category">{% if event.category %}{{ event.category }}{% else %}{{ event.parent.category }}{% endif %}</li>
+    </ul>
+{% endblock %}
+
+{% block page_content %}
+    {% block meta_info %}
+        {% include 'agenda/includes/event_metainfo.html' %}
+    {% endblock %}
+
+    {% block event_detail_content %}
+        <div class="c-content u-mbl">
+            {% if event.sub_title %}
+                {% editable event.sub_title %}
+                    <p class="h3">{{ event.sub_title }}</p>
+                {% endeditable %}
+            {% endif %}
+
+            {% if event.content %}
+                {% editable event.content %}
+                    {{ event.content|richtext_filters|safe }}
+                {% endeditable %}
+            {% endif %}
+        </div>
+    {% endblock %}
+{% endblock %}
+
+{% block page_link %}
+    {% if event.mentions %}
+        <div class="c-content u-mbl">
+            <p><small><i>{{ event.mentions }}</i></small></p>
+        </div>
+    {% endif %}
+
+    {% if event.links.all|length > 0 %}
+        {% if child %}
+            {% with child.links.all as links %}
+                {% if links %}
+                    {% include 'core/inc/link.html' %}
+                {% endif %}
+            {% endwith %}
+        {% else %}
+            {% with event.links.all as links %}
+                {% if links %}
+                    {% include 'core/inc/link.html' %}
+                {% endif %}
+            {% endwith %}
+        {% endif %}
+    {% endif %}
+{% endblock %}
+
+{% block page_slider %}
+    {% with event as object %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock %}
+
+{% block multimedia %}
+    {% with event as object %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock %}
+
+{% block page_person_list %}
+    {% for inline in event.persons_list.all  %}
+        {% include 'network/person/includes/person_list.html' with person_list_block=inline.person_list_block %}
+    {% endfor %}
+{% endblock %}
+
+{% block page_sub_content %}
+    {% with event.blocks.all as blocks %}
+        {% include "core/inc/block.html" %}
+    {% endwith %}
+{% endblock %}
+
+{% block page_related_content %}
+    {% include "core/inc/related_content_dynamic.html" with concrete_objects=event.dynamic_content_event.all|get_content_objects %}
+{% endblock page_related_content %}

@@ -1,0 +1,50 @@
+{% load i18n organization_tags %}
+{% with shift='5' nb_week_days=7 %}
+{% with shift_int=shift|to_int%}
+<p class="c-filter__title">{% trans 'June' %}</p>
+<table class="c-filter__calendar">
+    <thead>
+        <tr>
+            <th scope="col">{% trans 'MO' %}</th>
+            <th scope="col">{% trans 'TU' %}</th>
+            <th scope="col">{% trans 'WE' %}</th>
+            <th scope="col">{% trans 'TH' %}</th>
+            <th scope="col">{% trans 'FR' %}</th>
+            <th scope="col">{% trans 'SA' %}</th>
+            <th scope="col">{% trans 'SU' %}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% with len=date_field|length|add:shift|to_int %}
+            {% for i in i|rjust:len %}
+                {% if forloop.first %}
+                    <tr>
+                {% endif %}
+                {% if forloop.counter0|divisibleby:nb_week_days and forloop.counter0 > 0 %}
+                </tr>
+                <tr>
+                {% endif %}
+                <td>
+                    {% if forloop.counter0 >= shift_int %}
+                        {% with i=forloop.counter0|subtract:shift %}
+                        {% with field=date_field|index:i %}
+                        <label class="c-filter__toggle">
+                            {# TODO @emilie: checked #}
+                            <input type="radio" name="{{ field.name }}" value="{{ field.choice_value }}" class="c-filter__input js-filter-input js-filter-date"
+                                {% if field.attrs.disabled %}disabled="disabled"{% endif %}
+                                {% if field.value == field.choice_value %}checked="checked"{% endif %} />
+                            <span class="c-filter__label">{{ field.choice_label }}</span>
+                        </label>
+                        {% endwith %}
+                        {% endwith %}
+                    {% endif %}
+                </td>
+                {% if forloop.last %}
+                </tr>
+                {% endif %}
+            {% endfor %}
+        {% endwith %}
+    </tbody>
+</table>
+{% endwith %}
+{% endwith %}

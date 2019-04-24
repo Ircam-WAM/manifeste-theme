@@ -1,0 +1,44 @@
+{% extends "core/inc/generic_card.html" %}
+{% load i18n pages_tags mezzanine_tags media_tags organization_tags %}
+
+{% block title %}
+    {{ object.title|truncatechars_html:50 }}
+{% endblock %}
+
+{% block url %}
+  {% if object.content|removetags:"p div"|slice:':4' == 'http' %}
+    {{ object.content|removetags:"p div" }}
+  {% else %}
+    {% url 'magazine-article-detail' object.slug %}
+  {% endif %}
+{% endblock %}
+
+{% block target %}
+  {% if object.content|removetags:"p div"|slice:':4' == 'http' %}target="_blank"{% endif %}
+{% endblock %}
+
+{% block image %}
+    {% with object.images.all|get_type:'card' as images %}
+        {% if images %}
+            <img src="{{ MEDIA_URL }}{% thumbnail images.0.file 752 504 %}" alt="" class="c-article__picture"/>
+        {% else %}
+            {# TODO: image par défaut ? #}
+        {% endif %}
+    {% endwith %}
+{% endblock %}
+
+{% block tags %}
+    <ul class="c-article__categories">
+        {% if object.categories.all %}
+            {% for category in object.categories.all %}
+                {% if category|lower|cut:" " == 'forumvertigo' %}
+                    <li class="c-article__category">{% trans 'Article' %} Forum vertigo</li>
+                {% else %}
+                    <li class="c-article__category">{{ category }}</li>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <li class="c-article__category">{% trans 'Article' %}</li>
+        {% endif %}
+    </ul>
+{% endblock %}

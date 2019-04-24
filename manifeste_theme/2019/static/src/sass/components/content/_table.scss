@@ -1,0 +1,28 @@
+table {
+  background-color: $color-background;
+  border: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+
+  caption {
+    caption-side: bottom;
+    color: $color-grey;
+    font-size: em(14px, 16px);
+    line-height: (16px / 14px);
+    padding-top: em(8px, 16px);
+    text-align: left;
+  }
+
+  th,
+  td {
+    border: 0;
+    border-bottom: 1px solid $color-lightgrey;
+    padding: em(8px, 16px);
+  }
+
+  th {
+    background: $color-lightgrey;
+    font-weight: bold;
+  }
+}

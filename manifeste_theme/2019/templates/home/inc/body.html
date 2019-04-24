@@ -1,0 +1,12 @@
+{% load i18n pages_tags mezzanine_tags media_tags organization_tags %}
+
+<div class="c-home__news">
+    <div class="c-content u-mbm">
+        <h2>{% trans 'Last news' %}</h2>
+    </div>
+    <div class="c-gallery">
+        <ul class="c-gallery__items">
+            {% include 'core/inc/cards.html' with concrete_objects=home.dynamiccontenthomebody_set.all|get_content_objects|slice:"3" %}
+        </ul>
+    </div>
+</div>

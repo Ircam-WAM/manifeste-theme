@@ -1,0 +1,21 @@
+{% load organization_tags mezzanine_tags %}
+
+{% if person_list_block.title %}
+    <div class="c-content u-mbm">
+        <h1 class="h2">{{ person_list_block.title }}</h1>
+
+        {% if person_list_block.description %}
+            <p>{{ person_list_block.description }}</p>
+        {% endif %}
+    </div>
+
+    <div class="c-gallery u-mbs u-mbl@medium">
+        <ul class="c-gallery__items">
+            {% for person_list_block_inline in person_list_block.person_list_block_inlines.all %}
+                <li class="c-gallery__item">
+                    {% include "network/person/includes/person_card.html" with object=person_list_block_inline.person %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}

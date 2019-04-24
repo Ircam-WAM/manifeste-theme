@@ -1,0 +1,44 @@
+{% extends "pages/page.html" %}
+{% load mezzanine_tags keyword_tags i18n organization_tags %}
+
+{% block meta_title %}{% trans "Media" %}{% endblock %}
+
+{% block meta_keywords %}{% metablock %}
+{% keywords_for person as keywords %}
+{% for keyword in keywords %}
+    {% if not forloop.first %}, {% endif %}
+    {{ keyword }}
+{% endfor %}
+{% endmetablock %}{% endblock %}
+
+{% block page_class %}
+    playlist
+{% endblock %}
+
+{% block page_title %}
+    {% editable playlist.title %}
+        <div class="invisible-until-sm section-title section-title--uppercase section-title--underline section-title--main section-title--no-margin"><a href="{% url 'magazine-article-list' %}"><i class="fsl fa fa-angle-left"></i>{% trans "Back to news" %}</a></div>
+        <h1 class="section-title section-title--uppercase section-title--big">{{ playlist.title }}</h1>
+        <div class="page__date">
+            {% trans 'Published on' %} {{ playlist.publish_date|date:"DATE_FORMAT" }}
+        </div>
+    {% endeditable %}
+{% endblock %}
+
+{% block page_content %}
+
+    {% with playlist.type as type %}
+        {% with "media/inc/playlist_"|add:type|add:"_detail.html" as template %}
+            {% include template %}
+        {% endwith %}
+    {% endwith %}
+
+    <div class="playslit-html">
+        {{ playlist.content|safe }}
+    </div>
+{% endblock %}
+
+{% block page_related_content %}
+    {% include "core/inc/related_ctn_and_events.html" %}
+{% endblock %}
+

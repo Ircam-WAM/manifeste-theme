@@ -1,0 +1,25 @@
+@mixin spacing($sizes, $suffix: false) {
+  @each $p, $property in (m: margin, p: padding) {
+    @each $d, $direction in (t: top, b: bottom) {
+      @each $s, $size in $sizes {
+        .u-#{$p}#{$d}#{$s}#{if($suffix, \@#{$suffix}, null)} {
+          #{$property}-#{$direction}: rem($size) !important;
+        }
+      }
+    }
+  }
+}
+
+@include spacing((
+  s: 16px,
+  m: 24px,
+  l: 40px
+));
+
+@include mq($from: medium) {
+  @include spacing((
+    s: 16px,
+    m: 24px,
+    l: 40px
+  ), medium);
+}

@@ -1,0 +1,22 @@
+$colors: (
+  black:       $color-black,
+  darkgrey:    $color-darkgrey,
+  grey:        $color-grey,
+  lightgrey:   $color-lightgrey,
+  white:       $color-white,
+  green:       $color-green,
+  blue:        $color-blue,
+
+  primary:     $color-primary,
+  secondary:   $color-secondary,
+  success:     $color-success,
+  error:       $color-error
+);
+
+@each $c, $color in $colors {
+  @each $p, $property in (background: background-color, color: color) {
+    .u-#{$p}-#{$c} {
+      #{$property}: $color;
+    }
+  }
+}

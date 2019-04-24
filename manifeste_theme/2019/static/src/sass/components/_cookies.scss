@@ -1,0 +1,35 @@
+.c-cookies {
+  background: $color-primary;
+  color: $color-white;
+  font-size: 0;
+  line-height: 0;
+  padding: rem(8px);
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: $z-cookies;
+  text-align: center;
+}
+
+  .c-cookies__message {
+    display: inline-block;
+    vertical-align: middle;
+    font-family: $font-primary;
+    @include font-size(14px, 20px);
+    margin: rem(8px);
+
+    a {
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .c-cookies__button {
+    margin: rem(8px);
+  }
+
+
