@@ -1,0 +1,222 @@
+.c-footer {
+  background: $color-contrast-dark image-url("footer.jpg") no-repeat center / cover;
+  color: $color-white;
+  flex: 0 0 auto;
+  // margin-top: rem(16px);
+  padding-bottom: rem(40px);
+  position: relative;
+  text-align: center;
+  z-index: $z-footer;
+}
+
+  .c-footer__presentation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+    .c-footer__title {
+      background: $color-black image-url("footer-title.jpg") no-repeat center / cover;
+      @include font-size($font-h5...);
+      padding: rem(6px 8px);
+      text-transform: uppercase;
+      margin-top: rem(-16px);
+      margin-bottom: rem(8px);
+    }
+
+    .c-footer__subtitle {
+      background: $color-white;
+      color: $color-black;
+      line-height: 1;
+      padding: 0 rem(2px);
+      margin-top: rem(16px);
+      position: relative;
+
+      &::before,
+      &::after {
+        background: $color-white;
+        content: "";
+        display: block;
+        position: absolute;
+        top: rem(-16px);
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      &::before {
+        height: rem(2px);
+        width: rem(80px);
+      }
+
+      &::after {
+        height: rem(16px);
+        width: rem(2px);
+      }
+    }
+
+    .c-footer__sponsors {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0;
+      line-height: 0;
+      margin: rem(8px -8px -8px);
+    }
+
+      .c-footer__sponsor {
+        display: inline-block;
+        vertical-align: middle;
+        padding: rem(8px);
+        text-decoration: none;
+        transition: opacity 400ms;
+
+        .c-footer__sponsors:hover &:not(:hover) {
+          opacity: .5;
+        }
+      }
+
+        .c-footer__logo {
+          display: block;
+        }
+
+    .c-footer__items {
+      margin: rem(24px 0 32px);
+    }
+
+      .c-footer__item {
+        padding: rem(4px) 0;
+      }
+
+        .c-footer__link {
+          display: inline-block;
+          vertical-align: top;
+          padding: rem(4px) 0;
+          text-decoration: none;
+          transition: color 400ms;
+
+          &:hover {
+            color: $color-secondary-dark;
+          }
+        }
+
+    .c-footer__newsletter {
+      margin: 0 auto;
+      max-width: rem(352px);
+    }
+
+      .c-footer__text {
+        margin-bottom: rem(24px);
+      }
+
+    .c-footer__networks {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      font-size: 0;
+      line-height: 0;
+      margin: rem(32px -8px);
+    }
+
+      .c-footer__network {
+        display: inline-block;
+        vertical-align: middle;
+        padding: rem(8px);
+        transition: color 400ms;
+
+        &:hover {
+          color: $color-secondary-dark;
+        }
+      }
+
+        .c-footer__icon {
+          display: block;
+          @include size(24px);
+        }
+
+@include mq($from: medium) {
+  .c-footer__items {
+      @include font-size($font-h5...);
+    }
+}
+
+@include mq($from: large) {
+  .c-footer {
+    // margin-top: rem(32px);
+    padding-top: rem(40px);
+    padding-bottom: rem(80px);
+    text-align: left;
+  }
+
+    .c-footer__columns {
+      @include clearfix;
+      margin: 0 rem(-16px);
+      position: relative;
+    }
+
+      .c-footer__column {
+        display: flex;
+        flex-direction: column;
+        float: left;
+        padding: 0 rem(16px);
+        width: (100% / 3);
+      }
+
+    .c-footer__title {
+      @include font-size($font-h5-large...);
+      padding: rem(16px 24px);
+      margin-top: rem(-72px);
+      margin-bottom: rem(16px);
+    }
+
+    .c-footer__sponsors {
+      margin: rem(28px -12px -12px);
+    }
+
+      .c-footer__sponsor {
+        padding: rem(12px);
+      }
+
+    .c-footer__items {
+      align-self: center;
+      margin: 0;
+      @include font-size($font-h5-large...);
+    }
+
+      .c-footer__item {
+        padding: 0;
+
+        & + & {
+          margin-top: rem(8px);
+        }
+      }
+
+        .c-footer__link {
+          padding: 0;
+        }
+
+    .c-footer__networks {
+      margin: rem(20px -20px -20px);
+      justify-content: flex-start;
+    }
+
+      .c-footer__network {
+        margin: rem(20px);
+        padding: 0;
+      }
+
+        .c-footer__icon {
+          @include size(32px);
+        }
+
+    .c-footer__copyright {
+      margin-top: rem(40px);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 0 rem(16px);
+      text-align: center;
+      width: (100% / 3);
+    }
+}

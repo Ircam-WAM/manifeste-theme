@@ -1,0 +1,56 @@
+.c-media {
+  background: $color-white;
+  box-shadow: $shadow-40;
+  text-align: left;
+}
+
+  .c-media__error {
+    background: $color-shade-8;
+    padding: rem(16px 8px);
+    text-align: center;
+  }
+
+  .c-media__items {
+
+  }
+
+    .c-media__item {
+      font-weight: $font-bold;
+      padding: rem(8px);
+      transition:
+        background-color 400ms,
+        color 400ms;
+
+      .js & {
+        cursor: pointer;
+
+        &:hover {
+          background: $color-shade-8;
+        }
+      }
+
+      small {
+        font-size: 100%;
+        font-weight: $font-regular;
+      }
+
+      &.is-active {
+        background: $color-primary-dark;
+        color: $color-white;
+
+        &:hover {
+          background: $color-primary;
+        }
+      }
+    }
+
+@include mq($from: medium) {
+  .c-media__item {
+    padding: rem(8px 16px);
+  }
+
+  .c-media__error {
+    padding: rem(16px);
+  }
+
+}

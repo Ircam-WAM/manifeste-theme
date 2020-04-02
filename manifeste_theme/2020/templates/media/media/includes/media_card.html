@@ -1,0 +1,31 @@
+{% extends "core/inc/generic_card.html" %}
+{% load mezzanine_tags keyword_tags i18n organization_tags staticfiles %}
+
+{% block title %}
+    {{ object.title }}
+{% endblock %}
+
+{% block url %}
+    {% url 'organization-media-detail' object.type object.slug %}
+{% endblock %}
+
+{% block image %}
+    {% with object.images.all|get_type:'card' as images %}
+        {% if object.poster_url %}
+            <img src="{{ object.poster_url }}" alt="" loading="lazy" class="c-article__picture"/>
+        {% elif images %}
+            <img src="{{ MEDIA_URL }}{% thumbnail images.0.file 352 352 %}" alt="" loading="lazy" class="c-article__picture"/>
+        {% endif %}
+    {% endwith %}
+{% endblock %}
+
+{% block header %}
+    <ul class="c-article__tags">
+        <li class="c-article__tag c-button c-button--rounded">
+            <svg class="c-button__icon" width="16" height="16" aria-hidden="true" focusable="false">
+                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-{{ object.type }}"/>
+            </svg>
+            <span class="c-button__label">{{ object.type|title }}</span>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "core/inc/generic_card.html" %}
+{% load i18n pages_tags mezzanine_tags media_tags organization_tags %}
+
+{% block title %}
+    {{ object.title }}
+{% endblock %}
+
+{% block url %}
+    {{ object.get_absolute_url }}
+{% endblock %}
+
+{% block image %}
+    {% with object.images.all|get_type:'card' as images %}
+        {% if images %}
+            <img src="{{ MEDIA_URL }}{% thumbnail images.0.file 352 352 %}" alt="" loading="lazy" class="c-article__picture"/>
+        {% endif %}
+    {% endwith %}
+{% endblock %}
+
+{% block header %}
+    <ul class="c-article__tags">
+        {% if object.departments.first %}
+            {% with object.departments.first as department %}
+                <li class="c-article__tag c-button c-button--rounded">{{ department.department.name }}</li>
+            {% endwith %}
+        {% endif %}
+        {% if object.category %}
+            <li class="c-article__tag c-button c-button--rounded">{{ object.category|truncatechars:15 }}</li>
+        {% endif %}
+    </ul>
+    <p class="c-article__buttons">
+        {% include 'agenda/event/includes/reserve.html' with event=object %}
+    </p>
+{% endblock %}
+
+{% block before_title %}
+    <p class="c-article__subtitle">
+        {% include 'agenda/includes/event_date_card.html' %}
+
+        {% if object.location %}
+            <br/>
+            {{ object.location }}
+        {% endif %}
+    </p>
+{% endblock %}

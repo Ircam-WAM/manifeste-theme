@@ -1,0 +1,31 @@
+{% load i18n pages_tags mezzanine_tags media_tags organization_tags staticfiles %}
+
+{% if home.dynamiccontenthomebody_set %}
+    <section class="c-container u-mtxs u-mtl@medium">
+        <div class="c-heading">
+            <h2 class="c-heading__title">{% trans 'Last news' %}</h2>
+            <p class="c-heading__buttons u-hidden@small">
+                <a href="/magazine" class="c-heading__button c-button c-button--link c-button--large">
+                    <span class="c-button__label">{% trans 'See more' %}</span>
+                    <svg class="c-button__icon" width="24" height="24" aria-hidden="true" focusable="false">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-right"/>
+                    </svg>
+                </a>
+            </p>
+        </div>
+
+        <div class="c-gallery u-mtxs u-mts@medium">
+            <ul class="c-gallery__items">
+                {% include 'core/inc/cards.html' with concrete_objects=home.dynamiccontenthomebody_set.all|get_content_objects|slice:"3" %}
+            </ul>
+            <p class="c-gallery__buttons u-mtxs u-hidden@medium u-hidden@large">
+                <a href="/magazine" class="c-gallery__button c-button c-button--link c-button--large">
+                    <span class="c-button__label">{% trans 'See more' %}</span>
+                    <svg class="c-button__icon" width="24" height="24" aria-hidden="true" focusable="false">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-right"/>
+                    </svg>
+                </a>
+            </p>
+        </div>
+    </section>
+{% endif %}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html class="no-js" lang="{{ LANGUAGE_CODE }}">
+    <head>
+        <meta charset="utf-8" />
+        <script>document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/, 'js');</script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>{% block meta_title %}{% endblock %}{% if settings.SITE_TITLE %} – {{ settings.SITE_TITLE }}{% endif %}</title>
+
+        <link rel="stylesheet" href="{% static 'css/index.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/vendors.min.css' %}" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/icons/apple-touch-icon.png' %}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/icons/favicon-32x32.png' %}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/icons/favicon-16x16.png' %}">
+        <link rel="manifest" href="{% static 'img/icons/site.webmanifest' %}">
+        <link rel="mask-icon" href="{% static 'img/icons/safari-pinned-tab.svg' %}" color="#ff407f">
+        <link rel="shortcut icon" href="{% static 'img/icons/favicon.ico' %}">
+        <meta name="apple-mobile-web-app-title" content="Vertigo 2020">
+        <meta name="application-name" content="Vertigo 2020">
+        <meta name="msapplication-TileColor" content="#ff407f">
+        <meta name="msapplication-config" content="{% static 'img/icons/browserconfig.xml' %}">
+        <meta name="theme-color" content="#ff407f">
+
+        {% block extra_head %}{% endblock %}
+    </head>
+    <body id="{% block body_id %}body{% endblock %}" class="{% block body_class %}{% endblock %}">
+        <div class="c-wrapper">
+            {% block header %}
+                {% include 'includes/header.html' %}
+            {% endblock %}
+
+            {% block container %}
+                <main class="c-main">
+                    {% block content_header %}{% endblock %}
+                    {% block main %}{% endblock %}
+                    {% block content_footer %}{% endblock %}
+                </main>
+            {% endblock %}
+
+            {% block footer %}
+                {% include 'includes/footer.html' %}
+            {% endblock %}
+        </div>
+
+        <div class="c-cookies js-cookies">
+            <p class="c-cookies__message">We use cookie technology to measure our online audience and to allow you to share content on social networks via link buttons. <a href="/politique-de-confidentialite">Further information</a>.</p>
+            <button class="c-cookies__button c-button c-button--secondary js-cookies-button">I Accept</button>
+        </div>
+
+        {% block footer_scripts %}
+            {% include 'includes/footer_scripts.html' %}
+        {% endblock %}
+    </body>
+</html>

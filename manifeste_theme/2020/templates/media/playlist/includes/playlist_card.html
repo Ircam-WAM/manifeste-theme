@@ -1,0 +1,41 @@
+{% extends "core/inc/generic_card.html" %}
+{% load i18n mezzanine_tags event_tags keyword_tags disqus_tags organization_tags staticfiles %}
+
+{% block title %}
+    {{ object.title|truncatechars_html:50 }}
+{% endblock %}
+
+{% block url %}
+    {% url 'organization-playlist-detail' object.slug %}
+{% endblock %}
+
+{% block image %}
+    {% with object.medias.all as medias %}
+        {% if medias %}
+            {% with medias.0.media.images.all|get_type:'card' as images %}
+                {% if medias.0.media.poster_url %}
+                    <img src="{{  medias.0.media.poster_url }}" alt="" loading="lazy" class="c-article__picture"/>
+                {% elif images %}
+                    <img src="{{ MEDIA_URL }}{% thumbnail images.0.file 352 352 top=0.5 left=0.5 %}" alt="" loading="lazy" class="c-article__picture"/>
+                {% endif %}
+            {% endwith %}
+        {% endif %}
+    {% endwith %}
+{% endblock %}
+
+{% block header %}
+    <ul class="c-article__tags">
+        <li class="c-article__tag c-button c-button--rounded">
+            <svg class="c-button__icon" width="16" height="16" aria-hidden="true" focusable="false">
+                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-{{ object.type }}"/>
+            </svg>
+            <span class="c-button__label">{{ object.type|title }}</span>
+        </li>
+    </ul>
+{% endblock %}
+
+{% block after_title %}
+    {% if object.description and object.description != object.title %}
+        <p class="c-article__text"><span class="u-ellipsis u-ellipsis--4">{{ object.description|richtext_filters|safe|truncatechars_html:200 }}</span></p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,282 @@
+.c-hero {
+  background: $color-contrast-dark;
+  color: $color-white;
+  position: relative;
+  z-index: -1;
+  overflow: hidden;
+}
+
+  .c-hero__mask {
+    color: $color-primary;
+    display: block;
+    width: rem(228px);
+    height: rem(240px);
+    margin: 0 auto;
+    opacity: .9;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    z-index: 2;
+    transform: translateY(-50%);
+
+    @supports (mix-blend-mode: color-dodge) {
+      opacity: 1;
+      mix-blend-mode: color-dodge;
+    }
+  }
+
+  .c-hero__picture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    font-family: 'object-fit: cover;';
+    z-index: 1;
+
+    // Add blend mode if there is mask
+    .c-hero__mask + & {
+      opacity: .4;
+
+      @supports (mix-blend-mode: overlay) {
+        opacity: 1;
+        mix-blend-mode: overlay;
+      }
+    }
+  }
+
+  .c-hero__container.c-container {
+    padding-top: rem(24px);
+    padding-bottom: rem(24px);
+    position: relative;
+    z-index: 3;
+
+    .c-hero__picture ~ & {
+      min-height: rem(160px);
+    }
+
+    // Add gradient when there is no mask
+    .c-hero__picture:first-child + &::before {
+      background: $gradient-2;
+      content: "";
+      position: absolute;
+      top: 0;
+      right: rem(-10000px);
+      bottom: 0;
+      left: rem(-10000px);
+      z-index: -1;
+    }
+  }
+
+    .c-hero__avatar {
+      border-radius: 50%;
+      display: block;
+      float: left;
+      @include size(48px);
+      margin-right: rem(16px);
+    }
+
+    .c-hero__title {
+      @include font-size($font-h2...);
+      overflow: hidden;
+      text-shadow: 0 rem(2px 4px) rgba($color-black, .5);
+
+      // Hide text-shadow when there is gradient/no mask or no picture
+      .c-hero__picture:first-child + .c-hero__container &,
+      .c-hero__container:first-child & {
+        text-shadow: none;
+      }
+    }
+
+    .c-hero__informations {
+      clear: left;
+      display: flex;
+      flex-wrap: wrap;
+      margin: rem(16px -8px -8px);
+      overflow: hidden;
+
+      &:empty {
+        display: none;
+      }
+
+      &.is-loading {
+        cursor: wait;
+
+        & > * {
+          pointer-events: none;
+        }
+      }
+    }
+
+      .c-hero__label,
+      .c-hero__tags,
+      .c-hero__networks {
+        display: inline-block;
+        vertical-align: top;
+      }
+
+      .c-hero__label {
+        font-weight: $font-bold;
+        margin: rem(12px 8px 0);
+      }
+
+      .c-hero__input {
+        position: absolute;
+        opacity: 0;
+        z-index: -1;
+      }
+
+      .c-hero__tags,
+      .c-hero__networks {
+        display: inline-flex;
+      }
+
+      .c-hero__tags {
+        flex-wrap: wrap;
+        margin: rem(4px);
+      }
+
+        .c-hero__tag.c-button {
+          display: inline-block;
+          display: inline-flex;
+          vertical-align: top;
+          margin: rem(4px);
+        }
+
+        .js .c-hero__tag--submit.c-button {
+          @include hidden-visually;
+        }
+
+      .c-hero__networks {
+
+      }
+
+        .c-hero__network {
+          display: inline-block;
+          vertical-align: top;
+          margin: rem(8px 4px);
+          padding: rem(4px);
+          vertical-align: top;
+          transition: color 400ms;
+
+          &:hover {
+            color: $color-secondary-dark;
+          }
+        }
+
+          .c-hero__icon {
+            display: block;
+            @include size(24px);
+          }
+
+  .c-hero__buttons {
+
+  }
+
+    .c-hero__button.c-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 4;
+    }
+
+    .c-hero__button--previous.c-button {
+      left: 0;
+    }
+
+    .c-hero__button--next.c-button {
+      right: 0;
+    }
+
+.c-hero--home {
+  .c-hero__container.c-container {
+    padding-bottom: 0;
+  }
+
+  .c-hero__title {
+    @include font-size($font-h4...);
+    padding-top: rem(88px);
+  }
+}
+
+.c-hero--person {
+  background: $color-primary-dark;
+
+  .c-hero__picture {
+    opacity: .25;
+
+    @supports (mix-blend-mode: overlay) {
+      opacity: .5;
+      mix-blend-mode: overlay;
+    }
+  }
+
+  .c-hero__container.c-container::before {
+    display: none;
+  }
+
+  .c-hero__title {
+    text-shadow: none;
+  }
+}
+
+@include mq($until: xlarge) {
+  .c-hero__buttons {
+    display: none;
+  }
+}
+
+@include mq($from: medium) {
+  .c-hero__mask {
+    width: rem(608px);
+    height: rem(640px);
+  }
+
+  .c-hero__container.c-container {
+    @include clearfix;
+    padding-top: rem(72px);
+    padding-bottom: rem(120px);
+
+    .c-hero__picture ~ & {
+      min-height: rem(320px);
+    }
+  }
+
+  .c-hero__avatar {
+    @include size(176px);
+    margin-right: rem(40px);
+  }
+
+  .c-hero__title {
+    @include font-size($font-h2-large...);
+  }
+
+  .c-hero__informations {
+    clear: none;
+    float: left;
+    margin-top: rem(16px);
+  }
+
+  .c-hero__search {
+    max-width: rem(352px);
+  }
+
+  .c-hero--home .c-hero__title {
+    @include font-size($font-h4-large...);
+    padding-top: rem(104px);
+    padding-right: rem(40px);
+    text-align: right;
+  }
+
+  .c-hero--simple .c-hero__container.c-container {
+    padding-bottom: rem(72px);
+  }
+}
+
+@include mq($from: large) {
+  .c-hero__search {
+    width: percentage(352px / $width-container-large);
+  }
+}

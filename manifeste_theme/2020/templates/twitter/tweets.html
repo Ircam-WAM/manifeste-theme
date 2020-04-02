@@ -1,0 +1,30 @@
+
+{% load twitter_tags i18n staticfiles %}
+
+{% tweets_default as tweets %}
+
+{% if tweets %}
+    <ul class="c-social__items">
+        {% for tweet in tweets|slice:"2" %}
+            <li class="c-social__item">
+                <p class="c-social__author">
+                    {% if tweet.retweeter_full_name %}
+                        <a href="http://twitter.com/{{ tweet.retweeter_user_name }}" target="_blank" rel="noopener" class="c-social__link">@{{ tweet.retweeter_user_name }}</a>
+                    {% else %}
+                        <a href="http://twitter.com/{{ tweet.user_name }}" target="_blank" rel="noopener" class="c-social__link">@{{ tweet.user_name }}</a>
+                    {% endif %}
+                </p>
+                <p class="c-social__date"><a href="http://twitter.com/{{ tweet.user_name }}/status/{{ tweet.remote_id }}" target="_blank" rel="noopener" class="c-social__link">{% blocktrans with sometime=tweet.created_at|timesince %}{{ sometime }} ago{% endblocktrans %}</a></p>
+                <p class="c-social__text">{{ tweet.text|safe }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+    <p class="c-social__buttons u-mtxs u-hidden@medium u-hidden@large">
+        <a href="https://twitter.com/hashtag/ircam" target="_blank" rel="noopener" class="c-social__button c-button c-button--link c-button--large">
+            <span class="c-button__label">{% trans "Read more" %}</span>
+            <svg class="c-button__icon" width="24" height="24" aria-hidden="true" focusable="false">
+                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-right"/>
+            </svg>
+        </a>
+    </p>
+{% endif %}

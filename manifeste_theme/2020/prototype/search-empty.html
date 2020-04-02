@@ -1,0 +1,37 @@
+{% extends '2020/base.html' %}
+
+{% block meta_title %}Recherche{% endblock %}
+
+{% block main %}
+    <header class="c-hero c-hero--simple">
+        <svg class="c-hero__mask" width="228" height="240" aria-label="Vertigo">
+            <use xlink:href="{% static 'img/symbols.svg' %}#symbol-vertigo"/>
+        </svg>
+        <img src="{% static 'img/home.jpg' %}" alt="" class="c-hero__picture"/>
+        <div class="c-hero__container c-container">
+            <form action="search-results.html" method="get" class="c-hero__search" aria-labelledby="search-title">
+                <h1 class="c-hero__title u-hidden-visually" id="search-title">Recherche</h1>
+                <div class="c-hero__field c-field">
+                    <label for="search-query" class="c-field__label">Votre recherche</label>
+                    <input id="search-query" name="q" type="search" inputmode="search" value="IRCAM" placeholder="Exemple : IRCAM" required class="c-field__input">
+                    <svg class="c-field__icon" width="16" height="16" aria-hidden="true" focusable="false">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-search"/>
+                    </svg>
+                    <button type="submit" class="c-field__button c-button c-button--secondary c-button--xlarge">
+                        <svg class="c-button__icon" width="16" height="16" aria-label="Valider" focusable="false">
+                            <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-right"/>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </header>
+
+    <section class="c-container c-container--narrow u-mts u-mtl@medium">
+        <div class="c-content u-align-center">
+            <h2 class="h3">Aucun résultat</h2>
+            <p>Blah blah.</p>
+        </div>
+    </section>
+{% endblock main %}
+

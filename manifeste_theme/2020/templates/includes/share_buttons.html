@@ -1,0 +1,19 @@
+{% load i18n event_tags staticfiles %}
+
+<p class="c-hero__networks">
+    <a href="http://facebook.com/sharer.php?u={{ request.build_absolute_uri }}&amp;t={{ object.title|urlencode }}" target="_blank" rel="noopener" title="{% trans 'Share on Facebook' %}" class="c-hero__network">
+        <svg class="c-hero__icon" width="24" height="24" aria-hidden="true" focusable="false">
+            <use xlink:href="{% static 'img/symbols.svg' %}#symbol-facebook"/>
+        </svg>
+    </a>
+    <a href="http://twitter.com/home?status={{ object.title|urlencode }}%20{{ request.build_absolute_uri }}" target="_blank" rel="noopener" title="{% trans 'Share on Twitter' %}" class="c-hero__network">
+        <svg class="c-hero__icon" width="24" height="24" aria-hidden="true" focusable="false">
+            <use xlink:href="{% static 'img/symbols.svg' %}#symbol-twitter"/>
+        </svg>
+    </a>
+    <a href="https://www.linkedin.com/cws/share?url={{ request.build_absolute_uri }}" target="_blank" rel="noopener" title="{% trans 'Share on LinkedIn' %}" class="c-hero__network">
+        <svg class="c-hero__icon" width="24" height="24" aria-hidden="true" focusable="false">
+            <use xlink:href="{% static 'img/symbols.svg' %}#symbol-linkedin"/>
+        </svg>
+    </a>
+</p>

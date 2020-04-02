@@ -1,0 +1,35 @@
+<section class="c-container u-mtxs u-mtl@medium">
+    <div class="c-heading">
+        <h2 class="c-heading__title">Dernières actualités</h2>
+        <p class="c-heading__buttons u-hidden@small">
+            <a href="news.html" class="c-heading__button c-button c-button--link c-button--large">
+                <span class="c-button__label">Actualités</span>
+                <svg class="c-button__icon" width="24" height="24" aria-hidden="true" focusable="false">
+                    <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-right"/>
+                </svg>
+            </a>
+        </p>
+    </div>
+
+    <div class="c-gallery u-mtxs u-mts@medium">
+        <ul class="c-gallery__items">
+            <li class="c-gallery__item">
+                {% include 'includes/card_news.html' with { type: 'Vidéo', icon: 'play' } %}
+            </li>
+            <li class="c-gallery__item">
+                {% include 'includes/card_news.html' with { type: 'Audio', icon: 'audio' } %}
+            </li>
+            <li class="c-gallery__item u-hidden@medium">
+                {% include 'includes/card_person.html' %}
+            </li>
+        </ul>
+        <p class="c-gallery__buttons u-mtxs u-hidden@medium u-hidden@large">
+            <a href="news.html" class="c-gallery__button c-button c-button--link c-button--large">
+                <span class="c-button__label">Actualités</span>
+                <svg class="c-button__icon" width="24" height="24" aria-hidden="true" focusable="false">
+                    <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-right"/>
+                </svg>
+            </a>
+        </p>
+    </div>
+</section>

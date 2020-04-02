@@ -1,0 +1,49 @@
+{% extends "pages/page.html" %}
+{% load mezzanine_tags keyword_tags i18n organization_tags staticfiles %}
+
+{% block meta_title %}{{ media.title }}{% endblock %}
+
+{% block meta_keywords %}
+    {% metablock %}
+        {% keywords_for person as keywords %}
+        {% for keyword in keywords %}
+            {% if not forloop.first %}, {% endif %}
+            {{ keyword }}
+        {% endfor %}
+    {% endmetablock %}
+{% endblock %}
+
+{% block page_title %}
+    {% editable media.title %}
+        {{ media.title }}
+    {% endeditable %}
+{% endblock %}
+
+{% block page_tags %}
+    <ul class="c-hero__tags">
+        <li class="c-hero__tag c-button c-button--rounded">
+            <svg class="c-button__icon" width="16" height="16" aria-hidden="true" focusable="false">
+                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-{{ media.type }}"/>
+            </svg>
+            <span class="c-button__label">{{ media.type|title }}</span>
+        </li>
+    </ul>
+{% endblock %}
+
+{% block page_content %}
+    {% if media.description %}
+        <div class="c-content u-mbm">
+            <p>{{ media.description }}</p>
+        </div>
+    {% endif %}
+
+    {% with media.type as type %}
+        {% with "media/media/includes/"|add:type|add:".html" as template %}
+            {% include template %}
+        {% endwith %}
+    {% endwith %}
+{% endblock %}
+
+{% block page_related_content %}
+    {% include "core/inc/related_content_dynamic.html" with object=media %}
+{% endblock %}
