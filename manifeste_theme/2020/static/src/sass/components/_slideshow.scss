@@ -156,6 +156,11 @@
     }
 
 .c-slideshow--home {
+  background: $color-white;
+  box-shadow: $shadow-80;
+  position: relative;
+  z-index: 2;
+
   .flickity-prev-next-button {
     background: transparent;
     color: $color-white;

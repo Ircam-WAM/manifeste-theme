@@ -1,6 +1,8 @@
 .c-informations {
   background: $color-black;
   color: $color-white;
+  position: relative;
+  z-index: 2;
 }
 
   .c-informations__items {

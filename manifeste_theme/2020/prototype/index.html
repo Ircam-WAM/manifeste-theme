@@ -4,12 +4,12 @@
 
 {% block main %}
     <header class="c-hero c-hero--home">
-        <svg class="c-hero__mask" width="228" height="240" aria-label="Vertigo">
-            <use xlink:href="{% static 'img/symbols.svg' %}#symbol-vertigo"/>
+        <svg class="c-hero__mask" width="160" height="320" aria-label="ManiFeste 2020">
+            <use xlink:href="{% static 'img/symbols.svg' %}#symbol-manifeste-2020"/>
         </svg>
-        <img src="{% static 'img/home.jpg' %}" alt="" class="c-hero__picture"/>
+        <img src="{% static 'img/home.jpg' %}" srcset="{% static 'img/home@2x.jpg' %} 2x" alt="" class="c-hero__picture"/>
         <div class="c-hero__container c-container">
-            <h1 class="c-hero__title">26 février - 5 mars 2020</h1>
+            <h1 class="c-hero__title">Festival Musiques — Fictions<br/>Du 3 au 28 juin 2020</h1>
         </div>
     </header>
 
@@ -24,18 +24,18 @@
         </div>
     </section>
 
-    {% include 'includes/latest_news.html' %}
+    {% include 'includes/home.html' %}
 
     <section class="c-edito u-mtm u-mtxl@medium">
         <div class="c-edito__container c-container">
-            <h2 class="c-edito__title">Vertigo 2020</h2>
+            <h2 class="c-edito__title">ManiFeste 2020</h2>
             <p class="c-edito__text">Aujourd’hui, à l’ère numérique, la création artistique rencontre le domaine en pleine extension des sciences du vivant, les neurosciences, la biologie synthétique, les nanotechnologies. La notion de « vivant » se donne sous une forme d’artificialité inédite, entre l’inerte et l’animé, l’organique et le machinique, la matière et le numérique. Utiliser, programmer, exposer, défier le vivant ? Ces nouveaux questionnements sont au cœur du Forum Vertigo
             </p>
             <p class="c-edito__buttons">
                 <a href="#" class="c-edito__button c-button c-button--large">En savoir plus</a>
             </p>
-            <svg class="c-edito__logo" width="228" height="240" aria-hidden="true">
-                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-vertigo"/>
+            <svg class="c-edito__logo" width="200" height="400" aria-hidden="true">
+                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-manifeste-2020"/>
             </svg>
         </div>
     </section>
@@ -46,7 +46,7 @@
                 <svg class="c-heading__icon" width="24" height="24" aria-hidden="true" focusable="false">
                     <use xlink:href="{% static 'img/symbols.svg' %}#symbol-twitter"/>
                 </svg>
-                <h2 class="c-heading__label">Fil Twitter <small class="c-heading__subtitle">#vertigo20</small></h2>
+                <h2 class="c-heading__label">Fil Twitter <small class="c-heading__subtitle">#manifeste20</small></h2>
             </div>
             <p class="c-heading__buttons u-hidden@small">
                 <a href="#" class="c-heading__button c-button c-button--link c-button--large">
@@ -88,7 +88,7 @@
                 <svg class="c-heading__icon" width="24" height="24" aria-hidden="true" focusable="false">
                     <use xlink:href="{% static 'img/symbols.svg' %}#symbol-instagram"/>
                 </svg>
-                <h2 class="c-heading__label">Fil Instagram <small class="c-heading__subtitle">#IRCAM</small></h2>
+                <h2 class="c-heading__label">Fil Instagram <small class="c-heading__subtitle">#manifeste20</small></h2>
             </div>
             <p class="c-heading__buttons u-hidden@small">
                 <a href="#" class="c-heading__button c-button c-button--link c-button--large">

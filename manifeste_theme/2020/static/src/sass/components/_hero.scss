@@ -2,15 +2,15 @@
   background: $color-contrast-dark;
   color: $color-white;
   position: relative;
-  z-index: -1;
+  z-index: 1;
   overflow: hidden;
 }
 
   .c-hero__mask {
     color: $color-primary;
     display: block;
-    width: rem(228px);
-    height: rem(240px);
+    width: rem(60px);
+    height: rem(120px);
     margin: 0 auto;
     opacity: .9;
     position: absolute;
@@ -20,9 +20,9 @@
     z-index: 2;
     transform: translateY(-50%);
 
-    @supports (mix-blend-mode: color-dodge) {
+    @supports (mix-blend-mode: lighten) {
       opacity: 1;
-      mix-blend-mode: color-dodge;
+      mix-blend-mode: lighten;
     }
   }
 
@@ -197,7 +197,8 @@
 
   .c-hero__title {
     @include font-size($font-h4...);
-    padding-top: rem(88px);
+    position: absolute;
+    bottom: rem(16px);
   }
 }
 
@@ -230,8 +231,8 @@
 
 @include mq($from: medium) {
   .c-hero__mask {
-    width: rem(608px);
-    height: rem(640px);
+    width: rem(160px);
+    height: rem(320px);
   }
 
   .c-hero__container.c-container {
@@ -265,8 +266,8 @@
 
   .c-hero--home .c-hero__title {
     @include font-size($font-h4-large...);
-    padding-top: rem(104px);
-    padding-right: rem(40px);
+    bottom: rem(104px);
+    right: rem(40px + $width-gutter);
     text-align: right;
   }
 

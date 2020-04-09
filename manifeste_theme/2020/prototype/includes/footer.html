@@ -3,18 +3,37 @@
         <div class="c-footer__columns">
             <div class="c-footer__column">
                 <div class="c-footer__presentation">
-                    <h2 class="c-footer__title">Mutations / Créations 4</h2>
-                    <p class="c-footer__subtitle">Porté par</p>
+                    <ul class="c-footer__downloads">
+                        <li class="c-footer__download c-download">
+                            <img src="http://placehold.it/56x72" srcset="http://placehold.it/112x144 2x" alt="" class="c-download__picture" />
+                            <div class="c-download__content">
+                                <p class="c-download__label">Le programme au format pdf</p>
+                                <a href="#" class="c-download__button c-button c-button--secondary">Télécharger</a>
+                                <svg class="c-download__icon" width="24" height="24" aria-hidden="true" focusable="false">
+                                    <use xlink:href="{% static 'img/symbols.svg' %}#symbol-download"/>
+                                </svg>
+                            </div>
+                        </li>
+                        <li class="c-footer__download c-download">
+                            <img src="http://placehold.it/56x72" srcset="http://placehold.it/112x144 2x" alt="" class="c-download__picture" />
+                            <div class="c-download__content">
+                                <p class="c-download__label">L’Étincelle au format pdf</p>
+                                <a href="#" class="c-download__button c-button c-button--secondary">Télécharger</a>
+                                <svg class="c-download__icon" width="24" height="24" aria-hidden="true" focusable="false">
+                                    <use xlink:href="{% static 'img/symbols.svg' %}#symbol-download"/>
+                                </svg>
+                            </div>
+                        </li>
+                    </ul>
                     <div class="c-footer__sponsors">
-                        <a href="#" class="c-footer__sponsor">
-                            <svg class="c-footer__logo" width="150" height="45" aria-label="Centre Pompidou" focusable="false">
-                                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-centre-pompidou"/>
-                            </svg>
+                        <a href="http://www.culture.gouv.fr" target="_blank" rel="noopener" class="c-footer__sponsor">
+                            <img src="{% static 'img/logos/culture.png' %}" srcset="{% static 'img/logos/culture@2x.png' %} 2x" alt="Ministère de la Culture" width="50" height="64" class="c-footer__logo"/>
                         </a>
-                        <a href="#" class="c-footer__sponsor">
-                            <svg class="c-footer__logo" width="120" height="36" aria-label="IRCAM" focusable="false">
-                                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-ircam"/>
-                            </svg>
+                        <a href="http://www.cnrs.fr" target="_blank" rel="noopener" class="c-footer__sponsor">
+                            <img src="{% static 'img/logos/cnrs.png' %}" srcset="{% static 'img/logos/cnrs@2x.png' %} 2x" alt="CNRS" width="64" height="45" class="c-footer__logo"/>
+                        </a>
+                        <a href="http://www.sorbonne-universite.fr" target="_blank" rel="noopener" class="c-footer__sponsor">
+                            <img src="{% static 'img/logos/sorbonne.png' %}" srcset="{% static 'img/logos/sorbonne@2x.png' %} 2x" alt="Sorbonne Université" width="93" height="38" class="c-footer__logo"/>
                         </a>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 {
-    "name": "Vertigo 2020",
-    "short_name": "Vertigo 2020",
+    "name": "ManiFeste",
+    "short_name": "ManiFeste",
     "icons": [
         {
             "src": "/static/img/icons/android-chrome-192x192.png",
@@ -13,7 +13,7 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#ff407f",
-    "background_color": "#ff407f",
+    "theme_color": "#f25b3d",
+    "background_color": "#f25b3d",
     "display": "standalone"
 }

@@ -6,10 +6,10 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <title>Accueil – Vertigo 2020</title>
+        <title>Accueil – Manifeste 2020</title>
 
-        <link rel="stylesheet" href="/static/css/index.min.css" />
-        <link rel="stylesheet" href="/static/css/vendors.min.css" />
+        <link rel="stylesheet" href="/static/css/index-2020.min.css" />
+        <link rel="stylesheet" href="/static/css/vendors-2020.min.css" />
 
         <link rel="apple-touch-icon" sizes="180x180" href="/static/img/icons/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/static/img/icons/favicon-32x32.png">
@@ -17,11 +17,11 @@
         <link rel="manifest" href="/static/img/icons/site.webmanifest">
         <link rel="mask-icon" href="/static/img/icons/safari-pinned-tab.svg" color="#ff407f">
         <link rel="shortcut icon" href="/static/img/icons/favicon.ico">
-        <meta name="apple-mobile-web-app-title" content="Vertigo 2020">
-        <meta name="application-name" content="Vertigo 2020">
-        <meta name="msapplication-TileColor" content="#ff407f">
+        <meta name="apple-mobile-web-app-title" content="ManiFeste">
+        <meta name="application-name" content="ManiFeste">
+        <meta name="msapplication-TileColor" content="#f25b3d">
         <meta name="msapplication-config" content="/static/img/icons/browserconfig.xml">
-        <meta name="theme-color" content="#ff407f">
+        <meta name="theme-color" content="#f25b3d">
 
             </head>
     <body id="body" class="">
@@ -29,10 +29,10 @@
                             <header class="c-header js-header" id="header">
     <div class="c-header__branding">
         <a href="index.html" class="c-header__title">
-            <svg class="c-header__logo" width="80" height="24" aria-label="Vertigo 2020">
+            <svg class="c-header__logo" width="80" height="24" aria-label="IRCAM Centre Pompidou">
                 <use xlink:href="/static/img/symbols.svg#symbol-ircam"/>
             </svg>
-            <span class="c-header__name">Vertigo</span>
+            <span class="c-header__name">ManiFeste</span>
         </a>
 
         <a href="search.html" class="c-header__action c-header__action--search">
@@ -58,13 +58,16 @@
                 <a href="events.html" class="c-header__link">Événements</a>
             </li>
             <li class="c-header__item">
+                <a href="persons.html" class="c-header__link">Artistes</a>
+            </li>
+            <li class="c-header__item">
                 <a href="news.html" class="c-header__link">Actualités</a>
             </li>
             <li class="c-header__item">
-                <a href="content.html" class="c-header__link">Pratique</a>
+                <a href="content.html" class="c-header__link">Académies</a>
             </li>
             <li class="c-header__item">
-                <a href="#" class="c-header__link">Streaming</a>
+                <a href="content.html" class="c-header__link">Infos</a>
             </li>
         </ul>
 
@@ -80,22 +83,22 @@
         </form>
 
         <div class="c-header__banner" aria-hidden="true">
-            <svg class="c-header__mask" width="228" height="240" focusable="false">
-                <use xlink:href="/static/img/symbols.svg#symbol-vertigo"/>
+            <svg class="c-header__mask" width="160" height="320" focusable="false">
+                <use xlink:href="/static/img/symbols.svg#symbol-manifeste-2020"/>
             </svg>
-            <img src="/static/img/home.jpg" alt="" class="c-header__picture"/>
+            <img src="/static/img/home.jpg" srcset="/static/img/home@2x.jpg 2x" alt="" class="c-header__picture"/>
         </div>
     </nav>
 </header>
             
                             <main class="c-main">
                                             <header class="c-hero c-hero--home">
-        <svg class="c-hero__mask" width="228" height="240" aria-label="Vertigo">
-            <use xlink:href="/static/img/symbols.svg#symbol-vertigo"/>
+        <svg class="c-hero__mask" width="160" height="320" aria-label="ManiFeste 2020">
+            <use xlink:href="/static/img/symbols.svg#symbol-manifeste-2020"/>
         </svg>
-        <img src="/static/img/home.jpg" alt="" class="c-hero__picture"/>
+        <img src="/static/img/home.jpg" srcset="/static/img/home@2x.jpg 2x" alt="" class="c-hero__picture"/>
         <div class="c-hero__container c-container">
-            <h1 class="c-hero__title">26 février - 5 mars 2020</h1>
+            <h1 class="c-hero__title">Festival Musiques — Fictions<br/>Du 3 au 28 juin 2020</h1>
         </div>
     </header>
 
@@ -138,30 +141,152 @@
         </div>
     </section>
 
-    <section class="c-container u-mtxs u-mtl@medium">
-    <div class="c-heading">
-        <h2 class="c-heading__title">Dernières actualités</h2>
-        <p class="c-heading__buttons u-hidden@small">
-            <a href="news.html" class="c-heading__button c-button c-button--link c-button--large">
-                <span class="c-button__label">Actualités</span>
-                <svg class="c-button__icon" width="24" height="24" aria-hidden="true" focusable="false">
-                    <use xlink:href="/static/img/symbols.svg#symbol-arrow-right"/>
-                </svg>
-            </a>
-        </p>
-    </div>
+    <section class="c-container u-mts u-mtl@medium">
+    <div class="c-home">
+        <div class="c-home__events">
+            <div class="c-calendar">
+    <p class="c-calendar__title" id="calendar-month">Juin 2020</p>
+    <table class="c-calendar__table" aria-labelledby="calendar-month">
+        <thead>
+            <tr>
+                <th><abbr title="Lundi">Lun</abbr></th>
+                <th><abbr title="Mardi">Mar</abbr></th>
+                <th><abbr title="Mercredi">Mer</abbr></th>
+                <th><abbr title="Jeudi">Jeu</abbr></th>
+                <th><abbr title="Vendredi">Ven</abbr></th>
+                <th><abbr title="Samedi">Sam</abbr></th>
+                <th><abbr title="Dimanche">Dim</abbr></th>
+            </tr>
+        </thead>
+        <tbody>
+                                        <tr>
+                                                                                            <td>
+                                                            <span class="c-calendar__day">1</span>
+                                                    </td>
+                                                                                            <td>
+                                                            <span class="c-calendar__day">2</span>
+                                                    </td>
+                                                                                            <td>
+                                                                                                <a href="events.html?event_day_filter=2020-06-03" class="c-calendar__day">3</a>
+                                                                                    </td>
+                                                                                            <td>
+                                                                                                <a href="events.html?event_day_filter=2020-06-04" class="c-calendar__day">4</a>
+                                                                                    </td>
+                                                                                            <td>
+                                                                                                <a href="events.html?event_day_filter=2020-06-05" class="c-calendar__day">5</a>
+                                                                                    </td>
+                                                                                            <td>
+                                                                                                <a href="events.html?event_day_filter=2020-06-06" class="c-calendar__day">6</a>
+                                                                                    </td>
+                                                                                            <td>
+                                                            <span class="c-calendar__day">7</span>
+                                                    </td>
+                                    </tr>
+                            <tr>
+                                                                                            <td>
+                                                                                                <a href="events.html?event_day_filter=2020-06-08" class="c-calendar__day">8</a>
+                                                                                    </td>
+                                                                                            <td>
+                                                            <span class="c-calendar__day">9</span>
+                                                    </td>
+                                                                                            <td>
+                                                            <span class="c-calendar__day">10</span>
+                                                    </td>
+                                                                                            <td>
+                                                                                                <a href="events.html?event_day_filter=2020-06-11" class="c-calendar__day">11</a>
+                                                                                    </td>
+                                                                                            <td>
+                                                                                                <a href="events.html?event_day_filter=2020-06-12" class="c-calendar__day">12</a>
+                                                                                    </td>
+                                                                                            <td>
+                                                                                                <a href="events.html?event_day_filter=2020-06-13" class="c-calendar__day">13</a>
+                                                                                    </td>
+                                                                                            <td>
+                                                            <span class="c-calendar__day">14</span>
+                                                    </td>
+                                    </tr>
+                            <tr>
+                                                                                            <td>
+                                                                                                <a href="events.html?event_day_filter=2020-06-15" class="c-calendar__day">15</a>
+                                                                                    </td>
+                                                                                            <td>
+                                                                                                <a href="events.html?event_day_filter=2020-06-16" class="c-calendar__day">16</a>
+                                                                                    </td>
+                                                                                            <td>
+                                                                                                <a href="events.html?event_day_filter=2020-06-17" class="c-calendar__day">17</a>
+                                                                                    </td>
+                                                                                            <td>
+                                                                                                <a href="events.html?event_day_filter=2020-06-18" class="c-calendar__day">18</a>
+                                                                                    </td>
+                                                                                            <td>
+                                                                                                <a href="events.html?event_day_filter=2020-06-19" class="c-calendar__day">19</a>
+                                                                                    </td>
+                                                                                            <td>
+                                                                                                <a href="events.html?event_day_filter=2020-06-20" class="c-calendar__day">20</a>
+                                                                                    </td>
+                                                                                            <td>
+                                                                                                <a href="events.html?event_day_filter=2020-06-21" class="c-calendar__day">21</a>
+                                                                                    </td>
+                                    </tr>
+                            <tr>
+                                                                                            <td>
+                                                            <span class="c-calendar__day">22</span>
+                                                    </td>
+                                                                                            <td>
+                                                                                                <a href="events.html?event_day_filter=2020-06-23" class="c-calendar__day">23</a>
+                                                                                    </td>
+                                                                                            <td>
+                                                                                                <a href="events.html?event_day_filter=2020-06-24" class="c-calendar__day">24</a>
+                                                                                    </td>
+                                                                                            <td>
+                                                            <span class="c-calendar__day">25</span>
+                                                    </td>
+                                                                                            <td>
+                                                                                                <a href="events.html?event_day_filter=2020-06-26" class="c-calendar__day">26</a>
+                                                                                    </td>
+                                                                                            <td>
+                                                                                                <a href="events.html?event_day_filter=2020-06-27" class="c-calendar__day">27</a>
+                                                                                    </td>
+                                                                                            <td>
+                                                                                                <a href="events.html?event_day_filter=2020-06-28" class="c-calendar__day">28</a>
+                                                                                    </td>
+                                    </tr>
+                            <tr>
+                                                                                            <td>
+                                                            <span class="c-calendar__day">29</span>
+                                                    </td>
+                                                                                            <td>
+                                                            <span class="c-calendar__day">30</span>
+                                                    </td>
+                                    </tr>
+                    </tbody>
+    </table>
+</div>
+        </div>
+        <div class="c-home__news">
+            <div class="c-heading">
+                <h2 class="c-heading__title">Dernières actualités</h2>
+                <p class="c-heading__buttons u-hidden@small">
+                    <a href="news.html" class="c-heading__button c-button c-button--link c-button--large">
+                        <span class="c-button__label">Actualités</span>
+                        <svg class="c-button__icon" width="24" height="24" aria-hidden="true" focusable="false">
+                            <use xlink:href="/static/img/symbols.svg#symbol-arrow-right"/>
+                        </svg>
+                    </a>
+                </p>
+            </div>
 
-    <div class="c-gallery u-mtxs u-mts@medium">
-        <ul class="c-gallery__items">
-            <li class="c-gallery__item">
-                <div class="c-article">
+            <div class="c-gallery c-gallery--halves u-mtxs u-mts@medium">
+                <ul class="c-gallery__items">
+                    <li class="c-gallery__item">
+                        <div class="c-article">
     <img src="/static/img/event-card.jpg" alt="" class="c-article__picture" />
     <div class="c-article__wrapper">
         <div class="c-article__header">
             <ul class="c-article__tags">
                 <li class="c-article__tag c-button c-button--rounded">
                     <svg class="c-button__icon" width="16" height="16" aria-hidden="true" focusable="false">
-                        <use xlink:href="/static/img/symbols.svg#symbol-play"/>
+                        <use xlink:href="/static/img/symbols.svg#symbol-video"/>
                     </svg>
                     <span class="c-button__label">Vidéo </span>
                 </li>
@@ -173,9 +298,9 @@
         </div>
     </div>
 </div>
-            </li>
-            <li class="c-gallery__item">
-                <div class="c-article">
+                    </li>
+                    <li class="c-gallery__item">
+                        <div class="c-article">
     <img src="/static/img/event-card.jpg" alt="" class="c-article__picture" />
     <div class="c-article__wrapper">
         <div class="c-article__header">
@@ -194,49 +319,31 @@
         </div>
     </div>
 </div>
-            </li>
-            <li class="c-gallery__item u-hidden@medium">
-                <div class="c-article">
-    <img src="/static/img/person-card.jpg" alt="" class="c-article__picture" />
-    <div class="c-article__wrapper">
-        <div class="c-article__header">
-            <ul class="c-article__tags">
-                <li class="c-article__tag c-button c-button--rounded">
-                    <svg class="c-button__icon" width="16" height="16" aria-hidden="true" focusable="false">
-                        <use xlink:href="/static/img/symbols.svg#symbol-person"/>
-                    </svg>
-                    <span class="c-button__label">Directeur de recherche &amp; développement</span>
-                </li>
-            </ul>
+                    </li>
+                </ul>
+                <p class="c-gallery__buttons u-mtxs u-hidden@medium u-hidden@large">
+                    <a href="news.html" class="c-gallery__button c-button c-button--link c-button--large">
+                        <span class="c-button__label">Actualités</span>
+                        <svg class="c-button__icon" width="24" height="24" aria-hidden="true" focusable="false">
+                            <use xlink:href="/static/img/symbols.svg#symbol-arrow-right"/>
+                        </svg>
+                    </a>
+                </p>
+            </div>
         </div>
-        <div class="c-article__content">
-            <h2 class="c-article__title"><a href="person.html" class="c-article__link">Oscar de la Cavallería</a></h2>
-        </div>
-    </div>
-</div>
-            </li>
-        </ul>
-        <p class="c-gallery__buttons u-mtxs u-hidden@medium u-hidden@large">
-            <a href="news.html" class="c-gallery__button c-button c-button--link c-button--large">
-                <span class="c-button__label">Actualités</span>
-                <svg class="c-button__icon" width="24" height="24" aria-hidden="true" focusable="false">
-                    <use xlink:href="/static/img/symbols.svg#symbol-arrow-right"/>
-                </svg>
-            </a>
-        </p>
     </div>
 </section>
 
     <section class="c-edito u-mtm u-mtxl@medium">
         <div class="c-edito__container c-container">
-            <h2 class="c-edito__title">Vertigo 2020</h2>
+            <h2 class="c-edito__title">ManiFeste 2020</h2>
             <p class="c-edito__text">Aujourd’hui, à l’ère numérique, la création artistique rencontre le domaine en pleine extension des sciences du vivant, les neurosciences, la biologie synthétique, les nanotechnologies. La notion de « vivant » se donne sous une forme d’artificialité inédite, entre l’inerte et l’animé, l’organique et le machinique, la matière et le numérique. Utiliser, programmer, exposer, défier le vivant ? Ces nouveaux questionnements sont au cœur du Forum Vertigo
             </p>
             <p class="c-edito__buttons">
                 <a href="#" class="c-edito__button c-button c-button--large">En savoir plus</a>
             </p>
-            <svg class="c-edito__logo" width="228" height="240" aria-hidden="true">
-                <use xlink:href="/static/img/symbols.svg#symbol-vertigo"/>
+            <svg class="c-edito__logo" width="200" height="400" aria-hidden="true">
+                <use xlink:href="/static/img/symbols.svg#symbol-manifeste-2020"/>
             </svg>
         </div>
     </section>
@@ -247,7 +354,7 @@
                 <svg class="c-heading__icon" width="24" height="24" aria-hidden="true" focusable="false">
                     <use xlink:href="/static/img/symbols.svg#symbol-twitter"/>
                 </svg>
-                <h2 class="c-heading__label">Fil Twitter <small class="c-heading__subtitle">#vertigo20</small></h2>
+                <h2 class="c-heading__label">Fil Twitter <small class="c-heading__subtitle">#manifeste20</small></h2>
             </div>
             <p class="c-heading__buttons u-hidden@small">
                 <a href="#" class="c-heading__button c-button c-button--link c-button--large">
@@ -289,7 +396,7 @@
                 <svg class="c-heading__icon" width="24" height="24" aria-hidden="true" focusable="false">
                     <use xlink:href="/static/img/symbols.svg#symbol-instagram"/>
                 </svg>
-                <h2 class="c-heading__label">Fil Instagram <small class="c-heading__subtitle">#IRCAM</small></h2>
+                <h2 class="c-heading__label">Fil Instagram <small class="c-heading__subtitle">#manifeste20</small></h2>
             </div>
             <p class="c-heading__buttons u-hidden@small">
                 <a href="#" class="c-heading__button c-button c-button--link c-button--large">
@@ -346,18 +453,37 @@
         <div class="c-footer__columns">
             <div class="c-footer__column">
                 <div class="c-footer__presentation">
-                    <h2 class="c-footer__title">Mutations / Créations 4</h2>
-                    <p class="c-footer__subtitle">Porté par</p>
+                    <ul class="c-footer__downloads">
+                        <li class="c-footer__download c-download">
+                            <img src="http://placehold.it/56x72" srcset="http://placehold.it/112x144 2x" alt="" class="c-download__picture" />
+                            <div class="c-download__content">
+                                <p class="c-download__label">Le programme au format pdf</p>
+                                <a href="#" class="c-download__button c-button c-button--secondary">Télécharger</a>
+                                <svg class="c-download__icon" width="24" height="24" aria-hidden="true" focusable="false">
+                                    <use xlink:href="/static/img/symbols.svg#symbol-download"/>
+                                </svg>
+                            </div>
+                        </li>
+                        <li class="c-footer__download c-download">
+                            <img src="http://placehold.it/56x72" srcset="http://placehold.it/112x144 2x" alt="" class="c-download__picture" />
+                            <div class="c-download__content">
+                                <p class="c-download__label">L’Étincelle au format pdf</p>
+                                <a href="#" class="c-download__button c-button c-button--secondary">Télécharger</a>
+                                <svg class="c-download__icon" width="24" height="24" aria-hidden="true" focusable="false">
+                                    <use xlink:href="/static/img/symbols.svg#symbol-download"/>
+                                </svg>
+                            </div>
+                        </li>
+                    </ul>
                     <div class="c-footer__sponsors">
-                        <a href="#" class="c-footer__sponsor">
-                            <svg class="c-footer__logo" width="150" height="45" aria-label="Centre Pompidou" focusable="false">
-                                <use xlink:href="/static/img/symbols.svg#symbol-centre-pompidou"/>
-                            </svg>
+                        <a href="http://www.culture.gouv.fr" target="_blank" rel="noopener" class="c-footer__sponsor">
+                            <img src="/static/img/logos/culture.png" srcset="/static/img/logos/culture@2x.png 2x" alt="Ministère de la Culture" width="50" height="64" class="c-footer__logo"/>
                         </a>
-                        <a href="#" class="c-footer__sponsor">
-                            <svg class="c-footer__logo" width="120" height="36" aria-label="IRCAM" focusable="false">
-                                <use xlink:href="/static/img/symbols.svg#symbol-ircam"/>
-                            </svg>
+                        <a href="http://www.cnrs.fr" target="_blank" rel="noopener" class="c-footer__sponsor">
+                            <img src="/static/img/logos/cnrs.png" srcset="/static/img/logos/cnrs@2x.png 2x" alt="CNRS" width="64" height="45" class="c-footer__logo"/>
+                        </a>
+                        <a href="http://www.sorbonne-universite.fr" target="_blank" rel="noopener" class="c-footer__sponsor">
+                            <img src="/static/img/logos/sorbonne.png" srcset="/static/img/logos/sorbonne@2x.png 2x" alt="Sorbonne Université" width="93" height="38" class="c-footer__logo"/>
                         </a>
                     </div>
                 </div>
@@ -433,6 +559,6 @@
             <button class="c-cookies__button c-button c-button--secondary js-cookies-button">I Accept</button>
         </div>
 
-                    <script src="/static/js/index.min.js"></script>
+                    <script src="/static/js/index-2020.min.js"></script>
             </body>
 </html>

@@ -25,6 +25,17 @@ class Filter {
       });
 
       this.checkCategories();
+
+      // Makes dates toggleables
+      const dates = this.inputs.filter((input) => input.classList.contains('js-filter-date'));
+      dates.forEach((currentDate) => {
+        currentDate.setAttribute('type', 'checkbox');
+
+        currentDate.addEventListener('change', () => dates.forEach((date) => {
+          if (date === currentDate) return;
+          date.checked = false;
+        }));
+      });
     }
 
     this.inputs.forEach((input) => {
@@ -34,12 +45,15 @@ class Filter {
 
   checkCategories() {
     // Get active categories with item data-filter-category
-    const activeCategories = [...new Set(Array.from(document.querySelector(this.replace).querySelectorAll('[data-filter-category]')).reduce((acc, item) => acc.concat(item.dataset.filterCategory), []))];
+    const activeCategories = [...new Set(Array.from(document.querySelector(this.replace).querySelectorAll('[data-filter-category')).reduce((acc, item) => acc.concat(item.dataset.filterCategory), []))];
 
     // Disable or enable category input
-    this.inputs.forEach((category) => {
-      const isActive = activeCategories.includes(category.getAttribute('value'));
-      category.classList[isActive ? 'remove' : 'add']('is-inactive')
+    this.inputs.filter((input) => input.classList.contains('js-filter-category')).forEach((category) => {
+      if (activeCategories.includes(category.getAttribute('value'))) {
+        category.classList.remove('is-inactive');
+      } else {
+        category.classList.add('is-inactive');
+      }
     });
   }
 
@@ -73,19 +87,29 @@ class Filter {
         if (response.status === 200) {
           const parser = new DOMParser();
           const html = parser.parseFromString(response.data, 'text/html');
-          const replace = html.querySelector(this.replace);
+          const oldItems = document.querySelector(this.replace);
+          const newItems = html.querySelector(this.replace);
 
-          if (replace) {
-            document.querySelector(this.replace).innerHTML = replace.innerHTML;
+          // Ignore filter
+          const ignore = (item) => !item.classList.contains('js-filter-dates');
 
-            this.checkCategories();
+          // Remove old items
+          Array.from(oldItems.children).filter(ignore).forEach((item) => {
+            item.classList.add('is-removed');
 
-            if ('replaceState' in history) {
-              history.replaceState({}, '', '?' + new URLSearchParams(data));
-            }
-          } else {
-            this.showError('Error: no content to replace');
-          }
+            setTimeout(() => {
+              oldItems.removeChild(item)
+
+              // Append new items
+              Array.from(newItems.children).filter(ignore).forEach((item) => {
+                item.classList.add('is-added');
+                oldItems.appendChild(item);
+                setTimeout(() => item.classList.remove('is-added'), 401);
+              });
+
+              this.checkCategories();
+            }, 401);
+          });
 
         } else {
           this.showError(`Error: Request failed with status code ${response.status} (${statusText})`);

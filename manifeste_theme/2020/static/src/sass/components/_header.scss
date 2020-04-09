@@ -8,7 +8,6 @@
     display: block;
     display: flex;
     text-decoration: none;
-    text-transform: uppercase;
   }
 
     .c-header__logo,
@@ -22,6 +21,7 @@
     }
 
     .c-header__name {
+      font-weight: $font-bold;
       margin-left: rem(16px);
       transition: color 400ms;
 
@@ -132,8 +132,9 @@
     }
 
       .c-header__logo {
-        width: rem(106px);
-        height: rem(32px);
+        width: rem(80px);
+        height: rem(24px);
+        margin: rem(4px) 0;
         top: rem(-1px);
       }
 
@@ -233,13 +234,14 @@
       position: relative;
       overflow: hidden;
       min-height: rem(144px);
+      flex: 2;
     }
 
       .c-header__mask {
         color: $color-primary;
         display: block;
-        width: rem(228px);
-        height: rem(240px);
+        width: rem(60px);
+        height: rem(120px);
         margin: 0 auto;
         opacity: .8;
         position: absolute;
@@ -249,9 +251,9 @@
         z-index: 2;
         transform: translateY(-50%);
 
-        @supports (mix-blend-mode: color-dodge) {
+        @supports (mix-blend-mode: lighten) {
           opacity: 1;
-          mix-blend-mode: color-dodge;
+          mix-blend-mode: lighten;
         }
       }
 
@@ -314,10 +316,6 @@
   .c-header__link {
     @include font-size($font-h4-large...);
     font-weight: $font-bold;
-  }
-
-  .c-header__banner {
-    min-height: rem(320px);
   }
 }
 
@@ -416,24 +414,22 @@
 
           .c-header__link {
             background-image: linear-gradient(rgba($color-white, 0), $color-white);
-            @include font-size($font-h5-large...);
-            // padding: rem(24px 12px 32px);
-            padding: rem(28px 12px);
+            @include font-size($font-p...);
+            padding: rem(32px 24px);
             text-decoration: none;
           }
 
       .c-header__action {
         padding: rem(8px);
-        margin: rem(24px 8px);
+        margin: rem(24px 16px 24px 8px);
       }
 
       .c-header__languages {
-        // padding: rem(20px 0 28px);
-        padding: rem(24px) 0;
+        padding: rem(28px) 0;
       }
 
         .c-header__language {
-          @include font-size($font-h5-large...);
+          @include font-size($font-p...);
           padding: rem(4px 8px);
         }
 

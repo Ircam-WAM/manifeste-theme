@@ -155,7 +155,7 @@ gulp.task('prototype', function () {
       base: 'prototype',
       data: {
         settings: {
-          SITE_TITLE: 'Vertigo 2020'
+          SITE_TITLE: 'Manifeste 2020'
         },
         LANGUAGE_CODE: 'fr',
       },
