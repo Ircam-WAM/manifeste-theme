@@ -26,66 +26,75 @@
 {% endblock %}
 
 {% block main %}
-    <header class="c-hero">
-        <svg class="c-hero__mask" width="228" height="240" aria-label="Vertigo">
-            <use xlink:href="{% static 'img/symbols.svg' %}#symbol-vertigo"/>
-        </svg>
-        <img src="{% static 'img/events.jpg' %}" alt="" loading="lazy" class="c-hero__picture"/>
-        <div class="c-hero__container c-container">
-            <h1 class="c-hero__title">{% trans 'Events' %}</h1>
-            <form action="{% url 'event_list' %}" method="get" class="c-hero__informations u-hidden@small js-filter" aria-labelledby="filter-title" data-filter-replace="#results" onchange="submit()">
-                <p class="c-hero__label" id="filter-title">{% trans 'Filter by' %}</p>
-                <p class="c-hero__tags">
-                    {% for field in filter_form.event_categories_filter %}
-                        <input type="checkbox" id="filter-{{ field.choice_value|lower }}" name="{{ field.name }}" value="{{ field.choice_value }}" class="c-hero__input js-filter-input{% if field.value and not field.choice_value in field.value %} is-inactive{% endif %}"{% if field.choice_value in field.value %} checked{% endif %}/>
-                        <label for="filter-{{ field.choice_value|lower }}" class="c-hero__tag c-button c-button--rounded">{{ field.choice_label }}</label>
-                    {% endfor %}
-                    <button input type="submit" class="c-hero__tag c-hero__tag--submit c-button--rounded c-button c-button--secondary">{% trans "Submit" %}</button>
-                </p>
-            </form>
-        </div>
-    </header>
-
-    <div id="results">
-        {% if not events and not past_events %}
-            <section class="c-container c-container--narrow u-mts u-mtl@medium">
-                <div class="c-content u-align-center">
-                    <p class="h3">{% trans 'No results were found matching your query.' %}</p>
+    <form action="{% url 'event_list' %}" method="get" data-filter-replace="#results" onchange="submit()" class="js-filter">
+        <header class="c-hero">
+            <svg class="c-hero__mask" width="160" height="320" aria-hidden="true">
+                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-manifeste-2020"/>
+            </svg>
+            <img src="{% static 'img/events.jpg' %}" srcset="{% static 'img/events@2x.jpg' %} 2x" alt="" loading="lazy" class="c-hero__picture"/>
+            <div class="c-hero__container c-container">
+                <h1 class="c-hero__title">{% trans 'Events' %}</h1>
+                <div class="c-hero__informations u-hidden@small" aria-labelledby="filter-title">
+                    <p class="c-hero__label" id="filter-title">{% trans 'Filter by' %}</p>
+                    <p class="c-hero__tags">
+                        {% for field in filter_form.event_categories_filter %}
+                            <input type="checkbox" id="filter-{{ field.choice_value|lower }}" name="{{ field.name }}" value="{{ field.choice_value }}" class="c-hero__input js-filter-input js-filter-category{% if field.value and not field.choice_value in field.value %} is-inactive{% endif %}"{% if field.choice_value in field.value %} checked{% endif %}/>
+                            <label for="filter-{{ field.choice_value|lower }}" class="c-hero__tag c-button c-button--rounded">{{ field.choice_label }}</label>
+                        {% endfor %}
+                        <button input type="submit" class="c-hero__tag c-hero__tag--submit c-button--rounded c-button c-button--secondary">{% trans "Submit" %}</button>
+                    </p>
                 </div>
-            </section>
-        {% endif %}
+            </div>
+        </header>
 
-        {% if events %}
-            <section class="c-container u-mtxs u-mt-l@medium">
-                <div class="c-gallery">
-                    <ul class="c-gallery__items">
+        <section class="c-container u-mtxs u-mt-l@medium">
+            <div class="c-gallery">
+                <ul class="c-gallery__items" id="results">
+                    <li class="c-gallery__item js-filter-dates">
+                        {% include 'includes/calendar.html' with date_field=filter_form.event_day_filter %}
+                    </li>
+                    {% if events %}
                         {% for event in events %}
                             <li class="c-gallery__item" data-filter-category="{% if event.category %}{{ event.category }}{% else %}{{ event.parent.category }}{% endif %}">
                                 {% include 'agenda/includes/event_card.html' %}
                             </li>
                         {% endfor %}
-                    </ul>
-                </div>
-            </section>
-        {% endif %}
+                    {% else %}
+                        <li class="c-gallery__item c-gallery__item--large">
+                            <div class="c-content u-align-center u-mts u-mbs">
+                                <p class="h3">{% trans 'No results were found matching your query.' %}</p>
+                            </div>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </section>
+    </form>
 
-        {% if past_events %}
-            <section class="c-container {% if events %}u-mtm{% else %}u-mtxs u-mtl@medium{% endif %}">
-                <div class="c-heading">
-                    <h2 class="c-heading__title">{% trans 'Past events' %}</h2>
-                </div>
+    {% if past_events %}
+        <section class="c-container {% if events %}u-mtm{% else %}u-mtxs u-mtl@medium{% endif %}">
+            <div class="c-heading">
+                <h2 class="c-heading__title">{% trans 'Past events' %}</h2>
+            </div>
 
-                <div class="c-gallery u-mtxs u-mts@medium">
-                    <ul class="c-gallery__items">
-                        {% for event in past_events %}
-                            <li class="c-gallery__item" data-filter-category="{% if event.category %}{{ event.category }}{% else %}{{ event.parent.category }}{% endif %}">
-                                {% include 'agenda/includes/event_card.html' %}
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </section>
-        {% endif %}
-    </div>
+            <div class="c-gallery u-mtxs u-mts@medium">
+                <ul class="c-gallery__items">
+                    {% for event in past_events %}
+                        <li class="c-gallery__item" data-filter-category="{% if event.category %}{{ event.category }}{% else %}{{ event.parent.category }}{% endif %}">
+                            {% include 'agenda/includes/event_card.html' %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+    {% endif %}
+
+    {% if not events and not past_events %}
+        <section class="c-container c-container--narrow u-mts u-mtl@medium">
+            <div class="c-content u-align-center">
+                <p class="h3">{% trans 'No results were found matching your query.' %}</p>
+            </div>
+        </section>
+    {% endif %}
 {% endblock %}
 
