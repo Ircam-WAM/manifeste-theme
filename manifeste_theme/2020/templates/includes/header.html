@@ -6,7 +6,7 @@
             <svg class="c-header__logo" width="80" height="24" aria-hidden="true">
                 <use xlink:href="{% static 'img/symbols.svg' %}#symbol-ircam"/>
             </svg>
-            <span class="c-header__name">Vertigo</span>
+            <span class="c-header__name">ManiFeste</span>
         </a>
 
         <a href="{% url 'search' %}" class="c-header__action c-header__action--search">
@@ -48,10 +48,10 @@
         {% endif %}
 
         <div class="c-header__banner" aria-hidden="true">
-            <svg class="c-header__mask" width="228" height="240" focusable="false">
-                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-vertigo"/>
+            <svg class="c-header__mask" width="160" height="320" focusable="false">
+                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-manifeste-2020"/>
             </svg>
-            <img src="{% static 'img/home.jpg' %}" alt="" loading="lazy" class="c-header__picture"/>
+            <img src="{% static 'img/home.jpg' %}" srcset="{% static 'img/home@2x.jpg' %} 2x" alt="" loading="lazy" class="c-header__picture"/>
         </div>
     </nav>
 </header>
