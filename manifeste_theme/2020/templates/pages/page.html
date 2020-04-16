@@ -47,30 +47,6 @@
             </div>
         {% endblock %}
 
-        {% block page_link %}
-            {% with object.links.all as links %}
-                {% if links %}
-                    {% include 'core/inc/link.html' %}
-                {% endif %}
-            {% endwith %}
-        {% endblock %}
-
-        {% block page_file %}
-            {% with object.files.all as files %}
-                {% if files %}
-                    {% include 'core/inc/files.html' %}
-                {% endif %}
-            {% endwith %}
-        {% endblock %}
-
-        {% block page_slider %}
-            {% with object.images.all|get_type:'page_slider' as slider_images %}
-                {% if slider_images %}
-                    {% include 'core/inc/slider.html' %}
-                {% endif %}
-            {% endwith %}
-        {% endblock %}
-
         {% block multimedia %}
             {% for dm in object.dynamic_multimedia.all %}
                 {% with content_type=dm.content_type_id|get_content_type %}
@@ -92,6 +68,30 @@
                 {% endwith %}
             {% endfor %}
         {% endblock multimedia %}
+
+        {% block page_slider %}
+            {% with object.images.all|get_type:'page_slider' as slider_images %}
+                {% if slider_images %}
+                    {% include 'core/inc/slider.html' %}
+                {% endif %}
+            {% endwith %}
+        {% endblock %}
+
+        {% block page_link %}
+            {% with object.links.all as links %}
+                {% if links %}
+                    {% include 'core/inc/link.html' %}
+                {% endif %}
+            {% endwith %}
+        {% endblock %}
+
+        {% block page_file %}
+            {% with object.files.all as files %}
+                {% if files %}
+                    {% include 'core/inc/files.html' %}
+                {% endif %}
+            {% endwith %}
+        {% endblock %}
 
         {% block page_person_list %}
         {% endblock %}
