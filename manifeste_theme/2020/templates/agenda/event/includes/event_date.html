@@ -8,5 +8,5 @@
 {# display date end #}
 {% if date_end and not date_begin|date:"d.m.y" == date_end|date:"d.m.y" %}
     {{ date_begin|get_separator_with:date_end }}
-    <span class="inline-date">{{ date_end|date:"DATE_EVENT_FORMAT" }}</span>
+    <span class="inline-date">{{ date_end|date:"DATE_EVENT_FORMAT_Y" }}</span>
 {% endif %}

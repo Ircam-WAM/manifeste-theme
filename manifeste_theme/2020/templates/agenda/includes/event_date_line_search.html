@@ -2,7 +2,7 @@
 {% with event.periods.all as periods %}
     <!-- Start date only  -->
     {% if event.start and not event.end %}
-        {{ event.start|date:"DATE_EVENT_FORMAT" }}
+        {{ event.start|date:"DATE_EVENT_FORMAT_Y" }}
         <!-- Start date with hour  -->
         {% if event.start and event.start|date:"H:i" != "23:59" %}
         {% endif %}
@@ -11,9 +11,9 @@
         <!-- Start and end date is the same day  -->
         {% if event.start|date:"d.m.y" == event.end|date:"d.m.y" %}
             {% if not periods %}
-                {{ event.start|date:"DATE_EVENT_FORMAT" }}
+                {{ event.start|date:"DATE_EVENT_FORMAT_Y" }}
             {% else %}
-                {{ event.start|date:"DATE_EVENT_FORMAT" }}
+                {{ event.start|date:"DATE_EVENT_FORMAT_Y" }}
                 {% for period in periods %}
                 {% endfor %}
             {% endif %}
@@ -25,10 +25,10 @@
             {% else %}
                 {% trans "and" %}
             {% endif %}
-            {{ event.end|date:"DATE_EVENT_FORMAT" }}
+            {{ event.end|date:"DATE_EVENT_FORMAT_Y" }}
         <!-- Start and end date are completely different  -->
         {% else %}
-            {{ event.start|date:"DATE_EVENT_FORMAT" }} {% trans "through" %} {{ event.end|date:"DATE_EVENT_FORMAT" }}
+            {{ event.start|date:"DATE_EVENT_FORMAT" }} {% trans "through" %} {{ event.end|date:"DATE_EVENT_FORMAT_Y" }}
             <!-- Start date with hour  -->
         {% endif %}
 
