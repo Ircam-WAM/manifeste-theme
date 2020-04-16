@@ -31,12 +31,6 @@
 {% endblock %}
 
 {% block page_content %}
-    {% if media.description %}
-        <div class="c-content u-mbm">
-            <p>{{ media.description }}</p>
-        </div>
-    {% endif %}
-
     {% with media.type as type %}
         {% with "media/media/includes/"|add:type|add:".html" as template %}
             {% include template %}
