@@ -57,9 +57,11 @@
                                     {% if m_object.title %}
                                         <h2 class="h3">{{ m_object.title }}</h2>
                                     {% endif %}
+                                    {% comment %}
                                     {% if m_object.description and m_object.description != m_object.title %}
                                         <p>{{ m_object.description }}</p>
                                     {% endif %}
+                                    {% endcomment %}
                                 </div>
                             {% endif %}
                             {% include template with object=m_object %}
