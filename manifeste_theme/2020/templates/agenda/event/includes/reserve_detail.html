@@ -4,7 +4,7 @@
             {% with event.links.all as links %}
                 {% if links %}
                     <p>
-                        <a href="{{ links|get_type_link:'link'|first }}" class="c-informations__button c-button c-button--secondary">
+                        <a href="{{ links|get_type_link:'link'|first }}" class="c-informations__button c-button c-button--secondary c-button--large">
                             {% trans "Reserve" %}
                         </a>
                     </p>
@@ -12,7 +12,7 @@
             {% endwith %}
         {% elif event.links.all|get_type_link:'vel' %}
             <p>
-                <a href="{{ event.links.all|get_type_link:'vel'|first }}" target="_blank" rel="noopener" class="c-informations__button c-button c-button--secondary">
+                <a href="{{ event.links.all|get_type_link:'vel'|first }}" target="_blank" rel="noopener" class="c-informations__button c-button c-button--secondary c-button--large">
                     {% trans "Reserve" %}
                 </a>
             </p>
