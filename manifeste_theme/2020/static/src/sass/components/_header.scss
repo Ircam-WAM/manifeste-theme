@@ -243,18 +243,12 @@
         width: rem(60px);
         height: rem(120px);
         margin: 0 auto;
-        opacity: .8;
         position: absolute;
         top: 50%;
         right: 0;
         left: 0;
         z-index: 2;
         transform: translateY(-50%);
-
-        @supports (mix-blend-mode: lighten) {
-          opacity: 1;
-          mix-blend-mode: lighten;
-        }
       }
 
       .c-header__picture {
