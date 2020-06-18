@@ -13,7 +13,7 @@
                     {% for content in dynamic_content.event %}
                         {% with event=content.content_object %}
                             <li class="c-gallery__item">
-                                {% include 'agenda/includes/event_linecard.html' %}
+                                {% include 'agenda/includes/event_card.html' %}
                             </li>
                         {% endwith %}
                     {% endfor %}

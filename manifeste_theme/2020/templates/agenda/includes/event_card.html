@@ -12,11 +12,11 @@
 {% block image %}
     {% with event.images.all|get_type:'card' as images %}
         {% if images %}
-            <img src="{{ MEDIA_URL }}{% thumbnail images.0.file 1120 352 %}" alt="" loading="lazy" class="c-article__picture"/>
+            <img src="{{ MEDIA_URL }}{% thumbnail images.0.file 352 352 %}" alt="" loading="lazy" class="c-article__picture"/>
         {% else %}
             {% with event.parent.images.all|get_type:'card' as images %}
                 {% if images %}
-                    <img src="{{ MEDIA_URL }}{% thumbnail images.0.file 1120 352 %}" alt="" loading="lazy" class="c-article__picture"/>
+                    <img src="{{ MEDIA_URL }}{% thumbnail images.0.file 352 352 %}" alt="" loading="lazy" class="c-article__picture"/>
                 {% endif %}
             {% endwith %}
         {% endif %}
