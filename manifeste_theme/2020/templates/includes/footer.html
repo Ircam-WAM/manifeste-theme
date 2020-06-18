@@ -7,24 +7,10 @@
                 <div class="c-footer__presentation">
                     <ul class="c-footer__downloads">
                         <li class="c-footer__download c-download">
-                            {# TODO @emilie: image #}
-                            <img src="http://placehold.it/56x72" srcset="http://placehold.it/112x144 2x" alt="" class="c-download__picture" />
+                            <img src="{% static 'img/2020.png' %}" srcset="{% static 'img/2020@2x.png' %} 2x" alt="" class="c-download__picture" />
                             <div class="c-download__content">
                                 <p class="c-download__label">{% trans 'The program in pdf format' %}</p>
-                                {# TODO @emilie: url #}
-                                <a href="#" class="c-download__button c-button c-button--secondary">{% trans 'Download' %}</a>
-                                <svg class="c-download__icon" width="24" height="24" aria-hidden="true" focusable="false">
-                                    <use xlink:href="{% static 'img/symbols.svg' %}#symbol-download"/>
-                                </svg>
-                            </div>
-                        </li>
-                        <li class="c-footer__download c-download">
-                            {# TODO @emilie: image #}
-                            <img src="http://placehold.it/56x72" srcset="http://placehold.it/112x144 2x" alt="" class="c-download__picture" />
-                            <div class="c-download__content">
-                                <p class="c-download__label">{% trans 'L’Étincelle in pdf format' %}</p>
-                                {# TODO @emilie: url #}
-                                <a href="#" class="c-download__button c-button c-button--secondary">{% trans 'Download' %}</a>
+                                <a href="/media/uploads/documents/agenda_manifeste2020.pdf" class="c-download__button c-button c-button--secondary" target="_blank">{% trans 'Download' %}</a>
                                 <svg class="c-download__icon" width="24" height="24" aria-hidden="true" focusable="false">
                                     <use xlink:href="{% static 'img/symbols.svg' %}#symbol-download"/>
                                 </svg>
