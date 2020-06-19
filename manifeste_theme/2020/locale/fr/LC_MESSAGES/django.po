@@ -510,8 +510,6 @@ msgid "Instagram feed"
 msgstr "Fil Instagram"
 
 #: templates/includes/calendar.html:5
-#, fuzzy
-#| msgid "August, 31 to September, 13, 2020"
 msgid "August—September, 2020"
 msgstr "Août - Septembre 2020"
 
