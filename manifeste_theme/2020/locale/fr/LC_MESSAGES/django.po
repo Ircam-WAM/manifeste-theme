@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-17 09:55+0000\n"
+"POT-Creation-Date: 2020-06-19 14:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: prototype/includes/footer.html:10 templates/includes/footer.html:12
+msgid "The program in pdf format"
+msgstr ""
+
+#: prototype/includes/footer.html:11 templates/includes/footer.html:13
+#, fuzzy
+#| msgid "Downloads"
+msgid "Download"
+msgstr "Téléchargements"
 
 #: templates/2020/base.html:54
 msgid ""
@@ -225,27 +235,30 @@ msgstr ""
 msgid "Événement précédent"
 msgstr ""
 
-#: templates/agenda/event_list.html:8 templates/agenda/event_list.html:35
+#: templates/agenda/event_list.html:8 templates/agenda/event_list.html:36
 msgid "Events"
 msgstr "Événements"
 
-#: templates/agenda/event_list.html:37
+#: templates/agenda/event_list.html:38
 #: templates/magazine/article/article_list.html:39
+#: templates/magazine/magazine/magazine_detail.html:18
 msgid "Filter by"
 msgstr ""
 
-#: templates/agenda/event_list.html:43 templates/includes/footer.html:41
+#: templates/agenda/event_list.html:44 templates/includes/footer.html:50
 #: templates/pages/form.html:55 templates/projects/project_ict_create.html:39
 msgid "Submit"
 msgstr ""
 
-#: templates/agenda/event_list.html:53 templates/search_results.html:40
+#: templates/agenda/event_list.html:65 templates/agenda/event_list.html:95
+#: templates/magazine/magazine/magazine_detail.html:48
+#: templates/search_results.html:40
 #, fuzzy
 #| msgid "No results were found matching your query: %(query)s"
 msgid "No results were found matching your query."
 msgstr "Aucun résultat n'a été trouvé pour votre recherche : %(query)s"
 
-#: templates/agenda/event_list.html:75
+#: templates/agenda/event_list.html:77
 msgid "Past events"
 msgstr "Événements passés"
 
@@ -474,11 +487,11 @@ msgstr ""
 msgid "Read more"
 msgstr "Lire la suite"
 
-#: templates/home/inc/body.html:6
+#: templates/home/inc/body.html:11
 msgid "Last news"
 msgstr "Dernières actualités"
 
-#: templates/home/inc/body.html:9 templates/home/inc/body.html:23
+#: templates/home/inc/body.html:14 templates/home/inc/body.html:28
 #: templates/home/inc/social.html:15 templates/home/inc/social.html:40
 #: templates/includes/instagram.html:17
 msgid "See more"
@@ -496,6 +509,40 @@ msgstr "Fil Twitter"
 msgid "Instagram feed"
 msgstr "Fil Instagram"
 
+#: templates/includes/calendar.html:5
+#, fuzzy
+#| msgid "August, 31 to September, 13, 2020"
+msgid "August—September, 2020"
+msgstr "Août - Septembre 2020"
+
+#: templates/includes/calendar.html:9
+msgid "MO"
+msgstr ""
+
+#: templates/includes/calendar.html:10
+msgid "TU"
+msgstr ""
+
+#: templates/includes/calendar.html:11
+msgid "WE"
+msgstr ""
+
+#: templates/includes/calendar.html:12
+msgid "TH"
+msgstr ""
+
+#: templates/includes/calendar.html:13
+msgid "FR"
+msgstr ""
+
+#: templates/includes/calendar.html:14
+msgid "SA"
+msgstr ""
+
+#: templates/includes/calendar.html:15
+msgid "SU"
+msgstr ""
+
 #: templates/includes/editable_form.html:16
 msgid "Save"
 msgstr ""
@@ -508,29 +555,21 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: templates/includes/footer.html:8
-msgid "Mutations / Créations 4"
-msgstr ""
-
-#: templates/includes/footer.html:9
-msgid "Carried by"
-msgstr "Porté par"
-
-#: templates/includes/footer.html:33
+#: templates/includes/footer.html:42
 msgid "Sign up for our newsletter to stay up-to-date with the festival"
 msgstr ""
 "Inscrivez-vous à notre newsletter afin de recevoir les dernières actualités "
 "due l'Ircam."
 
-#: templates/includes/footer.html:35
+#: templates/includes/footer.html:44
 msgid "Your email"
 msgstr "Votre email"
 
-#: templates/includes/footer.html:50
+#: templates/includes/footer.html:59
 msgid "Follow us on"
 msgstr "Suivez-nous sur"
 
-#: templates/includes/footer.html:58
+#: templates/includes/footer.html:67
 msgid "All rights reserved"
 msgstr ""
 
@@ -577,13 +616,13 @@ msgstr ""
 msgid "Share on Twitter"
 msgstr ""
 
-#: templates/includes/share_buttons.html:14
-msgid "Share on LinkedIn"
-msgstr ""
+#: templates/index.html:16
+msgid "August, 31 to September, 13, 2020"
+msgstr "31 août - 13 septembre 2020"
 
-#: templates/index.html:15
-msgid "February, 26 - March, 6 2020"
-msgstr "26 février - 6 mars 2020"
+#: templates/index.html:16
+msgid "Musics — Fictions Festival"
+msgstr "Festival Musiques - Fictions"
 
 #: templates/job/candidacy_list.html:4 templates/job/candidacy_list.html:13
 #: templates/job/candidacy_list.html:22
@@ -1366,6 +1405,17 @@ msgstr ""
 #: templates/styles.html:4 templates/styles.html:6 templates/styles.html:12
 msgid "Styles"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Festival 21 août - 13 septembre 2020"
+#~ msgid "Festival 21 august - 13 september 2020"
+#~ msgstr "Musiques - Fictions"
+
+#~ msgid "Carried by"
+#~ msgstr "Porté par"
+
+#~ msgid "February, 26 - March, 6 2020"
+#~ msgstr "26 février - 6 mars 2020"
 
 #~ msgid "Events to come"
 #~ msgstr "Événements"
