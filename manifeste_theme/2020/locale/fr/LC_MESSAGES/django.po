@@ -20,13 +20,11 @@ msgstr ""
 
 #: prototype/includes/footer.html:10 templates/includes/footer.html:12
 msgid "The program in pdf format"
-msgstr ""
+msgstr "L'Agenda du festival au format pdf"
 
 #: prototype/includes/footer.html:11 templates/includes/footer.html:13
-#, fuzzy
-#| msgid "Downloads"
 msgid "Download"
-msgstr "Téléchargements"
+msgstr "Télécharger"
 
 #: templates/2020/base.html:54
 msgid ""
