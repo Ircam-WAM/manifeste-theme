@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-22 09:51+0000\n"
+"POT-Creation-Date: 2020-06-22 10:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -613,16 +613,12 @@ msgid "Share on Twitter"
 msgstr ""
 
 #: templates/index.html:16
-#, fuzzy
-#| msgid "August, 31 to September, 13, 2020"
-msgid "Festival August, 31 to September, 13, 2020"
+msgid "August, 31 to September, 13, 2020"
 msgstr "31 août - 13 septembre 2020"
 
 #: templates/index.html:16
-#, fuzzy
-#| msgid "Musics — Fictions Festival"
 msgid "Musics — Fictions"
-msgstr "Festival Musiques - Fictions"
+msgstr "Musiques - Fictions"
 
 #: templates/job/candidacy_list.html:4 templates/job/candidacy_list.html:13
 #: templates/job/candidacy_list.html:22
