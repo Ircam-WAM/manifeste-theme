@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html class="no-js" lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <script>document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/, 'js');</script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>Recherche – Manifeste 2020</title>
+
+        <link rel="stylesheet" href="/static/css/index-2020.min.css" />
+        <link rel="stylesheet" href="/static/css/vendors-2020.min.css" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/static/img/icons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/img/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/img/icons/favicon-16x16.png">
+        <link rel="manifest" href="/static/img/icons/site.webmanifest">
+        <link rel="mask-icon" href="/static/img/icons/safari-pinned-tab.svg" color="#ff407f">
+        <link rel="shortcut icon" href="/static/img/icons/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="ManiFeste">
+        <meta name="application-name" content="ManiFeste">
+        <meta name="msapplication-TileColor" content="#f25b3d">
+        <meta name="msapplication-config" content="/static/img/icons/browserconfig.xml">
+        <meta name="theme-color" content="#f25b3d">
+
+            </head>
+    <body id="body" class="">
+        <div class="c-wrapper">
+                            <header class="c-header js-header" id="header">
+    <div class="c-header__branding">
+        <a href="index.html" class="c-header__title">
+            <svg class="c-header__logo" width="80" height="24" aria-label="IRCAM Centre Pompidou">
+                <use xlink:href="/static/img/symbols.svg#symbol-ircam"/>
+            </svg>
+            <span class="c-header__name">ManiFeste</span>
+        </a>
+
+        <a href="search.html" class="c-header__action c-header__action--search">
+            <svg class="c-header__icon" width="16" height="16" aria-label="Rechercher" focusable="false">
+                <use xlink:href="/static/img/symbols.svg#symbol-search"/>
+            </svg>
+        </a>
+        <a href="#navigation" class="c-header__action c-header__action--open js-header-toggle">
+            <svg class="c-header__icon" width="16" height="16" aria-label="Ouvrir le menu" focusable="false">
+                <use xlink:href="/static/img/symbols.svg#symbol-menu"/>
+            </svg>
+        </a>
+        <a href="#" class="c-header__action c-header__action--close js-header-toggle">
+            <svg class="c-header__icon" width="16" height="16" aria-label="Fermer le menu" focusable="false">
+                <use xlink:href="/static/img/symbols.svg#symbol-close"/>
+            </svg>
+        </a>
+    </div>
+
+    <nav class="c-header__navigation js-header-navigation" id="navigation">
+        <ul class="c-header__items">
+            <li class="c-header__item is-active">
+                <a href="events.html" class="c-header__link">Événements</a>
+            </li>
+            <li class="c-header__item">
+                <a href="persons.html" class="c-header__link">Artistes</a>
+            </li>
+            <li class="c-header__item">
+                <a href="news.html" class="c-header__link">Actualités</a>
+            </li>
+            <li class="c-header__item">
+                <a href="content.html" class="c-header__link">Académies</a>
+            </li>
+            <li class="c-header__item">
+                <a href="content.html" class="c-header__link">Infos</a>
+            </li>
+        </ul>
+
+        <a href="search.html" class="c-header__action c-header__action--search">
+            <svg class="c-header__icon" width="16" height="16" aria-label="Rechercher" focusable="false">
+                <use xlink:href="/static/img/symbols.svg#symbol-search"/>
+            </svg>
+        </a>
+
+        <form class="c-header__languages" action="" method="post">
+            <button class="c-header__language is-active" type="submit" name="language" value="fr">FR</button>
+            <button class="c-header__language" type="submit" name="language" value="en">EN</button>
+        </form>
+
+        <div class="c-header__banner" aria-hidden="true">
+            <svg class="c-header__mask" width="160" height="320" focusable="false">
+                <use xlink:href="/static/img/symbols.svg#symbol-manifeste-2020"/>
+            </svg>
+            <img src="/static/img/home.jpg" srcset="/static/img/home@2x.jpg 2x" alt="" class="c-header__picture"/>
+        </div>
+    </nav>
+</header>
+            
+                            <main class="c-main">
+                                            <header class="c-hero c-hero--simple">
+        <svg class="c-hero__mask" width="160" height="320" aria-hidden="true">
+            <use xlink:href="/static/img/symbols.svg#symbol-manifeste-2020"/>
+        </svg>
+        <img src="/static/img/home.jpg" srcset="/static/img/home@2x.jpg 2x" alt="" class="c-hero__picture"/>
+        <div class="c-hero__container c-container">
+            <form action="search-results.html" method="get" class="c-hero__search" aria-labelledby="search-title">
+                <h1 class="c-hero__title u-hidden-visually" id="search-title">Recherche</h1>
+                <div class="c-hero__field c-field">
+                    <label for="search-query" class="c-field__label">Votre recherche</label>
+                    <input id="search-query" name="q" type="search" inputmode="search" value="IRCAM" placeholder="Exemple : IRCAM" required class="c-field__input">
+                    <svg class="c-field__icon" width="16" height="16" aria-hidden="true" focusable="false">
+                        <use xlink:href="/static/img/symbols.svg#symbol-search"/>
+                    </svg>
+                    <button type="submit" class="c-field__button c-button c-button--secondary c-button--xlarge">
+                        <svg class="c-button__icon" width="16" height="16" aria-label="Valider" focusable="false">
+                            <use xlink:href="/static/img/symbols.svg#symbol-arrow-right"/>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </header>
+
+    <section class="c-container c-container--narrow u-mts u-mtl@medium">
+        <div class="c-content u-align-center">
+            <h2 class="h3">Aucun résultat</h2>
+            <p>Blah blah.</p>
+        </div>
+    </section>
+                                    </main>
+            
+                            <footer class="c-footer u-mtm u-mtxl@medium">
+    <div class="c-footer__container c-container">
+        <div class="c-footer__columns">
+            <div class="c-footer__column">
+                <div class="c-footer__presentation">
+                    <ul class="c-footer__downloads">
+                        <li class="c-footer__download c-download">
+                            <img src="http://placehold.it/56x72" srcset="http://placehold.it/112x144 2x" alt="" class="c-download__picture" />
+                            <div class="c-download__content">
+                                <p class="c-download__label">Le programme au format pdf</p>
+                                <a href="#" class="c-download__button c-button c-button--secondary">Télécharger</a>
+                                <svg class="c-download__icon" width="24" height="24" aria-hidden="true" focusable="false">
+                                    <use xlink:href="/static/img/symbols.svg#symbol-download"/>
+                                </svg>
+                            </div>
+                        </li>
+                        <li class="c-footer__download c-download">
+                            <img src="http://placehold.it/56x72" srcset="http://placehold.it/112x144 2x" alt="" class="c-download__picture" />
+                            <div class="c-download__content">
+                                <p class="c-download__label">L’Étincelle au format pdf</p>
+                                <a href="#" class="c-download__button c-button c-button--secondary">Télécharger</a>
+                                <svg class="c-download__icon" width="24" height="24" aria-hidden="true" focusable="false">
+                                    <use xlink:href="/static/img/symbols.svg#symbol-download"/>
+                                </svg>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="c-footer__sponsors">
+                        <a href="http://www.culture.gouv.fr" target="_blank" rel="noopener" class="c-footer__sponsor">
+                            <img src="/static/img/logos/culture.png" srcset="/static/img/logos/culture@2x.png 2x" alt="Ministère de la Culture" width="50" height="64" class="c-footer__logo"/>
+                        </a>
+                        <a href="http://www.cnrs.fr" target="_blank" rel="noopener" class="c-footer__sponsor">
+                            <img src="/static/img/logos/cnrs.png" srcset="/static/img/logos/cnrs@2x.png 2x" alt="CNRS" width="64" height="64" class="c-footer__logo"/>
+                        </a>
+                        <a href="http://www.sorbonne-universite.fr" target="_blank" rel="noopener" class="c-footer__sponsor">
+                            <img src="/static/img/logos/sorbonne.png" srcset="/static/img/logos/sorbonne@2x.png 2x" alt="Sorbonne Université" width="93" height="38" class="c-footer__logo"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="c-footer__column">
+                <ul class="c-footer__items">
+                    <li class="c-footer__item">
+                        <a href="#" class="c-footer__link">Équipes &amp; contact</a>
+                    </li>
+                    <li class="c-footer__item">
+                        <a href="#" class="c-footer__link">Partenaires</a>
+                    </li>
+                    <li class="c-footer__item">
+                        <a href="#" class="c-footer__link">Précédentes éditions</a>
+                    </li>
+                    <li class="c-footer__item">
+                        <a href="#" class="c-footer__link">Soutenir l’IRCAM</a>
+                    </li>
+                    <li class="c-footer__item">
+                        <a href="#" class="c-footer__link">Mentions légales</a>
+                    </li>
+                    <li class="c-footer__item">
+                        <a href="#" class="c-footer__link">Politique de confidentialité</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="c-footer__column">
+                <form action="https://public.message-business.com/form/46711/84/form.aspx" method="get" target="_blank" class="c-footer__newsletter" aria-labelledby="newsletter-title">
+                    <p id="newsletter-title" class="c-footer__text">Inscrivez-vous à notre newsletter afin de recevoir les dernières actualités du festival.</p>
+                    <div class="c-footer__field c-field">
+                        <label for="newsletter-email" class="c-field__label">Votre e-mail</label>
+                        <input id="newsletter-email" name="formItem-mbtext-email" type="email" inputmode="email" placeholder="johnlennon@beatles.com" required class="c-field__input">
+                        <svg class="c-field__icon" width="16" height="16" aria-hidden="true" focusable="false">
+                            <use xlink:href="/static/img/symbols.svg#symbol-e-mail"/>
+                        </svg>
+                        <button type="submit" class="c-field__button c-button c-button--secondary c-button--xlarge">
+                            <svg class="c-button__icon" width="16" height="16" aria-label="Valider" focusable="false">
+                                <use xlink:href="/static/img/symbols.svg#symbol-arrow-right"/>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+
+                <div class="c-footer__networks">
+                    <a href="#" class="c-footer__network">
+                        <svg class="c-footer__icon" width="24" height="24" aria-label="Facebook" focusable="false">
+                            <use xlink:href="/static/img/symbols.svg#symbol-facebook"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="c-footer__network">
+                        <svg class="c-footer__icon" width="24" height="24" aria-label="Twitter" focusable="false">
+                            <use xlink:href="/static/img/symbols.svg#symbol-twitter"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="c-footer__network">
+                        <svg class="c-footer__icon" width="24" height="24" aria-label="YouTube" focusable="false">
+                            <use xlink:href="/static/img/symbols.svg#symbol-youtube"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <p class="c-footer__copyright">Copyright © 2020 Ircam. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+                    </div>
+
+        <div class="c-cookies js-cookies">
+            <p class="c-cookies__message">We use cookie technology to measure our online audience and to allow you to share content on social networks via link buttons. <a href="/politique-de-confidentialite">Further information</a>.</p>
+            <button class="c-cookies__button c-button c-button--secondary js-cookies-button">I Accept</button>
+        </div>
+
+                    <script src="/static/js/index-2020.min.js"></script>
+            </body>
+</html>

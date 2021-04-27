@@ -1,0 +1,68 @@
+{% extends "core/inc/generic_card.html" %}
+{% load i18n pages_tags mezzanine_tags media_tags organization_tags staticfiles %}
+
+{% block title %}
+    {{ object.title|truncatechars_html:50 }}
+{% endblock %}
+
+{% block url %}
+  {% if object.content|removetags:"p div"|slice:':4' == 'http' %}
+    {{ object.content|removetags:"p div" }}
+  {% else %}
+    {% url 'magazine-article-detail' object.slug %}
+  {% endif %}
+{% endblock %}
+
+{% block target %}
+  {% if object.content|removetags:"p div"|slice:':4' == 'http' %}target="_blank"{% endif %}
+{% endblock %}
+
+{% block image %}
+    {% with object.images.all|get_type:'card' as images %}
+        {% if images %}
+            <img src="{{ MEDIA_URL }}{% thumbnail images.0.file 352 352 %}" alt="" loading="lazy" class="c-article__picture"/>
+        {% endif %}
+    {% endwith %}
+{% endblock %}
+
+{% block header %}
+    <ul class="c-article__tags">
+        {% if object.categories.all %}
+            {% for category in object.categories.all %}
+                <li class="c-article__tag c-button c-button--rounded">
+                    <svg class="c-button__icon" width="16" height="16" aria-hidden="true" focusable="false">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-article"/>
+                    </svg>
+                    {% if category|lower|cut:" " == 'forumvertigo' %}
+                        <span class="c-button__label">{% trans 'Article' %} Forum vertigo</span>
+                    {% else %}
+                        <span class="c-button__label">{{ category }}</span>
+                    {% endif %}
+                    {% if object.content|removetags:"p div"|slice:':4' == 'http' %}
+                        <svg class="c-button__icon" width="16" height="16" aria-hidden="true" focusable="false">
+                            <use xlink:href="{% static 'img/symbols.svg' %}#symbol-send-out"/>
+                        </svg>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        {% else %}
+            <li class="c-article__tag c-button c-button--rounded">
+                <svg class="c-button__icon" width="16" height="16" aria-hidden="true" focusable="false">
+                    <use xlink:href="{% static 'img/symbols.svg' %}#symbol-article"/>
+                </svg>
+                <span class="c-button__label">{% trans 'Article' %}</span>
+                {% if object.content|removetags:"p"|slice:':4' == 'http' %}
+                    <svg class="c-button__icon" width="16" height="16" aria-hidden="true" focusable="false">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-send-out"/>
+                    </svg>
+                {% endif %}
+            </li>
+        {% endif %}
+    </ul>
+{% endblock %}
+
+{% block after_title %}
+    {% if object.description %}
+        <p class="c-article__text"><span class="u-ellipsis u-ellipsis--4">{{ object.description|richtext_filters|safe|truncatechars_html:200 }}</span></p>
+    {% endif %}
+{% endblock %}

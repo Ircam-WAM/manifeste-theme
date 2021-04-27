@@ -1,0 +1,58 @@
+{% extends "2020/base.html" %}
+{% load i18n pages_tags mezzanine_tags organization_tags staticfiles %}
+
+{% block meta_title %}
+    {% trans "Home" %}
+{% endblock %}
+
+{% block main %}
+    <header class="c-hero c-hero--home">
+        <svg class="c-hero__mask" width="160" height="320" aria-label="ManiFeste 2020">
+            <use xlink:href="{% static 'img/symbols.svg' %}#symbol-manifeste-2020"/>
+        </svg>
+        <img src="{% static 'img/home.jpg' %}" srcset="{% static 'img/home@2x.jpg' %} 2x" alt="" loading="lazy" class="c-hero__picture"/>
+        <div class="c-hero__container c-container">
+            {# TODO @emilie: peut être rendre cette partie administrable ? La date au moins #}
+            <h1 class="c-hero__title">{% trans "August, 31 to September, 13, 2020" %}<br/>{% trans "Musics — Fictions" %}</h1>
+        </div>
+    </header>
+
+    {# Slider #}
+    {% include "home/inc/slider.html" %}
+
+    {# last news #}
+    {% include "home/inc/body.html" %}
+
+    {# Edito #}
+    {% include "home/inc/bio.html" %}
+
+    {# Social #}
+    {% include "home/inc/social.html" %}
+{% endblock %}
+
+
+{% block footer_scripts_local %}
+    {{ block.super }}
+
+    <img src="https://secure.adnxs.com/seg?add=20921751&t=2" width="1" height="1" />
+    <img src="https://secure.adnxs.com/seg?add=20921750&t=2" width="1" height="1" />
+
+    <!-- Global site tag (gtag.js) - Google Ads: 784495553 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-784495553"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-784495553');
+    </script>
+
+    <script type="text/javascript">
+    var axel = Math.random() + "";
+    var a = axel * 10000000000000;
+    document.write('<img src="https://ad.doubleclick.net/ddm/activity/src=9916055;type=invmedia;cat=ircam0;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;ord=' + a + '?" width="1" height="1" alt=""/>');
+    </script>
+    <noscript>
+    <img src="https://ad.doubleclick.net/ddm/activity/src=9916055;type=invmedia;cat=ircam0;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;ord=1?" width="1" height="1" alt=""/>
+    </noscript>
+{% endblock %}

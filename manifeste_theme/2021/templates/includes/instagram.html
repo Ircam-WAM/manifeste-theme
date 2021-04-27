@@ -1,0 +1,23 @@
+{% load i18n instagram_client staticfiles %}
+
+{% instagram_user_recent_media ircam_paris %}
+
+{% if recent_media %}
+    <ul class="c-social__items">
+        {% for media in recent_media|slice:"5" %}
+            <li class="c-social__item">
+                <a href="http://instagram.com/p/{{ media.shortcode }}" target="_blank" rel="noopener" class="c-social__link">
+                    <img src="{{ media.thumbnail_src }}" alt="{{ media.caption }}" loading="lazy" class="c-social__picture" />
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    <p class="c-social__buttons u-mtxs u-hidden@medium u-hidden@large">
+        <a href="https://www.instagram.com/explore/tags/ircam/" target="_blank" rel="noopener" class="c-social__button c-button c-button--link c-button--large">
+            <span class="c-button__label">{% trans "See more" %}</span>
+            <svg class="c-button__icon" width="24" height="24" aria-hidden="true" focusable="false">
+                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-right"/>
+            </svg>
+        </a>
+    </p>
+{% endif %}

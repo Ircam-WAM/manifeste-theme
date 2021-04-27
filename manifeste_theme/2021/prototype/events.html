@@ -1,0 +1,62 @@
+{% extends '2020/base.html' %}
+
+{% block meta_title %}Événements{% endblock %}
+
+{% block main %}
+    <header class="c-hero">
+        <svg class="c-hero__mask" width="160" height="320" aria-hidden="true">
+            <use xlink:href="{% static 'img/symbols.svg' %}#symbol-manifeste-2020"/>
+        </svg>
+        <img src="{% static 'img/events.jpg' %}" srcset="{% static 'img/events@2x.jpg' %} 2x" alt="" class="c-hero__picture"/>
+        <div class="c-hero__container c-container">
+            <h1 class="c-hero__title">Événements</h1>
+            <form action="" method="get" class="c-hero__informations u-hidden@small" aria-labelledby="filter-title">
+                <p class="c-hero__label" id="filter-title">Filtrer par: </p>
+                <p class="c-hero__tags">
+                    <button type="submit" name="filter" value="debats" class="c-hero__tag c-button c-button--rounded c-button--inactive">Débats</button>
+                    <button type="submit" name="filter" value="rencontres" class="c-hero__tag c-button c-button--rounded c-button--inactive">Rencontres</button>
+                    <button type="submit" name="filter" value="concerts" class="c-hero__tag c-button c-button--rounded c-button--primary">Concerts</button>
+                    <button type="submit" name="filter" value="expositions" class="c-hero__tag c-button c-button--rounded c-button--inactive">Expositions</button>
+                    <button type="submit" name="filter" value="installations" class="c-hero__tag c-button c-button--rounded c-button--inactive">Installations</button>
+                </p>
+            </form>
+        </div>
+    </header>
+
+    <section class="c-container u-mtxs u-mt-l@medium">
+        <div class="c-gallery">
+            <ul class="c-gallery__items">
+                <li class="c-gallery__item">
+                    {% include 'includes/calendar.html' with { selected: '2020-06-12' } %}
+                </li>
+                <li class="c-gallery__item">
+                    {% include 'includes/card_event.html' with { type: 'Installation', booking: 'Accès libre', location: 'Centre Pompidou, Galerie 4', title: 'Data sculptures by Rafik Anadol' } %}
+                </li>
+                <li class="c-gallery__item">
+                    {% include 'includes/card_event.html' %}
+                </li>
+                <li class="c-gallery__item">
+                    {% include 'includes/card_event.html' with { type: 'Concert', location: 'Centre Pompidou, Galerie 4', title: 'IRCAM Live' } %}
+                </li>
+                <li class="c-gallery__item">
+                    {% include 'includes/card_event.html' %}
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="c-container u-mtm">
+        <div class="c-heading">
+            <h2 class="c-heading__title">Événements passés</h2>
+        </div>
+
+        <div class="c-gallery u-mtxs u-mts@medium">
+            <ul class="c-gallery__items">
+                <li class="c-gallery__item">
+                    {% include 'includes/card_event.html' %}
+                </li>
+            </ul>
+        </div>
+    </section>
+{% endblock main %}
+

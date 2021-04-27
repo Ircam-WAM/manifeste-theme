@@ -1,0 +1,19 @@
+{% load i18n pages_tags mezzanine_tags media_tags organization_tags %}
+
+{% if home.dynamiccontenthomeslider_set.all|length > 0 %}
+    <section class="c-container c-container--full@small u-mtxs u-mt-l@medium">
+        <div class="c-slideshow c-slideshow--home js-slideshow">
+            {% for slider in home.dynamiccontenthomeslider_set.all %}
+                {% with slider.content_object.images.all|get_type:'slider' as images %}
+                    {% if images %}
+                        {% if slider.content_type.model == 'event' %}
+                            <div class="c-slideshow__slide js-slideshow-slide">
+                                {% include 'agenda/includes/event_linecard.html' with event=slider.content_object %}
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                {% endwith %}
+            {% endfor %}
+        </div>
+    </section>
+{% endif %}

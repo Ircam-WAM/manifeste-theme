@@ -1,0 +1,20 @@
+{% load mezzanine_tags %}
+
+<div class="c-slideshow js-slideshow u-mbs">
+    {% for image in slider_images %}
+        <figure class="c-slideshow__slide js-slideshow-slide">
+            <img src="{{ MEDIA_URL}}{% thumbnail image.file 928 0 upscale=false %}" style="max-height: 30rem;" alt="" class="c-slideshow__picture"/>
+            <figcaption class="c-slideshow__caption">
+                {% if image.title %}
+                    <b>{{ image.title }}</b>
+                {% endif %}
+                {% if image.description %}
+                    <br/>{{ image.description|safe }}
+                {% endif %}
+                {% if image.credits %}
+                    <br/>{{ image.credits }}
+                {% endif %}
+            </figcaption>
+        </figure>
+    {% endfor %}
+</div>

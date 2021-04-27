@@ -1,0 +1,75 @@
+.c-informations {
+  background: $color-black;
+  color: $color-white;
+  position: relative;
+  z-index: 2;
+}
+
+  .c-informations__items {
+    padding: rem(40px 16px 8px);
+  }
+
+    .c-informations__item {
+      padding-bottom: rem(16px);
+      overflow: hidden;
+    }
+
+      .c-informations__icon {
+        float: left;
+        @include size(24px);
+        margin-right: rem(16px);
+      }
+
+      .c-informations__content {
+        font-weight: $font-bold;
+        overflow: hidden;
+
+        p {
+          margin-bottom: rem(16px);
+        }
+
+        a:hover {
+          text-decoration: none;
+        }
+      }
+
+@include mq($until: medium) {
+  .c-informations__items {
+    max-width: rem($width-container-small + $width-gutter * 2);
+    margin: 0 auto;
+  }
+}
+
+@include mq($from: medium) {
+  .c-informations__items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-left: rem(20px);
+    padding-right: rem(20px);
+    overflow: hidden;
+  }
+
+    .c-informations__item {
+      float: left;
+      padding-left: rem(20px);
+      padding-right: rem(20px);
+      width: 50%;
+      // grid-column: 1;
+
+      @supports (display: grid) {
+        width: 100%;
+      }
+    }
+
+    .c-informations__item:not(.c-informations__item--booking) + .c-informations__item--info,
+    .c-informations__item--booking {
+      grid-row: 1 / span 10;
+      grid-column: 2;
+    }
+}
+
+@include mq($from: large) {
+  .c-informations {
+    max-width: rem(640px);
+  }
+}

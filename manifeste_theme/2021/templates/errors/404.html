@@ -1,0 +1,20 @@
+{% extends "pages/page.html" %}
+
+{% load i18n %}
+
+{% block meta_title %}
+    {% trans "Page not found" %}
+{% endblock %}
+
+{% block page_title %}
+    {% trans "Page not found" %}
+{% endblock %}
+
+{% block page_share %}
+{% endblock %}
+
+{% block page_content %}
+    <div class="c-content u-align-center">
+        <p class="h3">{% trans "The page you requested does not exist." %}</p>
+    </div>
+{% endblock %}

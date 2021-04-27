@@ -1,0 +1,30 @@
+.c-container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: rem($width-gutter);
+  padding-right: rem($width-gutter);
+  position: relative;
+  width: 100%;
+  max-width: rem($width-container-small + $width-gutter * 2);
+
+  @include mq($from: medium) {
+    max-width: rem($width-container-medium + $width-gutter * 2);
+  }
+
+  @include mq($from: large) {
+    max-width: rem($width-container-large + $width-gutter * 2);
+  }
+}
+
+@include mq($until: medium) {
+  .c-container--full\@small {
+    padding: 0;
+    max-width: none;
+  }
+}
+
+@include mq($from: large) {
+  .c-container--narrow {
+    max-width: rem($width-container-narrow + $width-gutter * 2);
+  }
+}

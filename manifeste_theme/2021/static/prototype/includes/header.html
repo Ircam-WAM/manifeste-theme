@@ -1,0 +1,64 @@
+<header class="c-header js-header" id="header">
+    <div class="c-header__branding">
+        <a href="index.html" class="c-header__title">
+            <svg class="c-header__logo" width="80" height="24" aria-label="IRCAM Centre Pompidou">
+                <use xlink:href="/static/img/symbols.svg#symbol-ircam"/>
+            </svg>
+            <span class="c-header__name">ManiFeste</span>
+        </a>
+
+        <a href="search.html" class="c-header__action c-header__action--search">
+            <svg class="c-header__icon" width="16" height="16" aria-label="Rechercher" focusable="false">
+                <use xlink:href="/static/img/symbols.svg#symbol-search"/>
+            </svg>
+        </a>
+        <a href="#navigation" class="c-header__action c-header__action--open js-header-toggle">
+            <svg class="c-header__icon" width="16" height="16" aria-label="Ouvrir le menu" focusable="false">
+                <use xlink:href="/static/img/symbols.svg#symbol-menu"/>
+            </svg>
+        </a>
+        <a href="#" class="c-header__action c-header__action--close js-header-toggle">
+            <svg class="c-header__icon" width="16" height="16" aria-label="Fermer le menu" focusable="false">
+                <use xlink:href="/static/img/symbols.svg#symbol-close"/>
+            </svg>
+        </a>
+    </div>
+
+    <nav class="c-header__navigation js-header-navigation" id="navigation">
+        <ul class="c-header__items">
+            <li class="c-header__item is-active">
+                <a href="events.html" class="c-header__link">Événements</a>
+            </li>
+            <li class="c-header__item">
+                <a href="persons.html" class="c-header__link">Artistes</a>
+            </li>
+            <li class="c-header__item">
+                <a href="news.html" class="c-header__link">Actualités</a>
+            </li>
+            <li class="c-header__item">
+                <a href="content.html" class="c-header__link">Académies</a>
+            </li>
+            <li class="c-header__item">
+                <a href="content.html" class="c-header__link">Infos</a>
+            </li>
+        </ul>
+
+        <a href="search.html" class="c-header__action c-header__action--search">
+            <svg class="c-header__icon" width="16" height="16" aria-label="Rechercher" focusable="false">
+                <use xlink:href="/static/img/symbols.svg#symbol-search"/>
+            </svg>
+        </a>
+
+        <form class="c-header__languages" action="" method="post">
+            <button class="c-header__language is-active" type="submit" name="language" value="fr">FR</button>
+            <button class="c-header__language" type="submit" name="language" value="en">EN</button>
+        </form>
+
+        <div class="c-header__banner" aria-hidden="true">
+            <svg class="c-header__mask" width="160" height="320" focusable="false">
+                <use xlink:href="/static/img/symbols.svg#symbol-manifeste-2020"/>
+            </svg>
+            <img src="/static/img/home.jpg" srcset="/static/img/home@2x.jpg 2x" alt="" class="c-header__picture"/>
+        </div>
+    </nav>
+</header>

@@ -1,0 +1,43 @@
+{% load i18n pages_tags mezzanine_tags media_tags organization_tags %}
+
+<article class="c-article {% spaceless %}{% block classes %}{% endblock %}{% endspaceless %}">
+    {% block image %}
+        {% with object.images.all|get_type:'card' as images %}
+            {% if images %}
+                <img src="{{ MEDIA_URL }}{% thumbnail images.0.file 352 352 %}" alt="" loading="lazy" class="c-article__picture"/>
+            {% endif %}
+        {% endwith %}
+    {% endblock %}
+    <div class="c-article__wrapper">
+        <div class="c-article__header">
+            {% block header %}{% endblock %}
+        </div>
+        <div class="c-article__content">
+            {% block content %}
+                {% block before_title %}
+                {% endblock %}
+                <h2 class="c-article__title">
+                    <a href="{% spaceless %}{% block url %}
+                        {% if object.content|removetags:'p'|slice:':4' == 'http' %}
+                            {{ object.content|removetags:'p' }}
+                        {% else %}
+                            {{ object.get_absolute_url }}
+                        {% endif %}
+                    {% endblock %}{% endspaceless %}"
+                    {% spaceless %}{% block target %}
+                        {% if object.content|removetags:"p"|slice:':4' == 'http' %}target="_blank"{% endif %}
+                    {% endblock %}{% endspaceless %}
+                    class="c-article__link">
+                    {% block title %}
+                        {{ object.title }}
+                    {% endblock %}
+                    </a>
+                </h2>
+                {% block after_title %}{% endblock %}
+            {% endblock content %}
+        </div>
+    </div>
+</article>
+
+
+

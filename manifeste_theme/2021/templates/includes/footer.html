@@ -1,0 +1,71 @@
+{% load i18n pages_tags mezzanine_tags staticfiles keyword_tags event_tags organization_tags %}
+
+<footer class="c-footer u-mtm u-mtxl@medium">
+    <div class="c-footer__container c-container">
+        <div class="c-footer__columns">
+            <div class="c-footer__column">
+                <div class="c-footer__presentation">
+                    <ul class="c-footer__downloads">
+                        <li class="c-footer__download c-download">
+                            <img src="{% static 'img/2020.png' %}" srcset="{% static 'img/2020@2x.png' %} 2x" alt="" class="c-download__picture" />
+                            <div class="c-download__content">
+                                <p class="c-download__label">{% trans 'The program in pdf format' %}</p>
+                                <a href="/media/uploads/documents/agenda_manifeste2020.pdf" class="c-download__button c-button c-button--secondary" target="_blank">{% trans 'Download' %}</a>
+                                <svg class="c-download__icon" width="24" height="24" aria-hidden="true" focusable="false">
+                                    <use xlink:href="{% static 'img/symbols.svg' %}#symbol-download"/>
+                                </svg>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="c-footer__sponsors">
+                        <a href="http://www.culture.gouv.fr" target="_blank" rel="noopener" class="c-footer__sponsor">
+                            <img src="{% static 'img/logos/culture.png' %}" srcset="{% static 'img/logos/culture@2x.png' %} 2x" alt="Ministère de la Culture" width="94" height="66" class="c-footer__logo"/>
+                        </a>
+                        <a href="http://www.cnrs.fr" target="_blank" rel="noopener" class="c-footer__sponsor">
+                            <img src="{% static 'img/logos/cnrs.png' %}" srcset="{% static 'img/logos/cnrs@2x.png' %} 2x" alt="CNRS" width="64" height="45" class="c-footer__logo"/>
+                        </a>
+                        <a href="http://www.sorbonne-universite.fr" target="_blank" rel="noopener" class="c-footer__sponsor">
+                            <img src="{% static 'img/logos/sorbonne.png' %}" srcset="{% static 'img/logos/sorbonne@2x.png' %} 2x" alt="Sorbonne Université" width="96" height="38" class="c-footer__logo"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="c-footer__column">
+                <ul class="c-footer__items">
+                    {% page_menu 'pages/menus/footer_vertical.html' %}
+                </ul>
+            </div>
+
+            <div class="c-footer__column">
+                <form action="https://public.message-business.com/form/46711/84/form.aspx" method="get" target="_blank" class="c-footer__newsletter" aria-labelledby="newsletter-title">
+                    <p id="newsletter-title" class="c-footer__text">{% blocktrans %}Sign up for our newsletter to stay up-to-date with the festival{% endblocktrans %}</p>
+                    <div class="c-footer__field c-field">
+                        <label for="newsletter-email" class="c-field__label">{% trans 'Your email' %}</label>
+                        <input id="newsletter-email" name="formItem-mbtext-email" type="email" inputmode="email" placeholder="johnlennon@beatles.com" required class="c-field__input">
+                        <svg class="c-field__icon" width="16" height="16" aria-hidden="true" focusable="false">
+                            <use xlink:href="{% static 'img/symbols.svg' %}#symbol-e-mail"/>
+                        </svg>
+                        <button type="submit" class="c-field__button c-button c-button--secondary c-button--xlarge">
+                            <svg class="c-button__icon" width="16" height="16" aria-label="{% trans 'Submit' %}" focusable="false">
+                                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-right"/>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+
+                <div class="c-footer__networks">
+                    {% for link in host_organization.links.all %}
+                        <a href="{{ link.url }}" target="_blank" rel="noopener" class="c-footer__network" title="{% trans 'Follow us on' %} {{ link.title }}">
+                            <svg class="c-footer__icon" width="24" height="24" focusable="false">
+                                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-{{ link.title|lower }}"/>
+                            </svg>
+                        </a>
+                    {% endfor %}
+                </div>
+
+                <p class="c-footer__copyright">Copyright &copy; {% current_year %} {{ host_organization.name }}. {% trans "All rights reserved" %}.</p>
+            </div>
+        </div>
+    </div>
+</footer>

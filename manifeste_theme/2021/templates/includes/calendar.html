@@ -1,0 +1,51 @@
+{% load i18n organization_tags %}
+{% with shift='0' nb_week_days=7 %}
+{% with shift_int=shift|to_int%}
+<div class="c-calendar">
+    <p class="c-calendar__title" id="calendar-month">{% trans 'August—September, 2020' %}</p>
+    <table class="c-calendar__table" aria-labelledby="calendar-month">
+        <thead>
+            <tr>
+                <th scope="col">{% trans 'MO' %}</th>
+                <th scope="col">{% trans 'TU' %}</th>
+                <th scope="col">{% trans 'WE' %}</th>
+                <th scope="col">{% trans 'TH' %}</th>
+                <th scope="col">{% trans 'FR' %}</th>
+                <th scope="col">{% trans 'SA' %}</th>
+                <th scope="col">{% trans 'SU' %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% with len=date_field|length|add:shift|to_int %}
+                {% for i in i|rjust:len %}
+                    {% if forloop.first %}
+                        <tr>
+                    {% endif %}
+                    {% if forloop.counter0|divisibleby:nb_week_days and forloop.counter0 > 0 %}
+                    </tr>
+                    <tr>
+                    {% endif %}
+                    <td>
+                        {% if forloop.counter0 >= shift_int %}
+                            {% with i=forloop.counter0|subtract:shift %}
+                            {% with field=date_field|index:i %}
+                            <label class="c-calendar_label">
+                                <input type="radio" name="{{ field.name }}" value="{{ field.choice_value }}" class="c-calendar__input js-filter-input js-filter-date"
+                                    {% if field.attrs.disabled %}disabled="disabled"{% endif %}
+                                    {% if field.value == field.choice_value %}checked="checked"{% endif %} />
+                                <span class="c-calendar__day">{{ field.choice_label }}</span>
+                            </label>
+                            {% endwith %}
+                            {% endwith %}
+                        {% endif %}
+                    </td>
+                    {% if forloop.last %}
+                    </tr>
+                    {% endif %}
+                {% endfor %}
+            {% endwith %}
+        </tbody>
+    </table>
+</div>
+{% endwith %}
+{% endwith %}

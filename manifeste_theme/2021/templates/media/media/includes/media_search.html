@@ -1,0 +1,34 @@
+{% extends "core/inc/search_card.html" %}
+{% load i18n mezzanine_tags organization_tags %}
+
+{% block title %}
+    {{ result.title }}
+{% endblock %}
+
+{% block icon %}file-{{ result|get_media_type|lower }}-o{% endblock %}
+
+{% block tags %}
+    <div class="search-box__tags">
+        {{ result|get_media_type }}
+    </div>
+{% endblock %}
+
+{% block url %}
+    {{ result.get_absolute_url }}
+{% endblock %}
+
+{% block content %}
+    {% if result.description != result|stringformat:"s" %}
+        {{ result.description|truncatewords_html:200|safe }}
+    {% endif %}
+{% endblock %}
+
+{% block image %}
+    {% if result.poster_url %}
+        <a href="{{ playlist.get_absolute_url }}" class="search-box__image-wrapper">
+            <figure class="search-box__image search-box__image--playlist search-box__image--{{ result|get_media_type|lower }}">
+                <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-original="{{ result.poster_url }}">
+            </figure>
+        </a>
+    {% endif %}
+{% endblock %}

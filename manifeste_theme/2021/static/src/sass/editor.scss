@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+// SHARED IMPORTS
+
+@import "shared";
+
+
+// BASE
+// Global scope styles
+
+@import "base/fonts";
+@import "~normalize.css"; // https://github.com/necolas/normalize.css
+@import "base/global";
+@import "base/reset";
+
+
+// CUSTOM STYLES
+
+html,
+body {
+  background: #fff;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: auto;
+}
+
+html {
+  padding: 0 rem(16px);
+}
+
+body {
+  margin: 0 auto;
+  max-width: rem($width-container-narrow);
+
+  &,
+  &.wp-autoresize {
+    padding: rem(24px) 0 !important;
+  }
+}
+
+
+// COMPONENTS
+
+@import "components/content/*.scss";
