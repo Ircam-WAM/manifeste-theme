@@ -1,0 +1,60 @@
+table {
+  border: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+
+  caption {
+    caption-side: bottom;
+    color: $color-shade-4;
+    font-size: em(14px, 16px);
+    line-height: (16px / 14px);
+    padding-top: em(8px, 16px);
+    text-align: left;
+  }
+
+  th,
+  td {
+    border: 0;
+    border-bottom: 1px solid $color-shade-8;
+    padding: em(8px, 16px);
+  }
+
+  th {
+    background: $color-shade-8;
+    font-weight: bold;
+  }
+
+  // Hack to use table as poor man columns…
+  tbody:first-child tr:only-child {
+    td {
+      display: block;
+      padding: 0;
+      border: 0;
+    }
+
+    td + td {
+      margin-top: rem(24px);
+    }
+
+    @include mq($from: medium) {
+      display: flex;
+
+      td {
+        display: flex;
+        width: 50%;
+        margin-right: rem(16px);
+      }
+
+      td + td {
+        margin-top: 0;
+        margin-left: rem(16px);
+      }
+    }
+  }
+
+  .wys-block {
+    flex: 1 1 auto;
+    margin: 0 !important;
+  }
+}

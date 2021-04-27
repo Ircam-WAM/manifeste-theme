@@ -1,0 +1,42 @@
+.u-hidden {
+  display: none !important;
+}
+
+@include mq($until: medium) {
+  .u-hidden\@small {
+    display: none !important;
+  }
+}
+
+@include mq($from: medium) {
+  .u-hidden\@medium\+ {
+    display: none !important;
+  }
+}
+
+@include mq($from: medium, $until: large) {
+  .u-hidden\@medium {
+    display: none !important;
+  }
+}
+
+@include mq($from: large) {
+  .u-hidden\@large {
+    display: none !important;
+  }
+}
+
+.u-hidden-visually {
+  @include hidden-visually;
+}
+
+.u-hidden-visually--focusable:focus,
+.u-hidden-visually--focusable:active {
+  clip: auto !important;
+  -webkit-clip-path: none !important;
+  clip-path: none !important;
+  height: auto !important;
+  overflow: visible !important;
+  width: auto !important;
+  white-space: normal !important;
+}

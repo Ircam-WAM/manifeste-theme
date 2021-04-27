@@ -1,0 +1,16 @@
+{% load i18n  mezzanine_tags event_tags   organization_tags %}
+{% if not is_archive %}
+    {% if event.links.all|get_type_link:'vel' %}
+        {% with event.links.all as links %}
+            {% if links %}
+                <a href="{{ links|get_type_link:'vel'|first }}" target="_blank" class="c-article__button c-button c-button--secondary">
+                    {% trans "Reserve" %}
+                </a>
+            {% endif %}
+        {% endwith %}
+    {% else %}
+        <span class="c-article__button c-button c-button--secondary">
+            {% trans "Free" %}
+        </span>
+    {% endif %}
+{% endif %}

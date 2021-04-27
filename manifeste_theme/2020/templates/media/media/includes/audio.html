@@ -1,0 +1,16 @@
+{% load i18n mezzanine_tags %}
+
+<div class="c-media js-media u-mbs" data-media-type="audio">
+    <noscript>
+        <p class="c-media__error">{% trans "You must enable JavaScript to see this content." %}</p>
+    </noscript>
+    <ol class="c-media__items">
+        {% with object.media as media %}
+            {% for transcoded in object.transcoded.all %}
+                {% if transcoded.mime_type == "audio/mp4" or transcoded.mime_type == "audio/mp3" %}
+                    <li class="c-media__item js-media-item" data-media-src="{{ transcoded.url }}">{{ object.title }}{% if object.description and object.description != object.title %} <small>{{ object.description|safe }}</small>{% endif %}</li>
+                {% endif %}
+            {% endfor %}
+        {% endwith %}
+    </ol>
+</div>

@@ -1,0 +1,189 @@
+.audiojs {
+  background: $color-black;
+  color: $color-white;
+  padding: rem(16px 16px 48px 80px);
+  position: relative;
+  min-height: rem(104px);
+
+  audio {
+    position: absolute;
+    left: -1px;
+  }
+
+  .play-pause {
+    cursor: pointer;
+    @include size(48px);
+    position: absolute;
+    top: rem(16px);
+    left: rem(16px);
+
+    @supports (mask-image: url()) {
+      &:hover .play,
+      &:hover .pause {
+        background-color: $color-primary-dark;
+      }
+    }
+  }
+
+    .play,
+    .pause,
+    .loading,
+    .error {
+      background-size: rem(48px);
+      display: block;
+      @include font-size(24px);
+      @include size(48px);
+      line-height: rem(48px);
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: opacity 400ms;
+      opacity: 0;
+      mask-size: rem(48px);
+      text-align: center;
+      transition: background 400ms;
+    }
+
+    .play {
+      background-image: svg-url('<svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 1a11 11 0 110 22 11 11 0 010-22zm0 2a9 9 0 100 18 9 9 0 000-18zM9 8a1 1 0 011.55-.83l6 4a1 1 0 010 1.66l-6 4A1 1 0 019 16zm2 1.87v4.26L14.2 12 11 9.87z" fill="#{$color-white}"/></svg>');
+      opacity: 1;
+
+      @supports (mask-image: url()) {
+        background: $color-white none;
+        mask-image: svg-url('<svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 1a11 11 0 110 22 11 11 0 010-22zm0 2a9 9 0 100 18 9 9 0 000-18zM9 8a1 1 0 011.55-.83l6 4a1 1 0 010 1.66l-6 4A1 1 0 019 16zm2 1.87v4.26L14.2 12 11 9.87z"/></svg>');
+      }
+    }
+
+    .pause {
+      background-image: svg-url('<svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 1a11 11 0 110 22 11 11 0 010-22zm0 2a9 9 0 100 18 9 9 0 000-18zm-2 5a1 1 0 011 .88V15a1 1 0 01-2 .12V9a1 1 0 011-1zm4 0a1 1 0 011 .88V15a1 1 0 01-2 .12V9a1 1 0 011-1z" fill="#{$color-white}"/></svg>');
+
+      @supports (mask-image: url()) {
+        background: $color-white none;
+        mask-image: svg-url('<svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 1a11 11 0 110 22 11 11 0 010-22zm0 2a9 9 0 100 18 9 9 0 000-18zm-2 5a1 1 0 011 .88V15a1 1 0 01-2 .12V9a1 1 0 011-1zm4 0a1 1 0 011 .88V15a1 1 0 01-2 .12V9a1 1 0 011-1z"/></svg>');
+      }
+    }
+
+    .error {
+      &::before {
+        content: "⚠️";
+      }
+    }
+
+    .loading {
+      &::before {
+        animation: loading 1s linear infinite;
+        border: rem(2px) solid $color-shade-2;
+        border-top-color: $color-white;
+        border-radius: 50%;
+        content: "";
+        display: block;
+        margin: rem(-2px);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+
+
+      @keyframes loading {
+        to {
+          transform: rotate(1turn);
+        }
+      }
+    }
+
+    &.playing .pause,
+    &.loading .loading,
+    &.error .error {
+      opacity: 1;
+    }
+
+    &.playing .play,
+    &.error .play,
+    &.error .pause,
+    &.error .loading {
+      opacity: 0;
+    }
+
+  .error-message:not(:empty) {
+    margin-bottom: rem(16px);
+  }
+
+  .title {
+    @include font-size($font-h5...);
+    font-weight: $font-bold;
+    margin-bottom: rem(16px);
+
+    small {
+      display: block;
+      @include font-size($font-p...);
+      font-weight: normal;
+    }
+  }
+
+  .scrubber,
+  .progress,
+  .loaded {
+    height: rem(4px);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+
+  .scrubber {
+
+  }
+
+    .progress {
+      background: $color-primary-dark;
+      z-index: 2;
+    }
+
+    .loaded {
+      background: $color-shade-2;
+      z-index: 1;
+    }
+
+  .time {
+    position: absolute;
+    left: rem(80px);
+    bottom: rem(20px);
+  }
+
+    .played,
+    .duration {
+      font-weight: normal;
+      font-style: normal;
+    }
+
+  @include mq($from: medium) {
+    padding: rem(24px 136px 24px 96px);
+
+    .play-pause {
+      top: rem(28px);
+      left: rem(24px);
+    }
+
+    .title {
+      @include font-size($font-h5-large...);
+      margin-bottom: 0;
+
+      &,
+      small {
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .time {
+      left: auto;
+      bottom: rem(24px);
+      right: rem(24px);
+    }
+  }
+}
+

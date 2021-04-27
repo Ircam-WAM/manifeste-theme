@@ -1,0 +1,109 @@
+.c-field {
+  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+  position: relative;
+}
+
+  .c-field__label {
+    display: block;
+    padding-bottom: rem(8px);
+    width: 100%;
+  }
+
+  .c-field__input {
+    appearance: none;
+    background: $color-black none;
+    border: 1px solid $color-shade-2;
+    border-right: 0;
+    border-radius: 0;
+    box-shadow: none;
+    color: $color-shade-2;
+    display: block;
+    flex: 1 1 auto;
+    height: rem(56px);
+    margin: 0;
+    padding: rem(16px);
+    padding-left: rem(48px);
+    position: relative;
+    z-index: 1;
+    transition: border-color 400ms, color 400ms;
+
+    &::placeholder {
+      color: $color-shade-2;
+    }
+
+    &:focus {
+      color: $color-white;
+      outline: none;
+
+      &::placeholder {
+        color: $color-shade-4;
+      }
+    }
+
+    &:focus {
+      border-color: $color-secondary;
+    }
+
+    .c-field:hover &:not(:focus) {
+      border-color: $color-shade-5;
+    }
+
+    &:valid::-webkit-search-cancel-button {
+      appearance: none;
+      background: $color-shade-2 svg-url('<svg enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="m13.414 12 5.293-5.293c.391-.391.391-1.023 0-1.414s-1.023-.391-1.414 0l-5.293 5.293-5.293-5.293c-.391-.391-1.023-.391-1.414 0s-.391 1.023 0 1.414l5.293 5.293-5.293 5.293c-.391.391-.391 1.023 0 1.414.195.195.451.293.707.293s.512-.098.707-.293l5.293-5.293 5.293 5.293c.195.195.451.293.707.293s.512-.098.707-.293c.391-.391.391-1.023 0-1.414z" fill="#{$color-black}"/></svg>') no-repeat center / rem(14px);
+      cursor: pointer;
+      @include size(16px);
+      transition: background-color 400ms;
+
+      &:hover {
+        background-color: $color-shade-4;
+      }
+    }
+
+    &:-webkit-autofill {
+      -webkit-text-fill-color: inherit;
+      -webkit-box-shadow: inset 0 0 0 999px $color-shade-1;
+      -webkit-animation-name: field-autofill-hide;
+      -webkit-animation-fill-mode: both;
+    }
+  }
+
+  .c-field__icon {
+    color: $color-shade-2;
+    display: block;
+    @include size(16px);
+    margin: rem(20px 16px);
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    transition: color 400ms;
+
+    .c-field__input:focus ~ & {
+      color: $color-white;
+    }
+  }
+
+  .c-field__button.c-button {
+    flex: 0 0 auto;
+
+    .c-field__input:not(:focus) ~ & {
+      background: $color-shade-2;
+    }
+
+    .c-field:hover .c-field__input:not(:focus) ~ & {
+      background: $color-shade-5;
+    }
+  }
+
+@keyframes field-autofill-hide {
+  to {
+    color: $color-white;
+    background-color: $color-shade-1;
+    font: inherit;
+  }
+}

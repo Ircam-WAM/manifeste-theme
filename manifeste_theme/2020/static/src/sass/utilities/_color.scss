@@ -1,0 +1,32 @@
+$colors: (
+  primary-dark:     $color-primary-dark,
+  primary:          $color-primary,
+  primary-light:    $color-primary-light,
+  primary-washed:   $color-primary-washed,
+  secondary-dark:   $color-secondary-dark,
+  secondary:        $color-secondary,
+  secondary-light:  $color-secondary-light,
+  secondary-washed: $color-secondary-washed,
+  contrast-dark:    $color-contrast-dark,
+  contrast:         $color-contrast,
+  contrast-light:   $color-contrast-light,
+  contrast-washed:  $color-contrast-washed,
+  shade-0:          $color-shade-0,
+  shade-1:          $color-shade-1,
+  shade-2:          $color-shade-2,
+  shade-3:          $color-shade-3,
+  shade-4:          $color-shade-4,
+  shade-5:          $color-shade-5,
+  shade-6:          $color-shade-6,
+  shade-7:          $color-shade-7,
+  shade-8:          $color-shade-8,
+  shade-9:          $color-shade-9,
+);
+
+@each $c, $color in $colors {
+  @each $p, $property in (background: background-color, color: color) {
+    .u-#{$p}-#{$c} {
+      #{$property}: $color;
+    }
+  }
+}

@@ -1,0 +1,118 @@
+.c-social {
+
+}
+
+  .c-social__items {
+    margin: rem(-8px);
+    overflow: hidden;
+  }
+
+    .c-social__item {
+      @include font-size($font-h5...);
+      float: left;
+      padding: rem(8px);
+      width: 100%;
+
+      .c-social--instagram & {
+        width: (100% / 3);
+      }
+    }
+
+      .c-social__link {
+        display: block;
+        text-decoration: none;
+      }
+
+        .c-social__picture {
+          display: block;
+        }
+
+        .c-social__author,
+        .c-social__date {
+          display: inline-block;
+          vertical-align: top;
+        }
+
+        .c-social__author {
+          font-weight: $font-bold;
+        }
+
+        .c-social__date {
+          color: $color-shade-4;
+        }
+
+        .c-social__text {
+          margin-top: rem(12px);
+
+          a {
+            color: $color-primary-dark;
+            text-decoration: none;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+
+  .c-social__buttons {
+    font-size: 0;
+    line-height: 0;
+    margin: rem(-6px);
+    text-align: right;
+  }
+
+    .c-social__button.c-button {
+      display: inline-block;
+      vertical-align: top;
+      margin: rem(6px);
+    }
+
+@include mq($until: medium) {
+  .c-social--twitter {
+    .c-social__items {
+      margin: rem(-20px -8px);
+    }
+
+    .c-social__item {
+      padding: rem(20px 8px);
+    }
+  }
+}
+
+@include mq($from: medium) {
+  .c-social__item {
+    @include font-size($font-h5-large...);
+    width: 50%;
+
+    .c-social--instagram & {
+      width: 20%;
+    }
+  }
+
+  .c-social__text {
+    margin-top: rem(8px);
+  }
+
+  .c-social__buttons {
+    margin: rem(-8px);
+  }
+
+    .c-social__button.c-button {
+      margin: rem(8px);
+    }
+}
+
+@include mq($from: large) {
+  .c-social {
+    padding-left: rem(96px);
+    max-width: rem($width-container-large - 96px);
+  }
+
+  .c-social__items {
+    margin: rem(-16px);
+  }
+
+    .c-social__item {
+      padding: rem(16px);
+    }
+}

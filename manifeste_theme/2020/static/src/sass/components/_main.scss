@@ -1,0 +1,10 @@
+.c-main {
+  flex: 1 0 auto;
+  padding-top: rem($height-header-small);
+  position: relative;
+  z-index: $z-main;
+
+  @include mq($from: large) {
+    padding-top: rem($height-header-large);
+  }
+}

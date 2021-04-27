@@ -1,0 +1,17 @@
+<div class="c-article">
+    <img src="{% static 'img/event-card.jpg' %}" alt="" class="c-article__picture" />
+    <div class="c-article__wrapper">
+        <div class="c-article__header">
+            <ul class="c-article__tags">
+                <li class="c-article__tag c-button c-button--rounded">{{ type|default('Rencontre') }}</li>
+            </ul>
+            <p class="c-article__buttons">
+                <a href="#" class="c-article__button c-button c-button--secondary">{{ booking|default('Réserver') }}</a>
+            </p>
+        </div>
+        <div class="c-article__content">
+            <p class="c-article__subtitle">{{ date|default('Sam 29 fév → Dim 1 mar - 14h30') }}<br/>{{ location|default('Centre Pompidou, Petite salle') }}</p>
+            <h2 class="c-article__title"><a href="event.html" class="c-article__link">{{ title|default('La Fabrique du vivant') }}</a></h2>
+        </div>
+    </div>
+</div>

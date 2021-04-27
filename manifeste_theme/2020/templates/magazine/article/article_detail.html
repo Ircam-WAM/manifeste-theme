@@ -1,0 +1,96 @@
+{% extends "pages/page.html" %}
+{% load mezzanine_tags keyword_tags i18n organization_tags staticfiles %}
+
+{% block meta_title %}{{ article.meta_title }}{% endblock %}
+
+{% block meta_keywords %}{% metablock %}
+{% keywords_for article as tags %}
+{% for tag in tags %}{% if not forloop.first %}, {% endif %}{{ tag }}{% endfor %}
+{% endmetablock %}{% endblock %}
+
+{% block meta_description %}{% metablock %}
+    {{ article.description }}
+{% endmetablock %}{% endblock %}
+
+{% block page_image %}
+    {% with article.images.all|get_type:'page_featured' as images %}
+        {% if images %}
+            <img src="{{ MEDIA_URL }}{% thumbnail images.first 1440 320 %}" alt="" loading="lazy"class="c-hero__picture"/>
+        {% else %}
+            {% with article.images.all|get_type:'card' as images %}
+                {% if images %}
+                    <img src="{{ MEDIA_URL }}{% thumbnail images.first 1440 320 %}" alt="" loading="lazy" class="c-hero__picture"/>
+                {% endif %}
+            {% endwith %}
+        {% endif %}
+    {% endwith %}
+{% endblock %}
+
+{% block page_title %}
+    {% editable article.title %}{{ article.title }}{% endeditable %}
+{% endblock %}
+
+{% block page_tags %}
+    <ul class="c-hero__tags">
+        {% if article.categories.all %}
+            {% for category in article.categories.all %}
+                <li class="c-hero__tag c-button c-button--rounded">
+                    <svg class="c-button__icon" width="16" height="16" aria-hidden="true" focusable="false">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-article"/>
+                    </svg>
+                    {% if category|lower|cut:" " == 'forumvertigo' %}
+                        <span class="c-button__label">{% trans 'Article' %} Forum vertigo</span>
+                    {% else %}
+                        <span class="c-button__label">{{ category }}</span>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        {% else %}
+            <li class="c-hero__tag c-button c-button--rounded">
+                <svg class="c-button__icon" width="16" height="16" aria-hidden="true" focusable="false">
+                    <use xlink:href="{% static 'img/symbols.svg' %}#symbol-article"/>
+                </svg>
+                <span class="c-button__label">{% trans 'Article' %}</span>
+            </li>
+        {% endif %}
+        {# <li class="c-hero__tag c-button c-button--rounded">{% trans 'Published on' %} {{ article.publish_date|date:"DATE_FORMAT" }}</li> #}
+    </ul>
+{% endblock %}
+
+{% block page_content %}
+    <div class="c-content u-mbs">
+        {% if article.sub_title %}
+            {% editable article.sub_title %}
+                <p class="h3 u-mbxs">{{ article.sub_title }}</p>
+            {% endeditable %}
+        {% endif %}
+
+        {% if article.content %}
+            {% editable article.content %}
+                {{ article.content|richtext_filters|safe }}
+            {% endeditable %}
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block page_slider %}
+    {% with article.images.all|get_type:'page_slider' as slider_images %}
+        {% if slider_images %}
+            {% include 'core/inc/slider.html' %}
+        {% endif %}
+    {% endwith %}
+{% endblock %}
+
+{% block multimedia %}
+    {{ block.super }}
+{% endblock %}
+
+{% block page_person_list %}
+    {% for inline in article.article_person_list_block_inlines.all  %}
+        {% include 'network/person/includes/person_list.html' with person_list_block=inline.person_list_block %}
+    {% endfor %}
+{% endblock %}
+
+{% block page_related_content %}
+    {% include "core/inc/related_content_dynamic.html" with object=article %}
+{% endblock %}

@@ -1,0 +1,40 @@
+{% load i18n staticfiles %}
+
+{% if current_page.has_previous or current_page.has_next %}
+    <p class="c-gallery__buttons c-gallery__buttons--pagination">
+        {% if current_page.has_previous %}
+            <a href="?{{ page_var }}={{ current_page.previous_page_number }}{% if querystring %}&amp;{{ querystring }}{% endif %}" class="c-gallery__button c-button c-button--large">
+                <svg class="c-button__icon" width="24" height="24" aria-label="{% trans 'Previous page' %}" focusable="false">
+                    <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-left"/>
+                </svg>
+            </a>
+        {% else %}
+            <span class="c-gallery__button c-button c-button--large is-disabled" aria-hidden="true">
+                <svg class="c-button__icon" width="24" height="24" aria-label="{% trans 'Previous page' %}" focusable="false">
+                    <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-left"/>
+                </svg>
+            </span>
+        {% endif %}
+        {% for page in current_page.visible_page_range %}
+            {% if page == current_page.number %}
+                <span class="c-gallery__button c-button c-button--large c-button--secondary">{{ page }}</span>
+            {% else %}
+                <a href="?{{ page_var }}={{ page }}{% if querystring %}&amp;{{ querystring }}{% endif %}" class="c-gallery__button c-button c-button--large">{{ page }}</a>
+            {% endif %}
+        {% endfor %}
+
+        {% if current_page.has_next %}
+            <a href="?{{ page_var }}={{ current_page.next_page_number }}{% if querystring %}&amp;{{ querystring }}{% endif %}" class="c-gallery__button c-button c-button--large">
+                <svg class="c-button__icon" width="24" height="24" aria-label="{% trans 'Next page' %}" focusable="false">
+                    <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-right"/>
+                </svg>
+            </a>
+        {% else %}
+            <span class="c-gallery__button c-button c-button--large is-disabled" aria-hidden="true">
+                <svg class="c-button__icon" width="24" height="24" aria-label="{% trans 'Next page' %}" focusable="false">
+                    <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-right"/>
+                </svg>
+            </span>
+        {% endif %}
+    </p>
+{% endif %}

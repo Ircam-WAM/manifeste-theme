@@ -1,0 +1,51 @@
+{% load i18n pages_tags mezzanine_tags staticfiles keyword_tags event_tags organization_tags %}
+
+<section class="c-container u-mtm u-mtxl@medium">
+    <div class="c-heading c-heading--narrow">
+        <div class="c-heading__title">
+            <a href="https://twitter.com/hashtag/ircam" target="_blank" rel="noopener" class="c-heading__link">
+                <svg class="c-heading__icon" width="24" height="24" aria-hidden="true" focusable="false">
+                    <use xlink:href="{% static 'img/symbols.svg' %}#symbol-twitter"/>
+                </svg>
+                <h2 class="c-heading__label">{% trans 'Twitter feed' %} <small class="c-heading__subtitle">#ircam</small></h2>
+            </a>
+        </div>
+        <p class="c-heading__buttons u-hidden@small">
+            <a href="https://twitter.com/hashtag/ircam" target="_blank" rel="noopener" class="c-heading__button c-button c-button--link c-button--large">
+                <span class="c-button__label">{% trans 'See more' %}</span>
+                <svg class="c-button__icon" width="24" height="24" aria-hidden="true" focusable="false">
+                    <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-right"/>
+                </svg>
+            </a>
+        </p>
+    </div>
+
+    <div class="c-social c-social--twitter u-mts">
+        {% include 'twitter/tweets.html' %}
+    </div>
+</section>
+
+<section class="c-container u-mtm u-mtl@medium">
+    <div class="c-heading c-heading--narrow">
+        <div class="c-heading__title">
+            <a href="https://www.instagram.com/explore/tags/ircam/" target="_blank" rel="noopener" class="c-heading__link">
+                <svg class="c-heading__icon" width="24" height="24" aria-hidden="true" focusable="false">
+                    <use xlink:href="{% static 'img/symbols.svg' %}#symbol-instagram"/>
+                </svg>
+                <h2 class="c-heading__label">{% trans 'Instagram feed' %} <small class="c-heading__subtitle">#ircam</small></h2>
+            </a>
+        </div>
+        <p class="c-heading__buttons u-hidden@small">
+            <a href="https://www.instagram.com/explore/tags/ircam/" target="_blank" rel="noopener" class="c-heading__button c-button c-button--link c-button--large">
+                <span class="c-button__label">{% trans 'See more' %}</span>
+                <svg class="c-button__icon" width="24" height="24" aria-hidden="true" focusable="false">
+                    <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-right"/>
+                </svg>
+            </a>
+        </p>
+    </div>
+
+    <div class="c-social c-social--instagram u-mts">
+        {% include 'includes/instagram.html' %}
+    </div>
+</section>
