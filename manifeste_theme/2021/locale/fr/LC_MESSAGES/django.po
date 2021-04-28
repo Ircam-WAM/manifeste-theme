@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-22 10:01+0000\n"
+"POT-Creation-Date: 2021-04-28 16:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,7 +26,7 @@ msgstr "L'Agenda du festival au format pdf"
 msgid "Download"
 msgstr "Télécharger"
 
-#: templates/2020/base.html:54
+#: templates/2021/base.html:54
 msgid ""
 "We use cookie technology to measure our online audience and to allow you to "
 "share content on social networks via link buttons."
@@ -35,11 +35,11 @@ msgstr ""
 "cookies pour nous permettre de mesurer l'audience, et pour vous permettre de "
 "partager du contenu via les boutons de partage de réseaux sociaux."
 
-#: templates/2020/base.html:54
+#: templates/2021/base.html:54
 msgid "Further information"
 msgstr "En savoir plus"
 
-#: templates/2020/base.html:55
+#: templates/2021/base.html:55
 msgid "I Accept"
 msgstr "Accepter"
 
@@ -508,8 +508,8 @@ msgid "Instagram feed"
 msgstr "Fil Instagram"
 
 #: templates/includes/calendar.html:5
-msgid "August—September, 2020"
-msgstr "Août - Septembre 2020"
+msgid "May—June, 2021"
+msgstr "Mai-Juin 2021"
 
 #: templates/includes/calendar.html:9
 msgid "MO"
@@ -613,8 +613,8 @@ msgid "Share on Twitter"
 msgstr ""
 
 #: templates/index.html:16
-msgid "August, 31 to September, 13, 2020"
-msgstr "31 août - 13 septembre 2020"
+msgid "May, 31 to June, 30, 2021"
+msgstr "31 mai au 30 juin 2021"
 
 #: templates/index.html:16
 msgid "Musics — Fictions"
@@ -1401,6 +1401,12 @@ msgstr ""
 #: templates/styles.html:4 templates/styles.html:6 templates/styles.html:12
 msgid "Styles"
 msgstr ""
+
+#~ msgid "August—September, 2020"
+#~ msgstr "Août - Septembre 2020"
+
+#~ msgid "August, 31 to September, 13, 2020"
+#~ msgstr "31 août - 13 septembre 2020"
 
 #, fuzzy
 #~| msgid "Festival 21 août - 13 septembre 2020"
