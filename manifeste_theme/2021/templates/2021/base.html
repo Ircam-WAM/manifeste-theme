@@ -13,8 +13,8 @@
     <title>{% spaceless %}{% block meta_title %}{% endblock %}{% endspaceless %}{% if settings.SITE_TITLE %} | {{ settings.SITE_TITLE }}{% endif %}</title>
 
     {% compress css %}
-    <link rel="stylesheet" href="{% static 'css/index-2020.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/vendors-2020.min.css' %}" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/index-2021.min.css">
+    <link rel="stylesheet" href="{{ STATIC_URL}}css/vendors-2021.min.css" />
     {% endcompress %}
 
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/icons/apple-touch-icon.png' %}">
@@ -25,9 +25,9 @@
     <link rel="shortcut icon" href="{% static 'img/icons/favicon.ico' %}">
     <meta name="apple-mobile-web-app-title" content="ManiFeste">
     <meta name="application-name" content="ManiFeste">
-    <meta name="msapplication-TileColor" content="#f25b3d">
+    <meta name="msapplication-TileColor" content="#0070b6">
     <meta name="msapplication-config" content="{% static 'img/icons/browserconfig.xml' %}">
-    <meta name="theme-color" content="#f25b3d">
+    <meta name="theme-color" content="#0070b6">
 
     {% block extra_head %}{% endblock %}
 </head>
