@@ -27,7 +27,7 @@
     {% include "home/inc/bio.html" %}
 
     {# Social #}
-    {% comment %} {% include "home/inc/social.html" %} {% endcomment %}
+    {% if not debug %} {% include "home/inc/social.html" %} {% endif %}
     {% endblock %}
 
 
