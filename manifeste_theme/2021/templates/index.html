@@ -13,7 +13,7 @@
         <img src="{% static 'img/home.jpg' %}" srcset="{% static 'img/home@2x.jpg' %} 2x" alt="" loading="lazy" class="c-hero__picture"/>
         <div class="c-hero__container c-container">
             {# TODO @emilie: peut être rendre cette partie administrable ? La date au moins #}
-            <h1 class="c-hero__title">{% trans "May, 31 to June, 30, 2021" %}<br/>{% trans "Musics — Fictions" %}</h1>
+            <h1 class="c-hero__title">{% trans "May, 31 to June, 30, 2021" %}<br/>{% trans "Festival Manifeste" %}</h1>
         </div>
     </header>
 
@@ -27,8 +27,8 @@
     {% include "home/inc/bio.html" %}
 
     {# Social #}
-    {% include "home/inc/social.html" %}
-{% endblock %}
+    {% comment %} {% include "home/inc/social.html" %} {% endcomment %}
+    {% endblock %}
 
 
 {% block footer_scripts_local %}
