@@ -56,6 +56,16 @@
                     </div>
                 </li>
             {% endif %}
+            {% if event.streaming_comments %}
+                <li class="c-informations__item c-informations__item--info">
+                    <svg class="c-informations__icon" width="24" height="24" aria-hidden="true" focusable="false">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-info"/>
+                    </svg>
+                    <div class="c-informations__content">
+                        {{ event.streaming_comments|richtext_filters|safe }}
+                    </div>
+                </li>
+            {% endif %}
         </ul>
     </div>
 </section>
