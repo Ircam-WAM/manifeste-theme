@@ -90,9 +90,23 @@ button.c-button--white:not(:disabled):hover {
   background: $color-shade-8;
 }
 
+.c-button--youtube {
+  background: $color-secondary-youtube;
+  color: $color-white;
+  text-decoration: none;
+}
+
+a.c-button--youtube:not(:disabled):hover,
+button.c-button--secondary:not(:disabled):hover {
+  background: $color-secondary-youtube;
+  color: $color-white;
+  text-decoration: none;
+}
+
+
 input.is-inactive + .c-button,
 .c-button--inactive {
-  text-decoration: line-through;
+  text-decoration: none;
 }
 
 .c-button--rounded {

@@ -27,4 +27,18 @@
                 {% endfor %}
             </p>
         {% endif %}
+        <br />
+        {% if event.links.all|get_type_link:'youtube' %}
+        {% with event.links.all as links %}
+            {% if links %}
+                {% with links|get_type_link:'youtube'|first as link %}
+                    <p>
+                        <a href="{{ link.url }}" target="_blank" class="btn c-article__button c-button--large c-button--youtube">
+                            {{ link.title }} &nbsp; <i class="fab fa-youtube"></i>
+                        </a>
+                    </p>
+                {% endwith %}
+            {% endif %}
+        {% endwith %}
+    {% endif %}
 {% endif %}

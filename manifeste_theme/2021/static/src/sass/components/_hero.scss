@@ -31,14 +31,14 @@
     z-index: 1;
 
     // Add blend mode if there is mask
-    // .c-hero__mask + & {
-    //   opacity: .4;
+    .c-hero__mask + & {
+      opacity: .4;
 
-    //   @supports (mix-blend-mode: overlay) {
-    //     opacity: 1;
-    //     mix-blend-mode: overlay;
-    //   }
-    // }
+      @supports (mix-blend-mode: overlay) {
+        opacity: 1;
+        mix-blend-mode: overlay;
+      }
+    }
   }
 
   .c-hero__container.c-container {
