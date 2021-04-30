@@ -401,13 +401,13 @@
           vertical-align: top;
 
           &.is-active {
-            background: $color-primary-washed;
+            // background: $color-primary-washed;
             color: $color-primary-dark;
           }
         }
 
           .c-header__link {
-            background-image: linear-gradient(rgba($color-white, 0), $color-white);
+            // background-image: linear-gradient(rgba($color-white, 0), $color-white);
             @include font-size($font-p...);
             padding: rem(32px 24px);
             text-decoration: none;
