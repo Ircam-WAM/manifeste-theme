@@ -84,10 +84,10 @@
         bottom: 0;
       }
 
-      // &:hover,
-      // &.is-active {
-      //   color: $color-primary-dark;
-      // }
+      &:hover,
+      &.is-active {
+        color: $color-primary-dark;
+      }
     }
 
 // Overlay
@@ -207,9 +207,9 @@
       .c-header__item {
         padding: rem(12px) 0;
 
-        &.is-active {
-          color: $color-primary-dark;
-        }
+        // &.is-active {
+        //   color: $color-primary-dark;
+        // }
       }
 
         .c-header__link {
