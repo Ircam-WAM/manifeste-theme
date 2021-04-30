@@ -16,11 +16,15 @@
                     {% trans "Reserve" %}
                 </a>
             </p>
-        {% else %}
+        {% elif event.prices.all %}
             <p>
-                <span class="c-informations__button c-button c-button--secondary c-button--large">
-                    {% trans "Free" %}
-                </span>
+                {% for price in event.prices.all %}
+                    {% if price.value == 0 %}
+                        <span class="c-informations__button c-button c-button--secondary c-button--large">
+                            {% trans "Free" %}
+                        </span>
+                    {% endif %} {% if not forloop.last %}<br/>{% endif %}
+                {% endfor %}
             </p>
         {% endif %}
 {% endif %}

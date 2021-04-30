@@ -1,6 +1,6 @@
 .c-footer {
   background: $color-contrast-dark image-url("footer.jpg") no-repeat center / cover;
-  color: $color-white;
+  color: $color-primary-4;
   flex: 0 0 auto;
   padding-top: rem(16px);
   padding-bottom: rem(40px);
@@ -73,7 +73,7 @@
           transition: color 400ms;
 
           &:hover {
-            color: $color-secondary-dark;
+            color: $color-primary-4;
           }
         }
 

@@ -8,9 +8,15 @@
                 </a>
             {% endif %}
         {% endwith %}
-    {% else %}
-        <span class="c-article__button c-button c-button--secondary">
-            {% trans "Free" %}
-        </span>
+    {% elif event.prices.all %}
+        <p>
+            {% for price in event.prices.all %}
+                {% if price.value == 0 %}
+                    <span class="c-article__button c-button c-button--secondary">
+                        {% trans "Free" %}
+                    </span>
+                {% endif %} {% if not forloop.last %}<br/>{% endif %}
+            {% endfor %}
+        </p>
     {% endif %}
 {% endif %}
