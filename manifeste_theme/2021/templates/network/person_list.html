@@ -44,9 +44,11 @@
         <div class="c-gallery">
             <ul class="c-gallery__items">
                 {% for person in persons %}
-                    <li class="c-gallery__item">
-                        {% include "network/person/includes/person_card.html" with object=person %}
-                    </li>
+                    {% if not person.user.is_staff %}
+                        <li class="c-gallery__item">
+                            {% include "network/person/includes/person_card.html" with object=person %}
+                        </li>
+                    {% endif %}
                 {% endfor %}
             </ul>
         </div>
