@@ -33,7 +33,7 @@
             {% if links %}
                 {% with links|get_type_link:'youtube'|first as link %}
                     <p>
-                        <a href="{{ link.url }}" target="_blank" class="btn c-article__button c-button--large c-button--youtube">
+                        <a href="{{ link.url }}" target="_blank" class="c-informations__button c-button c-button--secondary c-button--large c-button--youtube">
                             {{ link.title }} &nbsp; <i class="fab fa-youtube"></i>
                         </a>
                     </p>
