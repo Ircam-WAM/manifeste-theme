@@ -18,6 +18,9 @@
 {% block main %}
     {% block page_banner %}
         <header class="c-hero {% block page_classes %}c-hero--simple{% endblock %}">
+            <svg class="c-hero__mask" width="160" height="320" aria-hidden="true">
+                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-manifeste-2020"/>
+            </svg>
             {% block page_image %}{% endblock %}
             <div class="c-hero__container c-container c-container--narrow">
                 <h1 class="c-hero__title">
