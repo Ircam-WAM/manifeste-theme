@@ -12,6 +12,8 @@
     {{ article.description }}
 {% endmetablock %}{% endblock %}
 
+{% block mask %}{% endblock mask %}
+
 {% block page_image %}
     {% with article.images.all|get_type:'page_featured' as images %}
         {% if images %}
