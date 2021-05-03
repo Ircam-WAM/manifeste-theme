@@ -8,8 +8,8 @@
                 </a>
             {% endif %}
         {% endwith %}
+    <div>
     {% elif event.prices.all %}
-        <p>
             {% for price in event.prices.all %}
                 {% if price.value == 0 %}
                     <span class="c-article__button c-button c-button--secondary">
@@ -17,19 +17,17 @@
                     </span>
                 {% endif %} {% if not forloop.last %}<br/>{% endif %}
             {% endfor %}
-        </p>
     {% endif %}
     {% if event.links.all|get_type_link:'youtube' %}
         {% with event.links.all as links %}
             {% if links %}
                 {% with links|get_type_link:'youtube'|first as link %}
-                    <p>
-                        <a href="{{ link.url }}" target="_blank" class="btn c-article__button c-button c-button--youtube">
-                            {{ link.title }} &nbsp; <i class="fab fa-youtube"></i>
-                        </a>
-                    </p>
+                    <a href="{{ link.url }}" target="_blank" class="btn c-article__button c-button c-button--youtube">
+                        {{ link.title }} &nbsp; <i class="fab fa-youtube"></i>
+                    </a>
                 {% endwith %}
             {% endif %}
         {% endwith %}
     {% endif %}
+    </div>
 {% endif %}
