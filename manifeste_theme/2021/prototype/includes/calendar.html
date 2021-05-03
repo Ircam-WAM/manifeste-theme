@@ -1,0 +1,46 @@
+<div class="c-calendar">
+    <p class="c-calendar__title" id="calendar-month">Du 31 août au 13 septembre 2020</p>
+    <table class="c-calendar__table" aria-labelledby="calendar-month">
+        <thead>
+            <tr>
+                <th><abbr title="Lundi">Lun</abbr></th>
+                <th><abbr title="Mardi">Mar</abbr></th>
+                <th><abbr title="Mercredi">Mer</abbr></th>
+                <th><abbr title="Jeudi">Jeu</abbr></th>
+                <th><abbr title="Vendredi">Ven</abbr></th>
+                <th><abbr title="Samedi">Sam</abbr></th>
+                <th><abbr title="Dimanche">Dim</abbr></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% set days = [
+                {31: true, 1: true, 2: false,  3: false, 4: true, 5: true, 6: false},
+                {7: true,  8: false, 9: false, 10: true,  11: true, 12: true, 13: true},
+                {14: false, 15: false, 16: false, 17: false, 18: false, 19: false, 20: false},
+                {21: false, 22: false, 23: false, 24: false, 25: false, 26: false, 27: false},
+                {28: false, 29: false, 30: false}
+            ] %}
+            {% for week in days %}
+                <tr>
+                    {% for index, status in week %}
+                        {% set date = ["2020", index == 31 ? "08" : "09", "%02d"|format(index)]|join("-") %}
+                        <td>
+                            {% if status %}
+                                {% if type == "radio" %}
+                                    <input id="calendar-day-{{ index }}" type="radio" name="event_day_filter" value="{{ date }}" class="c-calendar__input"{% if selected == date %} checked="checked"{% endif %}/>
+                                    <label for="calendar-day-{{ index }}" class="c-calendar__day">{{ index }}</label>
+                                {% elseif type == "button" %}
+                                    <button type="submit" value="{{ date }}" class="c-calendar__day{% if selected == date %} is-current{% endif %}">{{ index }}</button>
+                                {% else %}
+                                    <a href="events.html?event_day_filter={{ date }}" class="c-calendar__day{% if selected == date %} is-current{% endif %}">{{ index }}</a>
+                                {% endif %}
+                            {% else %}
+                                <span class="c-calendar__day">{{ index }}</span>
+                            {% endif %}
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

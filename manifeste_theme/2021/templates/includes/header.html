@@ -1,0 +1,57 @@
+{% load i18n pages_tags staticfiles mezzanine_tags organization_tags %}
+
+<header class="c-header js-header" id="header">
+    <div class="c-header__branding">
+        <a href="{% url 'home' %}" class="c-header__title">
+            <svg class="c-header__logo" width="80" height="24" aria-hidden="true">
+                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-ircam"/>
+            </svg>
+            <span class="c-header__name">ManiFeste</span>
+        </a>
+
+        <a href="{% url 'search' %}" class="c-header__action c-header__action--search">
+            <svg class="c-header__icon" width="16" height="16" aria-label="{% trans 'Search' %}" focusable="false">
+                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-search"/>
+            </svg>
+        </a>
+        <a href="#header" class="c-header__action c-header__action--open js-header-toggle">
+            <svg class="c-header__icon" width="16" height="16" aria-label="{% trans 'Open menu' %}" focusable="false">
+                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-menu"/>
+            </svg>
+        </a>
+        <a href="#" class="c-header__action c-header__action--close js-header-toggle">
+            <svg class="c-header__icon" width="16" height="16" aria-label="{% trans 'Close menu' %}" focusable="false">
+                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-close"/>
+            </svg>
+        </a>
+    </div>
+
+    <nav class="c-header__navigation js-header-navigation" id="navigation">
+        <ul class="c-header__items">
+            {% page_menu 'pages/menus/header.html' %}
+        </ul>
+
+        <a href="{% url 'search' %}" class="c-header__action c-header__action--search">
+            <svg class="c-header__icon" width="16" height="16" aria-label="{% trans 'Search' %}" focusable="false">
+                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-search"/>
+            </svg>
+        </a>
+
+        {% get_language_info_list for LANGUAGES as languages %}
+        {% if settings.USE_MODELTRANSLATION and languages|length > 1 %}
+            <form action="{% url "set_language" %}" method="post" class="c-header__languages">
+                {% csrf_token %}
+                {% for language in languages %}
+                <button class="c-header__language{% if language.code == LANGUAGE_CODE %} is-active{% endif %}" type="submit" name="language" value="{{ language.code }}">{{ language.code|upper }}</button>{% if not forloop.last %} | {% endif %}
+                {% endfor %}
+            </form>
+        {% endif %}
+
+        <div class="c-header__banner" aria-hidden="true">
+            <svg class="c-header__mask" width="160" height="320" focusable="false">
+                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-manifeste-2020"/>
+            </svg>
+            <img src="{% static 'img/home.jpg' %}" srcset="{% static 'img/home@2x.jpg' %} 2x" alt="" loading="lazy" class="c-header__picture"/>
+        </div>
+    </nav>
+</header>

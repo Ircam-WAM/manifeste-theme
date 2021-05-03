@@ -1,0 +1,106 @@
+.c-calendar {
+  background: $color-white;
+  box-shadow: $shadow-80;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 1 auto;
+  padding: rem(16px 16px 12px);
+  text-align: center;
+  min-height: rem(352px);
+  width: 100%;
+}
+
+  .c-calendar__title {
+    @include font-size($font-h5...);
+    font-weight: $font-bold;
+    margin-bottom: rem(16px);
+
+    &::after {
+      background: $color-primary;
+      height: 1px;
+      content: "";
+      display: block;
+      margin: rem(8px) auto 0;
+      width: rem(40px);
+    }
+  }
+
+  .c-calendar__table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+
+    th {
+      color: $color-shade-4;
+      height: rem(28px);
+      padding: 0 0 rem(4px);
+    }
+
+    abbr {
+      display: block;
+      border: 0;
+      font-weight: $font-regular;
+      text-decoration: none;
+    }
+
+    td {
+      height: rem(48px);
+      padding: rem(8px 6px);
+      position: relative;
+    }
+  }
+
+  .c-calendar__label {
+    display: block;
+    position: relative;
+  }
+
+  .c-calendar__input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+  }
+
+  .c-calendar__day {
+    appearance: none;
+    background: transparent $color-white;
+    border: 0;
+    border-radius: 50%;
+    box-shadow: none;
+    color: $color-shade-4;
+    cursor: not-allowed;
+    font: inherit;
+    display: block;
+    margin: 0 auto;
+    padding: rem(4px) 0;
+    height: rem(32px);
+    width: rem(32px);
+    text-decoration: none;
+    text-decoration: line-through;
+    transition: background-color 400ms, color 400ms;
+  }
+
+  a.c-calendar__day,
+  button.c-calendar__day:not(:disabled),
+  input.c-calendar__input:not(:disabled) + .c-calendar__day {
+    color: $color-black;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+      background-color: $color-primary-washed;
+      color: $color-white
+    }
+  }
+
+  a.c-calendar__day.is-current,
+  button.c-calendar__day.is-current,
+  input.c-calendar__input:checked:not(:disabled) + .c-calendar__day {
+    background-color: $color-primary;
+    color: $color-white;
+  }
+
+  input:not(:disabled):focus-visible + label.c-calendar__day {
+    outline: 5px auto -webkit-focus-ring-color;
+  }

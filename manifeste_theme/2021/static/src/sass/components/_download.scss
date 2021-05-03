@@ -1,0 +1,60 @@
+.c-download {
+  background: $color-contrast-dark;
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: rem(8px 0);
+  width: 100%;
+  overflow: hidden;
+  text-decoration: none;
+  text-align: left;
+}
+
+  .c-download__picture {
+    float: left;
+    flex: 0 0 auto;
+    margin-left: rem(8px);
+  }
+
+  .c-download__content {
+    flex: 1;
+    overflow: hidden;
+    padding: rem(4px 16px)
+  }
+
+    .c-download__label {
+      margin-bottom: rem(8px);
+    }
+
+    .c-download__button.c-button {
+      position: static;
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 2;
+      }
+    }
+
+    .c-download__icon {
+      color: $color-contrast;
+      height: rem(24px);
+      width: rem(24px);
+      margin: rem(16px);
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      z-index: 1;
+      transition: color 400ms;
+
+      a.c-download__button:hover + & {
+        color: $color-contrast-light;
+      }
+    }

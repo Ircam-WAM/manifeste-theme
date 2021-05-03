@@ -1,0 +1,94 @@
+img,
+figure {
+  height: auto;
+  max-width: 100%;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+audio,
+video {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+img {
+  display: inline-block;
+  vertical-align: top;
+}
+
+figure {
+  display: block;
+  overflow: hidden;
+  position: relative;
+
+  img {
+    display: block;
+    width: 100%;
+    margin: 0;
+  }
+
+  figcaption {
+    background: $color-black;
+    color: $color-white;
+    padding: rem(8px);
+    text-align: left;
+    width: 100%;
+
+    code {
+      background: transparent;
+      padding: 0;
+    }
+  }
+}
+
+.embed {
+  position: relative;
+  width: 100%;
+
+  iframe {
+    border: 0;
+    display: block;
+    margin: 0;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    height: 0;
+    padding-top: 56.25%;
+  }
+
+  @supports (--custom:property) {
+    &[style*="--aspect-ratio"]::before {
+      padding-top: calc(100% / (var(--aspect-ratio)));
+    }
+  }
+}
+
+@include mq($from: medium) {
+  figure figcaption {
+    padding: rem(8px 16px);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: translateY(0%);
+    transition: opacity 400ms, transform 400ms;
+    width: auto;
+    max-width: 100%;
+  }
+
+  figure:hover figcaption {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}

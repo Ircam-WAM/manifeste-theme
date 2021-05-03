@@ -1,0 +1,98 @@
+.c-edito {
+  background: $color-primary-dark image-url("edito.jpg") no-repeat center / cover;
+  color: $color-white;
+  padding: rem(24px) 0;
+
+  @include resolution(2) {
+    background-image: image-url("edito@2x.jpg");
+  }
+}
+
+  .c-edito__title {
+    @include font-size($font-h2...);
+    font-weight: $font-bold;
+    margin-bottom: rem(24px);
+  }
+
+  .c-edito__text {
+    @include font-size($font-h5...);
+  }
+
+  .c-edito__buttons {
+    margin: rem(16px -8px -8px);
+    position: relative;
+    z-index: 2;
+  }
+
+    .c-edito__button.c-button {
+      margin: rem(8px);
+    }
+
+  .c-edito__logo {
+    color: $color-secondary;
+    display: block;
+    margin: rem(24px) auto 0;
+    width: rem(120px);
+    height: rem(240px);
+    position: relative;
+    z-index: 1;
+
+    .c-edito__buttons + & {
+      margin-top: rem(-48px);
+    }
+  }
+
+@include mq($from: medium) {
+  .c-edito {
+    padding: rem(40px) 0;
+  }
+
+  .c-edito__title {
+    @include font-size($font-h2-large...);
+    margin-bottom: rem(40px);
+  }
+
+  .c-edito__text {
+    @include font-size($font-h5-large...);
+  }
+
+  .c-edito__buttons {
+    margin-top: rem(32px);
+  }
+
+  .c-edito__logo {
+    margin-top: rem(40px);
+
+    .c-edito__buttons + & {
+      margin-top: rem(-56px);
+    }
+  }
+}
+
+@include mq($from: large) {
+  .c-edito {
+    overflow: hidden;
+    padding-bottom: rem(64px);
+  }
+
+  .c-edito__title,
+  .c-edito__text,
+  .c-edito__buttons {
+    width: percentage(736px / $width-container-large);
+    max-width: rem(736px);
+  }
+
+  .c-edito__logo {
+    width: rem(200px);
+    height: rem(400px);
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: percentage(860px / $width-container-large);
+    transform: translateY(-50%);
+
+    .c-edito__buttons + & {
+      margin-top: 0;
+    }
+  }
+}

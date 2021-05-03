@@ -1,0 +1,29 @@
+{% extends '2020/base.html' %}
+
+{% block meta_title %}Artistes{% endblock %}
+
+{% block main %}
+    <header class="c-hero">
+        <svg class="c-hero__mask" width="160" height="320" aria-hidden="true">
+            <use xlink:href="{% static 'img/symbols.svg' %}#symbol-manifeste-2020"/>
+        </svg>
+        <img src="{% static 'img/home.jpg' %}" srcset="{% static 'img/home@2x.jpg' %} 2x" alt="" class="c-hero__picture"/>
+        <div class="c-hero__container c-container">
+            <h1 class="c-hero__title">Artistes</h1>
+        </div>
+    </header>
+
+    <section class="c-container u-mtxs u-mt-l@medium">
+        <div class="c-gallery">
+            <ul class="c-gallery__items">
+                <li class="c-gallery__item">
+                    {% include 'includes/card_person.html' %}
+                </li>
+                <li class="c-gallery__item">
+                    {% include 'includes/card_person.html' %}
+                </li>
+            </ul>
+        </div>
+    </section>
+{% endblock main %}
+

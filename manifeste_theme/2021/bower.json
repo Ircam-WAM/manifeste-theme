@@ -1,0 +1,21 @@
+{
+  "name": "ircam_www",
+  "description": "ircam_www",
+  "main": "",
+  "authors": [
+    "Fabre Jérémy"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "https://github.com/components/jquery.git#2.2.4"
+  }
+}

@@ -1,0 +1,64 @@
+{% extends '2020/base.html' %}
+
+{% block meta_title %}Recherche{% endblock %}
+
+{% block main %}
+    <header class="c-hero">
+        <svg class="c-hero__mask" width="160" height="320" aria-hidden="true">
+            <use xlink:href="{% static 'img/symbols.svg' %}#symbol-manifeste-2020"/>
+        </svg>
+        <img src="{% static 'img/home.jpg' %}" srcset="{% static 'img/home@2x.jpg' %} 2x" alt="" class="c-hero__picture"/>
+        <div class="c-hero__container c-container">
+            <form action="search-results.html" method="get" class="c-hero__search" aria-labelledby="search-title">
+                <h1 class="c-hero__title u-hidden-visually" id="search-title">Recherche</h1>
+                <div class="c-hero__field c-field">
+                    <label for="search-query" class="c-field__label">Votre recherche</label>
+                    <input id="search-query" name="q" type="search" inputmode="search" value="IRCAM" placeholder="Exemple : IRCAM" required class="c-field__input">
+                    <svg class="c-field__icon" width="16" height="16" aria-hidden="true" focusable="false">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-search"/>
+                    </svg>
+                    <button type="submit" class="c-field__button c-button c-button--secondary c-button--xlarge">
+                        <svg class="c-button__icon" width="16" height="16" aria-label="Valider" focusable="false">
+                            <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-right"/>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </header>
+
+    <section class="c-container u-mtxs u-mt-l@medium">
+        <div class="c-gallery">
+            <ul class="c-gallery__items">
+                <li class="c-gallery__item">
+                    {% include 'includes/card_news.html' with { type: 'Vidéo', icon: 'video' } %}
+                </li>
+                <li class="c-gallery__item">
+                    {% include 'includes/card_news.html' with { type: 'Audio', icon: 'audio' } %}
+                </li>
+                <li class="c-gallery__item">
+                    {% include 'includes/card_person.html' %}
+                </li>
+                <li class="c-gallery__item">
+                    {% include 'includes/card_event.html' %}
+                </li>
+            </ul>
+            <p class="c-gallery__buttons c-gallery__buttons--pagination">
+                <span class="c-gallery__button c-button c-button--large is-disabled">
+                    <svg class="c-button__icon" width="24" height="24" aria-label="Page précédente" focusable="false">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-left"/>
+                    </svg>
+                </span>
+                <a href="#" class="c-gallery__button c-button c-button--large c-button--secondary">1</a>
+                <a href="#" class="c-gallery__button c-button c-button--large">2</a>
+                <a href="#" class="c-gallery__button c-button c-button--large">3</a>
+                <a href="#" class="c-gallery__button c-button c-button--large">
+                    <svg class="c-button__icon" width="24" height="24" aria-label="Page suivante" focusable="false">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-right"/>
+                    </svg>
+                </a>
+            </p>
+        </div>
+    </section>
+{% endblock main %}
+

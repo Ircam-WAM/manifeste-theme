@@ -1,0 +1,52 @@
+{% extends "2021/base.html" %}
+{% load i18n pages_tags mezzanine_tags organization_tags staticfiles %}
+
+{% block meta_title %}
+    {% trans "Magazine" %}
+{% endblock %}
+
+
+{% block main %}
+    <header class="c-hero">
+        <svg class="c-hero__mask" width="160" height="320" aria-hidden="true">
+            <use xlink:href="{% static 'img/symbols.svg' %}#symbol-manifeste-2020"/>
+        </svg>
+        <img src="{% static 'img/news.jpg' %}" srcset="{% static 'img/news@2x.jpg' %} 2x" alt="" loading="lazy" class="c-hero__picture"/>
+        <div class="c-hero__container c-container">
+            <h1 class="c-hero__title">{{ magazine.title }}</h1>
+            <div class="c-hero__informations u-hidden@small" aria-labelledby="filter-title">
+                <p class="c-hero__label" id="filter-title">{% trans 'Filter by' %}</p>
+                <p class="c-hero__tags">
+                    {% for filter_key, filter_value in filters.items %}
+                        {% if current_type == filter_key %}
+                            <a href="{% url 'magazine' %}" class="c-hero__tag c-button c-button--rounded c-button--primary">
+                        {% else %}
+                            <a href="{% url 'magazine' type=filter_key %}" class="c-hero__tag c-button c-button--rounded{% if current_type %} c-button--inactive{% endif %}">
+                        {% endif %}
+                            <svg class="c-button__icon" width="16" height="16" aria-hidden="true" focusable="false">
+                                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-{{ filter_key }}"/>
+                            </svg>
+                            <span class="c-button__label">{{ filter_value }}</span>
+                        </a>
+                    {% endfor %}
+                </p>
+            </div>
+        </div>
+    </header>
+
+    {% if dynamic_content|get_content_objects %}
+        <section class="c-container u-mtxs u-mt-l@medium">
+            <div class="c-gallery">
+                <ul class="c-gallery__items">
+                    {% include "core/inc/cards.html" with concrete_objects=dynamic_content|get_content_objects %}
+                </ul>
+            </div>
+        </section>
+    {% else %}
+        <section class="c-container c-container--narrow u-mts u-mtl@medium">
+            <div class="c-content u-align-center">
+                <p class="h3">{% trans 'No results were found matching your query.' %}</p>
+            </div>
+        </section>
+    {% endif %}
+{% endblock %}

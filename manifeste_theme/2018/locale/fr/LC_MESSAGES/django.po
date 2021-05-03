@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-16 15:59+0000\n"
+"POT-Creation-Date: 2021-04-28 16:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -317,6 +317,7 @@ msgstr "Téléchargements"
 msgid "Linked events"
 msgstr "Événement(s) lié(s)"
 
+<<<<<<< HEAD
 #: templates/core/inc/related_ctn_and_events.html:42
 #: templates/network/person_detail.html:123
 msgid "Linked contents"
@@ -324,17 +325,24 @@ msgstr "À découvrir aussi"
 
 #: templates/email/account_approve.html:3
 #: templates/email/account_approve.txt:3
+=======
+#: templates/email/account_approve.html:3 templates/email/account_approve.txt:3
+>>>>>>> dev
 msgid "Hey there, a new account has been created and requires activation."
 msgstr ""
 
-#: templates/email/account_approve.html:5
-#: templates/email/account_approve.txt:5
+#: templates/email/account_approve.html:5 templates/email/account_approve.txt:5
 msgid "Name"
 msgstr ""
 
+<<<<<<< HEAD
 #: templates/email/account_approve.html:6
 #: templates/email/account_approve.txt:6
 #: templates/network/person_detail.html:53
+=======
+#: templates/email/account_approve.html:6 templates/email/account_approve.txt:6
+#: templates/network/person_detail.html:52
+>>>>>>> dev
 #: templates/network/person_detail_multiple_activities.html:34
 msgid "Email"
 msgstr ""

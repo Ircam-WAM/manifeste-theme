@@ -1,0 +1,17 @@
+{% load i18n mezzanine_tags keyword_tags organization_tags pages_tags %}
+{% if concrete_objects %}
+    <aside class="u-mtm u-mtl@medium u-mb-m u-mb-xl@medium">
+        <div class="c-container c-container--narrow">
+            <div class="c-heading">
+                <h2 class="c-heading__title">{% if object.related_title.title %}{{ object.related_title.title }}{% else %}{% trans "Also discover" %}{% endif %}</h2>
+            </div>
+        </div>
+        <div class="c-container u-mtxs u-mts@medium">
+            <div class="c-gallery c-gallery--background">
+                <ul class="c-gallery__items">
+                    {% include "core/inc/cards.html" %}
+                </ul>
+            </div>
+        </div>
+    </aside>
+{% endif %}

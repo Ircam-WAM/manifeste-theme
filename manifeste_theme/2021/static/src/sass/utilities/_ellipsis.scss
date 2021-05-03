@@ -1,0 +1,52 @@
+.u-ellipsis {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.u-ellipsis[style*="--lines"],
+.u-ellipsis--2,
+.u-ellipsis--3,
+.u-ellipsis--4 {
+  display: -webkit-box;
+  /* autoprefixer: ignore next */
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+
+.u-ellipsis[style*="--lines"] {
+  max-height: calc(var(--lines) * #{rem($line-height-default)});
+
+  @supports(-webkit-line-clamp: 1) {
+    -webkit-line-clamp: var(--lines);
+    max-height: none;
+  }
+}
+
+.u-ellipsis--2 {
+  max-height: rem(2 * $line-height-default);
+
+  @supports(-webkit-line-clamp: 1) {
+    -webkit-line-clamp: 2;
+    max-height: none;
+  }
+}
+
+.u-ellipsis--3 {
+  max-height: rem(3 * $line-height-default);
+
+  @supports(-webkit-line-clamp: 1) {
+    -webkit-line-clamp: 3;
+    max-height: none;
+  }
+}
+
+.u-ellipsis--4 {
+  max-height: rem(4 * $line-height-default);
+
+  @supports(-webkit-line-clamp: 1) {
+    -webkit-line-clamp: 4;
+    max-height: none;
+  }
+}

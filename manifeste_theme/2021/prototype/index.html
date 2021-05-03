@@ -1,0 +1,142 @@
+{% extends '2021/base.html' %}
+
+{% block meta_title %}Accueil{% endblock %}
+
+{% block main %}
+    <header class="c-hero c-hero--home">
+        <svg class="c-hero__mask" width="160" height="320" aria-label="ManiFeste 2021">
+            <use xlink:href="{% static 'img/symbols.svg' %}#symbol-manifeste-2021"/>
+        </svg>
+        <img src="{% static 'img/home.jpg' %}" srcset="{% static 'img/home@2x.jpg' %} 2x" alt="" class="c-hero__picture"/>
+        <div class="c-hero__container c-container">
+            <h1 class="c-hero__title">Festival Musiques — Fictions<br/>Du 31 mai au 30 juin 2021</h1>
+        </div>
+    </header>
+
+    <section class="c-container c-container--full@small u-mtxs u-mt-l@medium">
+        <div class="c-slideshow c-slideshow--home js-slideshow">
+            <div class="c-slideshow__slide js-slideshow-slide">
+                {% include 'includes/card_slide.html' %}
+            </div>
+            <div class="c-slideshow__slide js-slideshow-slide">
+                {% include 'includes/card_slide.html' %}
+            </div>
+        </div>
+    </section>
+
+    {% include 'includes/home.html' %}
+
+    <section class="c-edito u-mtm u-mtxl@medium">
+        <div class="c-edito__container c-container">
+            <h2 class="c-edito__title">ManiFeste 2021</h2>
+            <p class="c-edito__text">Aujourd’hui, à l’ère numérique, la création artistique rencontre le domaine en pleine extension des sciences du vivant, les neurosciences, la biologie synthétique, les nanotechnologies. La notion de « vivant » se donne sous une forme d’artificialité inédite, entre l’inerte et l’animé, l’organique et le machinique, la matière et le numérique. Utiliser, programmer, exposer, défier le vivant ? Ces nouveaux questionnements sont au cœur du Forum Vertigo
+            </p>
+            <p class="c-edito__buttons">
+                <a href="#" class="c-edito__button c-button c-button--large">En savoir plus</a>
+            </p>
+            <svg class="c-edito__logo" width="200" height="400" aria-hidden="true">
+                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-manifeste-2021"/>
+            </svg>
+        </div>
+    </section>
+
+    <section class="c-container u-mtm u-mtxl@medium">
+        <div class="c-heading c-heading--narrow">
+            <div class="c-heading__title">
+                <svg class="c-heading__icon" width="24" height="24" aria-hidden="true" focusable="false">
+                    <use xlink:href="{% static 'img/symbols.svg' %}#symbol-twitter"/>
+                </svg>
+                <h2 class="c-heading__label">Fil Twitter <small class="c-heading__subtitle">#manifeste20</small></h2>
+            </div>
+            <p class="c-heading__buttons u-hidden@small">
+                <a href="#" class="c-heading__button c-button c-button--link c-button--large">
+                    <span class="c-button__label">Voir la suite</span>
+                    <svg class="c-button__icon" width="24" height="24" aria-hidden="true" focusable="false">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-right"/>
+                    </svg>
+                </a>
+            </p>
+        </div>
+
+        <div class="c-social c-social--twitter u-mts">
+            <ul class="c-social__items">
+                <li class="c-social__item">
+                    <p class="c-social__author"><a href="#" target="_blank" rel="noopener" class="c-social__link">@Auteur</a></p>
+                    <p class="c-social__date"><a href="#" target="_blank" rel="noopener" class="c-social__link">Date</a></p>
+                    <p class="c-social__text">Tweet avec des <a href="#" target="_blank" rel="noopener">liens</a>.</p>
+                </li>
+                <li class="c-social__item">
+                    <p class="c-social__author"><a href="#" target="_blank" rel="noopener" class="c-social__link">@Auteur</a></p>
+                    <p class="c-social__date"><a href="#" target="_blank" rel="noopener" class="c-social__link">Date</a></p>
+                    <p class="c-social__text">Tweet avec des <a href="#" target="_blank" rel="noopener">liens</a>.</p>
+                </li>
+            </ul>
+            <p class="c-social__buttons u-mtxs u-hidden@medium u-hidden@large">
+                <a href="#" class="c-social__button c-button c-button--link c-button--large">
+                    <span class="c-button__label">Voir la suite</span>
+                    <svg class="c-button__icon" width="24" height="24" aria-hidden="true" focusable="false">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-right"/>
+                    </svg>
+                </a>
+            </p>
+        </div>
+    </section>
+
+    <section class="c-container u-mtm u-mtl@medium">
+        <div class="c-heading c-heading--narrow">
+            <div class="c-heading__title">
+                <svg class="c-heading__icon" width="24" height="24" aria-hidden="true" focusable="false">
+                    <use xlink:href="{% static 'img/symbols.svg' %}#symbol-instagram"/>
+                </svg>
+                <h2 class="c-heading__label">Fil Instagram <small class="c-heading__subtitle">#manifeste20</small></h2>
+            </div>
+            <p class="c-heading__buttons u-hidden@small">
+                <a href="#" class="c-heading__button c-button c-button--link c-button--large">
+                    <span class="c-button__label">Voir la suite</span>
+                    <svg class="c-button__icon" width="24" height="24" aria-hidden="true" focusable="false">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-right"/>
+                    </svg>
+                </a>
+            </p>
+        </div>
+
+        <div class="c-social c-social--instagram u-mts">
+            <ul class="c-social__items">
+                <li class="c-social__item">
+                    <a href="#" target="_blank" rel="noopener" class="c-social__link">
+                        <img src="http://placehold.it/160" alt="" class="c-social__picture" />
+                    </a>
+                </li>
+                <li class="c-social__item">
+                    <a href="#" target="_blank" rel="noopener" class="c-social__link">
+                        <img src="http://placehold.it/160" alt="" class="c-social__picture" />
+                    </a>
+                </li>
+                <li class="c-social__item">
+                    <a href="#" target="_blank" rel="noopener" class="c-social__link">
+                        <img src="http://placehold.it/160" alt="" class="c-social__picture" />
+                    </a>
+                </li>
+                <li class="c-social__item">
+                    <a href="#" target="_blank" rel="noopener" class="c-social__link">
+                        <img src="http://placehold.it/160" alt="" class="c-social__picture" />
+                    </a>
+                </li>
+                <li class="c-social__item">
+                    <a href="#" target="_blank" rel="noopener" class="c-social__link">
+                        <img src="http://placehold.it/160" alt="" class="c-social__picture" />
+                    </a>
+                </li>
+            </ul>
+            <p class="c-social__buttons u-mtxs u-hidden@medium u-hidden@large">
+                <a href="#" class="c-social__button c-button c-button--link c-button--large">
+                    <span class="c-button__label">Voir la suite</span>
+                    <svg class="c-button__icon" width="24" height="24" aria-hidden="true" focusable="false">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-right"/>
+                    </svg>
+                </a>
+            </p>
+        </div>
+    </section>
+{% endblock main %}
+

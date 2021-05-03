@@ -1,0 +1,181 @@
+// COLORS
+
+$color-shade-0:          #000000;
+$color-shade-1:          #292433;
+$color-shade-2:          #585266;
+$color-shade-3:          #736c80;
+$color-shade-4:          #9892a6;
+$color-shade-5:          #b2acbf;
+$color-shade-6:          #d0ccd9;
+$color-shade-7:          #f0edf5;
+$color-shade-8:          #f9f7fc;
+$color-shade-9:          #ffffff;
+
+$color-primary-0:        #1a9bd1;
+$color-primary-1:        #1a9bd1;
+$color-primary-2:        #ffb8a6;
+$color-primary-3:        #3cbef5;
+$color-primary-4:        #a9f7ff;
+
+$color-secondary-0:      #a9f7ff;
+$color-secondary-1:      #a9f7ff;
+$color-secondary-2:      #cdfaff;
+$color-secondary-3:      #3cbef5;
+$color-secondary-4:      #ff0000;
+
+$color-contrast-0:       #eb6c49;
+$color-contrast-1:       #0060bf;
+$color-contrast-2:       #80bfff;
+$color-contrast-3:       #e0f0ff;
+
+$color-foreground:       $color-shade-0;
+$color-background:       $color-shade-9;
+
+// Sketch aliases
+$color-black:            $color-shade-0;
+$color-white:            $color-shade-9;
+
+$color-primary-dark:     $color-primary-0;
+$color-primary:          $color-primary-1;
+$color-primary-light:    $color-primary-2;
+$color-primary-washed:   $color-primary-3;
+
+$color-secondary-dark:   $color-secondary-0;
+$color-secondary:        $color-secondary-1;
+$color-secondary-light:  $color-secondary-2;
+$color-secondary-washed: $color-secondary-3;
+$color-secondary-youtube:$color-secondary-4;
+
+$color-contrast-dark:    $color-contrast-0;
+$color-contrast:         $color-contrast-1;
+$color-contrast-light:   $color-contrast-2;
+$color-contrast-washed:  $color-contrast-3;
+
+
+// FONTS
+
+$font-primary:           "Univers Next Pro Condensed";
+$font-default:           $font-primary, "Arial Narrow", Arial, sans-serif;
+$font-code:              monospace;
+
+$font-regular:           normal;
+$font-medium:            normal;
+$font-bold:              bold;
+$font-heavy:             bold;
+
+$font-size-0:            16px;
+$font-size-1:            20px;
+$font-size-1-large:      24px;
+$font-size-2:            24px;
+$font-size-2-large:      32px;
+$font-size-3:            32px;
+$font-size-3-large:      44px;
+$font-size-4:            40px;
+$font-size-4-large:      64px;
+$font-size-5:            48px;
+$font-size-5-large:      88px;
+
+$line-height-0:          24px;
+$line-height-1:          28px;
+$line-height-1-large:    32px;
+$line-height-2:          32px;
+$line-height-2-large:    40px;
+$line-height-3:          40px;
+$line-height-3-large:    52px;
+$line-height-4:          48px;
+$line-height-4-large:    72px;
+$line-height-5:          56px;
+$line-height-5-large:    112px;
+
+$font-size-default:      $font-size-0;
+$line-height-default:    $line-height-0;
+
+// Sketch aliases
+$font-p:          $font-size-0,       $line-height-0;
+$font-h5:         $font-size-1,       $line-height-1;
+$font-h5-large:   $font-size-1-large, $line-height-1-large;
+$font-h4:         $font-size-2,       $line-height-2;
+$font-h4-large:   $font-size-2-large, $line-height-2-large;
+$font-h3:         $font-size-3,       $line-height-3;
+$font-h3-large:   $font-size-3-large, $line-height-3-large;
+$font-h2:         $font-size-4,       $line-height-4;
+$font-h2-large:   $font-size-4-large, $line-height-4-large;
+$font-h1:         $font-size-5,       $line-height-5;
+$font-h1-large:   $font-size-5-large, $line-height-5-large;
+
+
+// DIMENSIONS
+
+$width-gutter: 16px;
+$width-container-small: 352px;
+$width-container-medium: 720px;
+$width-container-narrow: 928px;
+$width-container-large: 1120px;
+$height-header-small: 48px;
+$height-header-large: 88px;
+
+$spacing: (
+  xs: 24px,
+  s:  40px,
+  m:  64px,
+  l:  80px,
+  xl: 120px
+);
+
+
+// Z-INDEXES
+
+$z-header:  40;
+$z-main:    10;
+$z-cookies: 30;
+$z-footer:  20;
+
+
+// SHADOWS
+
+$shadow-24: 0     0    0     0 rgba($color-black, .01),
+            0 rem(1px  1px)  0 rgba($color-black, .02),
+            0 rem(3px  3px)  0 rgba($color-black, .03),
+            0 rem(5px  5px)  0 rgba($color-black, .03),
+            0 rem(10px 10px) 0 rgba($color-black, .04),
+            0 rem(24px 24px) 0 rgba($color-black, .05);
+
+$shadow-40: 0 rem(1px  1px)  0 rgba($color-black, .01),
+            0 rem(2px  2px)  0 rgba($color-black, .02),
+            0 rem(5px  5px)  0 rgba($color-black, .03),
+            0 rem(8px  8px)  0 rgba($color-black, .03),
+            0 rem(16px 16px) 0 rgba($color-black, .04),
+            0 rem(40px 40px) 0 rgba($color-black, .05);
+
+$shadow-80: 0 rem(2px  2px)  0 rgba($color-black, .01),
+            0 rem(5px  5px)  0 rgba($color-black, .02),
+            0 rem(10px 10px) 0 rgba($color-black, .03),
+            0 rem(17px 17px) 0 rgba($color-black, .03),
+            0 rem(33px 33px) 0 rgba($color-black, .04),
+            0 rem(80px 80px) 0 rgba($color-black, .05);
+
+
+// GRADIENTS
+
+$gradient-1: linear-gradient(rgba($color-black, .1),  rgba($color-black, .5));
+$gradient-2: linear-gradient(rgba($color-black, .15), rgba($color-black, .75));
+$gradient-3: linear-gradient(rgba($color-black, .5),  rgba($color-black, .8));
+
+
+// BREAKPOINTS
+
+$mq-breakpoints: (
+  small:  320px,  // Mobile
+  medium: 768px,  // Tablet
+  large:  1024px, // Desktop
+  xlarge: 1180px  // Widescreen
+);
+
+
+// ASSETS
+
+$asset-type-path: (
+  "image": "img/",
+  "font": "fonts/"
+);
+

@@ -1,0 +1,45 @@
+{% extends '2020/base.html' %}
+
+{% block meta_title %}Person{% endblock %}
+
+{% block main %}
+    <header class="c-hero c-hero--person c-hero--simple">
+        <img src="{% static 'img/person.jpg' %}" alt="" class="c-hero__picture"/>
+        <div class="c-hero__container c-container">
+            <img src="{% static 'img/person-avatar.jpg' %}" alt="" class="c-hero__avatar"/>
+            <h1 class="c-hero__title">Oscar de la Cavallería</h1>
+            <div class="c-hero__informations">
+                <ul class="c-hero__tags">
+                    <li class="c-hero__tag c-button c-button--rounded">
+                        <svg class="c-button__icon" width="16" height="16" aria-hidden="true" focusable="false">
+                            <use xlink:href="{% static 'img/symbols.svg' %}#symbol-person"/>
+                        </svg>
+                        <span class="c-button__label">Directeur de recherche &amp; développement</span>
+                    </li>
+                </ul>
+                <p class="c-hero__networks">
+                    <a href="#" class="c-hero__network">
+                        <svg class="c-hero__icon" width="24" height="24" aria-label="Partager sur Facebook" focusable="false">
+                            <use xlink:href="{% static 'img/symbols.svg' %}#symbol-facebook"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="c-hero__network">
+                        <svg class="c-hero__icon" width="24" height="24" aria-label="Partager sur Twitter" focusable="false">
+                            <use xlink:href="{% static 'img/symbols.svg' %}#symbol-twitter"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="c-hero__network">
+                        <svg class="c-hero__icon" width="24" height="24" aria-label="Partager sur LinkedIn" focusable="false">
+                            <use xlink:href="{% static 'img/symbols.svg' %}#symbol-linkedin"/>
+                        </svg>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <section class="c-container c-container--narrow u-mts u-mtl@medium">
+        {% include 'includes/content.html' %}
+    </section>
+{% endblock main %}
+

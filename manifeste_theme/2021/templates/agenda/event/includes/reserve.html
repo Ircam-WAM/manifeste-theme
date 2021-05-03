@@ -1,0 +1,39 @@
+{% load i18n  mezzanine_tags event_tags   organization_tags %}
+{% if not is_archive %}
+    <ul>
+    {% if event.links.all|get_type_link:'vel' %}
+        {% with event.links.all as links %}
+            {% if links %}
+                <li>
+                    <a href="{{ links|get_type_link:'vel'|first }}" target="_blank" class="c-article__button c-button c-button--secondary">
+                        {% trans "Reserve" %}
+                    </a>
+                </li>
+            {% endif %}
+        {% endwith %}
+    {% elif event.prices.all %}
+            {% for price in event.prices.all %}
+                {% if price.value == 0 %}
+                    <li>
+                        <span class="c-article__button c-button c-button--secondary">
+                            {% trans "Free" %}
+                        </span>
+                    </li>
+                {% endif %} {% if not forloop.last %}<br/>{% endif %}
+            {% endfor %}
+    {% endif %}
+    {% if event.links.all|get_type_link:'youtube' %}
+        {% with event.links.all as links %}
+            {% if links %}
+                {% with links|get_type_link:'youtube'|first as link %}
+                    <li>
+                        <a href="{{ link.url }}" target="_blank" class="c-article__button c-button c-button--youtube">
+                            {{ link.title }} &nbsp; <i class="fab fa-youtube"></i>
+                        </a>
+                    </li>
+                {% endwith %}
+            {% endif %}
+        {% endwith %}
+    {% endif %}
+    </ul>
+{% endif %}

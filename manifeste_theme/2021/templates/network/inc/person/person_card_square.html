@@ -1,0 +1,33 @@
+{% extends "core/inc/generic_card.html" %}
+{% load organization_tags mezzanine_tags staticfiles %}
+
+{% block title %}
+    {{ person.first_name }} {{ person.last_name }}
+{% endblock %}
+
+{% block url %}
+    {{ person.get_absolute_url }}
+{% endblock %}
+
+{% block image %}
+    {% with person.images.all|get_type:'card' as card_images %}
+        {% if card_images %}
+            <img src="{{ MEDIA_URL }}{% thumbnail card_images.first 352 352 %}" alt="" loading="lazy" class="c-article__picture"/>
+        {% endif %}
+    {% endwith %}
+{% endblock %}
+
+{% block header %}
+    {% with person.activities.first as activity %}
+        {% if activity.status %}
+            <ul class="c-article__tags">
+                <li class="c-article__tag c-button c-button--rounded">
+                    <svg class="c-button__icon" width="16" height="16" aria-hidden="true" focusable="false">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-person"/>
+                    </svg>
+                    <span class="c-button__label">{{ activity.status }}</span>
+                </li>
+            </ul>
+        {% endif %}
+    {% endwith %}
+{% endblock %}

@@ -1,0 +1,106 @@
+{% extends '2020/base.html' %}
+
+{% block meta_title %}Événement{% endblock %}
+
+{% block main %}
+    <header class="c-hero">
+        <img src="{% static 'img/event.jpg' %}" alt="" class="c-hero__picture"/>
+        <div class="c-hero__container c-container c-container--narrow">
+            <h1 class="c-hero__title">La fabrique du vivant</h1>
+            <div class="c-hero__informations">
+                <ul class="c-hero__tags">
+                    <li class="c-hero__tag c-button c-button--rounded">Rencontre</li>
+                </ul>
+                <p class="c-hero__networks">
+                    <a href="#" class="c-hero__network">
+                        <svg class="c-hero__icon" width="24" height="24" aria-label="Partager sur Facebook" focusable="false">
+                            <use xlink:href="{% static 'img/symbols.svg' %}#symbol-facebook"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="c-hero__network">
+                        <svg class="c-hero__icon" width="24" height="24" aria-label="Partager sur Twitter" focusable="false">
+                            <use xlink:href="{% static 'img/symbols.svg' %}#symbol-twitter"/>
+                        </svg>
+                    </a>
+                </p>
+            </div>
+        </div>
+        <p class="c-hero__buttons">
+            <a href="#" class="c-hero__button c-hero__button--previous c-button c-button--large c-button--secondary">
+                <svg class="c-button__icon" width="24" height="24" aria-label="Événement précédent" focusable="false">
+                    <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-left"/>
+                </svg>
+            </a>
+            <a href="#" class="c-hero__button c-hero__button--next c-button c-button--large c-button--secondary">
+                <svg class="c-button__icon" width="24" height="24" aria-label="Événement suivant" focusable="false">
+                    <use xlink:href="{% static 'img/symbols.svg' %}#symbol-arrow-right"/>
+                </svg>
+            </a>
+        </p>
+    </header>
+
+    <section class="c-container c-container--narrow c-container--full@small u-mt-l@medium">
+        <div class="c-informations">
+            <ul class="c-informations__items">
+                <li class="c-informations__item">
+                    <svg class="c-informations__icon" width="24" height="24" aria-hidde="true" focusable="false">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-calendar"/>
+                    </svg>
+                    <div class="c-informations__content">
+                        <p>Sam 29 fév → Dim 1 mar - 14h30</p>
+                    </div>
+                </li>
+                <li class="c-informations__item">
+                    <svg class="c-informations__icon" width="24" height="24" aria-hidde="true" focusable="false">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-location"/>
+                    </svg>
+                    <div class="c-informations__content">
+                        <p>Centre Pompidou, Petite salle</p>
+                    </div>
+                </li>
+                <li class="c-informations__item c-informations__item--booking">
+                    <svg class="c-informations__icon" width="24" height="24" aria-hidde="true" focusable="false">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-ticket"/>
+                    </svg>
+                    <div class="c-informations__content">
+                        <p>Entrée libre, dans la limite des places disponibles.</p>
+                        <p><a href="#" class="c-button c-button--secondary c-button--large">Réserver</a></p>
+                    </div>
+                </li>
+                <li class="c-informations__item">
+                    <svg class="c-informations__icon" width="24" height="24" aria-hidde="true" focusable="false">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-info"/>
+                    </svg>
+                    <div class="c-informations__content">
+                        <p>Conférence en anglais</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="c-container c-container--narrow u-mts u-mtl@medium">
+        {% include 'includes/content.html' %}
+    </section>
+
+    <aside class="u-mtm u-mtl@medium u-mb-m u-mb-xl@medium">
+        <div class="c-container c-container--narrow">
+            <div class="c-heading">
+                <h2 class="c-heading__title">Intervenants</h2>
+            </div>
+        </div>
+        <div class="c-container u-mtxs u-mts@medium">
+            <div class="c-gallery c-gallery--background">
+                <ul class="c-gallery__items">
+                    <li class="c-gallery__item">
+                        {% include 'includes/card_person.html' %}
+                    </li>
+                    <li class="c-gallery__item">
+                        {% include 'includes/card_news.html' %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+{% endblock main %}
+

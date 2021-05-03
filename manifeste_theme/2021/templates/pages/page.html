@@ -1,0 +1,171 @@
+{% extends "2021/base.html" %}
+{% load i18n mezzanine_tags keyword_tags organization_tags pages_tags staticfiles %}
+
+{% block meta_title %}{{ page.meta_title }}{% endblock %}
+
+{% block meta_keywords %}{% metablock %}
+{% keywords_for page as keywords %}
+{% for keyword in keywords %}
+    {% if not forloop.first %}, {% endif %}
+    {{ keyword }}
+{% endfor %}
+{% endmetablock %}{% endblock %}
+
+{% block meta_description %}{% metablock %}
+{{ page.description }}
+{% endmetablock %}{% endblock %}
+
+{% block main %}
+    {% block page_banner %}
+        <header class="c-hero {% block page_classes %}c-hero--simple{% endblock %}">
+            <svg class="c-hero__mask" width="160" height="320" aria-hidden="true">
+                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-manifeste-2020"/>
+            </svg>
+            {% block page_image %}{% endblock %}
+            <div class="c-hero__container c-container c-container--narrow">
+                <h1 class="c-hero__title">
+                    {% block page_title %}
+                        {{ page.title }}
+                    {% endblock %}
+                </h1>
+                <div class="c-hero__informations">{% spaceless %}
+                    {% block page_tags %}{% endblock %}
+                    {% block page_share %}
+                        {% include 'includes/share_buttons.html' %}
+                    {% endblock %}
+                {% endspaceless %}</div>
+            </div>
+            {% block page_buttons %}{% endblock %}
+        </header>
+    {% endblock %}
+
+    {% block page_informations %}
+
+    {% endblock %}
+
+    <section class="c-container c-container--narrow u-mts u-mtl@medium">
+        {% block page_content %}
+            <div class="c-content u-mbs">
+                {{ page.content }}
+            </div>
+        {% endblock %}
+
+        {% block multimedia %}
+            {% for dm in object.dynamic_multimedia.all %}
+                {% with content_type=dm.content_type_id|get_content_type %}
+                    {% with m_object=content_type|get_object:dm.object_id %}
+                        {% with template='media/'|add:content_type.model|add:"/includes/"|add:m_object.type|add:".html" %}
+                            {% if m_object.title or m_object.description %}
+                                <div class="c-content u-mbxs">
+                                    {% if m_object.title %}
+                                        <h2 class="h3">{{ m_object.title }}</h2>
+                                    {% endif %}
+                                    {% comment %}
+                                    {% if m_object.description and m_object.description != m_object.title %}
+                                        <p>{{ m_object.description }}</p>
+                                    {% endif %}
+                                    {% endcomment %}
+                                </div>
+                            {% endif %}
+                            {% include template with object=m_object %}
+                        {% endwith %}
+                    {% endwith %}
+                {% endwith %}
+            {% endfor %}
+        {% endblock multimedia %}
+
+        {% block page_slider %}
+            {% with object.images.all|get_type:'page_slider' as slider_images %}
+                {% if slider_images %}
+                    {% include 'core/inc/slider.html' %}
+                {% endif %}
+            {% endwith %}
+        {% endblock %}
+
+        {% block page_link %}
+            {% with object.links.all as links %}
+                {% if links %}
+                    {% include 'core/inc/link.html' %}
+                {% endif %}
+            {% endwith %}
+        {% endblock %}
+
+        {% block page_file %}
+            {% with object.files.all as files %}
+                {% if files %}
+                    {% include 'core/inc/files.html' %}
+                {% endif %}
+            {% endwith %}
+        {% endblock %}
+
+        {% block page_person_list %}
+        {% endblock %}
+
+        {% block page_demo %}
+        {% endblock %}
+
+        {% block page_blog %}
+        {% endblock %}
+
+        {% block page_sub_content %}
+            {% with object.blocks.all as blocks %}
+                {% include "core/inc/block.html" %}
+            {% endwith %}
+        {% endblock %}
+
+        {% block related_project %}
+        {% endblock %}
+
+        {% block page_sub_content_2 %}
+        {% endblock %}
+
+        {% block page_person_list_team %}
+        {% endblock %}
+
+        {% block page_sub_content_3 %}
+        {% endblock %}
+
+        {% block logo %}
+            {% with page.images.all|get_type:'logo' as images %}
+                {% if images %}
+                    <div class="c-logos u-mts">
+                        <ul class="c-logos__items">
+                            {% include 'core/inc/logo.html' %}
+                        </ul>
+                    </div>
+                {% endif %}
+            {% endwith %}
+        {% endblock logo %}
+    </section>
+
+
+    {% block page_related_content %}
+        {% include "core/inc/related_content_dynamic.html" with concrete_objects=page.dynamic_content_pages.all|get_content_objects %}
+    {% endblock page_related_content %}
+{% endblock %}
+
+{% block footer_scripts_local %}
+    {{ block.super }}
+    <img src="https://secure.adnxs.com/seg?add=20921750&t=2" width="1" height="1" />
+
+    <!-- Global site tag (gtag.js) - Google Ads: 784495553 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-784495553"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-784495553');
+    </script>
+
+    <script type="text/javascript">
+    var axel = Math.random() + "";
+    var a = axel * 10000000000000;
+    document.write('<img src="https://ad.doubleclick.net/ddm/activity/src=9916055;type=invmedia;cat=ircam0;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;ord=' + a + '?" width="1" height="1" alt=""/>');
+    </script>
+    <noscript>
+    <img src="https://ad.doubleclick.net/ddm/activity/src=9916055;type=invmedia;cat=ircam0;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;ord=1?" width="1" height="1" alt=""/>
+    </noscript>
+{% endblock %}
+
+
