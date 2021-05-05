@@ -114,6 +114,12 @@
     {% endif %}
 {% endblock %}
 
+{% block page_sub_content %}
+    {% with event.blocks.all as blocks %}
+        {% include "core/inc/block.html" %}
+    {% endwith %}
+{% endblock %}
+
 {% block page_slider %}
     {% with event as object %}
         {{ block.super }}
@@ -130,12 +136,6 @@
     {% for inline in event.persons_list.all  %}
         {% include 'network/person/includes/person_list.html' with person_list_block=inline.person_list_block %}
     {% endfor %}
-{% endblock %}
-
-{% block page_sub_content %}
-    {% with event.blocks.all as blocks %}
-        {% include "core/inc/block.html" %}
-    {% endwith %}
 {% endblock %}
 
 {% block page_related_content %}
