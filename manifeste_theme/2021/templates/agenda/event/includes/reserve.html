@@ -1,7 +1,7 @@
 {% load i18n  mezzanine_tags event_tags   organization_tags %}
 {% if not is_archive %}
     <ul>
-    {% if event.links.all|get_type_link:'vel' %}
+    {% if event.links.all|get_type_link:'vel' and not event.is_full %}
         {% with event.links.all as links %}
             {% if links %}
                 <li>
@@ -11,7 +11,7 @@
                 </li>
             {% endif %}
         {% endwith %}
-    {% elif event.prices.all %}
+    {% elif event.prices.all and not event.is_full %}
             {% for price in event.prices.all %}
                 {% if price.value == 0 %}
                     <li>

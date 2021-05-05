@@ -1,6 +1,6 @@
 {% load i18n  mezzanine_tags event_tags   organization_tags %}
 {% if not is_archive %}
-        {% if event.trainings.all|length %}
+        {% if event.trainings.all|length and not event.is_full %}
             {% with event.links.all as links %}
                 {% if links %}
                     <p>
@@ -10,13 +10,13 @@
                     </p>
                 {% endif %}
             {% endwith %}
-        {% elif event.links.all|get_type_link:'vel' %}
+        {% elif event.links.all|get_type_link:'vel' and not event.is_full %}
             <p>
                 <a href="{{ event.links.all|get_type_link:'vel'|first }}" target="_blank" rel="noopener" class="c-informations__button c-button c-button--secondary c-button--large">
                     {% trans "Reserve" %}
                 </a>
             </p>
-        {% elif event.prices.all %}
+        {% elif event.prices.all and not event.is_full %}
             <p>
                 {% for price in event.prices.all %}
                     {% if price.value == 0 %}
