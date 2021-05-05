@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 16:37+0000\n"
+"POT-Creation-Date: 2021-05-05 12:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,10 +23,11 @@ msgid "The program in pdf format"
 msgstr "L'Agenda du festival au format pdf"
 
 #: prototype/includes/footer.html:11 templates/includes/footer.html:13
+#: templates/includes/footer.html:23
 msgid "Download"
 msgstr "Télécharger"
 
-#: templates/2021/base.html:54
+#: templates/2021/base.html:55
 msgid ""
 "We use cookie technology to measure our online audience and to allow you to "
 "share content on social networks via link buttons."
@@ -35,11 +36,11 @@ msgstr ""
 "cookies pour nous permettre de mesurer l'audience, et pour vous permettre de "
 "partager du contenu via les boutons de partage de réseaux sociaux."
 
-#: templates/2021/base.html:54
+#: templates/2021/base.html:55
 msgid "Further information"
 msgstr "En savoir plus"
 
-#: templates/2021/base.html:55
+#: templates/2021/base.html:56
 msgid "I Accept"
 msgstr "Accepter"
 
@@ -214,22 +215,22 @@ msgstr ""
 msgid "and"
 msgstr "et"
 
-#: templates/agenda/event/includes/reserve.html:7
+#: templates/agenda/event/includes/reserve.html:9
 #: templates/agenda/event/includes/reserve_detail.html:8
 #: templates/agenda/event/includes/reserve_detail.html:16
 msgid "Reserve"
 msgstr "Réserver"
 
-#: templates/agenda/event/includes/reserve.html:13
-#: templates/agenda/event/includes/reserve_detail.html:22
+#: templates/agenda/event/includes/reserve.html:19
+#: templates/agenda/event/includes/reserve_detail.html:24
 msgid "Free"
 msgstr "Entrée Libre"
 
-#: templates/agenda/event_detail.html:54
+#: templates/agenda/event_detail.html:56
 msgid "Événement suivant"
 msgstr ""
 
-#: templates/agenda/event_detail.html:61
+#: templates/agenda/event_detail.html:63
 msgid "Événement précédent"
 msgstr ""
 
@@ -243,7 +244,7 @@ msgstr "Événements"
 msgid "Filter by"
 msgstr ""
 
-#: templates/agenda/event_list.html:44 templates/includes/footer.html:50
+#: templates/agenda/event_list.html:44 templates/includes/footer.html:60
 #: templates/pages/form.html:55 templates/projects/project_ict_create.html:39
 msgid "Submit"
 msgstr ""
@@ -513,31 +514,31 @@ msgstr "Mai-Juin 2021"
 
 #: templates/includes/calendar.html:9
 msgid "MO"
-msgstr ""
+msgstr "LU"
 
 #: templates/includes/calendar.html:10
 msgid "TU"
-msgstr ""
+msgstr "MA"
 
 #: templates/includes/calendar.html:11
 msgid "WE"
-msgstr ""
+msgstr "ME"
 
 #: templates/includes/calendar.html:12
 msgid "TH"
-msgstr ""
+msgstr "JE"
 
 #: templates/includes/calendar.html:13
 msgid "FR"
-msgstr ""
+msgstr "VE"
 
 #: templates/includes/calendar.html:14
 msgid "SA"
-msgstr ""
+msgstr "SA"
 
 #: templates/includes/calendar.html:15
 msgid "SU"
-msgstr ""
+msgstr "DI"
 
 #: templates/includes/editable_form.html:16
 msgid "Save"
@@ -551,21 +552,25 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: templates/includes/footer.html:42
+#: templates/includes/footer.html:22
+msgid "L'Étincelle in pdf format"
+msgstr ""
+
+#: templates/includes/footer.html:52
 msgid "Sign up for our newsletter to stay up-to-date with the festival"
 msgstr ""
 "Inscrivez-vous à notre newsletter afin de recevoir les dernières actualités "
 "due l'Ircam."
 
-#: templates/includes/footer.html:44
+#: templates/includes/footer.html:54
 msgid "Your email"
 msgstr "Votre email"
 
-#: templates/includes/footer.html:59
+#: templates/includes/footer.html:69
 msgid "Follow us on"
 msgstr "Suivez-nous sur"
 
-#: templates/includes/footer.html:67
+#: templates/includes/footer.html:77
 msgid "All rights reserved"
 msgstr ""
 
@@ -617,8 +622,8 @@ msgid "May, 31 to June, 30, 2021"
 msgstr "31 mai au 30 juin 2021"
 
 #: templates/index.html:16
-msgid "Musics — Fictions"
-msgstr "Musiques - Fictions"
+msgid "Festival ManiFeste"
+msgstr ""
 
 #: templates/job/candidacy_list.html:4 templates/job/candidacy_list.html:13
 #: templates/job/candidacy_list.html:22
@@ -657,8 +662,8 @@ msgstr ""
 msgid "Please come back later. There is no job offer at the moment."
 msgstr ""
 
-#: templates/magazine/article/article_detail.html:42
-#: templates/magazine/article/article_detail.html:53
+#: templates/magazine/article/article_detail.html:44
+#: templates/magazine/article/article_detail.html:55
 #: templates/magazine/article/includes/article_card.html:37
 #: templates/magazine/article/includes/article_card.html:53
 #: templates/magazine/article/includes/article_search.html:20
@@ -1401,6 +1406,9 @@ msgstr ""
 #: templates/styles.html:4 templates/styles.html:6 templates/styles.html:12
 msgid "Styles"
 msgstr ""
+
+#~ msgid "Musics — Fictions"
+#~ msgstr "Musiques - Fictions"
 
 #~ msgid "August—September, 2020"
 #~ msgstr "Août - Septembre 2020"
