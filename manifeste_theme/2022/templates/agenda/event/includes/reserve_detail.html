@@ -1,0 +1,44 @@
+{% load i18n  mezzanine_tags event_tags   organization_tags %}
+{% if not is_archive %}
+        {% if event.trainings.all|length and not event.is_full %}
+            {% with event.links.all as links %}
+                {% if links %}
+                    <p>
+                        <a href="{{ links|get_type_link:'link'|first }}" class="c-informations__button c-button c-button--secondary c-button--large">
+                            {% trans "Reserve" %}
+                        </a>
+                    </p>
+                {% endif %}
+            {% endwith %}
+        {% elif event.links.all|get_type_link:'vel' and not event.is_full %}
+            <p>
+                <a href="{{ event.links.all|get_type_link:'vel'|first }}" target="_blank" rel="noopener" class="c-informations__button c-button c-button--secondary c-button--large">
+                    {% trans "Reserve" %}
+                </a>
+            </p>
+        {% elif event.prices.all and not event.is_full %}
+            <p>
+                {% for price in event.prices.all %}
+                    {% if price.value == 0 %}
+                        <span class="c-informations__button c-button c-button--secondary c-button--large">
+                            {% trans "Free" %}
+                        </span>
+                    {% endif %} {% if not forloop.last %}<br/>{% endif %}
+                {% endfor %}
+            </p>
+        {% endif %}
+        <br />
+        {% if event.links.all|get_type_link:'youtube' %}
+        {% with event.links.all as links %}
+            {% if links %}
+                {% with links|get_type_link:'youtube'|first as link %}
+                    <p>
+                        <a href="{{ link.url }}" target="_blank" class="c-informations__button c-button c-button--secondary c-button--large c-button--youtube">
+                            {{ link.title }} &nbsp; <i class="fab fa-youtube"></i>
+                        </a>
+                    </p>
+                {% endwith %}
+            {% endif %}
+        {% endwith %}
+    {% endif %}
+{% endif %}

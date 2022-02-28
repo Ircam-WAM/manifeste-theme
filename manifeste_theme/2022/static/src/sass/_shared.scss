@@ -1,0 +1,15 @@
+// NPM
+// Libraries imported from node_module, with link to the documentation
+
+@import "~startijenn-sass"; // https://github.com/pierreburel/startijenn-sass
+
+
+// HELPERS
+// Functions and mixins
+
+@import "helpers/*.scss";
+
+
+// SETTINGS
+
+@import "settings";

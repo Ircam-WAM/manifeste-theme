@@ -1,0 +1,7 @@
+.is-loading {
+  cursor: wait;
+
+  & > * {
+    pointer-events: none;
+  }
+}

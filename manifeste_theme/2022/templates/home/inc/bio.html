@@ -1,0 +1,20 @@
+{% load i18n staticfiles %}
+
+<section class="c-edito u-mtm u-mtxl@medium">
+    <div class="c-edito__container c-container">
+        <h2 class="c-edito__title">ManiFeste-2021</h2>
+        <div class="c-edito__text">
+            {% if host_organization.bio %}
+                {{ host_organization.bio|safe }}
+            {% else %}
+                <p>Aujourd’hui, à l’ère numérique, la création artistique rencontre le domaine en pleine extension des sciences du vivant, les neurosciences, la biologie synthétique, les nanotechnologies. La notion de « vivant » se donne sous une forme d’artificialité inédite, entre l’inerte et l’animé, l’organique et le machinique, la matière et le numérique. Utiliser, programmer, exposer, défier le vivant ? Ces nouveaux questionnements sont au cœur du Forum Vertigo.</p>
+            {% endif %}
+        </div>
+        <p class="c-edito__buttons">
+            <a href="/edito" class="c-edito__button c-button c-button--large">{% trans 'Read more' %}</a>
+        </p>
+        <svg class="c-edito__logo" width="200" height="400" aria-hidden="true">
+                <use xlink:href="{% static 'img/symbols.svg' %}#symbol-manifeste-2020"/>
+            </svg>
+    </div>
+</section>

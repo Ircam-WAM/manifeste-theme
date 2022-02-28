@@ -1,0 +1,31 @@
+@mixin spacing($sizes, $suffix: false) {
+  @each $p, $property in (m: margin) {
+    @each $d, $direction in (t: top, b: bottom) {
+      @each $s, $size in $sizes {
+        .u-#{$p}#{$d}#{$s}#{if($suffix, \@#{$suffix}, null)} {
+          #{$property}-#{$direction}: rem($size) !important;
+        }
+
+        @if type-of($size) == number and $size != 0 {
+          .u-#{$p}#{$d}-#{$s}#{if($suffix, \@#{$suffix}, null)} {
+            #{$property}-#{$direction}: rem($size * -1) !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include spacing($spacing);
+
+// @include mq($until: medium) {
+//   @include spacing($spacing, small);
+// }
+
+@include mq($from: medium) {
+  @include spacing($spacing, medium);
+}
+
+// @include mq($from: large) {
+//   @include spacing($spacing, large);
+// }

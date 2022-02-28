@@ -1,0 +1,73 @@
+{% load i18n mezzanine_tags event_tags organization_tags staticfiles %}
+
+<section class="c-container c-container--narrow c-container--full@small u-mt-l@medium">
+    <div class="c-informations">
+        <ul class="c-informations__items">
+            <li class="c-informations__item">
+                <svg class="c-informations__icon" width="24" height="24" aria-hidden="true" focusable="false">
+                    <use xlink:href="{% static 'img/symbols.svg' %}#symbol-calendar"/>
+                </svg>
+                <div class="c-informations__content">
+                    <p>{% include 'agenda/event/includes/event_dates.html' %}</p>
+                </div>
+            </li>
+            {% if event.location %}
+                <li class="c-informations__item">
+                    <svg class="c-informations__icon" width="24" height="24" aria-hidden="true" focusable="false">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-location"/>
+                    </svg>
+                    <div class="c-informations__content">
+                        <p>{{ event.location.title }}{% if event.location.room %}, {{ event.location.room }}{% endif %}<br/><a href="{{ event|google_nav_url }}" target="_blank" rel="noopener">{% trans 'Access plan' %}</a></p>
+                    </div>
+                </li>
+            {% endif %}
+            <li class="c-informations__item c-informations__item--booking">
+                {% if not event.is_full %}
+                    <svg class="c-informations__icon" width="24" height="24" aria-hidden="true" focusable="false">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-ticket"/>
+                    </svg>
+                {% endif %}
+                <div class="c-informations__content">
+                    {% if event.prices.all and not event.is_full %}
+                        <p>
+                            {% for price in event.prices.all %}
+                                {% if price.event_price_description.description %}
+                                    {{ price.event_price_description.description }}
+                                    {% if price.value != 0 %} : {% endif %}
+                                {% endif %}
+                                {% if price.value != 0 %}{{ price.value|floatformat:"-2" }} {{ price.unit }} {% endif %} {% if not forloop.last %}<br/>{% endif %}
+                            {% endfor %}
+                        </p>
+                    {% endif %}
+
+                    {% include 'agenda/event/includes/reserve_detail.html' %}
+                </div>
+            </li>
+            {% if event.no_price_comments or event.brochure %}
+                <li class="c-informations__item c-informations__item--info">
+                    <svg class="c-informations__icon" width="24" height="24" aria-hidden="true" focusable="false">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-info"/>
+                    </svg>
+                    <div class="c-informations__content">
+                        {% if event.no_price_comments %}
+                            {{ event.no_price_comments|richtext_filters|safe }}
+                        {% endif %}
+                        {% if event.brochure %}
+                            <p><a href="{{ event.brochure.url }}" target="_blank">{{ event.brochure.filename }}</a></p>
+                        {% endif %}
+                    </div>
+                </li>
+            {% endif %}
+            {% if event.streaming_comments %}
+                <li class="c-informations__item c-informations__item--info">
+                    <svg class="c-informations__icon" width="24" height="24" aria-hidden="true" focusable="false">
+                        <use xlink:href="{% static 'img/symbols.svg' %}#symbol-info"/>
+                    </svg>
+                    <div class="c-informations__content">
+                        {{ event.streaming_comments|richtext_filters|safe }}
+                    </div>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</section>

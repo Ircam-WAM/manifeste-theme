@@ -1,0 +1,204 @@
+.c-button {
+  appearance: none;
+  background: $color-black none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  color: $color-white;
+  display: inline-block;
+  display: inline-flex;
+  @include font-size($font-p...);
+  font-weight: $font-regular;
+  margin: 0;
+  padding: rem(4px 8px);
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 400ms, color 400ms;
+  min-width: rem(32px);
+  min-height: rem(32px);
+
+  &:disabled,
+  &.is-disabled {
+    background: $color-shade-7;
+    color: $color-white;
+  }
+
+  input:not(:disabled) + & {
+    cursor: pointer;
+  }
+}
+
+a.c-button:not(:disabled):hover,
+button.c-button:not(:disabled):hover,
+input:not(:disabled) + label.c-button:hover {
+  background: $color-shade-1;
+}
+
+input:not(:disabled):focus-visible + label.c-button {
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
+  .c-button__icon,
+  .c-button__label {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .c-button__icon {
+    flex: 0 0 auto;
+    @include size(16px);
+    margin: rem(4px) 0;
+
+    & + .c-button__label,
+    .c-button__label + & {
+      margin-left: rem(8px);
+    }
+  }
+
+.c-button--primary,
+input:checked + label.c-button {
+  background: $color-primary-dark;
+}
+
+a.c-button--primary:not(:disabled):hover,
+button.c-button--primary:not(:disabled):hover,
+input:not(:disabled):checked + label.c-button:hover {
+  background: $color-primary;
+}
+
+.c-button--secondary {
+  background: $color-secondary;
+  color: $color-black;
+}
+
+a.c-button--secondary:not(:disabled):hover,
+button.c-button--secondary:not(:disabled):hover {
+  background: $color-secondary-light;
+}
+
+.c-button--white {
+  background: $color-white;
+  color: $color-black;
+}
+
+a.c-button--white:not(:disabled):hover,
+button.c-button--white:not(:disabled):hover {
+  background: $color-shade-8;
+}
+
+.c-button--youtube {
+  background: $color-primary-youtube;
+  color: $color-white;
+  text-decoration: none;
+}
+
+a.c-button--youtube:not(:disabled):hover,
+button.c-button--secondary:not(:disabled):hover {
+  background: $color-secondary-youtube;
+  color: $color-white;
+  text-decoration: none;
+}
+
+
+input.is-inactive + .c-button,
+.c-button--inactive {
+  text-decoration: none;
+}
+
+.c-button--rounded {
+  border-radius: rem(28px);
+  padding-left: rem(12px);
+  padding-right: rem(12px);
+
+  .c-button__icon {
+    margin: rem(4px -4px);
+  }
+}
+
+.c-button--large {
+  @include font-size($font-h5...);
+  padding: rem(6px 12px);
+  min-width: rem(40px);
+  min-height: rem(40px);
+
+  .c-button__icon {
+    margin: rem(2px -4px);
+    @include size(24px);
+  }
+}
+
+.c-button--link {
+  background: transparent;
+  color: $color-primary-dark;
+  padding-left: 0;
+  padding-right: 0;
+  min-width: 0;
+
+  .c-button__icon {
+    margin-right: 0;
+    margin-left: 0;
+    transition: transform 400ms;
+    transition-timing-function: cubic-bezier(.5, .01, .15, 1);
+  }
+
+  &.c-button--secondary {
+    color: $color-secondary-dark;
+  }
+}
+
+a.c-button--link:not(:disabled):hover,
+button.c-button--link:not(:disabled):hover {
+  background: transparent;
+
+  .c-button__icon {
+    transform: translateX(rem(6px));
+  }
+}
+
+.c-button--rounded,
+.c-button--large {
+  .c-button__icon + .c-button__label {
+    margin-left: rem(12px);
+  }
+
+  .c-button__label + .c-button__icon {
+    margin-left: rem(8px);
+  }
+}
+
+@mixin button-xlarge {
+  padding: rem(12px 16px);
+  min-width: rem(56px);
+  min-height: rem(56px);
+
+  .c-button__icon {
+    margin: rem(4px) 0;
+    @include size(24px);
+  }
+
+  .c-button__icon + .c-button__label,
+  .c-button__label + .c-button__icon {
+    margin-left: rem(8px);
+  }
+}
+
+.c-button--xlarge {
+  @include button-xlarge;
+}
+
+@include mq($from: medium) {
+  .c-button--large {
+    @include font-size($font-h5-large...);
+    @include button-xlarge;
+  }
+
+  .c-button--link {
+    padding-left: 0;
+    padding-right: 0;
+    min-width: 0;
+  }
+}

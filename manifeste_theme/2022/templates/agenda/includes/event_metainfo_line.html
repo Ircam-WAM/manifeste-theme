@@ -1,0 +1,15 @@
+{% load i18n mezzanine_tags event_tags organization_tags %}
+
+<div class="page__meta-date">
+    <a href="{{ event.get_absolute_url }}">
+        {% include 'agenda/includes/event_date_line.html' with object=event %}
+    </a>
+</div>
+
+<div class="page__meta-separator page__meta-separator--small"></div>
+
+{% if event.location %}
+    <div class="page__meta-title">{{ event.location }}</div>
+{% endif %}
+
+{% include 'agenda/event/includes/reserve.html' %}

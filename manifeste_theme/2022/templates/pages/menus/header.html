@@ -1,0 +1,25 @@
+{% load i18n pages_tags staticfiles mezzanine_tags organization_tags %}
+{% spaceless %}
+{% if page_branch_in_menu %}
+    <ul class="c-header__items">
+    {% for page in page_branch %}
+        {% if page.in_menu %}
+            {% if page.content_model == "link" %}
+                <li class="c-header__item {{ page.link.link_style.class_css }}{% if page.is_current_or_ascendant %} is-active{% endif %}">
+                    <a class="c-header__link" href="{{ page.get_absolute_url }}"{% if 'http' in page.link.slug %} target="_blank"{% endif %}>{{ page.title }}</a>
+                </li>
+            {% else %}
+                <li class="c-header__item {{ page.custompage.class_css }}{% if page.is_current_or_ascendant %} is-active{% endif %}">
+                    <a class="c-header__link" href="{{ page.get_absolute_url }}">{{ page.title }}</a>
+                    {% comment %}
+                    {% if page.has_children_in_menu %}
+                        {% page_menu page "pages/menus/header_tree_primary.html" %}
+                    {% endif %}
+                    {% endcomment %}
+                </li>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+    </ul>
+{% endif %}
+{% endspaceless %}

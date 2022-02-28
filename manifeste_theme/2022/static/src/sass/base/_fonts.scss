@@ -1,0 +1,7 @@
+@include font-face($font-primary, "universnextw05-mediumcond", $suffix: "") {
+  font-weight: $font-regular;
+}
+
+@include font-face($font-primary, "universnextw05-heavycond", $suffix: "") {
+  font-weight: $font-bold;
+}

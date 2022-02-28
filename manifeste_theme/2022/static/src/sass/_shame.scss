@@ -1,0 +1,4 @@
+// Better hidding of mezzanine admin elements
+*[style="visibility:hidden;"] {
+  @include hidden-visually();
+}

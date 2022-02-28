@@ -1,0 +1,43 @@
+.c-list {
+
+}
+
+  .c-list__items {
+
+  }
+
+    .c-list__item {
+      position: relative;
+
+      & + & {
+        margin-top: rem(8px);
+      }
+    }
+
+      .c-list__link {
+        color: $color-primary-dark;
+        display: block;
+        text-decoration: none;
+        transition: color 400ms;
+
+        &:hover {
+          color: $color-black;
+        }
+      }
+
+        .c-list__icon {
+          @include size(24px);
+          position: absolute;
+          top: 0;
+          left: 0;
+
+          & + .c-list__label,
+          & ~ .c-list__description {
+            display: block;
+            padding-left: rem(32px);
+          }
+        }
+
+        .c-list__description {
+          color: $color-shade-4;
+        }
